@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://rgmsllc.com
+
+# Sitemaps
+Sitemap: https://rgmsllc.com/sitemap.xml
