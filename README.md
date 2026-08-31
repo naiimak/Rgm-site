@@ -7,6 +7,17 @@ compares those prices to the bookmaker's and flags where you have an edge.
 ## Setup
 
 ```bash
+./run.sh
+```
+
+That creates a virtualenv in `.venv` on first run, installs the dependencies
+and opens the app at http://localhost:8501. Needs Python 3.10 or newer; set
+`PYTHON=/path/to/python3.11` if `python3` is older. Arguments are passed
+through to Streamlit, so `./run.sh --server.port 8600` works.
+
+Or do it by hand:
+
+```bash
 pip install -r requirements.txt
 streamlit run app.py
 ```
