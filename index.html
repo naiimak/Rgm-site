@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>JellyFit — Raspberry protein jelly</title>
-  <meta name="description" content="JellyFit is a ready-to-eat raspberry jelly cup with 20g of complete protein from whey isolate, less than 1g of sugar and 95 kcal. Halal.">
+  <title>JellyFit — Protein you actually crave</title>
+  <meta name="description" content="JellyFit is a chilled 100g protein jelly cup with 20g of complete protein from whey isolate, under 1g of sugar and about 95 kcal. Halal by design. Coming soon to Beirut.">
   <meta name="theme-color" content="#A71C3B">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="JellyFit — Raspberry protein jelly">
-  <meta property="og:description" content="20g complete protein · less than 1g sugar · 95 kcal · Halal">
+  <meta property="og:title" content="JellyFit — Protein you actually crave">
+  <meta property="og:description" content="20g complete protein from whey isolate · under 1g sugar · ~95 kcal · Halal. Coming soon to Beirut.">
   <!-- Social previews need an absolute URL: change to https://your-domain/assets/jellyfit-raspberry-wide.jpg once the site is live. -->
   <meta property="og:image" content="assets/jellyfit-raspberry-wide.jpg">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
@@ -22,8 +22,22 @@
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
+  <!-- Jelly artwork for the flavor cards; colored with `color` on each card. -->
+  <svg class="sprite" aria-hidden="true" focusable="false">
+    <symbol id="jelly" viewBox="0 0 200 170">
+      <ellipse cx="100" cy="158" rx="84" ry="9" fill="#000" fill-opacity=".12"/>
+      <path d="M24 150 36 60q2-16 18-16 10-18 28-8 18-16 36 0 18-10 28 8 16 0 18 16l12 90q-76 12-152 0z" fill="currentColor"/>
+      <path d="M28 120q72 14 144 0l4 30q-76 12-152 0z" fill="#000" fill-opacity=".1"/>
+      <path d="M70 50 66 148M100 40v112M130 50l4 98" stroke="#fff" stroke-opacity=".2" stroke-width="7" stroke-linecap="round"/>
+      <path d="M46 70q-3 30-5 62h10q2-32 6-60z" fill="#fff" fill-opacity=".5"/>
+      <circle cx="84" cy="118" r="5" fill="#fff" fill-opacity=".35"/>
+      <circle cx="118" cy="96" r="3.5" fill="#fff" fill-opacity=".35"/>
+      <circle cx="142" cy="128" r="4" fill="#fff" fill-opacity=".3"/>
+    </symbol>
+  </svg>
+
   <div class="announce">
-    <p>Free shipping on orders over $40<span class="announce__extra"> <span class="announce__sep" aria-hidden="true">·</span> Subscribe &amp; save 15%</span></p>
+    <p>Launching first in Beirut gyms<span class="announce__extra"> <span class="announce__sep" aria-hidden="true">·</span> <a href="#join">Join the WhatsApp list</a></span></p>
   </div>
 
   <header class="site-header" data-header>
@@ -35,12 +49,13 @@
       </button>
       <nav class="site-nav" id="site-nav" aria-label="Main">
         <ul>
-          <li><a href="#benefits">Why JellyFit</a></li>
-          <li><a href="#moments">When to eat</a></li>
+          <li><a href="#complete">Complete protein</a></li>
+          <li><a href="#flavors">Flavors</a></li>
           <li><a href="#nutrition">Nutrition</a></li>
+          <li><a href="#gyms">For gyms</a></li>
           <li><a href="#faq">FAQ</a></li>
         </ul>
-        <a class="btn btn--primary btn--sm" href="#order">Order now</a>
+        <a class="btn btn--primary btn--sm" href="#join">Join the list</a>
       </nav>
     </div>
   </header>
@@ -50,12 +65,12 @@
     <section class="hero" id="top">
       <div class="container hero__grid">
         <div class="hero__copy">
-          <p class="eyebrow"><span class="eyebrow__dot" aria-hidden="true"></span>Raspberry protein jelly</p>
-          <h1>Protein you can <span class="jiggle">jiggle.</span></h1>
-          <p class="lead">JellyFit is a ready-to-eat raspberry jelly cup with 20g of complete protein from whey isolate, less than 1g of sugar and just 95 calories. Peel the lid, grab a spoon, done.</p>
+          <p class="eyebrow"><span class="eyebrow__dot" aria-hidden="true"></span>Chilled protein jelly · Coming soon</p>
+          <h1>Protein you actually <span class="jiggle">crave.</span></h1>
+          <p class="lead">JellyFit is a chilled jelly cup with 20g of complete protein from whey isolate, under 1g of sugar and about 95 calories. Halal by design. It eats like a treat, not a supplement.</p>
           <div class="hero__actions">
-            <a class="btn btn--primary" href="#order">Order JellyFit</a>
-            <a class="btn btn--ghost" href="#nutrition">See nutrition</a>
+            <a class="btn btn--primary" href="#join">Join the WhatsApp list</a>
+            <a class="btn btn--ghost" href="#gyms">Stock it at your gym</a>
           </div>
         </div>
 
@@ -66,7 +81,7 @@
               <img src="assets/jellyfit-raspberry.jpg" width="800" height="752" alt="A JellyFit Raspberry cup with a peel-off foil lid. The label reads: less than 1g sugar, 95 kcal, halal, 20g complete protein from whey isolate." fetchpriority="high">
             </picture>
           </figure>
-          <p class="chip chip--protein"><strong>20g</strong><span>protein</span></p>
+          <p class="chip chip--protein"><strong>20g</strong><span>complete protein</span></p>
           <p class="chip chip--sugar"><strong>&lt;1g</strong><span>sugar</span></p>
           <p class="chip chip--kcal"><strong>95</strong><span>kcal</span></p>
           <p class="chip chip--halal"><span class="chip__check" aria-hidden="true"></span><span>Halal</span></p>
@@ -78,24 +93,24 @@
       <div class="marquee">
         <div class="marquee__track">
           <!-- three identical copies so the loop is seamless on wide screens -->
-          <span>20g protein</span><span class="marquee__star">✦</span>
+          <span>20g complete protein</span><span class="marquee__star">✦</span>
           <span>&lt;1g sugar</span><span class="marquee__star">✦</span>
-          <span>95 kcal</span><span class="marquee__star">✦</span>
           <span>Halal</span><span class="marquee__star">✦</span>
-          <span>Whey isolate</span><span class="marquee__star">✦</span>
-          <span>Ready to eat</span><span class="marquee__star">✦</span>
-          <span>20g protein</span><span class="marquee__star">✦</span>
+          <span>Raspberry</span><span class="marquee__star">✦</span>
+          <span>Mango</span><span class="marquee__star">✦</span>
+          <span>Served chilled</span><span class="marquee__star">✦</span>
+          <span>20g complete protein</span><span class="marquee__star">✦</span>
           <span>&lt;1g sugar</span><span class="marquee__star">✦</span>
-          <span>95 kcal</span><span class="marquee__star">✦</span>
           <span>Halal</span><span class="marquee__star">✦</span>
-          <span>Whey isolate</span><span class="marquee__star">✦</span>
-          <span>Ready to eat</span><span class="marquee__star">✦</span>
-          <span>20g protein</span><span class="marquee__star">✦</span>
+          <span>Raspberry</span><span class="marquee__star">✦</span>
+          <span>Mango</span><span class="marquee__star">✦</span>
+          <span>Served chilled</span><span class="marquee__star">✦</span>
+          <span>20g complete protein</span><span class="marquee__star">✦</span>
           <span>&lt;1g sugar</span><span class="marquee__star">✦</span>
-          <span>95 kcal</span><span class="marquee__star">✦</span>
           <span>Halal</span><span class="marquee__star">✦</span>
-          <span>Whey isolate</span><span class="marquee__star">✦</span>
-          <span>Ready to eat</span><span class="marquee__star">✦</span>
+          <span>Raspberry</span><span class="marquee__star">✦</span>
+          <span>Mango</span><span class="marquee__star">✦</span>
+          <span>Served chilled</span><span class="marquee__star">✦</span>
         </div>
       </div>
     </div>
@@ -105,203 +120,237 @@
       <div class="container">
         <header class="section__head reveal">
           <p class="eyebrow"><span class="eyebrow__dot" aria-hidden="true"></span>Why JellyFit</p>
-          <h2>Tastes like dessert. Works like a protein shake.</h2>
-          <p class="section__sub">All the wobble of the jelly you grew up with, rebuilt around protein.</p>
+          <h2>Treat texture. Serious protein.</h2>
+          <p class="section__sub">A snack you look forward to, with the numbers you'd expect from something far less fun.</p>
         </header>
         <div class="stats">
           <article class="stat reveal">
             <p class="stat__big">20<span>g</span></p>
             <h3>Complete protein</h3>
-            <p>From whey isolate, a complete protein with all nine essential amino acids.</p>
+            <p>From whey isolate, with all nine essential amino acids.</p>
           </article>
           <article class="stat reveal">
             <p class="stat__big"><span class="stat__lt">&lt;</span>1<span>g</span></p>
             <h3>Sugar</h3>
-            <p>Bright, tangy raspberry flavor with less than a gram of sugar per cup.</p>
+            <p>All the sweetness of a dessert jelly with less than a gram of sugar.</p>
           </article>
           <article class="stat reveal">
-            <p class="stat__big">95</p>
+            <p class="stat__big"><span class="stat__lt">~</span>95</p>
             <h3>Calories</h3>
-            <p>A light snack that's easy to fit into your day, whatever your goal.</p>
+            <p>A light 100g cup that's easy to fit into your day.</p>
           </article>
           <article class="stat reveal">
             <p class="stat__big stat__big--word">Halal</p>
-            <h3>For more tables</h3>
-            <p>JellyFit is halal, so it fits more diets, more lunchboxes and more fridges.</p>
+            <h3>By design</h3>
+            <p>An agar base with halal-certified gelatin, chosen from the start.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- WHEN TO EAT -->
-    <section class="section section--dark" id="moments">
+    <!-- COMPLETE PROTEIN -->
+    <section class="section section--dark" id="complete">
       <div class="container">
         <header class="section__head reveal">
-          <p class="eyebrow eyebrow--light"><span class="eyebrow__dot" aria-hidden="true"></span>When to eat</p>
-          <h2>Peel. Spoon. Enjoy.</h2>
-          <p class="section__sub">No shaker, no blender, no clean-up. JellyFit is ready whenever you are.</p>
+          <p class="eyebrow eyebrow--light"><span class="eyebrow__dot" aria-hidden="true"></span>The JellyFit difference</p>
+          <h2>Not all protein is complete.</h2>
+          <p class="section__sub">Many protein jellies are made with collagen. Collagen is an incomplete protein: it's missing tryptophan, one of the nine essential amino acids your body can't make on its own. JellyFit uses whey isolate, which has all nine.</p>
         </header>
-        <ol class="steps">
-          <li class="step reveal">
-            <span class="step__num">01</span>
-            <h3>After training</h3>
-            <p>20g of complete protein, ready the moment you're done. No shaker bottle to wash.</p>
-          </li>
-          <li class="step reveal">
-            <span class="step__num">02</span>
-            <h3>Between meals</h3>
-            <p>A light, high-protein snack for the mid-afternoon slump.</p>
-          </li>
-          <li class="step reveal">
-            <span class="step__num">03</span>
-            <h3>After dinner</h3>
-            <p>Something sweet that still counts toward your protein for the day.</p>
-          </li>
-        </ol>
+
+        <div class="compare">
+          <article class="compare__card compare__card--us reveal">
+            <p class="compare__kicker">JellyFit</p>
+            <h3>Whey isolate</h3>
+            <p class="compare__verdict">Complete protein <span>9 of 9</span></p>
+            <ul class="amino" aria-label="Essential amino acids in whey isolate">
+              <li>Histidine</li>
+              <li>Isoleucine</li>
+              <li>Leucine</li>
+              <li>Lysine</li>
+              <li>Methionine</li>
+              <li>Phenylalanine</li>
+              <li>Threonine</li>
+              <li>Tryptophan</li>
+              <li>Valine</li>
+            </ul>
+          </article>
+          <article class="compare__card reveal">
+            <p class="compare__kicker">Collagen-based jelly</p>
+            <h3>Collagen</h3>
+            <p class="compare__verdict">Incomplete protein <span>8 of 9</span></p>
+            <ul class="amino" aria-label="Essential amino acids in collagen">
+              <li>Histidine</li>
+              <li>Isoleucine</li>
+              <li>Leucine</li>
+              <li>Lysine</li>
+              <li>Methionine</li>
+              <li>Phenylalanine</li>
+              <li>Threonine</li>
+              <li class="is-missing">Tryptophan<span class="sr-only"> (missing)</span></li>
+              <li>Valine</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="promise reveal">
+          <h3>Our protein promise</h3>
+          <p>The big number on every JellyFit cup is whey isolate protein only. If we ever add collagen, it will be listed separately and smaller, and never added into the 20g.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FLAVORS -->
+    <section class="section" id="flavors">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="eyebrow"><span class="eyebrow__dot" aria-hidden="true"></span>Flavors</p>
+          <h2>Two flavors to start.</h2>
+          <p class="section__sub">We're launching with two and getting them exactly right before we add more.</p>
+        </header>
+        <div class="flavors">
+          <article class="flavor flavor--raspberry reveal">
+            <svg class="flavor__art" aria-hidden="true"><use href="#jelly"/></svg>
+            <h3>Raspberry</h3>
+            <p>Bright and tangy, with a proper jelly wobble.</p>
+          </article>
+          <article class="flavor flavor--mango reveal">
+            <svg class="flavor__art" aria-hidden="true"><use href="#jelly"/></svg>
+            <h3>Mango</h3>
+            <p>Ripe and sunny. Best straight from the fridge.</p>
+          </article>
+        </div>
       </div>
     </section>
 
     <!-- NUTRITION
-         Only the values printed on the cup are shown. When the full label is
-         ready, add the remaining rows (fat, carbohydrate, sodium, etc.) and the
-         ingredient list here. -->
+         These are the target values from the product spec. Replace them with
+         the final lab-confirmed values, and add the remaining rows (fat,
+         carbohydrate, sodium) and the ingredient list, once the formula is locked. -->
     <section class="section section--tint" id="nutrition">
       <div class="container nutrition">
         <div class="nutrition__copy reveal">
           <p class="eyebrow"><span class="eyebrow__dot" aria-hidden="true"></span>What's in a cup</p>
           <h2>Big protein. Tiny numbers.</h2>
-          <p class="section__sub">Every JellyFit cup is built on whey protein isolate, a filtered form of whey that's especially rich in protein.</p>
+          <p class="section__sub">Every 100g cup is built around whey protein isolate, a filtered form of whey that's especially rich in protein.</p>
 
           <div class="explain">
-            <h3>What “complete protein” means</h3>
-            <p>Your body needs nine essential amino acids that it can't make on its own. A complete protein contains all nine. Whey isolate is a complete protein, which is why it's the protein in every cup.</p>
+            <h3>Why the number matters</h3>
+            <p>Some products add different proteins together into one big figure. We don't. The 20g on the front of a JellyFit cup is complete protein from whey isolate, and nothing else.</p>
           </div>
 
           <ul class="tags" aria-label="Dietary information">
-            <li>20g protein</li>
+            <li>Complete protein</li>
             <li>&lt;1g sugar</li>
-            <li>95 kcal</li>
             <li>Halal</li>
+            <li>Keep refrigerated</li>
             <li>Contains milk</li>
           </ul>
         </div>
 
         <div class="facts reveal" aria-labelledby="facts-title">
           <h3 class="facts__title" id="facts-title">Per cup</h3>
-          <p class="facts__flavor">Raspberry</p>
-          <p class="facts__calories"><span>Calories</span><strong>95</strong></p>
+          <p class="facts__flavor">100 g · Raspberry or Mango</p>
+          <p class="facts__calories"><span>Calories</span><strong>~95</strong></p>
           <table class="facts__table">
-            <caption class="sr-only">Nutrition per cup</caption>
+            <caption class="sr-only">Target nutrition per 100g cup</caption>
             <tbody>
-              <tr><th scope="row">Protein</th><td>20 g</td></tr>
+              <tr><th scope="row">Protein (complete, from whey isolate)</th><td>20 g</td></tr>
               <tr><th scope="row">Sugars</th><td>&lt; 1 g</td></tr>
-              <tr><th scope="row">Protein source</th><td>Whey isolate</td></tr>
+              <tr><th scope="row">Gelling</th><td>Agar + halal-certified gelatin</td></tr>
               <tr><th scope="row">Halal</th><td>Yes</td></tr>
               <tr><th scope="row">Allergens</th><td>Contains milk</td></tr>
+              <tr><th scope="row">Storage</th><td>Keep refrigerated</td></tr>
             </tbody>
           </table>
-          <p class="facts__note">See the pack for full nutrition information and ingredients.</p>
+          <p class="facts__note">Target values. Final nutrition information and ingredients will be printed on every cup at launch.</p>
         </div>
       </div>
     </section>
 
-    <!-- ORDER
-         Pack prices, discount and shipping live in CONFIG at the top of
-         js/main.js; the prices below are filled in from there. -->
-    <section class="section" id="order">
-      <div class="container order">
-        <div class="order__visual reveal">
-          <figure class="product-shot product-shot--order">
-            <picture>
-              <source srcset="assets/jellyfit-raspberry.webp" type="image/webp">
-              <img src="assets/jellyfit-raspberry.jpg" width="800" height="752" alt="" loading="lazy">
-            </picture>
-          </figure>
-          <p class="pack-badge" aria-hidden="true" data-pack-badge><strong>×<span data-out="count">12</span></strong><small>cups</small></p>
+    <!-- JOIN THE WHATSAPP LIST -->
+    <section class="section" id="join">
+      <div class="container split">
+        <div class="split__copy reveal">
+          <p class="eyebrow"><span class="eyebrow__dot" aria-hidden="true"></span>Coming soon to Beirut</p>
+          <h2>Be first to taste it.</h2>
+          <p class="section__sub">JellyFit is launching in a handful of Beirut gyms first. Join our WhatsApp list and we'll message you when cups land near you.</p>
+          <ul class="checklist">
+            <li>Only launch news and where to find us. No spam.</li>
+            <li>Tell us your gym and we'll try to get JellyFit into its fridge.</li>
+          </ul>
         </div>
 
-        <form class="order__form reveal" id="order-form" novalidate>
-          <p class="eyebrow"><span class="eyebrow__dot" aria-hidden="true"></span>Shop</p>
-          <h2>Stock your fridge.</h2>
-          <p class="order__flavor">Flavor: <strong>Raspberry</strong></p>
-
-          <fieldset class="field">
-            <legend>Pack size</legend>
-            <div class="sizes">
-              <label class="size">
-                <input type="radio" name="size" value="6">
-                <span class="size__card">
-                  <span class="size__count">6</span>
-                  <span class="size__label">cups</span>
-                  <span class="size__price" data-price="6">$18</span>
-                </span>
-              </label>
-              <label class="size">
-                <input type="radio" name="size" value="12" checked>
-                <span class="size__card">
-                  <span class="size__tag">Popular</span>
-                  <span class="size__count">12</span>
-                  <span class="size__label">cups</span>
-                  <span class="size__price" data-price="12">$32</span>
-                </span>
-              </label>
-              <label class="size">
-                <input type="radio" name="size" value="24">
-                <span class="size__card">
-                  <span class="size__tag">Best value</span>
-                  <span class="size__count">24</span>
-                  <span class="size__label">cups</span>
-                  <span class="size__price" data-price="24">$58</span>
-                </span>
-              </label>
-            </div>
-          </fieldset>
-
-          <fieldset class="field">
-            <legend>Purchase</legend>
-            <div class="plans">
-              <label class="plan">
-                <input type="radio" name="plan" value="once" checked>
-                <span class="plan__card">
-                  <strong>One-time</strong>
-                  <span>Try it out, no commitment.</span>
-                </span>
-              </label>
-              <label class="plan">
-                <input type="radio" name="plan" value="subscribe">
-                <span class="plan__card">
-                  <strong>Subscribe &amp; save 15%</strong>
-                  <span>Delivered every 4 weeks. Skip or cancel anytime.</span>
-                </span>
-              </label>
-            </div>
-          </fieldset>
-
-          <div class="field field--row">
-            <label class="field__label" for="qty">Packs</label>
-            <div class="stepper">
-              <button type="button" class="stepper__btn" data-step="-1" aria-label="Fewer packs">−</button>
-              <input id="qty" name="qty" type="number" inputmode="numeric" min="1" max="20" value="1">
-              <button type="button" class="stepper__btn" data-step="1" aria-label="More packs">+</button>
-            </div>
+        <form class="card-form reveal" data-wa-form="join" novalidate>
+          <div class="field">
+            <label class="field__label" for="join-name">Your name</label>
+            <input class="input" id="join-name" name="name" autocomplete="name" required>
           </div>
+          <div class="field">
+            <label class="field__label" for="join-gym">Your gym <span class="field__opt">(optional)</span></label>
+            <input class="input" id="join-gym" name="gym" autocomplete="off">
+          </div>
+          <fieldset class="field">
+            <legend class="field__label">Which flavor first?</legend>
+            <div class="pills">
+              <label class="pill pill--raspberry"><input type="radio" name="flavor" value="Raspberry" checked><span>Raspberry</span></label>
+              <label class="pill pill--mango"><input type="radio" name="flavor" value="Mango"><span>Mango</span></label>
+              <label class="pill pill--both"><input type="radio" name="flavor" value="Both"><span>Both</span></label>
+            </div>
+          </fieldset>
+          <fieldset class="field">
+            <legend class="field__label">What caught your eye? <span class="field__opt">(optional)</span></legend>
+            <div class="pills">
+              <label class="pill"><input type="radio" name="reason" value="Complete protein"><span>Complete protein</span></label>
+              <label class="pill"><input type="radio" name="reason" value="Under 1g sugar"><span>Under 1g sugar</span></label>
+              <label class="pill"><input type="radio" name="reason" value="The jelly texture"><span>The jelly texture</span></label>
+              <label class="pill"><input type="radio" name="reason" value="Halal"><span>Halal</span></label>
+            </div>
+          </fieldset>
+          <p class="form-error" data-form-error hidden>Please add your name.</p>
+          <button class="btn btn--primary btn--block" type="submit">Join on WhatsApp</button>
+          <p class="form-note">Opens WhatsApp with your details filled in. Just hit send.</p>
+        </form>
+      </div>
+    </section>
 
-          <dl class="summary" aria-live="polite">
-            <div><dt>Subtotal</dt><dd data-out="subtotal">$32.00</dd></div>
-            <div data-row="discount" hidden><dt>Subscription savings</dt><dd data-out="discount">−$0.00</dd></div>
-            <div><dt>Shipping</dt><dd data-out="shipping">$5.95</dd></div>
-            <div class="summary__total"><dt>Total</dt><dd data-out="total">$37.95</dd></div>
-          </dl>
-          <p class="summary__hint" data-out="hint">Add $8.00 more for free shipping.</p>
+    <!-- FOR GYMS -->
+    <section class="section section--tint" id="gyms">
+      <div class="container split split--reverse">
+        <div class="split__copy reveal">
+          <p class="eyebrow"><span class="eyebrow__dot" aria-hidden="true"></span>For gyms &amp; venues</p>
+          <h2>A protein snack your members will actually want.</h2>
+          <p class="section__sub">We're choosing a small number of Beirut gyms to stock JellyFit first. All it needs is a little fridge space.</p>
+          <ul class="checklist">
+            <li><strong>Made for after training.</strong> 20g of complete protein, ready to eat straight from the fridge.</li>
+            <li><strong>Small footprint.</strong> Single 100g cups that fit in a drinks fridge.</li>
+            <li><strong>An easy yes for members.</strong> Under 1g sugar, about 95 kcal, halal.</li>
+            <li><strong>Pilot first.</strong> A short trial so you can see whether your members come back for more.</li>
+          </ul>
+        </div>
 
-          <button type="submit" class="btn btn--primary btn--block">Order now</button>
-          <p class="order__note">Ordering for a gym, team or store? <a href="mailto:hello@jellyfit.example">Email us</a>.</p>
+        <form class="card-form reveal" data-wa-form="gym" novalidate>
+          <h3 class="card-form__title">Talk to us about the pilot</h3>
+          <div class="field">
+            <label class="field__label" for="gym-name">Your name</label>
+            <input class="input" id="gym-name" name="name" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label class="field__label" for="gym-venue">Gym or venue</label>
+            <input class="input" id="gym-venue" name="venue" autocomplete="organization" required>
+          </div>
+          <div class="field">
+            <label class="field__label" for="gym-area">Area <span class="field__opt">(optional)</span></label>
+            <input class="input" id="gym-area" name="area" placeholder="e.g. Achrafieh, Hamra, Jounieh" autocomplete="off">
+          </div>
+          <p class="form-error" data-form-error hidden>Please add your name and your gym.</p>
+          <button class="btn btn--primary btn--block" type="submit">Message us on WhatsApp</button>
+          <p class="form-note">Prefer email? <a href="mailto:hello@jellyfit.example">hello@jellyfit.example</a></p>
         </form>
       </div>
     </section>
 
     <!-- FAQ -->
-    <section class="section section--tint" id="faq">
+    <section class="section" id="faq">
       <div class="container faq">
         <header class="section__head reveal">
           <p class="eyebrow"><span class="eyebrow__dot" aria-hidden="true"></span>FAQ</p>
@@ -311,27 +360,31 @@
         <div class="faq__list reveal">
           <details>
             <summary>What is JellyFit?</summary>
-            <p>A ready-to-eat raspberry jelly cup with 20g of complete protein from whey isolate, less than 1g of sugar and 95 calories. Peel off the foil lid and eat it with a spoon.</p>
+            <p>A chilled 100g jelly cup with 20g of complete protein from whey isolate, under 1g of sugar and about 95 calories. It's a snack with a treat-like texture, not a supplement.</p>
+          </details>
+          <details>
+            <summary>When and where can I buy it?</summary>
+            <p>We're finishing the recipe now and launching first in a handful of Beirut gyms. <a href="#join">Join the WhatsApp list</a> and we'll tell you where to find it.</p>
           </details>
           <details>
             <summary>What does “complete protein” mean?</summary>
-            <p>A complete protein contains all nine essential amino acids, the ones your body can't make and has to get from food. Whey protein isolate is a complete protein.</p>
+            <p>A complete protein contains all nine essential amino acids, the ones your body can't make and has to get from food. Whey isolate is complete. Collagen, used in many protein jellies, is not: it's missing tryptophan.</p>
           </details>
           <details>
             <summary>Is JellyFit halal?</summary>
-            <p>Yes. JellyFit is halal, and it says so on every cup.</p>
+            <p>Yes, by design. JellyFit is set with an agar base and halal-certified bovine gelatin.</p>
           </details>
           <details>
-            <summary>Is it suitable for people with a milk allergy, or for vegans?</summary>
-            <p>No. JellyFit's protein comes from whey, which is made from milk. If you have a milk allergy or follow a vegan diet, JellyFit isn't for you. Always check the pack for full allergen information.</p>
+            <summary>Is it vegetarian or vegan? What about allergies?</summary>
+            <p>No. JellyFit contains whey, which comes from milk, and bovine gelatin. If you have a milk allergy, JellyFit isn't for you. Always check the cup for full allergen information.</p>
           </details>
           <details>
-            <summary>When should I eat it?</summary>
-            <p>Whenever suits you. People like it after training, as a snack between meals, or as a high-protein dessert.</p>
+            <summary>Does it need to stay cold?</summary>
+            <p>Yes. JellyFit is a chilled product, so keep it in the fridge. It tastes best cold anyway.</p>
           </details>
           <details>
-            <summary>Can I skip or cancel my subscription?</summary>
-            <p>Anytime. Just email us before your next delivery date and we'll skip, pause or cancel. No fees.</p>
+            <summary>Are you coming to the UAE or elsewhere in the Gulf?</summary>
+            <p>We're starting in Beirut. The UAE and the wider GCC are next. Join the WhatsApp list to hear when we get closer.</p>
           </details>
         </div>
       </div>
@@ -340,8 +393,8 @@
     <!-- FINAL CTA -->
     <section class="cta">
       <div class="container cta__inner reveal">
-        <h2>Your new favorite protein snack wobbles.</h2>
-        <a class="btn btn--light" href="#order">Order JellyFit</a>
+        <h2>Protein you actually crave. Coming soon to Beirut.</h2>
+        <a class="btn btn--light" href="#join">Join the WhatsApp list</a>
       </div>
     </section>
   </main>
@@ -350,29 +403,29 @@
     <div class="container site-footer__grid">
       <div class="site-footer__brand">
         <a class="logo logo--light" href="#top" aria-label="JellyFit home">JellyFit</a>
-        <p>Raspberry protein jelly. 20g complete protein, less than 1g sugar, 95 kcal. Halal.</p>
+        <p>Protein you actually crave. Chilled protein jelly with 20g of complete protein from whey isolate.</p>
       </div>
       <nav class="site-footer__nav" aria-label="Footer">
         <div>
-          <h2>Shop</h2>
+          <h2>JellyFit</h2>
           <ul>
-            <li><a href="#order">Order</a></li>
+            <li><a href="#complete">Complete protein</a></li>
+            <li><a href="#flavors">Flavors</a></li>
             <li><a href="#nutrition">Nutrition</a></li>
-            <li><a href="#benefits">Why JellyFit</a></li>
           </ul>
         </div>
         <div>
-          <h2>Help</h2>
+          <h2>Get in touch</h2>
           <ul>
-            <li><a href="#faq">FAQ</a></li>
-            <li><a href="#moments">When to eat</a></li>
-            <li><a href="mailto:hello@jellyfit.example">Contact us</a></li>
+            <li><a href="#join">Join the list</a></li>
+            <li><a href="#gyms">For gyms</a></li>
+            <li><a href="mailto:hello@jellyfit.example">Email us</a></li>
           </ul>
         </div>
       </nav>
     </div>
     <div class="container site-footer__legal">
-      <p>Contains milk. JellyFit is a high-protein food intended as part of a varied, balanced diet and a healthy lifestyle.</p>
+      <p>Nutrition values shown are targets; final values will be printed on every cup. Contains milk. Keep refrigerated.</p>
       <p>© <span data-year>2026</span> JellyFit. All rights reserved.</p>
     </div>
   </footer>

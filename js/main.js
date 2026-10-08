@@ -2,26 +2,17 @@
   'use strict';
 
   /* ------------------------------------------------------------------------
-     Store settings: edit these before launch.
+     Settings: edit these before launch.
      ------------------------------------------------------------------------ */
   const CONFIG = {
-    locale: 'en-US',
-    currency: 'USD',
-    flavor: 'Raspberry',
-    // Price per pack, keyed by number of cups in the pack.
-    packPrices: { 6: 18, 12: 32, 24: 58 },
-    subscribeDiscount: 0.15,
-    freeShippingFrom: 40,
-    shippingFee: 5.95,
-    // Paste a hosted checkout URL (Shopify, Stripe Payment Link, etc.) to send
-    // shoppers there; the order is appended as query parameters. Leave empty to
-    // open a pre-filled order email to `orderEmail` instead.
-    checkoutUrl: '',
-    orderEmail: 'orders@jellyfit.example',
+    // WhatsApp number in international format, digits only, e.g. '9613123456'
+    // for a Lebanese mobile. While empty, the forms open a pre-filled email to
+    // `email` instead.
+    whatsappNumber: '',
+    email: 'hello@jellyfit.example',
   };
 
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const money = new Intl.NumberFormat(CONFIG.locale, { style: 'currency', currency: CONFIG.currency });
 
   /* ------------------------------------------------------------------------
      Header: shadow on scroll + mobile menu
@@ -47,102 +38,69 @@
   });
 
   /* ------------------------------------------------------------------------
-     Order form
+     Forms: each one builds a message and opens WhatsApp (or email) with it
+     pre-filled, so every sign-up arrives with a name and a phone number.
      ------------------------------------------------------------------------ */
-  const form = document.getElementById('order-form');
-  const qtyInput = form.elements.qty;
-  const badge = document.querySelector('[data-pack-badge]');
-  const out = (name) => document.querySelector(`[data-out="${name}"]`);
-
-  // Show the configured prices on the pack-size cards.
-  form.querySelectorAll('[data-price]').forEach((el) => {
-    el.textContent = money.format(CONFIG.packPrices[el.dataset.price]).replace(/\.00$/, '');
-  });
-
-  const clampQty = (n) => Math.min(20, Math.max(1, Number.isFinite(n) ? Math.round(n) : 1));
-
-  const readOrder = () => {
-    const size = Number(form.elements.size.value);
-    const plan = form.elements.plan.value;
-    const qty = clampQty(parseFloat(qtyInput.value));
-    const subtotal = CONFIG.packPrices[size] * qty;
-    const discount = plan === 'subscribe' ? subtotal * CONFIG.subscribeDiscount : 0;
-    const afterDiscount = subtotal - discount;
-    const shipping = afterDiscount >= CONFIG.freeShippingFrom ? 0 : CONFIG.shippingFee;
-    return {
-      size, plan, qty, subtotal, discount, shipping,
-      cups: size * qty,
-      total: afterDiscount + shipping,
-      toFreeShipping: CONFIG.freeShippingFrom - afterDiscount,
-    };
+  // Optional fields that were left empty become null and are dropped.
+  const MESSAGES = {
+    join: (f) => ({
+      subject: 'Add me to the JellyFit list',
+      lines: [
+        'Hi JellyFit! Please add me to the WhatsApp list.',
+        '',
+        `Name: ${f.name}`,
+        f.gym ? `My gym: ${f.gym}` : null,
+        `Flavor I want first: ${f.flavor}`,
+        f.reason ? `What caught my eye: ${f.reason}` : null,
+      ],
+    }),
+    gym: (f) => ({
+      subject: `JellyFit pilot: ${f.venue}`,
+      lines: [
+        "Hi JellyFit, I'd like to talk about stocking JellyFit.",
+        '',
+        `Name: ${f.name}`,
+        `Gym or venue: ${f.venue}`,
+        f.area ? `Area: ${f.area}` : null,
+      ],
+    }),
   };
 
-  let lastCups = null;
-  const render = () => {
-    const o = readOrder();
-    out('subtotal').textContent = money.format(o.subtotal);
-    out('discount').textContent = `−${money.format(o.discount)}`;
-    form.querySelector('[data-row="discount"]').hidden = o.discount === 0;
-    out('shipping').textContent = o.shipping === 0 ? 'Free' : money.format(o.shipping);
-    out('total').textContent = money.format(o.total);
-    out('hint').textContent = o.shipping === 0
-      ? 'You’ve unlocked free shipping.'
-      : `Add ${money.format(o.toFreeShipping)} more for free shipping.`;
-
-    out('count').textContent = o.cups;
-    if (lastCups !== null && lastCups !== o.cups && !reducedMotion) {
-      badge.classList.remove('is-bumping');
-      void badge.offsetWidth; // restart the animation
-      badge.classList.add('is-bumping');
+  const send = ({ subject, lines }) => {
+    const text = lines.filter((line) => line !== null).join('\n');
+    const number = CONFIG.whatsappNumber.replace(/\D/g, '');
+    if (number) {
+      window.open(`https://wa.me/${number}?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
+    } else {
+      window.location.href = `mailto:${CONFIG.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(text)}`;
     }
-    lastCups = o.cups;
   };
-  badge.addEventListener('animationend', () => badge.classList.remove('is-bumping'));
 
-  form.addEventListener('change', (e) => {
-    if (e.target === qtyInput) qtyInput.value = clampQty(parseFloat(qtyInput.value));
-    render();
+  document.querySelectorAll('[data-wa-form]').forEach((form) => {
+    const error = form.querySelector('[data-form-error]');
+    const required = [...form.querySelectorAll('[required]')];
+
+    required.forEach((input) => input.addEventListener('input', () => {
+      if (input.value.trim()) input.removeAttribute('aria-invalid');
+    }));
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const missing = required.filter((input) => !input.value.trim());
+      required.forEach((input) => {
+        if (missing.includes(input)) input.setAttribute('aria-invalid', 'true');
+        else input.removeAttribute('aria-invalid');
+      });
+      error.hidden = missing.length === 0;
+      if (missing.length) {
+        missing[0].focus();
+        return;
+      }
+
+      const fields = Object.fromEntries([...new FormData(form)].map(([k, v]) => [k, String(v).trim()]));
+      send(MESSAGES[form.dataset.waForm](fields));
+    });
   });
-  qtyInput.addEventListener('input', render);
-
-  form.querySelectorAll('[data-step]').forEach((btn) => btn.addEventListener('click', () => {
-    qtyInput.value = clampQty(parseFloat(qtyInput.value) + Number(btn.dataset.step));
-    render();
-  }));
-
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    qtyInput.value = clampQty(parseFloat(qtyInput.value));
-    const o = readOrder();
-    const planLabel = o.plan === 'subscribe' ? 'Subscribe & save (every 4 weeks)' : 'One-time purchase';
-
-    if (CONFIG.checkoutUrl) {
-      const url = new URL(CONFIG.checkoutUrl, window.location.href);
-      url.searchParams.set('size', o.size);
-      url.searchParams.set('plan', o.plan);
-      url.searchParams.set('qty', o.qty);
-      window.location.href = url.toString();
-      return;
-    }
-
-    const body = [
-      'Hi JellyFit, I’d like to order:',
-      '',
-      `Flavor: ${CONFIG.flavor}`,
-      `Pack size: ${o.size} cups`,
-      `Packs: ${o.qty}`,
-      `Plan: ${planLabel}`,
-      `Estimated total: ${money.format(o.total)}`,
-      '',
-      'Name:',
-      'Delivery address:',
-      'Phone:',
-    ].join('\n');
-    const subject = `Order: ${o.qty} × ${o.size}-cup ${CONFIG.flavor}`;
-    window.location.href = `mailto:${CONFIG.orderEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  });
-
-  render();
 
   /* ------------------------------------------------------------------------
      Scroll reveal + footer year

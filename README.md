@@ -1,8 +1,8 @@
 # Rgm-site
 
-Marketing and ordering site for **JellyFit**, a ready-to-eat raspberry protein jelly cup.
+Pre-launch website for **JellyFit**, a chilled protein jelly cup. Tagline: "Protein you actually crave."
 
-**Product facts (from the cup):** 20g complete protein from whey isolate, less than 1g sugar, 95 kcal, halal.
+**Product (target spec):** 100g cup, 20g complete protein from whey isolate, under 1g sugar, about 95 kcal, halal by design (agar base + halal-certified bovine gelatin). Launch flavors: Raspberry and Mango. Launching first in Beirut gyms.
 
 It's a static site (plain HTML, CSS and JavaScript) with no build step and no dependencies, so it runs on any static host.
 
@@ -16,36 +16,28 @@ Then open the URL it prints. You can also open `index.html` directly in a browse
 
 ## What's on the page
 
-| Section | Notes |
+| Section | Purpose |
 | --- | --- |
-| Hero | Cup photo with protein, sugar, calorie and halal callouts |
-| Why JellyFit | The four headline numbers, explained |
-| When to eat | After training, between meals, after dinner |
-| Nutrition | Per-cup panel with the values printed on the cup |
-| Order | Pack size, one-time or subscribe, quantity and a live total |
-| FAQ | Expandable questions, including the milk allergen note |
+| Hero | Tagline, cup photo, headline numbers |
+| Why JellyFit | 20g complete protein, <1g sugar, ~95 kcal, halal by design |
+| Complete protein | Whey isolate (9 of 9 essential amino acids) vs collagen (8 of 9), plus the protein promise |
+| Flavors | Raspberry and Mango |
+| Nutrition | Target values per 100g cup, marked as targets |
+| Join the list | Consumer sign-up that opens WhatsApp pre-filled with name, gym, flavor and "what caught your eye" |
+| For gyms | Pilot enquiry form for gym owners and venues |
+| FAQ | Availability, complete protein, halal, allergens, storage, GCC plans |
 
-## Files
+## The protein claim rule
 
-```
-index.html                       page content
-css/styles.css                   all styles; brand colors are tokens at the top
-js/main.js                       store settings (CONFIG) and interactions
-assets/jellyfit-raspberry.webp   cup photo, cropped for the page (.jpg fallback alongside)
-assets/jellyfit-raspberry-wide.jpg  full photo for social sharing previews
-assets/favicon.svg
-```
+The hero number is whey isolate protein only, always labelled "complete protein, from whey isolate". If collagen is ever added, it is listed separately and smaller and is never added into the 20g. Keep any copy changes consistent with this.
 
 ## Before you launch
 
-The product facts come from the cup design. The commercial details are **placeholders**:
-
-1. **Prices, discount and shipping** are in `CONFIG` at the top of `js/main.js`. The pack-size cards read their prices from there. The free-shipping threshold and subscribe discount are also written into the announcement bar and the order form in `index.html`, so update those too.
-2. **Checkout.** By default, "Order now" opens a pre-filled order email to `CONFIG.orderEmail`. To send shoppers to a hosted checkout instead (Shopify, a Stripe Payment Link, etc.), set `CONFIG.checkoutUrl`. The pack size, plan and quantity are appended as query parameters.
-3. **Email addresses.** Search for `jellyfit.example` and replace every occurrence with your real addresses.
-4. **Full nutrition label.** The nutrition panel shows only what's printed on the cup. When you have the full label, add the remaining rows (fat, carbohydrate, sodium, etc.) and the ingredient list in the `#nutrition` section of `index.html`.
+1. **WhatsApp number.** Set `CONFIG.whatsappNumber` at the top of `js/main.js` (digits only, with country code, e.g. `9613123456`). Until it's set, both forms open a pre-filled email instead.
+2. **Email address.** Replace `hello@jellyfit.example` in `js/main.js` and `index.html`.
+3. **Nutrition values.** The panel shows target values and says so. Once the formula is locked, replace them with lab-confirmed values, add the remaining rows (fat, carbohydrate, sodium) and the ingredient list, and remove the "target" wording.
+4. **Mango packshot.** The flavor cards use an illustrated jelly. Real packshots can replace or sit alongside it.
 5. **Social preview image.** The `og:image` tag needs an absolute URL once you know your domain.
-6. **More flavors.** The order email uses `CONFIG.flavor`. Adding a second flavor would need a flavor picker in the order form.
 
 ## Deploy
 
