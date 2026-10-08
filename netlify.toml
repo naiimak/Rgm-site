@@ -1,0 +1,12 @@
+# Netlify settings. The site is plain HTML, CSS and JavaScript, so there is no
+# build step: Netlify publishes the public/ folder exactly as it is. Anything
+# outside public/ (README, notes, documents) is never put online.
+[build]
+  publish = "public"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "SAMEORIGIN"
