@@ -2,6 +2,8 @@
 
 Pre-launch website for **JellyFit**, a chilled protein jelly cup. Tagline: "Protein you actually crave."
 
+Live at **https://jellyfit.online** (Netlify project `jellyfit28`).
+
 **Product (target spec):** 100g cup, 20g complete protein from whey isolate, under 1g sugar, about 95 kcal, halal by design (agar base + halal-certified bovine gelatin). Launch flavors: Raspberry and Mango. Launching first in Beirut gyms.
 
 It's a static site (plain HTML, CSS and JavaScript) with no build step and no dependencies. Everything that goes online lives in `public/`; anything else in the repo (this README, notes, documents) is never published.
@@ -42,7 +44,7 @@ The mandatory nutrition table on the pack has to show **total** protein (whey pl
 3. **Nutrition values.** The panel shows target values and says so. Once the formula is locked, replace them with lab-confirmed values, add the remaining rows (fat, carbohydrate, sodium) and the ingredient list, and remove the "target" wording.
 4. **Mango packshot.** The flavor cards use an illustrated jelly. Real packshots can replace or sit alongside it.
 5. **Floating cup.** `public/assets/jellyfit-raspberry-cup.webp` is the Raspberry packshot with the background removed (PNG fallback alongside). To swap in a new packshot, export it with a transparent background at a similar size. The float speed and height are in the `float` keyframes in `public/css/styles.css`; it stops for visitors who have reduced motion turned on.
-6. **Social preview image.** The `og:image` tag needs an absolute URL once you know your domain.
+6. **Social preview image.** `og:image`, `og:url` and the canonical link point at `https://jellyfit.online`. If the domain ever changes, update them in `public/index.html`.
 
 ## Deploy (Netlify)
 
