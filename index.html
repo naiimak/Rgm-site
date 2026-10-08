@@ -1,0 +1,509 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JellyFit — Workout fuel you can squeeze</title>
+  <meta name="description" content="JellyFit is a squeezable energy jelly with fast-acting carbs, electrolytes and B-vitamins. No water, no shaker, no mess. Twist, squeeze, go.">
+  <meta name="theme-color" content="#FFF7EE">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="JellyFit — Workout fuel you can squeeze">
+  <meta property="og:description" content="Fast-acting carbs, electrolytes and B-vitamins in a pocket-size jelly pouch.">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=DM+Sans:opsz,wght@9..40,400..700&display=swap">
+  <link rel="stylesheet" href="css/styles.css">
+  <script>document.documentElement.classList.add('js');</script>
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Shared SVG artwork. The pouch is coloured per instance with --c1 (jelly) and --c2 (deep shade). -->
+  <svg class="sprite" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="pouch-gloss" x1="0" x2="1" y1="0" y2="0">
+        <stop offset="0" stop-color="#fff" stop-opacity=".6"/>
+        <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+      </linearGradient>
+      <linearGradient id="pouch-shade" x1="0" x2="1" y1="0" y2="0">
+        <stop offset=".55" stop-color="#000" stop-opacity="0"/>
+        <stop offset="1" stop-color="#000" stop-opacity=".18"/>
+      </linearGradient>
+      <symbol id="pouch" viewBox="0 0 200 320">
+        <!-- cap -->
+        <rect x="74" y="4" width="52" height="34" rx="9" style="fill: var(--cap, #1C1433)"/>
+        <path d="M85 10v22M95 10v22M105 10v22M115 10v22" stroke="#fff" stroke-opacity=".2" stroke-width="3" stroke-linecap="round"/>
+        <rect x="68" y="34" width="64" height="10" rx="4" style="fill: var(--cap, #1C1433)"/>
+        <!-- spout -->
+        <rect x="83" y="44" width="34" height="18" fill="#fff" fill-opacity=".85"/>
+        <path d="M83 50h34M83 56h34" stroke="#1C1433" stroke-opacity=".12" stroke-width="2"/>
+        <!-- body -->
+        <path d="M30 78C30 66 38 60 50 60h100c12 0 20 6 20 18l8 204c1 18-10 28-28 28H50c-18 0-29-10-28-28z" style="fill: var(--c1)"/>
+        <path d="M30 78C30 66 38 60 50 60h100c12 0 20 6 20 18l8 204c1 18-10 28-28 28H50c-18 0-29-10-28-28z" fill="url(#pouch-shade)"/>
+        <!-- heat seal -->
+        <path d="M30 78C30 66 38 60 50 60h100c12 0 20 6 20 18l.5 10H29.5z" fill="#000" fill-opacity=".12"/>
+        <path d="M36 68h128M34 75h132M33 82h134" stroke="#fff" stroke-opacity=".22" stroke-width="2"/>
+        <!-- gusset -->
+        <path d="M27 284q73-22 146 0" fill="none" stroke="#000" stroke-opacity=".12" stroke-width="3"/>
+        <!-- gloss -->
+        <path d="M42 100c-3 60-3 120 2 176h12c-4-56-4-116-1-176z" fill="url(#pouch-gloss)"/>
+        <ellipse cx="150" cy="110" rx="5" ry="12" fill="#fff" fill-opacity=".35"/>
+        <!-- bubbles -->
+        <circle cx="70" cy="262" r="7" fill="#fff" fill-opacity=".3"/>
+        <circle cx="88" cy="276" r="4" fill="#fff" fill-opacity=".3"/>
+        <circle cx="146" cy="254" r="5" fill="#fff" fill-opacity=".25"/>
+        <!-- label -->
+        <rect x="48" y="128" width="104" height="104" rx="22" fill="#fff"/>
+        <path d="M100 142c7 0 10 4 12.5 8.5S118 158 118 165c0 9-8 14-18 14s-18-5-18-14c0-7 3-10 5.5-14.5S93 142 100 142z" style="fill: var(--c1)"/>
+        <ellipse cx="93" cy="156" rx="3" ry="5" fill="#fff" fill-opacity=".6" transform="rotate(20 93 156)"/>
+        <text x="100" y="205" text-anchor="middle" font-family="Bricolage Grotesque, system-ui, sans-serif" font-weight="800" font-size="25" letter-spacing="-1" fill="#1C1433">Jelly<tspan style="fill: var(--c2)">Fit</tspan></text>
+        <text x="100" y="221" text-anchor="middle" font-family="DM Sans, system-ui, sans-serif" font-weight="700" font-size="8" letter-spacing="2" fill="#1C1433" fill-opacity=".6">ENERGY JELLY</text>
+      </symbol>
+      <symbol id="blob" viewBox="0 0 64 64">
+        <path d="M32 5c11 0 15 7 19 13.5S59 29 59 38c0 14-12 21-27 21S5 52 5 38c0-9 4-13 8-19.5S21 5 32 5z"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <div class="announce">
+    <p>Free shipping on orders over $40<span class="announce__extra"> <span class="announce__sep" aria-hidden="true">·</span> Subscribe &amp; save 15%</span></p>
+  </div>
+
+  <header class="site-header" data-header>
+    <div class="container site-header__inner">
+      <a class="logo" href="#top" aria-label="JellyFit home">
+        <svg class="logo__mark" aria-hidden="true"><use href="#blob"/></svg>
+        <span>Jelly<span class="logo__fit">Fit</span></span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
+        <span class="nav-toggle__bars" aria-hidden="true"></span>
+        <span class="sr-only">Menu</span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="#benefits">Benefits</a></li>
+          <li><a href="#how">How to use</a></li>
+          <li><a href="#flavors">Flavors</a></li>
+          <li><a href="#nutrition">Nutrition</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+        <a class="btn btn--primary btn--sm" href="#order">Order now</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="container hero__grid">
+        <div class="hero__copy">
+          <p class="eyebrow"><span class="eyebrow__dot" aria-hidden="true"></span>Squeezable energy jelly</p>
+          <h1>Workout fuel you can <span class="hl">squeeze.</span></h1>
+          <p class="lead">JellyFit packs fast-acting carbs, electrolytes and B-vitamins into a pocket-size jelly pouch. No water, no shaker, no sticky fingers. Just twist, squeeze, go.</p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#order">Build your box</a>
+            <a class="btn btn--ghost" href="#nutrition">What's inside</a>
+          </div>
+          <ul class="hero__badges" aria-label="Highlights">
+            <li>Plant-based</li>
+            <li>Gluten-free</li>
+            <li>Caffeine-free</li>
+          </ul>
+        </div>
+
+        <div class="hero__visual">
+          <div class="hero__halo" aria-hidden="true"></div>
+          <span class="cube cube--1" aria-hidden="true"></span>
+          <span class="cube cube--2" aria-hidden="true"></span>
+          <span class="cube cube--3" aria-hidden="true"></span>
+          <span class="cube cube--4" aria-hidden="true"></span>
+          <button class="hero__pouch-btn" type="button" data-wobble aria-label="Give the pouch a squeeze">
+            <svg class="pouch hero__pouch" aria-hidden="true"><use href="#pouch"/></svg>
+          </button>
+          <div class="hero__switch">
+            <div class="flavor-dots" role="group" aria-label="Preview a flavor">
+              <button type="button" class="flavor-dot f-strawberry" data-flavor="strawberry" data-name="Strawberry Burst" aria-pressed="true"><span class="sr-only">Strawberry Burst</span></button>
+              <button type="button" class="flavor-dot f-mango" data-flavor="mango" data-name="Mango Rush" aria-pressed="false"><span class="sr-only">Mango Rush</span></button>
+              <button type="button" class="flavor-dot f-lime" data-flavor="lime" data-name="Lime Zing" aria-pressed="false"><span class="sr-only">Lime Zing</span></button>
+              <button type="button" class="flavor-dot f-blueberry" data-flavor="blueberry" data-name="Blueberry Chill" aria-pressed="false"><span class="sr-only">Blueberry Chill</span></button>
+            </div>
+            <p class="hero__flavor-name" aria-live="polite" data-flavor-name>Strawberry Burst</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="marquee-wrap" aria-hidden="true">
+      <div class="marquee">
+        <div class="marquee__track">
+          <!-- three identical copies so the loop is seamless on wide screens -->
+          <span>Pre-workout</span><span class="marquee__star">✦</span>
+          <span>Mid-run</span><span class="marquee__star">✦</span>
+          <span>Post-lift</span><span class="marquee__star">✦</span>
+          <span>On the trail</span><span class="marquee__star">✦</span>
+          <span>Game day</span><span class="marquee__star">✦</span>
+          <span>Race day</span><span class="marquee__star">✦</span>
+          <span>Long ride</span><span class="marquee__star">✦</span>
+          <span>Leg day</span><span class="marquee__star">✦</span>
+          <span>Pre-workout</span><span class="marquee__star">✦</span>
+          <span>Mid-run</span><span class="marquee__star">✦</span>
+          <span>Post-lift</span><span class="marquee__star">✦</span>
+          <span>On the trail</span><span class="marquee__star">✦</span>
+          <span>Game day</span><span class="marquee__star">✦</span>
+          <span>Race day</span><span class="marquee__star">✦</span>
+          <span>Long ride</span><span class="marquee__star">✦</span>
+          <span>Leg day</span><span class="marquee__star">✦</span>
+          <span>Pre-workout</span><span class="marquee__star">✦</span>
+          <span>Mid-run</span><span class="marquee__star">✦</span>
+          <span>Post-lift</span><span class="marquee__star">✦</span>
+          <span>On the trail</span><span class="marquee__star">✦</span>
+          <span>Game day</span><span class="marquee__star">✦</span>
+          <span>Race day</span><span class="marquee__star">✦</span>
+          <span>Long ride</span><span class="marquee__star">✦</span>
+          <span>Leg day</span><span class="marquee__star">✦</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- BENEFITS -->
+    <section class="section" id="benefits">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="eyebrow"><span class="eyebrow__dot" aria-hidden="true"></span>Why JellyFit</p>
+          <h2>Small pouch. Serious fuel.</h2>
+          <p class="section__sub">Everything you need to keep going, in a texture that's easy to get down when you're out of breath.</p>
+        </header>
+        <div class="benefits">
+          <article class="benefit reveal">
+            <div class="benefit__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg>
+            </div>
+            <h3>Fast-acting carbs</h3>
+            <p>A blend of quick and slower-release carbohydrates to help you keep your energy up when the session runs long.</p>
+          </article>
+          <article class="benefit reveal">
+            <div class="benefit__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 2.5s7 7.6 7 12.5a7 7 0 0 1-14 0c0-4.9 7-12.5 7-12.5z"/></svg>
+            </div>
+            <h3>Electrolytes</h3>
+            <p>Sodium, potassium and magnesium to help replace what you lose in sweat, without a separate tab or powder.</p>
+          </article>
+          <article class="benefit reveal">
+            <div class="benefit__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M9 3h6v3l2 2v12a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V8l2-2z"/></svg>
+            </div>
+            <h3>Zero prep</h3>
+            <p>No water, no mixing, no shaker to wash. The resealable cap keeps your bag clean between sips.</p>
+          </article>
+          <article class="benefit reveal">
+            <div class="benefit__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M20 4c-9 0-15 4-15 11 0 1.4.3 2.7.8 3.8C7 13 11 9.5 16 8c-4 2.4-7.4 6-8.8 11.7A7.6 7.6 0 0 0 11 21c6 0 9-6 9-17z"/></svg>
+            </div>
+            <h3>Clean label</h3>
+            <p>Plant-based and gluten-free, with color from fruit and vegetable extracts. Nothing you need a chemistry degree to read.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW TO USE -->
+    <section class="section section--dark" id="how">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="eyebrow eyebrow--light"><span class="eyebrow__dot" aria-hidden="true"></span>How to use</p>
+          <h2>Twist. Squeeze. Go.</h2>
+          <p class="section__sub">One pouch fits three moments of your workout. Most people start with one before training and add more for longer sessions.</p>
+        </header>
+        <ol class="steps">
+          <li class="step reveal">
+            <span class="step__num">01</span>
+            <h3>Before</h3>
+            <p class="step__when">15–30 min before you start</p>
+            <p>Top up your tank so you start your workout ready to go.</p>
+          </li>
+          <li class="step reveal">
+            <span class="step__num">02</span>
+            <h3>During</h3>
+            <p class="step__when">Every 45–60 min of effort</p>
+            <p>Keep the pace on long runs, rides and matches. Recap and stash it in a pocket between sips.</p>
+          </li>
+          <li class="step reveal">
+            <span class="step__num">03</span>
+            <h3>After</h3>
+            <p class="step__when">While you cool down</p>
+            <p>Replace carbs and electrolytes on the walk back to the car or the locker room.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- FLAVORS -->
+    <section class="section" id="flavors">
+      <div class="container">
+        <header class="section__head reveal">
+          <p class="eyebrow"><span class="eyebrow__dot" aria-hidden="true"></span>Flavors</p>
+          <h2>Pick your squeeze.</h2>
+          <p class="section__sub">Four fruit-forward flavors, all made to taste best chilled.</p>
+        </header>
+        <div class="flavors">
+          <article class="flavor f-strawberry reveal">
+            <svg class="pouch flavor__pouch" aria-hidden="true"><use href="#pouch"/></svg>
+            <h3>Strawberry Burst</h3>
+            <p>Sun-ripe strawberry with a squeeze of lemon.</p>
+            <a class="btn btn--ghost btn--sm" href="#order" data-choose="strawberry">Choose<span class="sr-only"> Strawberry</span></a>
+          </article>
+          <article class="flavor f-mango reveal">
+            <svg class="pouch flavor__pouch" aria-hidden="true"><use href="#pouch"/></svg>
+            <h3>Mango Rush</h3>
+            <p>Juicy mango with a hint of passion fruit.</p>
+            <a class="btn btn--ghost btn--sm" href="#order" data-choose="mango">Choose<span class="sr-only"> Mango</span></a>
+          </article>
+          <article class="flavor f-lime reveal">
+            <svg class="pouch flavor__pouch" aria-hidden="true"><use href="#pouch"/></svg>
+            <h3>Lime Zing</h3>
+            <p>Zesty lime with a cool finish of mint.</p>
+            <a class="btn btn--ghost btn--sm" href="#order" data-choose="lime">Choose<span class="sr-only"> Lime</span></a>
+          </article>
+          <article class="flavor f-blueberry reveal">
+            <svg class="pouch flavor__pouch" aria-hidden="true"><use href="#pouch"/></svg>
+            <h3>Blueberry Chill</h3>
+            <p>Deep blueberry with a touch of blackcurrant.</p>
+            <a class="btn btn--ghost btn--sm" href="#order" data-choose="blueberry">Choose<span class="sr-only"> Blueberry</span></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- NUTRITION
+         PLACEHOLDER VALUES: replace the numbers and ingredient list below with
+         the figures from your real product label before launch. -->
+    <section class="section section--tint" id="nutrition">
+      <div class="container nutrition">
+        <div class="nutrition__copy reveal">
+          <p class="eyebrow"><span class="eyebrow__dot" aria-hidden="true"></span>What's inside</p>
+          <h2>Short ingredient list. Big job.</h2>
+          <p class="section__sub">Each 90 g pouch is built around the basics your body reaches for during exercise, and nothing it doesn't.</p>
+
+          <div class="ingredients">
+            <h3>Ingredients</h3>
+            <p>Water, maltodextrin, cane sugar, fruit juice from concentrate, gelling agents (gellan gum, pectin), sea salt, potassium citrate, magnesium citrate, natural flavors, citric acid, vitamin B6, vitamin B12, fruit and vegetable concentrates (for color).</p>
+          </div>
+
+          <ul class="tags" aria-label="Dietary information">
+            <li>Plant-based</li>
+            <li>Gluten-free</li>
+            <li>Caffeine-free</li>
+            <li>No artificial colors</li>
+            <li>Recyclable pouch</li>
+          </ul>
+        </div>
+
+        <div class="facts reveal" aria-labelledby="facts-title">
+          <h3 class="facts__title" id="facts-title">Nutrition Facts</h3>
+          <p class="facts__serving"><span>Serving size</span><strong>1 pouch (90 g)</strong></p>
+          <p class="facts__calories"><span>Calories</span><strong>100</strong></p>
+          <table class="facts__table">
+            <caption class="sr-only">Nutrition per pouch</caption>
+            <tbody>
+              <tr><th scope="row">Total Carbohydrate</th><td>24 g</td></tr>
+              <tr class="sub"><th scope="row">Total Sugars</th><td>10 g</td></tr>
+              <tr><th scope="row">Protein</th><td>0 g</td></tr>
+              <tr><th scope="row">Total Fat</th><td>0 g</td></tr>
+              <tr><th scope="row">Sodium</th><td>200 mg</td></tr>
+              <tr><th scope="row">Potassium</th><td>90 mg</td></tr>
+              <tr><th scope="row">Magnesium</th><td>30 mg</td></tr>
+              <tr><th scope="row">Vitamin B6</th><td>0.5 mg</td></tr>
+              <tr><th scope="row">Vitamin B12</th><td>1.2 µg</td></tr>
+              <tr><th scope="row">Caffeine</th><td>0 mg</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ORDER
+         Box prices, discount and shipping live in CONFIG at the top of
+         js/main.js; the prices below are filled in from there. -->
+    <section class="section" id="order">
+      <div class="container order">
+        <div class="order__preview reveal" data-preview data-flavor="strawberry" aria-hidden="true">
+          <div class="order__halo"></div>
+          <svg class="pouch order__pouch f-strawberry" data-pouch="strawberry"><use href="#pouch"/></svg>
+          <svg class="pouch order__pouch f-mango" data-pouch="mango"><use href="#pouch"/></svg>
+          <svg class="pouch order__pouch f-lime" data-pouch="lime"><use href="#pouch"/></svg>
+          <svg class="pouch order__pouch f-blueberry" data-pouch="blueberry"><use href="#pouch"/></svg>
+        </div>
+
+        <form class="order__form reveal" id="order-form" novalidate>
+          <p class="eyebrow"><span class="eyebrow__dot" aria-hidden="true"></span>Shop</p>
+          <h2>Build your box.</h2>
+
+          <fieldset class="field">
+            <legend>Flavor</legend>
+            <div class="pills">
+              <label class="pill f-strawberry"><input type="radio" name="flavor" value="strawberry" checked><span>Strawberry</span></label>
+              <label class="pill f-mango"><input type="radio" name="flavor" value="mango"><span>Mango</span></label>
+              <label class="pill f-lime"><input type="radio" name="flavor" value="lime"><span>Lime</span></label>
+              <label class="pill f-blueberry"><input type="radio" name="flavor" value="blueberry"><span>Blueberry</span></label>
+              <label class="pill pill--variety"><input type="radio" name="flavor" value="variety"><span>Variety pack</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset class="field">
+            <legend>Box size</legend>
+            <div class="sizes">
+              <label class="size">
+                <input type="radio" name="size" value="6">
+                <span class="size__card">
+                  <span class="size__count">6</span>
+                  <span class="size__label">pouches</span>
+                  <span class="size__price" data-price="6">$16</span>
+                </span>
+              </label>
+              <label class="size">
+                <input type="radio" name="size" value="12" checked>
+                <span class="size__card">
+                  <span class="size__tag">Popular</span>
+                  <span class="size__count">12</span>
+                  <span class="size__label">pouches</span>
+                  <span class="size__price" data-price="12">$29</span>
+                </span>
+              </label>
+              <label class="size">
+                <input type="radio" name="size" value="24">
+                <span class="size__card">
+                  <span class="size__tag">Best value</span>
+                  <span class="size__count">24</span>
+                  <span class="size__label">pouches</span>
+                  <span class="size__price" data-price="24">$52</span>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset class="field">
+            <legend>Purchase</legend>
+            <div class="plans">
+              <label class="plan">
+                <input type="radio" name="plan" value="once" checked>
+                <span class="plan__card">
+                  <strong>One-time</strong>
+                  <span>Try it out, no commitment.</span>
+                </span>
+              </label>
+              <label class="plan">
+                <input type="radio" name="plan" value="subscribe">
+                <span class="plan__card">
+                  <strong>Subscribe &amp; save 15%</strong>
+                  <span>Delivered every 4 weeks. Skip or cancel anytime.</span>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+
+          <div class="field field--row">
+            <label class="field__label" for="qty">Boxes</label>
+            <div class="stepper">
+              <button type="button" class="stepper__btn" data-step="-1" aria-label="Fewer boxes">−</button>
+              <input id="qty" name="qty" type="number" inputmode="numeric" min="1" max="20" value="1">
+              <button type="button" class="stepper__btn" data-step="1" aria-label="More boxes">+</button>
+            </div>
+          </div>
+
+          <dl class="summary" aria-live="polite">
+            <div><dt>Subtotal</dt><dd data-out="subtotal">$29.00</dd></div>
+            <div data-row="discount" hidden><dt>Subscription savings</dt><dd data-out="discount">−$0.00</dd></div>
+            <div><dt>Shipping</dt><dd data-out="shipping">$5.95</dd></div>
+            <div class="summary__total"><dt>Total</dt><dd data-out="total">$34.95</dd></div>
+          </dl>
+          <p class="summary__hint" data-out="hint">Add $11.00 more for free shipping.</p>
+
+          <button type="submit" class="btn btn--primary btn--block">Order now</button>
+          <p class="order__note">Questions about bulk or team orders? <a href="mailto:hello@jellyfit.example">Email us</a>.</p>
+        </form>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section section--tint" id="faq">
+      <div class="container faq">
+        <header class="section__head reveal">
+          <p class="eyebrow"><span class="eyebrow__dot" aria-hidden="true"></span>FAQ</p>
+          <h2>Good questions.</h2>
+          <p class="section__sub">Can't find what you're looking for? <a href="mailto:hello@jellyfit.example">Drop us a line</a>.</p>
+        </header>
+        <div class="faq__list reveal">
+          <details>
+            <summary>How do I use JellyFit?</summary>
+            <p>Twist off the cap and squeeze. Most people take one pouch 15–30 minutes before training and another every 45–60 minutes during longer sessions. Recap it between sips if you don't finish it in one go.</p>
+          </details>
+          <details>
+            <summary>Does it contain caffeine?</summary>
+            <p>No. Every flavor in the current range is caffeine-free, so you can use it for evening training without worrying about your sleep.</p>
+          </details>
+          <details>
+            <summary>Is JellyFit vegan and gluten-free?</summary>
+            <p>Yes. We use plant-based gelling agents instead of gelatin, and none of our ingredients contain gluten.</p>
+          </details>
+          <details>
+            <summary>How should I store it?</summary>
+            <p>Keep unopened pouches in a cool, dry place. Once opened, recap, refrigerate and finish within 24 hours. It tastes best chilled.</p>
+          </details>
+          <details>
+            <summary>Can I skip or cancel my subscription?</summary>
+            <p>Anytime. Just email us before your next shipping date and we'll skip, pause or cancel. No fees, no awkward phone calls.</p>
+          </details>
+          <details>
+            <summary>Where do you ship?</summary>
+            <p>We currently ship across the United States. Orders over $40 ship free; smaller orders have a flat $5.95 shipping fee.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="cta">
+      <div class="container cta__inner reveal">
+        <h2>Ready to squeeze more out of every workout?</h2>
+        <a class="btn btn--light" href="#order">Build your box</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer__grid">
+      <div class="site-footer__brand">
+        <a class="logo logo--light" href="#top" aria-label="JellyFit home">
+          <svg class="logo__mark" aria-hidden="true"><use href="#blob"/></svg>
+          <span>Jelly<span class="logo__fit">Fit</span></span>
+        </a>
+        <p>Squeezable energy jelly for people who'd rather be moving than mixing.</p>
+      </div>
+      <nav class="site-footer__nav" aria-label="Footer">
+        <div>
+          <h2>Shop</h2>
+          <ul>
+            <li><a href="#flavors">Flavors</a></li>
+            <li><a href="#order">Build a box</a></li>
+            <li><a href="#nutrition">Nutrition</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>Help</h2>
+          <ul>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#how">How to use</a></li>
+            <li><a href="mailto:hello@jellyfit.example">Contact us</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <div class="container site-footer__legal">
+      <p>JellyFit is a sports nutrition food for active adults, intended as part of a varied, balanced diet and a healthy lifestyle. It is not intended to diagnose, treat, cure or prevent any disease.</p>
+      <p>© <span data-year>2026</span> JellyFit. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
