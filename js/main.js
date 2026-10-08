@@ -7,8 +7,9 @@
   const CONFIG = {
     locale: 'en-US',
     currency: 'USD',
-    // Price per box, keyed by number of pouches in the box.
-    boxPrices: { 6: 16, 12: 29, 24: 52 },
+    flavor: 'Raspberry',
+    // Price per pack, keyed by number of cups in the pack.
+    packPrices: { 6: 18, 12: 32, 24: 58 },
     subscribeDiscount: 0.15,
     freeShippingFrom: 40,
     shippingFee: 5.95,
@@ -46,89 +47,37 @@
   });
 
   /* ------------------------------------------------------------------------
-     Hero: flavor preview + squeeze-to-wobble
-     ------------------------------------------------------------------------ */
-  const dots = [...document.querySelectorAll('.flavor-dot')];
-  const flavorName = document.querySelector('[data-flavor-name]');
-  const wobbleBtn = document.querySelector('[data-wobble]');
-
-  const wobble = () => {
-    if (reducedMotion) return;
-    wobbleBtn.classList.remove('is-wobbling');
-    void wobbleBtn.offsetWidth; // restart the animation
-    wobbleBtn.classList.add('is-wobbling');
-  };
-  wobbleBtn.addEventListener('animationend', (e) => {
-    if (e.animationName === 'wobble') wobbleBtn.classList.remove('is-wobbling');
-  });
-
-  const showFlavor = (dot) => {
-    dots.forEach((d) => d.setAttribute('aria-pressed', String(d === dot)));
-    document.documentElement.dataset.flavor = dot.dataset.flavor;
-    flavorName.textContent = dot.dataset.name;
-    wobble();
-  };
-
-  // Gently cycle flavors while the hero is on screen, until the visitor picks one.
-  let cycleTimer = null;
-  let visitorPicked = false;
-  const stopCycle = () => { clearInterval(cycleTimer); cycleTimer = null; };
-  const startCycle = () => {
-    if (reducedMotion || cycleTimer || visitorPicked) return;
-    cycleTimer = setInterval(() => {
-      const current = dots.findIndex((d) => d.getAttribute('aria-pressed') === 'true');
-      showFlavor(dots[(current + 1) % dots.length]);
-    }, 3500);
-  };
-
-  dots.forEach((dot) => dot.addEventListener('click', () => {
-    visitorPicked = true;
-    stopCycle();
-    showFlavor(dot);
-  }));
-  wobbleBtn.addEventListener('click', wobble);
-
-  if ('IntersectionObserver' in window) {
-    new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) startCycle();
-      else stopCycle();
-    }, { threshold: 0.4 }).observe(document.querySelector('.hero'));
-  }
-
-  /* ------------------------------------------------------------------------
      Order form
      ------------------------------------------------------------------------ */
   const form = document.getElementById('order-form');
   const qtyInput = form.elements.qty;
-  const preview = document.querySelector('[data-preview]');
-  const out = (name) => form.querySelector(`[data-out="${name}"]`);
+  const badge = document.querySelector('[data-pack-badge]');
+  const out = (name) => document.querySelector(`[data-out="${name}"]`);
 
-  // Show the configured prices on the box-size cards.
+  // Show the configured prices on the pack-size cards.
   form.querySelectorAll('[data-price]').forEach((el) => {
-    const price = CONFIG.boxPrices[el.dataset.price];
-    el.textContent = money.format(price).replace(/\.00$/, '');
+    el.textContent = money.format(CONFIG.packPrices[el.dataset.price]).replace(/\.00$/, '');
   });
 
   const clampQty = (n) => Math.min(20, Math.max(1, Number.isFinite(n) ? Math.round(n) : 1));
 
   const readOrder = () => {
-    const flavorInput = form.querySelector('input[name="flavor"]:checked');
     const size = Number(form.elements.size.value);
     const plan = form.elements.plan.value;
     const qty = clampQty(parseFloat(qtyInput.value));
-    const subtotal = CONFIG.boxPrices[size] * qty;
+    const subtotal = CONFIG.packPrices[size] * qty;
     const discount = plan === 'subscribe' ? subtotal * CONFIG.subscribeDiscount : 0;
     const afterDiscount = subtotal - discount;
     const shipping = afterDiscount >= CONFIG.freeShippingFrom ? 0 : CONFIG.shippingFee;
     return {
-      flavor: flavorInput.value,
-      flavorLabel: flavorInput.nextElementSibling.textContent.trim(),
       size, plan, qty, subtotal, discount, shipping,
+      cups: size * qty,
       total: afterDiscount + shipping,
       toFreeShipping: CONFIG.freeShippingFrom - afterDiscount,
     };
   };
 
+  let lastCups = null;
   const render = () => {
     const o = readOrder();
     out('subtotal').textContent = money.format(o.subtotal);
@@ -140,11 +89,15 @@
       ? 'You’ve unlocked free shipping.'
       : `Add ${money.format(o.toFreeShipping)} more for free shipping.`;
 
-    preview.dataset.flavor = o.flavor;
-    preview.querySelectorAll('[data-pouch]').forEach((p) => {
-      p.classList.toggle('is-active', p.dataset.pouch === o.flavor);
-    });
+    out('count').textContent = o.cups;
+    if (lastCups !== null && lastCups !== o.cups && !reducedMotion) {
+      badge.classList.remove('is-bumping');
+      void badge.offsetWidth; // restart the animation
+      badge.classList.add('is-bumping');
+    }
+    lastCups = o.cups;
   };
+  badge.addEventListener('animationend', () => badge.classList.remove('is-bumping'));
 
   form.addEventListener('change', (e) => {
     if (e.target === qtyInput) qtyInput.value = clampQty(parseFloat(qtyInput.value));
@@ -157,15 +110,6 @@
     render();
   }));
 
-  // "Choose …" buttons in the flavor section pre-select that flavor.
-  document.querySelectorAll('[data-choose]').forEach((link) => link.addEventListener('click', () => {
-    const radio = form.querySelector(`input[name="flavor"][value="${link.dataset.choose}"]`);
-    if (radio) {
-      radio.checked = true;
-      render();
-    }
-  }));
-
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     qtyInput.value = clampQty(parseFloat(qtyInput.value));
@@ -174,7 +118,6 @@
 
     if (CONFIG.checkoutUrl) {
       const url = new URL(CONFIG.checkoutUrl, window.location.href);
-      url.searchParams.set('flavor', o.flavor);
       url.searchParams.set('size', o.size);
       url.searchParams.set('plan', o.plan);
       url.searchParams.set('qty', o.qty);
@@ -185,17 +128,17 @@
     const body = [
       'Hi JellyFit, I’d like to order:',
       '',
-      `Flavor: ${o.flavorLabel}`,
-      `Box size: ${o.size} pouches`,
-      `Boxes: ${o.qty}`,
+      `Flavor: ${CONFIG.flavor}`,
+      `Pack size: ${o.size} cups`,
+      `Packs: ${o.qty}`,
       `Plan: ${planLabel}`,
       `Estimated total: ${money.format(o.total)}`,
       '',
       'Name:',
-      'Shipping address:',
+      'Delivery address:',
       'Phone:',
     ].join('\n');
-    const subject = `Order: ${o.qty} × ${o.size}-pouch ${o.flavorLabel}`;
+    const subject = `Order: ${o.qty} × ${o.size}-cup ${CONFIG.flavor}`;
     window.location.href = `mailto:${CONFIG.orderEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   });
 

@@ -1,6 +1,8 @@
 # Rgm-site
 
-Marketing and ordering site for **JellyFit**, a squeezable energy jelly.
+Marketing and ordering site for **JellyFit**, a ready-to-eat raspberry protein jelly cup.
+
+**Product facts (from the cup):** 20g complete protein from whey isolate, less than 1g sugar, 95 kcal, halal.
 
 It's a static site (plain HTML, CSS and JavaScript) with no build step and no dependencies, so it runs on any static host.
 
@@ -16,33 +18,34 @@ Then open the URL it prints. You can also open `index.html` directly in a browse
 
 | Section | Notes |
 | --- | --- |
-| Hero | Flavor dots recolor the pouch and the site accent. Click the pouch to wobble it. |
-| Benefits | Four feature cards |
-| How to use | Before / during / after timing |
-| Flavors | Four flavor cards. "Choose" pre-selects the flavor in the order form. |
-| Nutrition | Facts panel, ingredient list and dietary tags |
-| Order | Flavor, box size, one-time or subscribe, quantity, and a live total |
-| FAQ | Expandable questions |
+| Hero | Cup photo with protein, sugar, calorie and halal callouts |
+| Why JellyFit | The four headline numbers, explained |
+| When to eat | After training, between meals, after dinner |
+| Nutrition | Per-cup panel with the values printed on the cup |
+| Order | Pack size, one-time or subscribe, quantity and a live total |
+| FAQ | Expandable questions, including the milk allergen note |
 
 ## Files
 
 ```
-index.html        page content and the shared SVG pouch artwork
-css/styles.css    all styles; flavor colors are tokens at the top
-js/main.js        store settings (CONFIG) and interactions
+index.html                       page content
+css/styles.css                   all styles; brand colors are tokens at the top
+js/main.js                       store settings (CONFIG) and interactions
+assets/jellyfit-raspberry.webp   cup photo, cropped for the page (.jpg fallback alongside)
+assets/jellyfit-raspberry-wide.jpg  full photo for social sharing previews
 assets/favicon.svg
 ```
 
 ## Before you launch
 
-All product details are **placeholder copy**. Replace them with your real information:
+The product facts come from the cup design. The commercial details are **placeholders**:
 
-1. **Nutrition facts and ingredients** in the `#nutrition` section of `index.html`. These must match your product label.
-2. **Claims and tags** ("Plant-based", "Gluten-free", "Caffeine-free", "Recyclable pouch", etc.) in the hero, nutrition section and FAQ. Keep only the ones that are true for your product.
-3. **Prices, discount and shipping** in `CONFIG` at the top of `js/main.js`. The box-size cards read their prices from there. The free-shipping threshold, the subscribe discount and the shipping fee are also written into the announcement bar and the FAQ text in `index.html`, so update those too.
-4. **Checkout.** By default, "Order now" opens a pre-filled order email to `CONFIG.orderEmail`. To send shoppers to a hosted checkout instead (Shopify, a Stripe Payment Link, etc.), set `CONFIG.checkoutUrl`. The flavor, size, plan and quantity are appended as query parameters.
-5. **Email addresses.** Search for `jellyfit.example` and replace every occurrence with your real addresses.
-6. **Flavors.** Names and descriptions are in `index.html`. Colors are the `--strawberry`, `--mango`, `--lime` and `--blueberry` tokens in `css/styles.css`.
+1. **Prices, discount and shipping** are in `CONFIG` at the top of `js/main.js`. The pack-size cards read their prices from there. The free-shipping threshold and subscribe discount are also written into the announcement bar and the order form in `index.html`, so update those too.
+2. **Checkout.** By default, "Order now" opens a pre-filled order email to `CONFIG.orderEmail`. To send shoppers to a hosted checkout instead (Shopify, a Stripe Payment Link, etc.), set `CONFIG.checkoutUrl`. The pack size, plan and quantity are appended as query parameters.
+3. **Email addresses.** Search for `jellyfit.example` and replace every occurrence with your real addresses.
+4. **Full nutrition label.** The nutrition panel shows only what's printed on the cup. When you have the full label, add the remaining rows (fat, carbohydrate, sodium, etc.) and the ingredient list in the `#nutrition` section of `index.html`.
+5. **Social preview image.** The `og:image` tag needs an absolute URL once you know your domain.
+6. **More flavors.** The order email uses `CONFIG.flavor`. Adding a second flavor would need a flavor picker in the order form.
 
 ## Deploy
 
