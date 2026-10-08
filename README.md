@@ -31,6 +31,10 @@ Then open the URL it prints. You can also open `index.html` directly in a browse
 
 The hero number is whey isolate protein only, always labelled "complete protein, from whey isolate". If collagen is ever added, it is listed separately and smaller and is never added into the 20g. Keep any copy changes consistent with this.
 
+Gelatin is made from collagen, so the site says plainly that the jelly is set with a little gelatin whose protein isn't counted in the 20g. The site makes no skin or joint claims: those are health claims that need regulatory approval in the GCC, and the gelatin dose is set by the formula, not by any clinical evidence.
+
+The mandatory nutrition table on the pack has to show **total** protein (whey plus gelatin), so it will read slightly above 20g. The 20g complete-protein figure belongs on the front of pack and in marketing.
+
 ## Before you launch
 
 1. **WhatsApp number.** Set `CONFIG.whatsappNumber` at the top of `js/main.js` (digits only, with country code, e.g. `9613123456`). Until it's set, both forms open a pre-filled email instead.
