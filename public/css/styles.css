@@ -963,6 +963,26 @@ figure { margin: 0; }
   font-weight: 600;
   color: var(--raspberry);
 }
+.form-status {
+  position: relative;
+  margin: -0.25rem 0 1rem;
+  padding: 0.8rem 1rem 0.8rem 2.75rem;
+  border-radius: 14px;
+  background: var(--blush);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+.form-status::before {
+  content: "";
+  position: absolute;
+  left: 0.9rem;
+  top: 0.95rem;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--raspberry) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m5 12 5 5 9-10'/%3E%3C/svg%3E") center / 11px no-repeat;
+}
 .form-note {
   margin-top: 0.9rem;
   text-align: center;
