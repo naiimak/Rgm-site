@@ -400,22 +400,61 @@ figure { margin: 0; }
   margin-top: 2rem;
 }
 
-.hero__visual {
+.hero__visual { position: relative; }
+
+/* Floating cup: the cup and its shadow share one 6s cycle, so the shadow
+   tightens and fades as the cup rises. */
+.stage {
   position: relative;
-  padding: 24px 0;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1 / 1;
 }
-.product-shot {
-  overflow: hidden;
-  border-radius: 40px;
-  aspect-ratio: 800 / 752;
-  background: #d9d2c2;
-  box-shadow: 0 40px 60px -40px rgba(43, 10, 20, 0.55);
+.stage__halo {
+  position: absolute;
+  inset: 7%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 42% 38%, #fff 0%, var(--blush) 38%, rgba(232, 137, 154, 0.45) 72%, rgba(232, 137, 154, 0) 100%);
 }
-.product-shot img {
+.stage__cup {
+  position: relative;
+  z-index: 2;
+  width: 56%;
+  animation: float 6s ease-in-out infinite;
+}
+.stage__cup img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  filter: drop-shadow(0 24px 24px rgba(43, 10, 20, 0.16));
+  transform-origin: 50% 85%;
 }
+.stage__cup:hover img { animation: jiggle 0.9s ease; }
+.stage__shadow {
+  position: absolute;
+  z-index: 1;
+  bottom: 6%;
+  left: 50%;
+  width: 46%;
+  height: 7%;
+  margin-left: -23%;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(43, 10, 20, 0.45), rgba(43, 10, 20, 0));
+  animation: float-shadow 6s ease-in-out infinite;
+}
+
+.cube {
+  position: absolute;
+  z-index: 1;
+  border-radius: 28%;
+  background: rgba(232, 137, 154, 0.75);
+  box-shadow:
+    inset -5px -7px 0 rgba(110, 11, 34, 0.18),
+    inset 5px 5px 0 rgba(255, 255, 255, 0.5);
+  animation: drift 7s ease-in-out infinite;
+}
+.cube--1 { top: 36%; left: 5%; width: 44px; height: 44px; rotate: -14deg; }
+.cube--2 { top: 7%; right: 12%; width: 28px; height: 28px; animation-delay: -2.5s; animation-duration: 8s; }
+.cube--3 { bottom: 26%; right: 8%; width: 36px; height: 36px; rotate: 12deg; animation-delay: -4.5s; }
 
 .chip {
   position: absolute;
@@ -439,12 +478,13 @@ figure { margin: 0; }
   letter-spacing: -0.02em;
   color: var(--raspberry);
 }
-.chip--protein { top: 9%; left: -5%; }
-.chip--sugar { top: 30%; right: -4%; animation-delay: -1.5s; }
-.chip--kcal { bottom: 18%; left: -4%; animation-delay: -3s; }
+.chip--protein { top: 5%; left: 0; z-index: 3; }
+.chip--sugar { top: 34%; right: -4%; z-index: 3; animation-delay: -1.5s; }
+.chip--kcal { bottom: 27%; left: -4%; z-index: 3; animation-delay: -3s; }
 .chip--halal {
-  bottom: 10%;
-  right: -3%;
+  bottom: 11%;
+  right: 0;
+  z-index: 3;
   align-items: center;
   background: var(--raspberry);
   color: #fff;
@@ -477,7 +517,8 @@ figure { margin: 0; }
     gap: 0.5rem;
     padding: 0;
   }
-  .product-shot { grid-column: 1 / -1; margin-bottom: 0.5rem; border-radius: 28px; }
+  .stage { grid-column: 1 / -1; margin-bottom: 0.25rem; }
+  .stage__cup { width: 62%; }
   .chip {
     position: static;
     flex-direction: column;
@@ -1075,6 +1116,18 @@ figure { margin: 0; }
   54% { transform: scale(1.05, 0.95); }
   72% { transform: scale(0.98, 1.02); }
   100% { transform: scale(1, 1); }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-22px) rotate(2deg); }
+}
+@keyframes float-shadow {
+  0%, 100% { transform: scaleX(1); opacity: 1; }
+  50% { transform: scaleX(0.78); opacity: 0.55; }
+}
+@keyframes drift {
+  0%, 100% { translate: 0 0; }
+  50% { translate: 0 -14px; }
 }
 @keyframes bob {
   0%, 100% { translate: 0 0; }

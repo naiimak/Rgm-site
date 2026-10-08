@@ -75,12 +75,19 @@
         </div>
 
         <div class="hero__visual">
-          <figure class="product-shot">
-            <picture>
-              <source srcset="assets/jellyfit-raspberry.webp" type="image/webp">
-              <img src="assets/jellyfit-raspberry.jpg" width="800" height="752" alt="A JellyFit Raspberry cup with a peel-off foil lid. The label reads: less than 1g sugar, 95 kcal, halal, 20g complete protein from whey isolate." fetchpriority="high">
-            </picture>
-          </figure>
+          <div class="stage">
+            <div class="stage__halo" aria-hidden="true"></div>
+            <span class="cube cube--1" aria-hidden="true"></span>
+            <span class="cube cube--2" aria-hidden="true"></span>
+            <span class="cube cube--3" aria-hidden="true"></span>
+            <div class="stage__shadow" aria-hidden="true"></div>
+            <div class="stage__cup">
+              <picture>
+                <source srcset="assets/jellyfit-raspberry-cup.webp" type="image/webp">
+                <img src="assets/jellyfit-raspberry-cup.png" width="542" height="555" alt="A JellyFit Raspberry cup with a peel-off foil lid. The label reads: less than 1g sugar, 95 kcal, halal, 20g complete protein from whey isolate." fetchpriority="high">
+              </picture>
+            </div>
+          </div>
           <p class="chip chip--protein"><strong>20g</strong><span>complete protein</span></p>
           <p class="chip chip--sugar"><strong>&lt;1g</strong><span>sugar</span></p>
           <p class="chip chip--kcal"><strong>95</strong><span>kcal</span></p>

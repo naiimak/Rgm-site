@@ -18,7 +18,7 @@ Then open the URL it prints. You can also open `index.html` directly in a browse
 
 | Section | Purpose |
 | --- | --- |
-| Hero | Tagline, cup photo, headline numbers |
+| Hero | Tagline, floating cup (cut out from the packshot), headline numbers |
 | Why JellyFit | 20g complete protein, <1g sugar, ~95 kcal, halal by design |
 | Complete protein | Whey isolate (9 of 9 essential amino acids) vs collagen (8 of 9), plus the protein promise |
 | Flavors | Raspberry and Mango |
@@ -37,7 +37,8 @@ The hero number is whey isolate protein only, always labelled "complete protein,
 2. **Email address.** Replace `hello@jellyfit.example` in `js/main.js` and `index.html`.
 3. **Nutrition values.** The panel shows target values and says so. Once the formula is locked, replace them with lab-confirmed values, add the remaining rows (fat, carbohydrate, sodium) and the ingredient list, and remove the "target" wording.
 4. **Mango packshot.** The flavor cards use an illustrated jelly. Real packshots can replace or sit alongside it.
-5. **Social preview image.** The `og:image` tag needs an absolute URL once you know your domain.
+5. **Floating cup.** `assets/jellyfit-raspberry-cup.webp` is the Raspberry packshot with the background removed (PNG fallback alongside). To swap in a new packshot, export it with a transparent background at a similar size. The float speed and height are in the `float` keyframes in `css/styles.css`; it stops for visitors who have reduced motion turned on.
+6. **Social preview image.** The `og:image` tag needs an absolute URL once you know your domain.
 
 ## Deploy
 
