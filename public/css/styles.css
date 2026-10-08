@@ -358,9 +358,16 @@ figure { margin: 0; }
 .hero__grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "intro visual"
+    "body  visual";
   align-items: center;
-  gap: clamp(32px, 5vw, 72px);
+  column-gap: clamp(32px, 5vw, 72px);
 }
+/* The two text blocks hug each other in the middle of the left column. */
+.hero__intro { grid-area: intro; align-self: end; }
+.hero__body { grid-area: body; align-self: start; }
+.hero__visual { grid-area: visual; }
 .hero h1 {
   font-size: clamp(3rem, 7.5vw, 5.75rem);
   letter-spacing: -0.035em;
@@ -408,15 +415,25 @@ figure { margin: 0; }
   position: relative;
   display: grid;
   place-items: center;
-  aspect-ratio: 1 / 1;
+}
+/* Keeps the stage square in every browser (padding % is relative to width),
+   so the cup, halo and shadow line up even where aspect-ratio isn't supported. */
+.stage::before {
+  content: "";
+  grid-area: 1 / 1;
+  padding-bottom: 100%;
 }
 .stage__halo {
   position: absolute;
-  inset: 7%;
+  top: 7%;
+  right: 7%;
+  bottom: 7%;
+  left: 7%;
   border-radius: 50%;
   background: radial-gradient(circle at 42% 38%, #fff 0%, var(--blush) 38%, rgba(232, 137, 154, 0.45) 72%, rgba(232, 137, 154, 0) 100%);
 }
 .stage__cup {
+  grid-area: 1 / 1;
   position: relative;
   z-index: 2;
   width: 56%;
@@ -443,6 +460,7 @@ figure { margin: 0; }
 }
 
 .cube {
+  --tilt: 0deg;
   position: absolute;
   z-index: 1;
   border-radius: 28%;
@@ -452,9 +470,9 @@ figure { margin: 0; }
     inset 5px 5px 0 rgba(255, 255, 255, 0.5);
   animation: drift 7s ease-in-out infinite;
 }
-.cube--1 { top: 36%; left: 5%; width: 44px; height: 44px; rotate: -14deg; }
+.cube--1 { top: 36%; left: 5%; width: 44px; height: 44px; --tilt: -14deg; }
 .cube--2 { top: 7%; right: 12%; width: 28px; height: 28px; animation-delay: -2.5s; animation-duration: 8s; }
-.cube--3 { bottom: 26%; right: 8%; width: 36px; height: 36px; rotate: 12deg; animation-delay: -4.5s; }
+.cube--3 { bottom: 26%; right: 8%; width: 36px; height: 36px; --tilt: 12deg; animation-delay: -4.5s; }
 
 .chip {
   position: absolute;
@@ -502,11 +520,18 @@ figure { margin: 0; }
 }
 
 @media (max-width: 900px) {
-  .hero__grid { grid-template-columns: 1fr; }
+  /* Phones and tablets: headline, then the cup, then description and buttons */
+  .hero__grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "intro"
+      "visual"
+      "body";
+  }
   .hero__copy { text-align: center; }
   .hero__copy .lead { margin-inline: auto; }
   .hero__actions { justify-content: center; }
-  .hero__visual { max-width: 560px; width: 100%; margin-inline: auto; }
+  .hero__visual { max-width: 560px; width: 100%; margin: 0.75rem auto 0; }
 }
 
 @media (max-width: 560px) {
@@ -1096,8 +1121,9 @@ figure { margin: 0; }
   text-transform: uppercase;
   color: #fff;
 }
-.site-footer ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 0.5rem; }
-.site-footer ul a { text-decoration: none; }
+.site-footer ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 0.15rem; }
+/* Taller tap area for thumbs without changing the visual spacing much */
+.site-footer ul a { display: inline-block; padding: 0.55rem 0; text-decoration: none; }
 .site-footer ul a:hover { color: #fff; text-decoration: underline; }
 .site-footer :focus-visible { outline-color: #fff; }
 .site-footer__legal {
@@ -1146,12 +1172,12 @@ figure { margin: 0; }
   50% { transform: scaleX(0.78); opacity: 0.55; }
 }
 @keyframes drift {
-  0%, 100% { translate: 0 0; }
-  50% { translate: 0 -14px; }
+  0%, 100% { transform: translateY(0) rotate(var(--tilt)); }
+  50% { transform: translateY(-14px) rotate(var(--tilt)); }
 }
 @keyframes bob {
-  0%, 100% { translate: 0 0; }
-  50% { translate: 0 -10px; }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
 @keyframes marquee {
   to { transform: translateX(calc(-100% / 3)); }
