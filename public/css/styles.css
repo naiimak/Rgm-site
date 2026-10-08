@@ -358,9 +358,16 @@ figure { margin: 0; }
 .hero__grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "intro visual"
+    "body  visual";
   align-items: center;
-  gap: clamp(32px, 5vw, 72px);
+  column-gap: clamp(32px, 5vw, 72px);
 }
+/* The two text blocks hug each other in the middle of the left column. */
+.hero__intro { grid-area: intro; align-self: end; }
+.hero__body { grid-area: body; align-self: start; }
+.hero__visual { grid-area: visual; }
 .hero h1 {
   font-size: clamp(3rem, 7.5vw, 5.75rem);
   letter-spacing: -0.035em;
@@ -513,11 +520,18 @@ figure { margin: 0; }
 }
 
 @media (max-width: 900px) {
-  .hero__grid { grid-template-columns: 1fr; }
+  /* Phones and tablets: headline, then the cup, then description and buttons */
+  .hero__grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "intro"
+      "visual"
+      "body";
+  }
   .hero__copy { text-align: center; }
   .hero__copy .lead { margin-inline: auto; }
   .hero__actions { justify-content: center; }
-  .hero__visual { max-width: 560px; width: 100%; margin-inline: auto; }
+  .hero__visual { max-width: 560px; width: 100%; margin: 0.75rem auto 0; }
 }
 
 @media (max-width: 560px) {

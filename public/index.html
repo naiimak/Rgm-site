@@ -64,14 +64,12 @@
     <!-- HERO -->
     <section class="hero" id="top">
       <div class="container hero__grid">
-        <div class="hero__copy">
+        <!-- Source order is headline, cup, then description and buttons, so phones
+             show the product before the sign-up buttons. On wider screens the grid
+             puts the cup in the right-hand column. -->
+        <div class="hero__copy hero__intro">
           <p class="eyebrow"><span class="eyebrow__dot" aria-hidden="true"></span>Chilled protein jelly · Coming soon</p>
           <h1>Protein you actually <span class="jiggle">crave.</span></h1>
-          <p class="lead">JellyFit is a chilled jelly cup with 20g of complete protein from whey isolate, under 1g of sugar and about 95 calories. Halal by design. It eats like a treat, not a supplement.</p>
-          <div class="hero__actions">
-            <a class="btn btn--primary" href="#join">Join the WhatsApp list</a>
-            <a class="btn btn--ghost" href="#gyms">Stock it at your gym</a>
-          </div>
         </div>
 
         <div class="hero__visual">
@@ -92,6 +90,14 @@
           <p class="chip chip--sugar"><strong>&lt;1g</strong><span>sugar</span></p>
           <p class="chip chip--kcal"><strong>95</strong><span>kcal</span></p>
           <p class="chip chip--halal"><span class="chip__check" aria-hidden="true"></span><span>Halal</span></p>
+        </div>
+
+        <div class="hero__copy hero__body">
+          <p class="lead">JellyFit is a chilled jelly cup with 20g of complete protein from whey isolate, under 1g of sugar and about 95 calories. Halal by design. It eats like a treat, not a supplement.</p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#join">Join the WhatsApp list</a>
+            <a class="btn btn--ghost" href="#gyms">Stock it at your gym</a>
+          </div>
         </div>
       </div>
     </section>
