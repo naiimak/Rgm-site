@@ -287,10 +287,20 @@
           </ul>
         </div>
 
-        <form class="card-form reveal" data-wa-form="join" novalidate>
+        <!-- Netlify Forms saves every submission (Forms tab in the Netlify dashboard);
+             the script then opens WhatsApp with the same details. -->
+        <form class="card-form reveal" name="waitlist" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-wa-form="join" novalidate>
+          <input type="hidden" name="form-name" value="waitlist">
+          <p class="sr-only" aria-hidden="true">
+            <label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label>
+          </p>
           <div class="field">
             <label class="field__label" for="join-name">Your name</label>
             <input class="input" id="join-name" name="name" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label class="field__label" for="join-phone">WhatsApp number</label>
+            <input class="input" id="join-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+961 …" required>
           </div>
           <div class="field">
             <label class="field__label" for="join-gym">Your gym <span class="field__opt">(optional)</span></label>
@@ -313,9 +323,10 @@
               <label class="pill"><input type="radio" name="reason" value="Halal"><span>Halal</span></label>
             </div>
           </fieldset>
-          <p class="form-error" data-form-error hidden>Please add your name.</p>
+          <p class="form-error" data-form-error hidden>Please add your name and a WhatsApp number we can reach you on.</p>
+          <p class="form-status" data-form-status role="status" hidden></p>
           <button class="btn btn--primary btn--block" type="submit">Join on WhatsApp</button>
-          <p class="form-note">Opens WhatsApp with your details filled in. Just hit send.</p>
+          <p class="form-note">Opens WhatsApp with your details filled in. We'll only use your number to tell you about JellyFit.</p>
         </form>
       </div>
     </section>
@@ -335,11 +346,19 @@
           </ul>
         </div>
 
-        <form class="card-form reveal" data-wa-form="gym" novalidate>
+        <form class="card-form reveal" name="gym-pilot" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-wa-form="gym" novalidate>
+          <input type="hidden" name="form-name" value="gym-pilot">
+          <p class="sr-only" aria-hidden="true">
+            <label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label>
+          </p>
           <h3 class="card-form__title">Talk to us about the pilot</h3>
           <div class="field">
             <label class="field__label" for="gym-name">Your name</label>
             <input class="input" id="gym-name" name="name" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label class="field__label" for="gym-phone">Phone or WhatsApp</label>
+            <input class="input" id="gym-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+961 …" required>
           </div>
           <div class="field">
             <label class="field__label" for="gym-venue">Gym or venue</label>
@@ -349,7 +368,8 @@
             <label class="field__label" for="gym-area">Area <span class="field__opt">(optional)</span></label>
             <input class="input" id="gym-area" name="area" placeholder="e.g. Achrafieh, Hamra, Jounieh" autocomplete="off">
           </div>
-          <p class="form-error" data-form-error hidden>Please add your name and your gym.</p>
+          <p class="form-error" data-form-error hidden>Please add your name, a phone number and your gym.</p>
+          <p class="form-status" data-form-status role="status" hidden></p>
           <button class="btn btn--primary btn--block" type="submit">Message us on WhatsApp</button>
           <p class="form-note">Prefer email? <a href="mailto:hello@jellyfit.example">hello@jellyfit.example</a></p>
         </form>

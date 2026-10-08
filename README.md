@@ -23,8 +23,8 @@ Then open the URL it prints. You can also open `public/index.html` directly in a
 | Complete protein | Whey isolate (9 of 9 essential amino acids) vs collagen (8 of 9), plus the protein promise |
 | Flavors | Raspberry and Mango |
 | Nutrition | Target values per 100g cup, marked as targets |
-| Join the list | Consumer sign-up that opens WhatsApp pre-filled with name, gym, flavor and "what caught your eye" |
-| For gyms | Pilot enquiry form for gym owners and venues |
+| Join the list | Consumer sign-up (name, WhatsApp number, gym, flavor, "what caught your eye"). Saved to Netlify Forms, then opens WhatsApp pre-filled |
+| For gyms | Pilot enquiry form for gym owners (name, phone, venue, area). Saved to Netlify Forms, then opens WhatsApp pre-filled |
 | FAQ | Availability, complete protein, halal, allergens, storage, GCC plans |
 
 ## The protein claim rule
@@ -54,3 +54,15 @@ The mandatory nutrition table on the pack has to show **total** protein (whey pl
 4. Rename the project (for example `jellyfit`) to get a `jellyfit.netlify.app` address, or connect your own domain under **Domain management**.
 
 After that, every push to the deployed branch updates the site automatically. On Netlify's free plan each production deploy uses part of the monthly credit allowance, so batch small changes into one push where you can.
+
+### Collecting sign-ups (Netlify Forms)
+
+Both forms (`waitlist` and `gym-pilot`) are Netlify forms. Every submission is saved in Netlify, even if the visitor never presses send in WhatsApp, and then WhatsApp opens with the same details. Form submissions don't use credits on Netlify's credit-based plans.
+
+One-time setup after the first deploy:
+
+1. In your Netlify project, open **Forms** and click **Enable form detection**.
+2. Redeploy so Netlify finds the forms: **Deploys → Trigger deploy → Deploy project**. The `waitlist` and `gym-pilot` forms then appear under **Forms**.
+3. To get an email for each sign-up: **Project configuration → Notifications → Form submission notifications → Add notification → Email notification**, choose the form and enter your address.
+
+Submissions can be downloaded as a CSV from each form's page. A hidden honeypot field filters out basic spam bots. Locally (`npx serve public`) nothing is saved, but WhatsApp or email still opens.
