@@ -25,7 +25,7 @@
   --radius-lg: 32px;
   --shadow: 0 1px 2px rgba(43, 10, 20, 0.06), 0 16px 40px -18px rgba(43, 10, 20, 0.3);
 
-  --font-display: "Nunito", ui-rounded, ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Poppins", ui-sans-serif, system-ui, sans-serif;
   --font-body: "DM Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
 
   --container: 1180px;
@@ -59,9 +59,9 @@ body {
 
 h1, h2, h3 {
   font-family: var(--font-display);
-  font-weight: 900;
-  line-height: 1.02;
-  letter-spacing: -0.025em;
+  font-weight: 800;
+  line-height: 1.06;
+  letter-spacing: -0.01em;
   margin: 0;
   text-wrap: balance;
 }
@@ -167,10 +167,9 @@ figure { margin: 0; }
    -------------------------------------------------------------------------- */
 
 .eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.55rem;
+  display: inline-block;
   margin-bottom: 1rem;
+  text-wrap: balance;
   font-size: 0.8125rem;
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -178,6 +177,9 @@ figure { margin: 0; }
   color: var(--ink-2);
 }
 .eyebrow__dot {
+  display: inline-block;
+  margin-right: 0.55rem;
+  vertical-align: 0.06em;
   width: 10px;
   height: 10px;
   border-radius: 50%;
@@ -255,11 +257,11 @@ figure { margin: 0; }
 .logo__img {
   display: block;
   height: 2.1rem;
-  width: 6.73rem;
+  width: 6.59rem;
   fill: currentColor;
 }
 .logo--light { color: #fff; }
-.logo--light .logo__img { height: 2.4rem; width: 7.70rem; }
+.logo--light .logo__img { height: 2.4rem; width: 7.53rem; }
 
 .site-nav {
   display: flex;
@@ -375,9 +377,9 @@ figure { margin: 0; }
 .hero__body { grid-area: body; align-self: start; }
 .hero__visual { grid-area: visual; }
 .hero h1 {
-  font-size: clamp(3rem, 7.5vw, 5.75rem);
-  letter-spacing: -0.035em;
-  line-height: 0.95;
+  font-size: clamp(3rem, 6.6vw, 5.1rem);
+  letter-spacing: -0.02em;
+  line-height: 1.02;
 }
 .jiggle {
   position: relative;
@@ -497,9 +499,9 @@ figure { margin: 0; }
 }
 .chip strong {
   font-family: var(--font-display);
-  font-weight: 900;
+  font-weight: 800;
   font-size: 1.75rem;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
   color: var(--raspberry);
 }
 .chip--protein { top: 5%; left: 0; z-index: 3; }
@@ -513,7 +515,7 @@ figure { margin: 0; }
   background: var(--raspberry);
   color: #fff;
   font-family: var(--font-display);
-  font-weight: 900;
+  font-weight: 800;
   font-size: 1.05rem;
   letter-spacing: 0.02em;
   animation-delay: -4.5s;
@@ -535,6 +537,7 @@ figure { margin: 0; }
       "body";
   }
   .hero__copy { text-align: center; }
+  .hero h1 { font-size: clamp(3rem, 10vw, 5.1rem); }
   .hero__copy .lead { margin-inline: auto; }
   .hero__actions { justify-content: center; }
   .hero__visual { max-width: 560px; width: 100%; margin: 0.75rem auto 0; }
@@ -586,7 +589,7 @@ figure { margin: 0; }
   width: max-content;
   padding-block: 0.95rem;
   font-family: var(--font-display);
-  font-weight: 900;
+  font-weight: 800;
   font-size: clamp(1.25rem, 2.5vw, 1.75rem);
   letter-spacing: -0.01em;
   text-transform: uppercase;
@@ -616,10 +619,10 @@ figure { margin: 0; }
 .stat__big {
   margin-bottom: 1rem;
   font-family: var(--font-display);
-  font-weight: 900;
+  font-weight: 800;
   font-size: clamp(3.5rem, 6vw, 4.75rem);
-  line-height: 0.9;
-  letter-spacing: -0.04em;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
   color: var(--raspberry);
 }
 .stat__big span { font-size: 0.5em; letter-spacing: 0; }
@@ -674,7 +677,7 @@ figure { margin: 0; }
 }
 .compare__verdict span {
   font-family: var(--font-display);
-  font-weight: 900;
+  font-weight: 800;
   font-size: 1.5rem;
   white-space: nowrap;
 }
@@ -782,7 +785,7 @@ figure { margin: 0; }
 }
 .facts__title {
   font-size: clamp(2.25rem, 4vw, 2.75rem);
-  letter-spacing: -0.03em;
+  letter-spacing: -0.015em;
 }
 .facts__flavor {
   padding-bottom: 0.6rem;
@@ -798,7 +801,7 @@ figure { margin: 0; }
   padding: 0.5rem 0;
   border-bottom: 5px solid var(--ink);
   font-family: var(--font-display);
-  font-weight: 900;
+  font-weight: 800;
 }
 .facts__calories span { font-size: 1.5rem; }
 .facts__calories strong { font-size: 2.75rem; line-height: 1; }

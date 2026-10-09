@@ -47,16 +47,16 @@ The logo must work in **white on Raspberry `#A71C3B`** (the cup sleeve), **Raspb
 
 ## 4. Typography
 
-- **Headings and the current wordmark:** **Nunito**, Black (900). Rounded and bold. Google Fonts, free.
+- **Logo and headings:** **Poppins**. The logo is Poppins Bold (700); website headings use Poppins ExtraBold (800). It's the same geometric sans as the lettering on the cup. Google Fonts, free.
 - **Body text:** **DM Sans**, Regular to Bold. Google Fonts, free.
-- The wordmark on the cup is a bold, rounded geometric sans in white: "JellyFit", with a capital J and capital F and no space.
+- The wordmark is always written "JellyFit": capital J, capital F, no space.
 
 ## 5. Logo (chosen: "Jelly Drop")
 
-- **Wordmark:** "JellyFit" in Nunito Black, converted to outlines. The dot of the **i** is a glossy pink jelly drop (`#E8899A`).
+- **Wordmark:** "JellyFit" in Poppins Bold, converted to outlines. The dot of the **i** is a glossy pink jelly drop (`#E8899A`). It sits clear of the letter with a small gap, and its white highlight matches the shine on the jelly in the packshot.
   - Main version: raspberry lettering on light backgrounds.
   - Reversed version: white lettering on raspberry or dark backgrounds.
-- **Icon:** a lowercase **j** whose dot is the same jelly drop. White on raspberry for the app icon, favicon and profile pictures.
+- **Icon:** a lowercase Poppins **j** whose dot is the same jelly drop, centred for a round crop. White on raspberry for the app icon, favicon and profile pictures.
 - Files are in `brand/logo`, `brand/icon` and `brand/social` (see `brand/README.md`).
 
 ## 6. Using the logo
@@ -64,7 +64,8 @@ The logo must work in **white on Raspberry `#A71C3B`** (the cup sleeve), **Raspb
 1. Use the full wordmark wherever there's room: website header, packaging, posters.
 2. Use the **j** icon when space is small or round: favicon, WhatsApp/Instagram profile picture, stickers, app icon.
 3. Keep clear space around the logo at least the height of the jelly drop. Don't stretch, rotate or recolor it.
-4. **Optional, for the GCC:** an Arabic companion wordmark, for example "جيلي فيت", with the same jelly-drop idea. Have a native speaker check the spelling.
+4. **Flavor packs:** on a Mango pack the drop may turn mango (`#F29F1D`). The lettering stays white, raspberry or ink, never mango. White on mango is low contrast (about 2:1), so check it in print.
+5. **Optional, for the GCC:** an Arabic companion wordmark, for example "جيلي فيت", with the same jelly-drop idea. Have a native speaker check the spelling.
 
 ## 7. Do / Don't
 

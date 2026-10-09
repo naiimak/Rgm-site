@@ -4,7 +4,7 @@ These files are kept in the repo for reference and are **not** published on the 
 
 ## Logo: "Jelly Drop"
 
-The JellyFit wordmark (Nunito Black, converted to outlines) with the dot of the **i** replaced by a jelly drop.
+The JellyFit wordmark in **Poppins Bold** (the same typeface as the cup lettering), converted to outlines, with the dot of the **i** replaced by a glossy jelly drop. The drop sits clear of the letter with a small gap.
 
 | File | Use |
 |---|---|
@@ -33,7 +33,14 @@ SVG files stay sharp at any size and need no fonts installed. Use the PNGs where
 
 - Leave clear space around the logo at least the height of the jelly drop.
 - Don't stretch, rotate, outline or add shadows to the logo.
-- Don't recolor the lettering in mango. Mango is a flavor color, not the brand color.
+- Don't recolor the lettering in mango. Mango is a flavor color, not the brand color. On Mango packs only the drop may turn mango (`#F29F1D`).
 - The smallest size for the full wordmark is about 80 px wide on screen. Below that, use the **j** icon.
+
+## Typography
+
+- **Logo and headings:** Poppins (Bold for the logo, ExtraBold for website headings)
+- **Body text:** DM Sans
+
+Both are free on Google Fonts.
 
 See `BRAND-BRIEF.md` for the full brief: product, tone, typography and claim rules.
