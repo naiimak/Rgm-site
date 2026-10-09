@@ -257,11 +257,11 @@ figure { margin: 0; }
 .logo__img {
   display: block;
   height: 2.1rem;
-  width: 6.59rem;
+  width: 6.35rem;
   fill: currentColor;
 }
 .logo--light { color: #fff; }
-.logo--light .logo__img { height: 2.4rem; width: 7.53rem; }
+.logo--light .logo__img { height: 2.4rem; width: 7.26rem; }
 
 .site-nav {
   display: flex;
