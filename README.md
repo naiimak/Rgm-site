@@ -46,6 +46,10 @@ The mandatory nutrition table on the pack has to show **total** protein (whey pl
 5. **Floating cup.** `public/assets/jellyfit-raspberry-cup.webp` is the Raspberry packshot with the background removed (PNG fallback alongside). To swap in a new packshot, export it with a transparent background at a similar size. The float speed and height are in the `float` keyframes in `public/css/styles.css`; it stops for visitors who have reduced motion turned on.
 6. **Social preview image.** `og:image`, `og:url` and the canonical link point at `https://jellyfit.online`. If the domain ever changes, update them in `public/index.html`.
 
+## Brand assets
+
+The logo, icon, profile pictures and brand brief live in `brand/` (see `brand/README.md`). That folder is not published on the website.
+
 ## Deploy (Netlify)
 
 `netlify.toml` already tells Netlify what to publish (`public/`, no build command), so there's nothing to configure.

@@ -245,15 +245,21 @@ figure { margin: 0; }
 }
 
 .logo {
-  font-family: var(--font-display);
-  font-size: 1.8rem;
-  font-weight: 900;
-  letter-spacing: -0.02em;
-  line-height: 1;
-  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 8px;
   color: var(--raspberry);
+  text-decoration: none;
+}
+/* Wordmark SVG: the lettering uses currentColor, so the colour comes from .logo */
+.logo__img {
+  display: block;
+  height: 2.1rem;
+  width: 6.73rem;
+  fill: currentColor;
 }
 .logo--light { color: #fff; }
+.logo--light .logo__img { height: 2.4rem; width: 7.70rem; }
 
 .site-nav {
   display: flex;
