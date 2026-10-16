@@ -10,9 +10,58 @@
     // `email` instead.
     whatsappNumber: '',
     email: 'hello@jellyfit.example',
+    // Google Analytics 4 measurement ID, e.g. 'G-ABC123XYZ' (Admin > Data
+    // streams in Google Analytics). While empty, no analytics code is loaded.
+    ga4Id: '',
   };
 
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ------------------------------------------------------------------------
+     Analytics: Google Analytics 4, loaded only once CONFIG.ga4Id is set.
+     `track(name, params)` sends an event, or does nothing while it's off.
+     ------------------------------------------------------------------------ */
+  const track = (() => {
+    const id = CONFIG.ga4Id.trim();
+    if (!/^G-[A-Z0-9]+$/i.test(id)) return () => {};
+    window.dataLayer = window.dataLayer || [];
+    // gtag expects the `arguments` object itself, not an array.
+    window.gtag = function gtag() { window.dataLayer.push(arguments); };
+    window.gtag('js', new Date());
+    window.gtag('config', id);
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(id)}`;
+    document.head.append(script);
+    return (name, params = {}) => window.gtag('event', name, params);
+  })();
+
+  /* ------------------------------------------------------------------------
+     Where visitors come from: utm_* links (e.g. a QR code in a gym) and the
+     referring website are saved with every sign-up in Netlify Forms. The
+     first source seen in a visit is kept, so a reload doesn't lose it.
+     ------------------------------------------------------------------------ */
+  const source = (() => {
+    const params = new URLSearchParams(window.location.search);
+    let referrer = '';
+    try {
+      const host = new URL(document.referrer).hostname;
+      if (host !== window.location.hostname) referrer = host;
+    } catch (e) { /* no referrer */ }
+    const current = {
+      utm_source: params.get('utm_source') || '',
+      utm_medium: params.get('utm_medium') || '',
+      utm_campaign: params.get('utm_campaign') || '',
+      referrer,
+    };
+    try {
+      const saved = JSON.parse(sessionStorage.getItem('jf-source'));
+      if (saved) return saved;
+      if (Object.values(current).some(Boolean)) sessionStorage.setItem('jf-source', JSON.stringify(current));
+    } catch (e) { /* storage unavailable: use this page view's values */ }
+    return current;
+  })();
+  document.querySelectorAll('[data-source-field]').forEach((input) => { input.value = source[input.name] || ''; });
 
   /* ------------------------------------------------------------------------
      Header: shadow on scroll + mobile menu
@@ -129,6 +178,7 @@
       // Start saving first, then open WhatsApp in the same click so pop-up
       // blockers allow it.
       const saved = saveToNetlify(form);
+      track('generate_lead', { form_name: form.getAttribute('name'), method: whatsappNumber() ? 'whatsapp' : 'email' });
       send(message);
       saved.then((ok) => {
         status.textContent = message.thanks(ok);
@@ -136,6 +186,14 @@
       });
     });
   });
+
+  // Clicks on the main calls to action, and which FAQ questions get opened.
+  document.querySelectorAll('a[href="#join"], a[href="#gyms"]').forEach((link) => link.addEventListener('click', () => {
+    track('cta_click', { cta_text: link.textContent.trim(), cta_target: link.getAttribute('href').slice(1) });
+  }));
+  document.querySelectorAll('.faq details').forEach((item) => item.addEventListener('toggle', () => {
+    if (item.open) track('faq_open', { question: item.querySelector('summary').textContent.trim() });
+  }));
 
   /* ------------------------------------------------------------------------
      Scroll reveal + footer year

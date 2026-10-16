@@ -3,8 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>JellyFit — Protein you actually crave</title>
-  <meta name="description" content="JellyFit is a chilled 100g protein jelly cup with 20g of complete protein from whey isolate, under 1g of sugar and about 95 kcal. Halal by design. Coming soon to Beirut.">
+  <title>JellyFit Protein Jelly: 20g Protein, Under 1g Sugar | Beirut</title>
+  <meta name="description" content="JellyFit is a chilled protein jelly cup with 20g of complete protein from whey isolate, under 1g of sugar and about 95 kcal. Halal. Launching in Beirut gyms.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="theme-color" content="#A71C3B">
   <meta property="og:type" content="website">
   <meta property="og:title" content="JellyFit — Protein you actually crave">
@@ -12,6 +13,7 @@
   <link rel="canonical" href="https://jellyfit.online/">
   <meta property="og:url" content="https://jellyfit.online/">
   <meta property="og:site_name" content="JellyFit">
+  <meta property="og:locale" content="en_US">
   <!-- Link previews (WhatsApp, Instagram, iMessage) need absolute image URLs. -->
   <meta property="og:image" content="https://jellyfit.online/assets/jellyfit-raspberry-wide.jpg?v=2">
   <meta property="og:image:width" content="1379">
@@ -21,12 +23,122 @@
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=DM+Sans:opsz,wght@9..40,400..700&display=swap">
+  <link rel="preload" href="fonts/poppins-800-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/dm-sans-400-700-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/styles.css">
   <script>document.documentElement.classList.add('js');</script>
   <script src="js/main.js" defer></script>
+  <!-- Structured data for search engines. The FAQ answers must match the FAQ
+       section on the page word for word: update both together. -->
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://jellyfit.online/#organization",
+      "name": "JellyFit",
+      "url": "https://jellyfit.online/",
+      "logo": "https://jellyfit.online/assets/jellyfit-logo-512.png",
+      "slogan": "Protein you actually crave.",
+      "description": "Chilled protein jelly cups with 20g of complete protein from whey isolate, under 1g of sugar and about 95 kcal. Halal. Launching in Beirut, Lebanon.",
+      "areaServed": {
+        "@type": "City",
+        "name": "Beirut"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://jellyfit.online/#website",
+      "name": "JellyFit",
+      "url": "https://jellyfit.online/",
+      "inLanguage": "en",
+      "publisher": {
+        "@id": "https://jellyfit.online/#organization"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://jellyfit.online/#faq",
+      "url": "https://jellyfit.online/",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is JellyFit?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A chilled 100g protein jelly cup with 20g of complete protein from whey isolate, under 1g of sugar and about 95 calories. It's a snack with a treat-like texture, not a supplement."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is it different from a protein shake or bar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It's a jelly you eat with a spoon, straight from the fridge. No shaker, no mixing and no chewy bar: just 20g of complete protein from whey isolate in a 100g cup, with under 1g of sugar and about 95 calories."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "When and where can I buy it?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We're finishing the recipe now and launching first in a handful of gyms in Beirut, Lebanon. Join the WhatsApp list and we'll tell you where to find it."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does “complete protein” mean?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A complete protein contains all nine essential amino acids, the ones your body can't make and has to get from food. Whey isolate is complete. Collagen, used in many protein jellies, is not: it's missing tryptophan."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does JellyFit contain collagen?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Only a little, as the gelatin that sets the jelly. Gelatin is made from collagen. Its protein isn't counted in the 20g on the cup: that number is complete protein from whey isolate only."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is JellyFit halal?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, by design. JellyFit is set with an agar base and halal-certified bovine gelatin."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is it vegetarian or vegan? What about allergies?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. JellyFit contains whey, which comes from milk, and bovine gelatin. If you have a milk allergy, JellyFit isn't for you. Always check the cup for full allergen information."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does it need to stay cold?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. JellyFit is a chilled product, so keep it in the fridge. It tastes best cold anyway."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are you coming to the UAE or elsewhere in the Gulf?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We're starting in Beirut. The UAE and the wider GCC are next. Join the WhatsApp list to hear when we get closer."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -95,7 +207,8 @@
             <div class="stage__shadow" aria-hidden="true"></div>
             <div class="stage__cup">
               <picture>
-                <source srcset="assets/jellyfit-raspberry-cup.webp" type="image/webp">
+                <source type="image/avif" srcset="assets/jellyfit-raspberry-cup-360.avif 360w, assets/jellyfit-raspberry-cup-542.avif 542w" sizes="(max-width: 560px) 59vw, (max-width: 900px) 330px, 305px">
+                <source type="image/webp" srcset="assets/jellyfit-raspberry-cup-360.webp 360w, assets/jellyfit-raspberry-cup.webp 542w" sizes="(max-width: 560px) 59vw, (max-width: 900px) 330px, 305px">
                 <img src="assets/jellyfit-raspberry-cup.png" width="542" height="555" alt="A JellyFit Raspberry cup with a peel-off foil lid. The label reads: less than 1g sugar, 95 kcal, halal, 20g complete protein from whey isolate." fetchpriority="high">
               </picture>
             </div>
@@ -107,7 +220,7 @@
         </div>
 
         <div class="hero__copy hero__body">
-          <p class="lead">JellyFit is a chilled jelly cup with 20g of complete protein from whey isolate, under 1g of sugar and about 95 calories. Halal by design. It eats like a treat, not a supplement.</p>
+          <p class="lead">JellyFit is a chilled protein jelly cup with 20g of complete protein from whey isolate, under 1g of sugar and about 95 calories. Halal by design. It eats like a treat, not a supplement.</p>
           <div class="hero__actions">
             <a class="btn btn--primary" href="#join">Join the WhatsApp list</a>
             <a class="btn btn--ghost" href="#gyms">Stock it at your gym</a>
@@ -311,6 +424,11 @@
              the script then opens WhatsApp with the same details. -->
         <form class="card-form reveal" name="waitlist" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-wa-form="join" novalidate>
           <input type="hidden" name="form-name" value="waitlist">
+          <!-- Filled in by js/main.js: where the visitor came from (e.g. a gym QR code). -->
+          <input type="hidden" name="utm_source" data-source-field>
+          <input type="hidden" name="utm_medium" data-source-field>
+          <input type="hidden" name="utm_campaign" data-source-field>
+          <input type="hidden" name="referrer" data-source-field>
           <p class="sr-only" aria-hidden="true">
             <label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label>
           </p>
@@ -368,6 +486,11 @@
 
         <form class="card-form reveal" name="gym-pilot" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-wa-form="gym" novalidate>
           <input type="hidden" name="form-name" value="gym-pilot">
+          <!-- Filled in by js/main.js: where the visitor came from (e.g. a gym QR code). -->
+          <input type="hidden" name="utm_source" data-source-field>
+          <input type="hidden" name="utm_medium" data-source-field>
+          <input type="hidden" name="utm_campaign" data-source-field>
+          <input type="hidden" name="referrer" data-source-field>
           <p class="sr-only" aria-hidden="true">
             <label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label>
           </p>
@@ -407,11 +530,15 @@
         <div class="faq__list reveal">
           <details>
             <summary>What is JellyFit?</summary>
-            <p>A chilled 100g jelly cup with 20g of complete protein from whey isolate, under 1g of sugar and about 95 calories. It's a snack with a treat-like texture, not a supplement.</p>
+            <p>A chilled 100g protein jelly cup with 20g of complete protein from whey isolate, under 1g of sugar and about 95 calories. It's a snack with a treat-like texture, not a supplement.</p>
+          </details>
+          <details>
+            <summary>How is it different from a protein shake or bar?</summary>
+            <p>It's a jelly you eat with a spoon, straight from the fridge. No shaker, no mixing and no chewy bar: just 20g of complete protein from whey isolate in a 100g cup, with under 1g of sugar and about 95 calories.</p>
           </details>
           <details>
             <summary>When and where can I buy it?</summary>
-            <p>We're finishing the recipe now and launching first in a handful of Beirut gyms. <a href="#join">Join the WhatsApp list</a> and we'll tell you where to find it.</p>
+            <p>We're finishing the recipe now and launching first in a handful of gyms in Beirut, Lebanon. <a href="#join">Join the WhatsApp list</a> and we'll tell you where to find it.</p>
           </details>
           <details>
             <summary>What does “complete protein” mean?</summary>
