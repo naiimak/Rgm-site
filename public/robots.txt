@@ -1,0 +1,7 @@
+# Every crawler is welcome, including search engines and AI assistants
+# (for example GPTBot, OAI-SearchBot, ClaudeBot, PerplexityBot and
+# Google-Extended). A plain-text summary for AI assistants is at /llms.txt.
+User-agent: *
+Allow: /
+
+Sitemap: https://jellyfit.online/sitemap.xml

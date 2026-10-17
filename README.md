@@ -27,7 +27,39 @@ Then open the URL it prints. You can also open `public/index.html` directly in a
 | Nutrition | Target values per 100g cup, marked as targets |
 | Join the list | Consumer sign-up (name, WhatsApp number, gym, flavor, "what caught your eye"). Saved to Netlify Forms, then opens WhatsApp pre-filled |
 | For gyms | Pilot enquiry form for gym owners (name, phone, venue, area). Saved to Netlify Forms, then opens WhatsApp pre-filled |
-| FAQ | Availability, complete protein, halal, allergens, storage, GCC plans |
+| FAQ | Availability, shake/bar comparison, complete protein, halal, allergens, storage, GCC plans |
+
+## Search engines (SEO)
+
+- **Title and description** in the `<head>` of `public/index.html` are what Google shows in results. Keep the title under about 60 characters and the description under about 160.
+- **Structured data:** the `application/ld+json` block in the `<head>` describes JellyFit (Organization, WebSite) and repeats the FAQ. If you edit an FAQ question or answer, edit the same text in that block.
+- **`robots.txt` and `sitemap.xml`** are in `public/`. When the page changes a lot, update `<lastmod>` in the sitemap.
+- **`404.html`** is the branded "page not found" page Netlify shows for any missing address.
+- **One address:** `netlify.toml` forwards `jellyfit28.netlify.app` to `https://jellyfit.online`, so Google only indexes the real domain.
+- **Fonts** (Poppins 800 and DM Sans) are served from `public/fonts/`, not from Google Fonts, so text can render without waiting on another server.
+
+## AI assistants (ChatGPT, Claude, Perplexity, Google AI answers)
+
+- **`llms.txt`** in `public/` is a plain-text fact sheet about JellyFit for AI assistants: key facts, the protein claim, and links. Keep it in step with the page whenever a fact changes (price, where to buy, nutrition, flavors), and update its "Last updated" date.
+- `robots.txt` lets every crawler in, AI crawlers included. Everything on the page is plain HTML, so crawlers that don't run JavaScript still see all of it.
+- The FAQ answers the questions people ask chatbots (what it is, ingredients, price, where to buy, halal, allergens). The structured data repeats them, so update both together, and set `dateModified` in the structured data when you do.
+
+## Tracking
+
+**Where sign-ups come from.** Each form saves `utm_source`, `utm_medium`, `utm_campaign` and the referring website with the submission, so you can see them in Netlify Forms. Use tagged links wherever you share the site, for example:
+
+- Gym QR code: `https://jellyfit.online/?utm_source=gym-name&utm_medium=qr&utm_campaign=pilot`
+- Instagram bio: `https://jellyfit.online/?utm_source=instagram&utm_medium=bio`
+
+**Google Analytics 4 (optional).** Create a GA4 property, copy its measurement ID (`G-…`) into `CONFIG.ga4Id` in `public/js/main.js`, and push. Until then no analytics code loads. Once on, it records page views plus these events:
+
+| Event | When |
+| --- | --- |
+| `generate_lead` | A waitlist or gym form is sent (`form_name`, `method`) |
+| `cta_click` | A "Join the list" or "For gyms" button or link is clicked |
+| `faq_open` | An FAQ question is opened (`question`) |
+
+In GA4, mark `generate_lead` as a key event. Google Analytics uses cookies, so if you run ads or target visitors in the EU or UAE, add a consent banner before turning it on.
 
 ## The protein claim rule
 
@@ -40,11 +72,12 @@ The mandatory nutrition table on the pack has to show **total** protein (whey pl
 ## Before you launch
 
 1. **WhatsApp number.** Set `CONFIG.whatsappNumber` at the top of `public/js/main.js` (digits only, with country code, e.g. `9613123456`). Until it's set, both forms open a pre-filled email instead.
-2. **Email address.** Replace `hello@jellyfit.example` in `public/js/main.js` and `public/index.html`.
+2. **Email address.** The site uses `hello@jellyfit.online` (forwarded by Dynadot). If it changes, update `CONFIG.email` in `public/js/main.js`, the `mailto:` links in `public/index.html` and the `email` in its structured data.
 3. **Nutrition values.** The panel shows target values and says so. Once the formula is locked, replace them with lab-confirmed values, add the remaining rows (fat, carbohydrate, sodium) and the ingredient list, and remove the "target" wording.
 4. **Mango packshot.** The flavor cards use an illustrated jelly. Real packshots can replace or sit alongside it.
 5. **Floating cup.** `public/assets/jellyfit-raspberry-cup.webp` is the Raspberry packshot with the background removed (PNG fallback alongside). To swap in a new packshot, export it with a transparent background at a similar size. The float speed and height are in the `float` keyframes in `public/css/styles.css`; it stops for visitors who have reduced motion turned on.
-6. **Social preview image.** `og:image`, `og:url` and the canonical link point at `https://jellyfit.online`. If the domain ever changes, update them in `public/index.html`.
+6. **Google Search Console.** Add `jellyfit.online` as a Domain property, verify it with the TXT record Google gives you (add it in Dynadot's DNS settings), then submit `https://jellyfit.online/sitemap.xml`.
+7. **Social preview image.** `og:image`, `og:url` and the canonical link point at `https://jellyfit.online`. If the domain ever changes, update them in `public/index.html`.
 
 ## Brand assets
 
