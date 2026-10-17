@@ -9,7 +9,7 @@
     // for a Lebanese mobile. While empty, the forms open a pre-filled email to
     // `email` instead.
     whatsappNumber: '',
-    email: 'hello@jellyfit.example',
+    email: 'hello@jellyfit.online',
     // Google Analytics 4 measurement ID, e.g. 'G-ABC123XYZ' (Admin > Data
     // streams in Google Analytics). While empty, no analytics code is loaded.
     ga4Id: '',

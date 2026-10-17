@@ -66,7 +66,7 @@ The mandatory nutrition table on the pack has to show **total** protein (whey pl
 ## Before you launch
 
 1. **WhatsApp number.** Set `CONFIG.whatsappNumber` at the top of `public/js/main.js` (digits only, with country code, e.g. `9613123456`). Until it's set, both forms open a pre-filled email instead.
-2. **Email address.** Replace `hello@jellyfit.example` in `public/js/main.js` and `public/index.html`.
+2. **Email address.** The site uses `hello@jellyfit.online` (forwarded by Dynadot). If it changes, update `CONFIG.email` in `public/js/main.js`, the `mailto:` links in `public/index.html` and the `email` in its structured data.
 3. **Nutrition values.** The panel shows target values and says so. Once the formula is locked, replace them with lab-confirmed values, add the remaining rows (fat, carbohydrate, sodium) and the ingredient list, and remove the "target" wording.
 4. **Mango packshot.** The flavor cards use an illustrated jelly. Real packshots can replace or sit alongside it.
 5. **Floating cup.** `public/assets/jellyfit-raspberry-cup.webp` is the Raspberry packshot with the background removed (PNG fallback alongside). To swap in a new packshot, export it with a transparent background at a similar size. The float speed and height are in the `float` keyframes in `public/css/styles.css`; it stops for visitors who have reduced motion turned on.
