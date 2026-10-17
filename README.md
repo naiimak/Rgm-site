@@ -38,6 +38,12 @@ Then open the URL it prints. You can also open `public/index.html` directly in a
 - **One address:** `netlify.toml` forwards `jellyfit28.netlify.app` to `https://jellyfit.online`, so Google only indexes the real domain.
 - **Fonts** (Poppins 800 and DM Sans) are served from `public/fonts/`, not from Google Fonts, so text can render without waiting on another server.
 
+## AI assistants (ChatGPT, Claude, Perplexity, Google AI answers)
+
+- **`llms.txt`** in `public/` is a plain-text fact sheet about JellyFit for AI assistants: key facts, the protein claim, and links. Keep it in step with the page whenever a fact changes (price, where to buy, nutrition, flavors), and update its "Last updated" date.
+- `robots.txt` lets every crawler in, AI crawlers included. Everything on the page is plain HTML, so crawlers that don't run JavaScript still see all of it.
+- The FAQ answers the questions people ask chatbots (what it is, ingredients, price, where to buy, halal, allergens). The structured data repeats them, so update both together, and set `dateModified` in the structured data when you do.
+
 ## Tracking
 
 **Where sign-ups come from.** Each form saves `utm_source`, `utm_medium`, `utm_campaign` and the referring website with the submission, so you can see them in Netlify Forms. Use tagged links wherever you share the site, for example:
