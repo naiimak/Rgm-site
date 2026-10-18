@@ -92,7 +92,7 @@ async function readSheets(): Promise<SheetRow[]> {
     const clubName = normalize(titleCell.split(/\s[-–]\s/)[0]);
     const club = config.clubs.find((c) => normalize(c.internal) === clubName)
       ?? config.clubs.find((c) => normalize(file).includes(normalize(c.internal)));
-    if (!club) { console.warn(`Skipping ${file}: club "${clubName}" is not one of the 50 card clubs`); continue; }
+    if (!club) { console.warn(`Skipping ${file}: club "${clubName}" is not one of the 38 card clubs`); continue; }
     let header = 0;
     ws.eachRow((row, i) => { if (!header && row.values && (row.values as unknown[]).some((v) => String(v) === 'Player Name')) header = i; });
     ws.eachRow((row, i) => {

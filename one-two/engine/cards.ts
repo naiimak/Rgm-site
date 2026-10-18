@@ -31,7 +31,8 @@ export function buildDeck(config: GameConfig): Card[] {
   for (const club of config.clubs) repeat(d.clubCopies, { kind: 'club', ref: club.id, colour: leagueColour(config, club.league) });
   for (const l of config.leagues) {
     repeat(d.leagueCopies, { kind: 'league', ref: l.id, colour: l.colour });
-    repeat(d.championCopies, { kind: 'champion', ref: l.id, colour: l.colour });
+    const champions = typeof d.championCopies === 'number' ? d.championCopies : d.championCopies[l.id] ?? 0;
+    repeat(champions, { kind: 'champion', ref: l.id, colour: l.colour });
   }
   for (const t of config.trophies) repeat(t.copies, { kind: 'trophy', ref: t.id, colour: null });
   for (const c of config.coaches) repeat(d.coachCopies, { kind: 'coach', ref: c.id, colour: null });

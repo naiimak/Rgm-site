@@ -3,10 +3,10 @@
 //   npm run data:wikidata
 //
 // Stages (every query is cached in data/wikidata-cache/, so a rerun resumes where it stopped):
-//   1. Find the Wikidata items for the 50 clubs, 24 national teams, coach clubs, leagues and trophies.
+//   1. Find the Wikidata items for the 38 card clubs, 24 national teams, coach and former card clubs, leagues and trophies.
 //   2. Leagues: every top-flight season of the 5 countries, its champion and its clubs.
 //   3. Trophies: Champions League / European Cup winners, World Cup and Euro winners, Ballon d'Or winners.
-//   4. Players: everyone with a senior spell at one of the 50 clubs or a cap for one of the 24 nations.
+//   4. Players: everyone with a senior spell at one of those clubs or a cap for one of the 24 nations.
 //   5. Each player's name, birth year, nationality, fame (sitelinks), nicknames, spells and tournaments.
 //   6. Derive league titles, Champions League and tournament wins, then write players.json
 //      plus data/import-report.md (disagreements with the hand-entered seed, for review).

@@ -68,7 +68,7 @@ export class PlayerDB {
     }
   }
 
-  /** The 98 distinct subject cards: 50 clubs, 5 leagues, 5 champions, 4 trophies, 10 coaches, 24 nations. */
+  /** The distinct subject cards (86 today): 38 clubs, 5 leagues, 5 champions, 4 trophies, 10 coaches, 24 nations. */
   subjectKeys(): string[] {
     const c = this.config;
     return [

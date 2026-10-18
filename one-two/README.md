@@ -44,7 +44,7 @@ Status against the spec's five milestones:
 ```bash
 npm test             # 46 rules tests: every row of "What you must answer", every action card, penalties, setup, autocomplete
 npm run simulate     # Milestone 1 acceptance: 1,000 bot-only games through the real engine
-npm run coverage     # link-coverage check for all 4,753 card pairs -> data/coverage-report.md
+npm run coverage     # link-coverage check for all 3,655 card pairs -> data/coverage-report.md
 npm run typecheck
 ```
 
@@ -103,13 +103,13 @@ npm run coverage                                   # check: how many card pairs 
 
 Then press "Publish new data version" on the admin page (games in progress finish on the version they started with).
 
-1. **Wikidata** (free, CC0): every player with a senior spell at one of the 50 clubs or a cap for one of the 24 nations, active in 1990 or later. Their name, nicknames, birth year, nationality, club spells and fame (number of Wikipedia languages). League titles and Champions League wins are worked out from each season's winner and the player's spell at that club; World Cup and Euro wins from tournament participation plus the winning nation. The Ballon d'Or comes straight from Wikidata. Card titles are in `data/wikidata-sources.json`.
+1. **Wikidata** (free, CC0): every player with a senior spell at one of the 38 card clubs (or the 12 former card clubs) or a cap for one of the 24 nations, active in 1990 or later. Their name, nicknames, birth year, nationality, club spells and fame (number of Wikipedia languages). League titles and Champions League wins are worked out from each season's winner and the player's spell at that club; World Cup and Euro wins from tournament participation plus the winning nation. The Ballon d'Or comes straight from Wikidata. Card titles are in `data/wikidata-sources.json`.
 2. **football-data.org** (key in `FOOTBALL_DATA_KEY`, never stored in the repo): adds this season's transfers and players Wikidata hasn't caught up with, and ends spells of players who have left. The free plan only covers the current season, so it can't supply history.
 3. **Club sheets** (`data/manual/club-sheets/*.xlsx`, in the "Players & Trophies 1990–Present" format): club membership is trusted, and unambiguous trophies are added (winners only, no runners-up or post-1992 second-tier "Division One"). Nothing from Wikidata is removed. `data/player-data-template.xlsx` is a fuller template with years per club.
 
 Every step writes a report to check: `data/import-report.md` (where Wikidata and the old hand-entered seed disagree), `data/squads-report.md`, `data/sheets-report.md` and `data/coverage-report.md`.
 
-Coverage: 15% of the 4,753 card pairs have no valid player (most are impossible anyway, like two national teams) and 10% have exactly one. With the 491-player seed it was 42% and 18%. All 1,000 simulated bot games now finish.
+Coverage: 16% of the 3,655 card pairs have no valid player (most are impossible anyway, like two national teams) and 9% have exactly one. With the 491-player seed it was 42% and 18%. All 1,000 simulated bot games now finish.
 
 **Known approximations** (the spec's AI review should check these, starting with the most famous players):
 - A league title or Champions League counts if the player's spell at the winning club covers that season. When Wikidata only has the year someone left, a player who left mid-season can wrongly get that season's title (e.g. Vieira and Inter's 2010 Champions League).
@@ -121,6 +121,7 @@ The phone downloads the full name list (about 1.9 MB, cached until the data chan
 
 ## Decisions I made where the spec was silent or inconsistent
 
+- **Fewer clubs, more League Champion cards (your change):** Espanyol, Deportivo, Real Sociedad, Parma, Sampdoria, Hamburg, Werder Bremen, Stuttgart, Bordeaux, Saint-Étienne, Lens and Rennes are no longer cards (38 clubs left). Each was replaced by a League Champion card of the same league (England 1, Spain 4, Italy 3, Germany 4, France 5), so every league colour still has 13 subject cards and the deck stays at 151. Careers at those clubs still count for the league cards and for coach cards (Ancelotti at Parma).
 - **Deck size:** Setup says a 104-card deck, but Deck composition and the card table say 151. I used 151.
 - **League Champion points:** not listed in the end-of-game points; I scored them like League cards (10).
 - **Timer runs out after you've drawn:** the turn ends with no extra 2-card penalty, because you already acted.

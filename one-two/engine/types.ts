@@ -38,7 +38,7 @@ export interface GameConfig {
   trophies: TrophyDef[];
   flags: Record<string, string>;
   deck: {
-    clubCopies: number; leagueCopies: number; championCopies: number; coachCopies: number; nationalCopies: number;
+    clubCopies: number; leagueCopies: number; championCopies: number | Record<LeagueId, number>; coachCopies: number; nationalCopies: number;
     actions: Record<ActionKind, { perColour?: number; wild?: number }>;
   };
   points: Record<string, number>;

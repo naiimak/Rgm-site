@@ -1,193 +1,2203 @@
 {
-  "configVersion": "2026-10-18.1",
+  "configVersion": "2026-10-19.1",
   "currentSeasonEnd": 2026,
   "leagues": [
-    { "id": "ENG", "colour": "red", "hex": "#E03131", "symbol": "◆", "name": "England – Top Flight", "country": "England", "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿" },
-    { "id": "ESP", "colour": "yellow", "hex": "#F2B705", "symbol": "●", "name": "Spain – Top Flight", "country": "Spain", "flag": "🇪🇸" },
-    { "id": "ITA", "colour": "blue", "hex": "#1C7ED6", "symbol": "■", "name": "Italy – Top Flight", "country": "Italy", "flag": "🇮🇹" },
-    { "id": "GER", "colour": "green", "hex": "#2F9E44", "symbol": "▲", "name": "Germany – Top Flight", "country": "Germany", "flag": "🇩🇪" },
-    { "id": "FRA", "colour": "purple", "hex": "#7048E8", "symbol": "★", "name": "France – Top Flight", "country": "France", "flag": "🇫🇷" }
+    {
+      "id": "ENG",
+      "colour": "red",
+      "hex": "#E03131",
+      "symbol": "◆",
+      "name": "England – Top Flight",
+      "country": "England",
+      "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿"
+    },
+    {
+      "id": "ESP",
+      "colour": "yellow",
+      "hex": "#F2B705",
+      "symbol": "●",
+      "name": "Spain – Top Flight",
+      "country": "Spain",
+      "flag": "🇪🇸"
+    },
+    {
+      "id": "ITA",
+      "colour": "blue",
+      "hex": "#1C7ED6",
+      "symbol": "■",
+      "name": "Italy – Top Flight",
+      "country": "Italy",
+      "flag": "🇮🇹"
+    },
+    {
+      "id": "GER",
+      "colour": "green",
+      "hex": "#2F9E44",
+      "symbol": "▲",
+      "name": "Germany – Top Flight",
+      "country": "Germany",
+      "flag": "🇩🇪"
+    },
+    {
+      "id": "FRA",
+      "colour": "purple",
+      "hex": "#7048E8",
+      "symbol": "★",
+      "name": "France – Top Flight",
+      "country": "France",
+      "flag": "🇫🇷"
+    }
   ],
   "clubs": [
-    { "id": "MUN", "league": "ENG", "internal": "Manchester United", "name": "Manchester Red", "kit": ["#DA291C"] },
-    { "id": "MCI", "league": "ENG", "internal": "Manchester City", "name": "Manchester Sky", "kit": ["#6CABDD"] },
-    { "id": "LIV", "league": "ENG", "internal": "Liverpool", "name": "Liverpool Red", "kit": ["#C8102E"] },
-    { "id": "EVE", "league": "ENG", "internal": "Everton", "name": "Liverpool Blue", "kit": ["#003399"] },
-    { "id": "CHE", "league": "ENG", "internal": "Chelsea", "name": "West London Blue", "kit": ["#034694"], "notTopFlight": [[1979, 1984], [1988, 1989]] },
-    { "id": "ARS", "league": "ENG", "internal": "Arsenal", "name": "North London Red", "kit": ["#EF0107", "#FFFFFF"] },
-    { "id": "TOT", "league": "ENG", "internal": "Tottenham Hotspur", "name": "North London White", "kit": ["#FFFFFF", "#132257"], "notTopFlight": [[1977, 1978]] },
-    { "id": "NEW", "league": "ENG", "internal": "Newcastle United", "name": "Tyneside Stripes", "kit": ["#241F20", "#FFFFFF"], "notTopFlight": [[1989, 1993], [2009, 2010], [2016, 2017]] },
-    { "id": "AVL", "league": "ENG", "internal": "Aston Villa", "name": "Birmingham Claret", "kit": ["#670E36", "#95BFE5"], "notTopFlight": [[2016, 2019]] },
-    { "id": "WHU", "league": "ENG", "internal": "West Ham United", "name": "East London Claret", "kit": ["#7A263A", "#1BB1E7"], "notTopFlight": [[1989, 1991], [1992, 1993], [2003, 2005], [2011, 2012]] },
-
-    { "id": "RMA", "league": "ESP", "internal": "Real Madrid", "name": "Madrid White", "kit": ["#FFFFFF"] },
-    { "id": "ATM", "league": "ESP", "internal": "Atlético Madrid", "name": "Madrid Stripes", "kit": ["#CB3524", "#FFFFFF"], "notTopFlight": [[2000, 2002]] },
-    { "id": "BAR", "league": "ESP", "internal": "Barcelona", "name": "Barcelona Blue-Red", "kit": ["#004D98", "#A50044"] },
-    { "id": "ESY", "league": "ESP", "internal": "Espanyol", "name": "Barcelona Blue-White", "kit": ["#007FC8", "#FFFFFF"], "notTopFlight": [[1989, 1990], [1993, 1994], [2020, 2021], [2023, 2024]] },
-    { "id": "SEV", "league": "ESP", "internal": "Sevilla", "name": "Seville White", "kit": ["#FFFFFF", "#D71920"], "notTopFlight": [[1997, 1999], [2000, 2001]] },
-    { "id": "BET", "league": "ESP", "internal": "Real Betis", "name": "Seville Green", "kit": ["#0BB363", "#FFFFFF"], "notTopFlight": [[1991, 1994], [2000, 2001], [2009, 2011], [2014, 2015]] },
-    { "id": "VAL", "league": "ESP", "internal": "Valencia", "name": "Valencia White", "kit": ["#FFFFFF", "#000000"], "notTopFlight": [[1986, 1987]] },
-    { "id": "VIL", "league": "ESP", "internal": "Villarreal", "name": "Castellón Yellow", "kit": ["#FFE667"], "notTopFlight": [[0, 1998], [1999, 2000], [2012, 2013]] },
-    { "id": "RSO", "league": "ESP", "internal": "Real Sociedad", "name": "San Sebastián Blue", "kit": ["#0067B1", "#FFFFFF"], "notTopFlight": [[2007, 2010]] },
-    { "id": "DEP", "league": "ESP", "internal": "Deportivo La Coruña", "name": "Coruña Blue", "kit": ["#1B4F9C", "#FFFFFF"], "notTopFlight": [[0, 1991], [2011, 2012], [2013, 2014], [2018, 2026]] },
-
-    { "id": "JUV", "league": "ITA", "internal": "Juventus", "name": "Turin Black-White", "kit": ["#000000", "#FFFFFF"], "notTopFlight": [[2006, 2007]] },
-    { "id": "MIL", "league": "ITA", "internal": "AC Milan", "name": "Milan Red-Black", "kit": ["#FB090B", "#000000"], "notTopFlight": [[1980, 1981], [1982, 1983]] },
-    { "id": "INT", "league": "ITA", "internal": "Inter", "name": "Milan Blue-Black", "kit": ["#0068A8", "#000000"] },
-    { "id": "ROM", "league": "ITA", "internal": "Roma", "name": "Rome Yellow-Red", "kit": ["#8E1F2F", "#F0BC42"] },
-    { "id": "LAZ", "league": "ITA", "internal": "Lazio", "name": "Rome Sky", "kit": ["#87D8F7"], "notTopFlight": [[1985, 1988]] },
-    { "id": "NAP", "league": "ITA", "internal": "Napoli", "name": "Naples Blue", "kit": ["#12A0D7"], "notTopFlight": [[1998, 2000], [2001, 2007]] },
-    { "id": "FIO", "league": "ITA", "internal": "Fiorentina", "name": "Florence Violet", "kit": ["#482E92"], "notTopFlight": [[1993, 1994], [2002, 2004]] },
-    { "id": "ATA", "league": "ITA", "internal": "Atalanta", "name": "Bergamo Blue", "kit": ["#1E71B8", "#000000"], "notTopFlight": [[1994, 1995], [1998, 2000], [2003, 2004], [2005, 2006], [2010, 2011]] },
-    { "id": "PAR", "league": "ITA", "internal": "Parma", "name": "Parma Yellow-Blue", "kit": ["#FFD200", "#1B4F9C"], "notTopFlight": [[0, 1990], [2008, 2009], [2015, 2018], [2021, 2024]] },
-    { "id": "SAM", "league": "ITA", "internal": "Sampdoria", "name": "Genova Hoops", "kit": ["#1B5497", "#FFFFFF", "#D71920", "#000000"], "notTopFlight": [[1999, 2002], [2011, 2012], [2023, 2026]] },
-
-    { "id": "BAY", "league": "GER", "internal": "Bayern Munich", "name": "Munich Red", "kit": ["#DC052D"], "notTopFlight": [[0, 1965]] },
-    { "id": "BVB", "league": "GER", "internal": "Borussia Dortmund", "name": "Dortmund Yellow", "kit": ["#FDE100", "#000000"], "notTopFlight": [[1972, 1976]] },
-    { "id": "LEV", "league": "GER", "internal": "Bayer Leverkusen", "name": "Leverkusen Red-Black", "kit": ["#E32221", "#000000"], "notTopFlight": [[0, 1979]] },
-    { "id": "S04", "league": "GER", "internal": "Schalke 04", "name": "Gelsenkirchen Royal", "kit": ["#004D9D"], "notTopFlight": [[1988, 1991], [2021, 2022], [2023, 2026]] },
-    { "id": "RBL", "league": "GER", "internal": "RB Leipzig", "name": "Leipzig White-Red", "kit": ["#FFFFFF", "#DD0741"], "notTopFlight": [[0, 2016]] },
-    { "id": "WOB", "league": "GER", "internal": "VfL Wolfsburg", "name": "Wolfsburg Green", "kit": ["#65B32E"], "notTopFlight": [[0, 1997]] },
-    { "id": "VFB", "league": "GER", "internal": "VfB Stuttgart", "name": "Stuttgart White", "kit": ["#FFFFFF", "#E32219"], "notTopFlight": [[1975, 1977], [2016, 2017], [2019, 2020]] },
-    { "id": "HSV", "league": "GER", "internal": "Hamburger SV", "name": "Hamburg Blue", "kit": ["#0A3F86", "#FFFFFF"], "notTopFlight": [[2018, 2025]] },
-    { "id": "SVW", "league": "GER", "internal": "Werder Bremen", "name": "Bremen Green", "kit": ["#1D9053", "#FFFFFF"], "notTopFlight": [[1980, 1981], [2021, 2022]] },
-    { "id": "SGE", "league": "GER", "internal": "Eintracht Frankfurt", "name": "Frankfurt Black-Red", "kit": ["#000000", "#E1000F"], "notTopFlight": [[1996, 1998], [2001, 2003], [2004, 2005], [2011, 2012]] },
-
-    { "id": "PSG", "league": "FRA", "internal": "Paris Saint-Germain", "name": "Paris Blue-Red", "kit": ["#004170", "#DA291C"], "notTopFlight": [[0, 1974]] },
-    { "id": "OMR", "league": "FRA", "internal": "Marseille", "name": "Marseille Sky", "kit": ["#FFFFFF", "#2FAEE0"], "notTopFlight": [[1994, 1996]] },
-    { "id": "LYO", "league": "FRA", "internal": "Lyon", "name": "Lyon White", "kit": ["#FFFFFF", "#DA0812", "#14387F"], "notTopFlight": [[0, 1989]] },
-    { "id": "MON", "league": "FRA", "internal": "Monaco", "name": "Monaco Red-White", "kit": ["#E7192D", "#FFFFFF"], "notTopFlight": [[2011, 2013]] },
-    { "id": "LIL", "league": "FRA", "internal": "Lille", "name": "Lille Red", "kit": ["#E01E13"], "notTopFlight": [[1997, 2000]] },
-    { "id": "BDX", "league": "FRA", "internal": "Bordeaux", "name": "Bordeaux Navy", "kit": ["#0A1E3F"], "notTopFlight": [[1991, 1992], [2022, 2026]] },
-    { "id": "NIC", "league": "FRA", "internal": "Nice", "name": "Nice Red-Black", "kit": ["#C8102E", "#000000"], "notTopFlight": [[1997, 2002]] },
-    { "id": "REN", "league": "FRA", "internal": "Rennes", "name": "Rennes Red", "kit": ["#E13327", "#000000"], "notTopFlight": [[1992, 1994]] },
-    { "id": "LEN", "league": "FRA", "internal": "Lens", "name": "Lens Gold", "kit": ["#FFD100", "#E3001B"], "notTopFlight": [[1989, 1991], [2008, 2009], [2011, 2020]] },
-    { "id": "STE", "league": "FRA", "internal": "Saint-Étienne", "name": "Saint-Étienne Green", "kit": ["#009639"], "notTopFlight": [[1984, 1986], [1996, 1999], [2001, 2004], [2022, 2024], [2025, 2026]] }
+    {
+      "id": "MUN",
+      "league": "ENG",
+      "internal": "Manchester United",
+      "name": "Manchester Red",
+      "kit": [
+        "#DA291C"
+      ]
+    },
+    {
+      "id": "MCI",
+      "league": "ENG",
+      "internal": "Manchester City",
+      "name": "Manchester Sky",
+      "kit": [
+        "#6CABDD"
+      ]
+    },
+    {
+      "id": "LIV",
+      "league": "ENG",
+      "internal": "Liverpool",
+      "name": "Liverpool Red",
+      "kit": [
+        "#C8102E"
+      ]
+    },
+    {
+      "id": "EVE",
+      "league": "ENG",
+      "internal": "Everton",
+      "name": "Liverpool Blue",
+      "kit": [
+        "#003399"
+      ]
+    },
+    {
+      "id": "CHE",
+      "league": "ENG",
+      "internal": "Chelsea",
+      "name": "West London Blue",
+      "kit": [
+        "#034694"
+      ],
+      "notTopFlight": [
+        [
+          1979,
+          1984
+        ],
+        [
+          1988,
+          1989
+        ]
+      ]
+    },
+    {
+      "id": "ARS",
+      "league": "ENG",
+      "internal": "Arsenal",
+      "name": "North London Red",
+      "kit": [
+        "#EF0107",
+        "#FFFFFF"
+      ]
+    },
+    {
+      "id": "TOT",
+      "league": "ENG",
+      "internal": "Tottenham Hotspur",
+      "name": "North London White",
+      "kit": [
+        "#FFFFFF",
+        "#132257"
+      ],
+      "notTopFlight": [
+        [
+          1977,
+          1978
+        ]
+      ]
+    },
+    {
+      "id": "NEW",
+      "league": "ENG",
+      "internal": "Newcastle United",
+      "name": "Tyneside Stripes",
+      "kit": [
+        "#241F20",
+        "#FFFFFF"
+      ],
+      "notTopFlight": [
+        [
+          1989,
+          1993
+        ],
+        [
+          2009,
+          2010
+        ],
+        [
+          2016,
+          2017
+        ]
+      ]
+    },
+    {
+      "id": "AVL",
+      "league": "ENG",
+      "internal": "Aston Villa",
+      "name": "Birmingham Claret",
+      "kit": [
+        "#670E36",
+        "#95BFE5"
+      ],
+      "notTopFlight": [
+        [
+          2016,
+          2019
+        ]
+      ]
+    },
+    {
+      "id": "WHU",
+      "league": "ENG",
+      "internal": "West Ham United",
+      "name": "East London Claret",
+      "kit": [
+        "#7A263A",
+        "#1BB1E7"
+      ],
+      "notTopFlight": [
+        [
+          1989,
+          1991
+        ],
+        [
+          1992,
+          1993
+        ],
+        [
+          2003,
+          2005
+        ],
+        [
+          2011,
+          2012
+        ]
+      ]
+    },
+    {
+      "id": "RMA",
+      "league": "ESP",
+      "internal": "Real Madrid",
+      "name": "Madrid White",
+      "kit": [
+        "#FFFFFF"
+      ]
+    },
+    {
+      "id": "ATM",
+      "league": "ESP",
+      "internal": "Atlético Madrid",
+      "name": "Madrid Stripes",
+      "kit": [
+        "#CB3524",
+        "#FFFFFF"
+      ],
+      "notTopFlight": [
+        [
+          2000,
+          2002
+        ]
+      ]
+    },
+    {
+      "id": "BAR",
+      "league": "ESP",
+      "internal": "Barcelona",
+      "name": "Barcelona Blue-Red",
+      "kit": [
+        "#004D98",
+        "#A50044"
+      ]
+    },
+    {
+      "id": "SEV",
+      "league": "ESP",
+      "internal": "Sevilla",
+      "name": "Seville White",
+      "kit": [
+        "#FFFFFF",
+        "#D71920"
+      ],
+      "notTopFlight": [
+        [
+          1997,
+          1999
+        ],
+        [
+          2000,
+          2001
+        ]
+      ]
+    },
+    {
+      "id": "BET",
+      "league": "ESP",
+      "internal": "Real Betis",
+      "name": "Seville Green",
+      "kit": [
+        "#0BB363",
+        "#FFFFFF"
+      ],
+      "notTopFlight": [
+        [
+          1991,
+          1994
+        ],
+        [
+          2000,
+          2001
+        ],
+        [
+          2009,
+          2011
+        ],
+        [
+          2014,
+          2015
+        ]
+      ]
+    },
+    {
+      "id": "VAL",
+      "league": "ESP",
+      "internal": "Valencia",
+      "name": "Valencia White",
+      "kit": [
+        "#FFFFFF",
+        "#000000"
+      ],
+      "notTopFlight": [
+        [
+          1986,
+          1987
+        ]
+      ]
+    },
+    {
+      "id": "VIL",
+      "league": "ESP",
+      "internal": "Villarreal",
+      "name": "Castellón Yellow",
+      "kit": [
+        "#FFE667"
+      ],
+      "notTopFlight": [
+        [
+          0,
+          1998
+        ],
+        [
+          1999,
+          2000
+        ],
+        [
+          2012,
+          2013
+        ]
+      ]
+    },
+    {
+      "id": "JUV",
+      "league": "ITA",
+      "internal": "Juventus",
+      "name": "Turin Black-White",
+      "kit": [
+        "#000000",
+        "#FFFFFF"
+      ],
+      "notTopFlight": [
+        [
+          2006,
+          2007
+        ]
+      ]
+    },
+    {
+      "id": "MIL",
+      "league": "ITA",
+      "internal": "AC Milan",
+      "name": "Milan Red-Black",
+      "kit": [
+        "#FB090B",
+        "#000000"
+      ],
+      "notTopFlight": [
+        [
+          1980,
+          1981
+        ],
+        [
+          1982,
+          1983
+        ]
+      ]
+    },
+    {
+      "id": "INT",
+      "league": "ITA",
+      "internal": "Inter",
+      "name": "Milan Blue-Black",
+      "kit": [
+        "#0068A8",
+        "#000000"
+      ]
+    },
+    {
+      "id": "ROM",
+      "league": "ITA",
+      "internal": "Roma",
+      "name": "Rome Yellow-Red",
+      "kit": [
+        "#8E1F2F",
+        "#F0BC42"
+      ]
+    },
+    {
+      "id": "LAZ",
+      "league": "ITA",
+      "internal": "Lazio",
+      "name": "Rome Sky",
+      "kit": [
+        "#87D8F7"
+      ],
+      "notTopFlight": [
+        [
+          1985,
+          1988
+        ]
+      ]
+    },
+    {
+      "id": "NAP",
+      "league": "ITA",
+      "internal": "Napoli",
+      "name": "Naples Blue",
+      "kit": [
+        "#12A0D7"
+      ],
+      "notTopFlight": [
+        [
+          1998,
+          2000
+        ],
+        [
+          2001,
+          2007
+        ]
+      ]
+    },
+    {
+      "id": "FIO",
+      "league": "ITA",
+      "internal": "Fiorentina",
+      "name": "Florence Violet",
+      "kit": [
+        "#482E92"
+      ],
+      "notTopFlight": [
+        [
+          1993,
+          1994
+        ],
+        [
+          2002,
+          2004
+        ]
+      ]
+    },
+    {
+      "id": "ATA",
+      "league": "ITA",
+      "internal": "Atalanta",
+      "name": "Bergamo Blue",
+      "kit": [
+        "#1E71B8",
+        "#000000"
+      ],
+      "notTopFlight": [
+        [
+          1994,
+          1995
+        ],
+        [
+          1998,
+          2000
+        ],
+        [
+          2003,
+          2004
+        ],
+        [
+          2005,
+          2006
+        ],
+        [
+          2010,
+          2011
+        ]
+      ]
+    },
+    {
+      "id": "BAY",
+      "league": "GER",
+      "internal": "Bayern Munich",
+      "name": "Munich Red",
+      "kit": [
+        "#DC052D"
+      ],
+      "notTopFlight": [
+        [
+          0,
+          1965
+        ]
+      ]
+    },
+    {
+      "id": "BVB",
+      "league": "GER",
+      "internal": "Borussia Dortmund",
+      "name": "Dortmund Yellow",
+      "kit": [
+        "#FDE100",
+        "#000000"
+      ],
+      "notTopFlight": [
+        [
+          1972,
+          1976
+        ]
+      ]
+    },
+    {
+      "id": "LEV",
+      "league": "GER",
+      "internal": "Bayer Leverkusen",
+      "name": "Leverkusen Red-Black",
+      "kit": [
+        "#E32221",
+        "#000000"
+      ],
+      "notTopFlight": [
+        [
+          0,
+          1979
+        ]
+      ]
+    },
+    {
+      "id": "S04",
+      "league": "GER",
+      "internal": "Schalke 04",
+      "name": "Gelsenkirchen Royal",
+      "kit": [
+        "#004D9D"
+      ],
+      "notTopFlight": [
+        [
+          1988,
+          1991
+        ],
+        [
+          2021,
+          2022
+        ],
+        [
+          2023,
+          2026
+        ]
+      ]
+    },
+    {
+      "id": "RBL",
+      "league": "GER",
+      "internal": "RB Leipzig",
+      "name": "Leipzig White-Red",
+      "kit": [
+        "#FFFFFF",
+        "#DD0741"
+      ],
+      "notTopFlight": [
+        [
+          0,
+          2016
+        ]
+      ]
+    },
+    {
+      "id": "WOB",
+      "league": "GER",
+      "internal": "VfL Wolfsburg",
+      "name": "Wolfsburg Green",
+      "kit": [
+        "#65B32E"
+      ],
+      "notTopFlight": [
+        [
+          0,
+          1997
+        ]
+      ]
+    },
+    {
+      "id": "SGE",
+      "league": "GER",
+      "internal": "Eintracht Frankfurt",
+      "name": "Frankfurt Black-Red",
+      "kit": [
+        "#000000",
+        "#E1000F"
+      ],
+      "notTopFlight": [
+        [
+          1996,
+          1998
+        ],
+        [
+          2001,
+          2003
+        ],
+        [
+          2004,
+          2005
+        ],
+        [
+          2011,
+          2012
+        ]
+      ]
+    },
+    {
+      "id": "PSG",
+      "league": "FRA",
+      "internal": "Paris Saint-Germain",
+      "name": "Paris Blue-Red",
+      "kit": [
+        "#004170",
+        "#DA291C"
+      ],
+      "notTopFlight": [
+        [
+          0,
+          1974
+        ]
+      ]
+    },
+    {
+      "id": "OMR",
+      "league": "FRA",
+      "internal": "Marseille",
+      "name": "Marseille Sky",
+      "kit": [
+        "#FFFFFF",
+        "#2FAEE0"
+      ],
+      "notTopFlight": [
+        [
+          1994,
+          1996
+        ]
+      ]
+    },
+    {
+      "id": "LYO",
+      "league": "FRA",
+      "internal": "Lyon",
+      "name": "Lyon White",
+      "kit": [
+        "#FFFFFF",
+        "#DA0812",
+        "#14387F"
+      ],
+      "notTopFlight": [
+        [
+          0,
+          1989
+        ]
+      ]
+    },
+    {
+      "id": "MON",
+      "league": "FRA",
+      "internal": "Monaco",
+      "name": "Monaco Red-White",
+      "kit": [
+        "#E7192D",
+        "#FFFFFF"
+      ],
+      "notTopFlight": [
+        [
+          2011,
+          2013
+        ]
+      ]
+    },
+    {
+      "id": "LIL",
+      "league": "FRA",
+      "internal": "Lille",
+      "name": "Lille Red",
+      "kit": [
+        "#E01E13"
+      ],
+      "notTopFlight": [
+        [
+          1997,
+          2000
+        ]
+      ]
+    },
+    {
+      "id": "NIC",
+      "league": "FRA",
+      "internal": "Nice",
+      "name": "Nice Red-Black",
+      "kit": [
+        "#C8102E",
+        "#000000"
+      ],
+      "notTopFlight": [
+        [
+          1997,
+          2002
+        ]
+      ]
+    }
   ],
   "otherClubs": {
     "_comment": "Clubs that are not cards but count for 'played in league L'. Never shown by name in the app. null league = outside the 5 leagues.",
-    "LEE": { "league": "ENG", "notTopFlight": [[1982, 1990], [2004, 2020], [2023, 2025]] },
-    "BLB": { "league": "ENG", "notTopFlight": [[0, 1992], [1999, 2001], [2012, 2026]] },
-    "SOU": { "league": "ENG", "notTopFlight": [[2005, 2012], [2023, 2024], [2025, 2026]] },
-    "FUL": { "league": "ENG", "notTopFlight": [[0, 2001], [2014, 2018], [2019, 2020], [2021, 2022]] },
-    "LEI": { "league": "ENG", "notTopFlight": [[2002, 2003], [2004, 2014], [2023, 2024], [2025, 2026]] },
-    "BOW": { "league": "ENG", "notTopFlight": [[0, 2001], [2012, 2026]] },
-    "MID": { "league": "ENG", "notTopFlight": [[2009, 2016], [2017, 2026]] },
-    "PFC": { "league": "ENG", "notTopFlight": [[0, 2003], [2010, 2026]] },
-    "WBA": { "league": "ENG", "notTopFlight": [[0, 2002], [2003, 2004], [2006, 2008], [2009, 2010], [2018, 2020], [2021, 2026]] },
-    "STK": { "league": "ENG", "notTopFlight": [[0, 2008], [2018, 2026]] },
-    "SUN": { "league": "ENG", "notTopFlight": [[2006, 2007], [2017, 2025]] },
-    "CRY": { "league": "ENG", "notTopFlight": [[2005, 2013]] },
-    "WAT": { "league": "ENG", "notTopFlight": [[2007, 2015], [2020, 2021], [2022, 2026]] },
-    "BHA": { "league": "ENG", "notTopFlight": [[0, 2017]] },
-    "BOU": { "league": "ENG", "notTopFlight": [[0, 2015], [2020, 2022]] },
-    "QPR": { "league": "ENG", "notTopFlight": [[1996, 2011], [2013, 2014], [2015, 2026]] },
-    "BIR": { "league": "ENG", "notTopFlight": [[0, 2002], [2006, 2007], [2008, 2009], [2011, 2026]] },
-    "BUR": { "league": "ENG", "notTopFlight": [[0, 2009], [2010, 2014], [2015, 2016], [2022, 2023], [2024, 2025]] },
-    "NFO": { "league": "ENG", "notTopFlight": [[1999, 2022]] },
-    "WIG": { "league": "ENG", "notTopFlight": [[0, 2005], [2013, 2026]] },
-    "SWA": { "league": "ENG", "notTopFlight": [[0, 2011], [2018, 2026]] },
-    "BRF": { "league": "ENG", "notTopFlight": [[0, 2021]] },
-    "CHA": { "league": "ENG", "notTopFlight": [[2007, 2026]] },
-    "WOL": { "league": "ENG", "notTopFlight": [[0, 2003], [2004, 2009], [2012, 2018]] },
-    "MLW": { "league": null },
-    "DER": { "league": null },
-    "PNE": { "league": null },
-    "ZAR": { "league": "ESP" }, "MLL": { "league": "ESP" }, "MLG": { "league": "ESP" }, "CEL": { "league": "ESP" },
-    "ATH": { "league": "ESP" }, "GET": { "league": "ESP" }, "LPA": { "league": "ESP" }, "ALV": { "league": "ESP" },
-    "GIR": { "league": "ESP" }, "RAY": { "league": "ESP" }, "LGN": { "league": "ESP" }, "TEN": { "league": "ESP" },
-    "ALM": { "league": "ESP" }, "REC": { "league": "ESP" }, "VLL": { "league": "ESP" }, "SPG": { "league": "ESP" },
-    "HRC": { "league": "ESP" },
-    "UDI": { "league": "ITA" }, "TOR": { "league": "ITA" }, "BLG": { "league": "ITA" }, "GEN": { "league": "ITA", "notTopFlight": [[1995, 2007]] },
-    "BRE": { "league": "ITA", "notTopFlight": [[1998, 2000], [2005, 2010], [2011, 2019], [2020, 2026]] }, "PAL": { "league": "ITA" }, "CAG": { "league": "ITA" },
-    "PIA": { "league": "ITA", "notTopFlight": [[0, 1995], [2003, 2026]] }, "HVE": { "league": "ITA", "notTopFlight": [[2002, 2013]] }, "LEC": { "league": "ITA" },
-    "CHV": { "league": "ITA" }, "MNZ": { "league": "ITA" }, "EMP": { "league": "ITA" }, "PER": { "league": "ITA" },
-    "CAT": { "league": "ITA" }, "VEN": { "league": "ITA" }, "SAS": { "league": "ITA" }, "PES": { "league": null },
-    "LVN": { "league": "ITA" }, "COM": { "league": null }, "BRI": { "league": "ITA" }, "CES": { "league": "ITA" },
-    "PIS": { "league": "ITA" }, "CRE": { "league": "ITA" }, "PAD": { "league": null }, "SAL": { "league": "ITA" },
-    "MAI": { "league": "GER" }, "BMG": { "league": "GER" }, "KOL": { "league": "GER" }, "HOF": { "league": "GER" },
-    "FRE": { "league": "GER" }, "HER": { "league": "GER" }, "KAI": { "league": "GER" }, "AUG": { "league": "GER" },
-    "HAN": { "league": "GER" }, "NUR": { "league": "GER" }, "UNB": { "league": "GER" }, "KSC": { "league": "GER", "notTopFlight": [[2009, 2026]] },
-    "T60": { "league": "GER" }, "STP": { "league": "GER" }, "B05": { "league": "GER" },
-    "AUX": { "league": "FRA" }, "NAN": { "league": "FRA" }, "TLS": { "league": "FRA" }, "MTZ": { "league": "FRA", "notTopFlight": [[2006, 2007], [2008, 2014]] },
-    "MTP": { "league": "FRA" }, "STB": { "league": "FRA" }, "GUI": { "league": "FRA" }, "BTA": { "league": "FRA" },
-    "SOC": { "league": null }, "LOR": { "league": "FRA" }, "CAN": { "league": "FRA" }, "NIM": { "league": "FRA" },
-    "CAE": { "league": "FRA" }, "REI": { "league": "FRA" }, "ANG": { "league": "FRA" }, "TRO": { "league": "FRA" },
-    "LEM": { "league": "FRA" }, "RCP": { "league": "FRA" }, "NCY": { "league": "FRA" }, "AMI": { "league": "FRA" },
-    "LEH": { "league": null }, "CLE": { "league": null }
+    "LEE": {
+      "league": "ENG",
+      "notTopFlight": [
+        [
+          1982,
+          1990
+        ],
+        [
+          2004,
+          2020
+        ],
+        [
+          2023,
+          2025
+        ]
+      ]
+    },
+    "BLB": {
+      "league": "ENG",
+      "notTopFlight": [
+        [
+          0,
+          1992
+        ],
+        [
+          1999,
+          2001
+        ],
+        [
+          2012,
+          2026
+        ]
+      ]
+    },
+    "SOU": {
+      "league": "ENG",
+      "notTopFlight": [
+        [
+          2005,
+          2012
+        ],
+        [
+          2023,
+          2024
+        ],
+        [
+          2025,
+          2026
+        ]
+      ]
+    },
+    "FUL": {
+      "league": "ENG",
+      "notTopFlight": [
+        [
+          0,
+          2001
+        ],
+        [
+          2014,
+          2018
+        ],
+        [
+          2019,
+          2020
+        ],
+        [
+          2021,
+          2022
+        ]
+      ]
+    },
+    "LEI": {
+      "league": "ENG",
+      "notTopFlight": [
+        [
+          2002,
+          2003
+        ],
+        [
+          2004,
+          2014
+        ],
+        [
+          2023,
+          2024
+        ],
+        [
+          2025,
+          2026
+        ]
+      ]
+    },
+    "BOW": {
+      "league": "ENG",
+      "notTopFlight": [
+        [
+          0,
+          2001
+        ],
+        [
+          2012,
+          2026
+        ]
+      ]
+    },
+    "MID": {
+      "league": "ENG",
+      "notTopFlight": [
+        [
+          2009,
+          2016
+        ],
+        [
+          2017,
+          2026
+        ]
+      ]
+    },
+    "PFC": {
+      "league": "ENG",
+      "notTopFlight": [
+        [
+          0,
+          2003
+        ],
+        [
+          2010,
+          2026
+        ]
+      ]
+    },
+    "WBA": {
+      "league": "ENG",
+      "notTopFlight": [
+        [
+          0,
+          2002
+        ],
+        [
+          2003,
+          2004
+        ],
+        [
+          2006,
+          2008
+        ],
+        [
+          2009,
+          2010
+        ],
+        [
+          2018,
+          2020
+        ],
+        [
+          2021,
+          2026
+        ]
+      ]
+    },
+    "STK": {
+      "league": "ENG",
+      "notTopFlight": [
+        [
+          0,
+          2008
+        ],
+        [
+          2018,
+          2026
+        ]
+      ]
+    },
+    "SUN": {
+      "league": "ENG",
+      "notTopFlight": [
+        [
+          2006,
+          2007
+        ],
+        [
+          2017,
+          2025
+        ]
+      ]
+    },
+    "CRY": {
+      "league": "ENG",
+      "notTopFlight": [
+        [
+          2005,
+          2013
+        ]
+      ]
+    },
+    "WAT": {
+      "league": "ENG",
+      "notTopFlight": [
+        [
+          2007,
+          2015
+        ],
+        [
+          2020,
+          2021
+        ],
+        [
+          2022,
+          2026
+        ]
+      ]
+    },
+    "BHA": {
+      "league": "ENG",
+      "notTopFlight": [
+        [
+          0,
+          2017
+        ]
+      ]
+    },
+    "BOU": {
+      "league": "ENG",
+      "notTopFlight": [
+        [
+          0,
+          2015
+        ],
+        [
+          2020,
+          2022
+        ]
+      ]
+    },
+    "QPR": {
+      "league": "ENG",
+      "notTopFlight": [
+        [
+          1996,
+          2011
+        ],
+        [
+          2013,
+          2014
+        ],
+        [
+          2015,
+          2026
+        ]
+      ]
+    },
+    "BIR": {
+      "league": "ENG",
+      "notTopFlight": [
+        [
+          0,
+          2002
+        ],
+        [
+          2006,
+          2007
+        ],
+        [
+          2008,
+          2009
+        ],
+        [
+          2011,
+          2026
+        ]
+      ]
+    },
+    "BUR": {
+      "league": "ENG",
+      "notTopFlight": [
+        [
+          0,
+          2009
+        ],
+        [
+          2010,
+          2014
+        ],
+        [
+          2015,
+          2016
+        ],
+        [
+          2022,
+          2023
+        ],
+        [
+          2024,
+          2025
+        ]
+      ]
+    },
+    "NFO": {
+      "league": "ENG",
+      "notTopFlight": [
+        [
+          1999,
+          2022
+        ]
+      ]
+    },
+    "WIG": {
+      "league": "ENG",
+      "notTopFlight": [
+        [
+          0,
+          2005
+        ],
+        [
+          2013,
+          2026
+        ]
+      ]
+    },
+    "SWA": {
+      "league": "ENG",
+      "notTopFlight": [
+        [
+          0,
+          2011
+        ],
+        [
+          2018,
+          2026
+        ]
+      ]
+    },
+    "BRF": {
+      "league": "ENG",
+      "notTopFlight": [
+        [
+          0,
+          2021
+        ]
+      ]
+    },
+    "CHA": {
+      "league": "ENG",
+      "notTopFlight": [
+        [
+          2007,
+          2026
+        ]
+      ]
+    },
+    "WOL": {
+      "league": "ENG",
+      "notTopFlight": [
+        [
+          0,
+          2003
+        ],
+        [
+          2004,
+          2009
+        ],
+        [
+          2012,
+          2018
+        ]
+      ]
+    },
+    "MLW": {
+      "league": null
+    },
+    "DER": {
+      "league": null
+    },
+    "PNE": {
+      "league": null
+    },
+    "ZAR": {
+      "league": "ESP"
+    },
+    "MLL": {
+      "league": "ESP"
+    },
+    "MLG": {
+      "league": "ESP"
+    },
+    "CEL": {
+      "league": "ESP"
+    },
+    "ATH": {
+      "league": "ESP"
+    },
+    "GET": {
+      "league": "ESP"
+    },
+    "LPA": {
+      "league": "ESP"
+    },
+    "ALV": {
+      "league": "ESP"
+    },
+    "GIR": {
+      "league": "ESP"
+    },
+    "RAY": {
+      "league": "ESP"
+    },
+    "LGN": {
+      "league": "ESP"
+    },
+    "TEN": {
+      "league": "ESP"
+    },
+    "ALM": {
+      "league": "ESP"
+    },
+    "REC": {
+      "league": "ESP"
+    },
+    "VLL": {
+      "league": "ESP"
+    },
+    "SPG": {
+      "league": "ESP"
+    },
+    "HRC": {
+      "league": "ESP"
+    },
+    "UDI": {
+      "league": "ITA"
+    },
+    "TOR": {
+      "league": "ITA"
+    },
+    "BLG": {
+      "league": "ITA"
+    },
+    "GEN": {
+      "league": "ITA",
+      "notTopFlight": [
+        [
+          1995,
+          2007
+        ]
+      ]
+    },
+    "BRE": {
+      "league": "ITA",
+      "notTopFlight": [
+        [
+          1998,
+          2000
+        ],
+        [
+          2005,
+          2010
+        ],
+        [
+          2011,
+          2019
+        ],
+        [
+          2020,
+          2026
+        ]
+      ]
+    },
+    "PAL": {
+      "league": "ITA"
+    },
+    "CAG": {
+      "league": "ITA"
+    },
+    "PIA": {
+      "league": "ITA",
+      "notTopFlight": [
+        [
+          0,
+          1995
+        ],
+        [
+          2003,
+          2026
+        ]
+      ]
+    },
+    "HVE": {
+      "league": "ITA",
+      "notTopFlight": [
+        [
+          2002,
+          2013
+        ]
+      ]
+    },
+    "LEC": {
+      "league": "ITA"
+    },
+    "CHV": {
+      "league": "ITA"
+    },
+    "MNZ": {
+      "league": "ITA"
+    },
+    "EMP": {
+      "league": "ITA"
+    },
+    "PER": {
+      "league": "ITA"
+    },
+    "CAT": {
+      "league": "ITA"
+    },
+    "VEN": {
+      "league": "ITA"
+    },
+    "SAS": {
+      "league": "ITA"
+    },
+    "PES": {
+      "league": null
+    },
+    "LVN": {
+      "league": "ITA"
+    },
+    "COM": {
+      "league": null
+    },
+    "BRI": {
+      "league": "ITA"
+    },
+    "CES": {
+      "league": "ITA"
+    },
+    "PIS": {
+      "league": "ITA"
+    },
+    "CRE": {
+      "league": "ITA"
+    },
+    "PAD": {
+      "league": null
+    },
+    "SAL": {
+      "league": "ITA"
+    },
+    "MAI": {
+      "league": "GER"
+    },
+    "BMG": {
+      "league": "GER"
+    },
+    "KOL": {
+      "league": "GER"
+    },
+    "HOF": {
+      "league": "GER"
+    },
+    "FRE": {
+      "league": "GER"
+    },
+    "HER": {
+      "league": "GER"
+    },
+    "KAI": {
+      "league": "GER"
+    },
+    "AUG": {
+      "league": "GER"
+    },
+    "HAN": {
+      "league": "GER"
+    },
+    "NUR": {
+      "league": "GER"
+    },
+    "UNB": {
+      "league": "GER"
+    },
+    "KSC": {
+      "league": "GER",
+      "notTopFlight": [
+        [
+          2009,
+          2026
+        ]
+      ]
+    },
+    "T60": {
+      "league": "GER"
+    },
+    "STP": {
+      "league": "GER"
+    },
+    "B05": {
+      "league": "GER"
+    },
+    "AUX": {
+      "league": "FRA"
+    },
+    "NAN": {
+      "league": "FRA"
+    },
+    "TLS": {
+      "league": "FRA"
+    },
+    "MTZ": {
+      "league": "FRA",
+      "notTopFlight": [
+        [
+          2006,
+          2007
+        ],
+        [
+          2008,
+          2014
+        ]
+      ]
+    },
+    "MTP": {
+      "league": "FRA"
+    },
+    "STB": {
+      "league": "FRA"
+    },
+    "GUI": {
+      "league": "FRA"
+    },
+    "BTA": {
+      "league": "FRA"
+    },
+    "SOC": {
+      "league": null
+    },
+    "LOR": {
+      "league": "FRA"
+    },
+    "CAN": {
+      "league": "FRA"
+    },
+    "NIM": {
+      "league": "FRA"
+    },
+    "CAE": {
+      "league": "FRA"
+    },
+    "REI": {
+      "league": "FRA"
+    },
+    "ANG": {
+      "league": "FRA"
+    },
+    "TRO": {
+      "league": "FRA"
+    },
+    "LEM": {
+      "league": "FRA"
+    },
+    "RCP": {
+      "league": "FRA"
+    },
+    "NCY": {
+      "league": "FRA"
+    },
+    "AMI": {
+      "league": "FRA"
+    },
+    "LEH": {
+      "league": null
+    },
+    "CLE": {
+      "league": null
+    },
+    "ESY": {
+      "league": "ESP",
+      "notTopFlight": [
+        [
+          1989,
+          1990
+        ],
+        [
+          1993,
+          1994
+        ],
+        [
+          2020,
+          2021
+        ],
+        [
+          2023,
+          2024
+        ]
+      ]
+    },
+    "RSO": {
+      "league": "ESP",
+      "notTopFlight": [
+        [
+          2007,
+          2010
+        ]
+      ]
+    },
+    "DEP": {
+      "league": "ESP",
+      "notTopFlight": [
+        [
+          0,
+          1991
+        ],
+        [
+          2011,
+          2012
+        ],
+        [
+          2013,
+          2014
+        ],
+        [
+          2018,
+          2026
+        ]
+      ]
+    },
+    "PAR": {
+      "league": "ITA",
+      "notTopFlight": [
+        [
+          0,
+          1990
+        ],
+        [
+          2008,
+          2009
+        ],
+        [
+          2015,
+          2018
+        ],
+        [
+          2021,
+          2024
+        ]
+      ]
+    },
+    "SAM": {
+      "league": "ITA",
+      "notTopFlight": [
+        [
+          1999,
+          2002
+        ],
+        [
+          2011,
+          2012
+        ],
+        [
+          2023,
+          2026
+        ]
+      ]
+    },
+    "VFB": {
+      "league": "GER",
+      "notTopFlight": [
+        [
+          1975,
+          1977
+        ],
+        [
+          2016,
+          2017
+        ],
+        [
+          2019,
+          2020
+        ]
+      ]
+    },
+    "HSV": {
+      "league": "GER",
+      "notTopFlight": [
+        [
+          2018,
+          2025
+        ]
+      ]
+    },
+    "SVW": {
+      "league": "GER",
+      "notTopFlight": [
+        [
+          1980,
+          1981
+        ],
+        [
+          2021,
+          2022
+        ]
+      ]
+    },
+    "BDX": {
+      "league": "FRA",
+      "notTopFlight": [
+        [
+          1991,
+          1992
+        ],
+        [
+          2022,
+          2026
+        ]
+      ]
+    },
+    "REN": {
+      "league": "FRA",
+      "notTopFlight": [
+        [
+          1992,
+          1994
+        ]
+      ]
+    },
+    "LEN": {
+      "league": "FRA",
+      "notTopFlight": [
+        [
+          1989,
+          1991
+        ],
+        [
+          2008,
+          2009
+        ],
+        [
+          2011,
+          2020
+        ]
+      ]
+    },
+    "STE": {
+      "league": "FRA",
+      "notTopFlight": [
+        [
+          1984,
+          1986
+        ],
+        [
+          1996,
+          1999
+        ],
+        [
+          2001,
+          2004
+        ],
+        [
+          2022,
+          2024
+        ],
+        [
+          2025,
+          2026
+        ]
+      ]
+    }
   },
   "coaches": [
-    { "id": "MOU", "name": "José Mourinho", "spells": [["FCP", 2001, 2004], ["CHE", 2004, 2008], ["INT", 2008, 2010], ["RMA", 2010, 2013], ["CHE", 2013, 2016], ["MUN", 2016, 2019], ["TOT", 2019, 2021], ["ROM", 2021, 2024], ["FEN", 2024, 2025]] },
-    { "id": "GUA", "name": "Pep Guardiola", "spells": [["BAR", 2008, 2012], ["BAY", 2013, 2016], ["MCI", 2016, 2026]] },
-    { "id": "ANC", "name": "Carlo Ancelotti", "spells": [["PAR", 1996, 1998], ["JUV", 1998, 2001], ["MIL", 2001, 2009], ["CHE", 2009, 2011], ["PSG", 2011, 2013], ["RMA", 2013, 2015], ["BAY", 2016, 2018], ["NAP", 2018, 2020], ["EVE", 2019, 2021], ["RMA", 2021, 2025]] },
-    { "id": "KLO", "name": "Jürgen Klopp", "spells": [["MAI", 2000, 2008], ["BVB", 2008, 2015], ["LIV", 2015, 2024]] },
-    { "id": "FLI", "name": "Hansi Flick", "spells": [["BAY", 2019, 2021], ["BAR", 2024, 2026]] },
-    { "id": "ZID", "name": "Zinedine Zidane", "spells": [["RMA", 2015, 2018], ["RMA", 2018, 2021]] },
-    { "id": "FER", "name": "Sir Alex Ferguson", "spells": [["ABE", 1978, 1986], ["MUN", 1986, 2013]] },
-    { "id": "WEN", "name": "Arsène Wenger", "spells": [["MON", 1987, 1995], ["ARS", 1996, 2018]] },
-    { "id": "SIM", "name": "Diego Simeone", "spells": [["CAT", 2010, 2011], ["ATM", 2011, 2026]] },
-    { "id": "CON", "name": "Antonio Conte", "spells": [["ATA", 2009, 2010], ["JUV", 2011, 2014], ["CHE", 2016, 2018], ["INT", 2019, 2021], ["TOT", 2021, 2023], ["NAP", 2024, 2026]] }
+    {
+      "id": "MOU",
+      "name": "José Mourinho",
+      "spells": [
+        [
+          "FCP",
+          2001,
+          2004
+        ],
+        [
+          "CHE",
+          2004,
+          2008
+        ],
+        [
+          "INT",
+          2008,
+          2010
+        ],
+        [
+          "RMA",
+          2010,
+          2013
+        ],
+        [
+          "CHE",
+          2013,
+          2016
+        ],
+        [
+          "MUN",
+          2016,
+          2019
+        ],
+        [
+          "TOT",
+          2019,
+          2021
+        ],
+        [
+          "ROM",
+          2021,
+          2024
+        ],
+        [
+          "FEN",
+          2024,
+          2025
+        ]
+      ]
+    },
+    {
+      "id": "GUA",
+      "name": "Pep Guardiola",
+      "spells": [
+        [
+          "BAR",
+          2008,
+          2012
+        ],
+        [
+          "BAY",
+          2013,
+          2016
+        ],
+        [
+          "MCI",
+          2016,
+          2026
+        ]
+      ]
+    },
+    {
+      "id": "ANC",
+      "name": "Carlo Ancelotti",
+      "spells": [
+        [
+          "PAR",
+          1996,
+          1998
+        ],
+        [
+          "JUV",
+          1998,
+          2001
+        ],
+        [
+          "MIL",
+          2001,
+          2009
+        ],
+        [
+          "CHE",
+          2009,
+          2011
+        ],
+        [
+          "PSG",
+          2011,
+          2013
+        ],
+        [
+          "RMA",
+          2013,
+          2015
+        ],
+        [
+          "BAY",
+          2016,
+          2018
+        ],
+        [
+          "NAP",
+          2018,
+          2020
+        ],
+        [
+          "EVE",
+          2019,
+          2021
+        ],
+        [
+          "RMA",
+          2021,
+          2025
+        ]
+      ]
+    },
+    {
+      "id": "KLO",
+      "name": "Jürgen Klopp",
+      "spells": [
+        [
+          "MAI",
+          2000,
+          2008
+        ],
+        [
+          "BVB",
+          2008,
+          2015
+        ],
+        [
+          "LIV",
+          2015,
+          2024
+        ]
+      ]
+    },
+    {
+      "id": "FLI",
+      "name": "Hansi Flick",
+      "spells": [
+        [
+          "BAY",
+          2019,
+          2021
+        ],
+        [
+          "BAR",
+          2024,
+          2026
+        ]
+      ]
+    },
+    {
+      "id": "ZID",
+      "name": "Zinedine Zidane",
+      "spells": [
+        [
+          "RMA",
+          2015,
+          2018
+        ],
+        [
+          "RMA",
+          2018,
+          2021
+        ]
+      ]
+    },
+    {
+      "id": "FER",
+      "name": "Sir Alex Ferguson",
+      "spells": [
+        [
+          "ABE",
+          1978,
+          1986
+        ],
+        [
+          "MUN",
+          1986,
+          2013
+        ]
+      ]
+    },
+    {
+      "id": "WEN",
+      "name": "Arsène Wenger",
+      "spells": [
+        [
+          "MON",
+          1987,
+          1995
+        ],
+        [
+          "ARS",
+          1996,
+          2018
+        ]
+      ]
+    },
+    {
+      "id": "SIM",
+      "name": "Diego Simeone",
+      "spells": [
+        [
+          "CAT",
+          2010,
+          2011
+        ],
+        [
+          "ATM",
+          2011,
+          2026
+        ]
+      ]
+    },
+    {
+      "id": "CON",
+      "name": "Antonio Conte",
+      "spells": [
+        [
+          "ATA",
+          2009,
+          2010
+        ],
+        [
+          "JUV",
+          2011,
+          2014
+        ],
+        [
+          "CHE",
+          2016,
+          2018
+        ],
+        [
+          "INT",
+          2019,
+          2021
+        ],
+        [
+          "TOT",
+          2021,
+          2023
+        ],
+        [
+          "NAP",
+          2024,
+          2026
+        ]
+      ]
+    }
   ],
   "nations": [
-    { "id": "ESP", "name": "Spain", "flag": "🇪🇸", "colours": ["#AA151B", "#F1BF00", "#AA151B"] },
-    { "id": "ENG", "name": "England", "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "colours": ["#FFFFFF", "#CE1124", "#FFFFFF"] },
-    { "id": "FRA", "name": "France", "flag": "🇫🇷", "colours": ["#002395", "#FFFFFF", "#ED2939"] },
-    { "id": "ITA", "name": "Italy", "flag": "🇮🇹", "colours": ["#009246", "#FFFFFF", "#CE2B37"] },
-    { "id": "GER", "name": "Germany", "flag": "🇩🇪", "colours": ["#000000", "#DD0000", "#FFCE00"] },
-    { "id": "POR", "name": "Portugal", "flag": "🇵🇹", "colours": ["#006600", "#FF0000", "#FF0000"] },
-    { "id": "NED", "name": "Netherlands", "flag": "🇳🇱", "colours": ["#AE1C28", "#FFFFFF", "#21468B"] },
-    { "id": "BEL", "name": "Belgium", "flag": "🇧🇪", "colours": ["#000000", "#FAE042", "#ED2939"] },
-    { "id": "CRO", "name": "Croatia", "flag": "🇭🇷", "colours": ["#FF0000", "#FFFFFF", "#171796"] },
-    { "id": "POL", "name": "Poland", "flag": "🇵🇱", "colours": ["#FFFFFF", "#FFFFFF", "#DC143C"] },
-    { "id": "DEN", "name": "Denmark", "flag": "🇩🇰", "colours": ["#C8102E", "#FFFFFF", "#C8102E"] },
-    { "id": "BRA", "name": "Brazil", "flag": "🇧🇷", "colours": ["#009C3B", "#FFDF00", "#002776"] },
-    { "id": "ARG", "name": "Argentina", "flag": "🇦🇷", "colours": ["#74ACDF", "#FFFFFF", "#74ACDF"] },
-    { "id": "URU", "name": "Uruguay", "flag": "🇺🇾", "colours": ["#FFFFFF", "#0038A8", "#FFFFFF"] },
-    { "id": "MAR", "name": "Morocco", "flag": "🇲🇦", "colours": ["#C1272D", "#006233", "#C1272D"] },
-    { "id": "NGA", "name": "Nigeria", "flag": "🇳🇬", "colours": ["#008751", "#FFFFFF", "#008751"] },
-    { "id": "CIV", "name": "Ivory Coast", "flag": "🇨🇮", "colours": ["#F77F00", "#FFFFFF", "#009E60"] },
-    { "id": "CMR", "name": "Cameroon", "flag": "🇨🇲", "colours": ["#007A5E", "#CE1126", "#FCD116"] },
-    { "id": "SEN", "name": "Senegal", "flag": "🇸🇳", "colours": ["#00853F", "#FDEF42", "#E31B23"] },
-    { "id": "EGY", "name": "Egypt", "flag": "🇪🇬", "colours": ["#CE1126", "#FFFFFF", "#000000"] },
-    { "id": "ALG", "name": "Algeria", "flag": "🇩🇿", "colours": ["#006233", "#FFFFFF", "#D21034"] },
-    { "id": "USA", "name": "USA", "flag": "🇺🇸", "colours": ["#3C3B6E", "#FFFFFF", "#B22234"] },
-    { "id": "JPN", "name": "Japan", "flag": "🇯🇵", "colours": ["#FFFFFF", "#BC002D", "#FFFFFF"] },
-    { "id": "AUS", "name": "Australia", "flag": "🇦🇺", "colours": ["#00008B", "#FFFFFF", "#E4002B"] }
+    {
+      "id": "ESP",
+      "name": "Spain",
+      "flag": "🇪🇸",
+      "colours": [
+        "#AA151B",
+        "#F1BF00",
+        "#AA151B"
+      ]
+    },
+    {
+      "id": "ENG",
+      "name": "England",
+      "flag": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+      "colours": [
+        "#FFFFFF",
+        "#CE1124",
+        "#FFFFFF"
+      ]
+    },
+    {
+      "id": "FRA",
+      "name": "France",
+      "flag": "🇫🇷",
+      "colours": [
+        "#002395",
+        "#FFFFFF",
+        "#ED2939"
+      ]
+    },
+    {
+      "id": "ITA",
+      "name": "Italy",
+      "flag": "🇮🇹",
+      "colours": [
+        "#009246",
+        "#FFFFFF",
+        "#CE2B37"
+      ]
+    },
+    {
+      "id": "GER",
+      "name": "Germany",
+      "flag": "🇩🇪",
+      "colours": [
+        "#000000",
+        "#DD0000",
+        "#FFCE00"
+      ]
+    },
+    {
+      "id": "POR",
+      "name": "Portugal",
+      "flag": "🇵🇹",
+      "colours": [
+        "#006600",
+        "#FF0000",
+        "#FF0000"
+      ]
+    },
+    {
+      "id": "NED",
+      "name": "Netherlands",
+      "flag": "🇳🇱",
+      "colours": [
+        "#AE1C28",
+        "#FFFFFF",
+        "#21468B"
+      ]
+    },
+    {
+      "id": "BEL",
+      "name": "Belgium",
+      "flag": "🇧🇪",
+      "colours": [
+        "#000000",
+        "#FAE042",
+        "#ED2939"
+      ]
+    },
+    {
+      "id": "CRO",
+      "name": "Croatia",
+      "flag": "🇭🇷",
+      "colours": [
+        "#FF0000",
+        "#FFFFFF",
+        "#171796"
+      ]
+    },
+    {
+      "id": "POL",
+      "name": "Poland",
+      "flag": "🇵🇱",
+      "colours": [
+        "#FFFFFF",
+        "#FFFFFF",
+        "#DC143C"
+      ]
+    },
+    {
+      "id": "DEN",
+      "name": "Denmark",
+      "flag": "🇩🇰",
+      "colours": [
+        "#C8102E",
+        "#FFFFFF",
+        "#C8102E"
+      ]
+    },
+    {
+      "id": "BRA",
+      "name": "Brazil",
+      "flag": "🇧🇷",
+      "colours": [
+        "#009C3B",
+        "#FFDF00",
+        "#002776"
+      ]
+    },
+    {
+      "id": "ARG",
+      "name": "Argentina",
+      "flag": "🇦🇷",
+      "colours": [
+        "#74ACDF",
+        "#FFFFFF",
+        "#74ACDF"
+      ]
+    },
+    {
+      "id": "URU",
+      "name": "Uruguay",
+      "flag": "🇺🇾",
+      "colours": [
+        "#FFFFFF",
+        "#0038A8",
+        "#FFFFFF"
+      ]
+    },
+    {
+      "id": "MAR",
+      "name": "Morocco",
+      "flag": "🇲🇦",
+      "colours": [
+        "#C1272D",
+        "#006233",
+        "#C1272D"
+      ]
+    },
+    {
+      "id": "NGA",
+      "name": "Nigeria",
+      "flag": "🇳🇬",
+      "colours": [
+        "#008751",
+        "#FFFFFF",
+        "#008751"
+      ]
+    },
+    {
+      "id": "CIV",
+      "name": "Ivory Coast",
+      "flag": "🇨🇮",
+      "colours": [
+        "#F77F00",
+        "#FFFFFF",
+        "#009E60"
+      ]
+    },
+    {
+      "id": "CMR",
+      "name": "Cameroon",
+      "flag": "🇨🇲",
+      "colours": [
+        "#007A5E",
+        "#CE1126",
+        "#FCD116"
+      ]
+    },
+    {
+      "id": "SEN",
+      "name": "Senegal",
+      "flag": "🇸🇳",
+      "colours": [
+        "#00853F",
+        "#FDEF42",
+        "#E31B23"
+      ]
+    },
+    {
+      "id": "EGY",
+      "name": "Egypt",
+      "flag": "🇪🇬",
+      "colours": [
+        "#CE1126",
+        "#FFFFFF",
+        "#000000"
+      ]
+    },
+    {
+      "id": "ALG",
+      "name": "Algeria",
+      "flag": "🇩🇿",
+      "colours": [
+        "#006233",
+        "#FFFFFF",
+        "#D21034"
+      ]
+    },
+    {
+      "id": "USA",
+      "name": "USA",
+      "flag": "🇺🇸",
+      "colours": [
+        "#3C3B6E",
+        "#FFFFFF",
+        "#B22234"
+      ]
+    },
+    {
+      "id": "JPN",
+      "name": "Japan",
+      "flag": "🇯🇵",
+      "colours": [
+        "#FFFFFF",
+        "#BC002D",
+        "#FFFFFF"
+      ]
+    },
+    {
+      "id": "AUS",
+      "name": "Australia",
+      "flag": "🇦🇺",
+      "colours": [
+        "#00008B",
+        "#FFFFFF",
+        "#E4002B"
+      ]
+    }
   ],
   "trophies": [
-    { "id": "GB", "name": "Golden Ball", "copies": 3, "icon": "ball" },
-    { "id": "WC", "name": "World Champion", "copies": 3, "icon": "globe" },
-    { "id": "EC", "name": "European Champion", "copies": 2, "icon": "star" },
-    { "id": "CL", "name": "European Club Champion", "copies": 3, "icon": "cup" }
+    {
+      "id": "GB",
+      "name": "Golden Ball",
+      "copies": 3,
+      "icon": "ball"
+    },
+    {
+      "id": "WC",
+      "name": "World Champion",
+      "copies": 3,
+      "icon": "globe"
+    },
+    {
+      "id": "EC",
+      "name": "European Champion",
+      "copies": 2,
+      "icon": "star"
+    },
+    {
+      "id": "CL",
+      "name": "European Club Champion",
+      "copies": 3,
+      "icon": "cup"
+    }
   ],
   "flags": {
-    "ENG": "🏴󠁧󠁢󠁥󠁮󠁧󠁿", "SCO": "🏴󠁧󠁢󠁳󠁣󠁴󠁿", "WAL": "🏴󠁧󠁢󠁷󠁬󠁳󠁿", "ESP": "🇪🇸", "FRA": "🇫🇷", "ITA": "🇮🇹", "GER": "🇩🇪", "POR": "🇵🇹",
-    "NED": "🇳🇱", "BEL": "🇧🇪", "CRO": "🇭🇷", "POL": "🇵🇱", "DEN": "🇩🇰", "BRA": "🇧🇷", "ARG": "🇦🇷", "URU": "🇺🇾",
-    "MAR": "🇲🇦", "NGA": "🇳🇬", "CIV": "🇨🇮", "CMR": "🇨🇲", "SEN": "🇸🇳", "EGY": "🇪🇬", "ALG": "🇩🇿", "USA": "🇺🇸",
-    "JPN": "🇯🇵", "AUS": "🇦🇺", "CZE": "🇨🇿", "KOR": "🇰🇷", "CHI": "🇨🇱", "SWE": "🇸🇪", "UKR": "🇺🇦", "SVK": "🇸🇰",
-    "GEO": "🇬🇪", "GAB": "🇬🇦", "NOR": "🇳🇴", "BUL": "🇧🇬", "SUI": "🇨🇭", "ARM": "🇦🇲", "COL": "🇨🇴", "PER": "🇵🇪",
-    "BIH": "🇧🇦", "SRB": "🇷🇸", "TUR": "🇹🇷", "MNE": "🇲🇪", "ROU": "🇷🇴", "LBR": "🇱🇷", "GHA": "🇬🇭", "MLI": "🇲🇱",
-    "TOG": "🇹🇬", "GIN": "🇬🇳", "CAN": "🇨🇦", "AUT": "🇦🇹", "SVN": "🇸🇮", "CHN": "🇨🇳"
+    "ENG": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+    "SCO": "🏴󠁧󠁢󠁳󠁣󠁴󠁿",
+    "WAL": "🏴󠁧󠁢󠁷󠁬󠁳󠁿",
+    "ESP": "🇪🇸",
+    "FRA": "🇫🇷",
+    "ITA": "🇮🇹",
+    "GER": "🇩🇪",
+    "POR": "🇵🇹",
+    "NED": "🇳🇱",
+    "BEL": "🇧🇪",
+    "CRO": "🇭🇷",
+    "POL": "🇵🇱",
+    "DEN": "🇩🇰",
+    "BRA": "🇧🇷",
+    "ARG": "🇦🇷",
+    "URU": "🇺🇾",
+    "MAR": "🇲🇦",
+    "NGA": "🇳🇬",
+    "CIV": "🇨🇮",
+    "CMR": "🇨🇲",
+    "SEN": "🇸🇳",
+    "EGY": "🇪🇬",
+    "ALG": "🇩🇿",
+    "USA": "🇺🇸",
+    "JPN": "🇯🇵",
+    "AUS": "🇦🇺",
+    "CZE": "🇨🇿",
+    "KOR": "🇰🇷",
+    "CHI": "🇨🇱",
+    "SWE": "🇸🇪",
+    "UKR": "🇺🇦",
+    "SVK": "🇸🇰",
+    "GEO": "🇬🇪",
+    "GAB": "🇬🇦",
+    "NOR": "🇳🇴",
+    "BUL": "🇧🇬",
+    "SUI": "🇨🇭",
+    "ARM": "🇦🇲",
+    "COL": "🇨🇴",
+    "PER": "🇵🇪",
+    "BIH": "🇧🇦",
+    "SRB": "🇷🇸",
+    "TUR": "🇹🇷",
+    "MNE": "🇲🇪",
+    "ROU": "🇷🇴",
+    "LBR": "🇱🇷",
+    "GHA": "🇬🇭",
+    "MLI": "🇲🇱",
+    "TOG": "🇹🇬",
+    "GIN": "🇬🇳",
+    "CAN": "🇨🇦",
+    "AUT": "🇦🇹",
+    "SVN": "🇸🇮",
+    "CHN": "🇨🇳"
   },
   "deck": {
     "clubCopies": 1,
     "leagueCopies": 2,
-    "championCopies": 1,
+    "championCopies": {
+      "ENG": 1,
+      "ESP": 4,
+      "ITA": 3,
+      "GER": 4,
+      "FRA": 5
+    },
     "coachCopies": 1,
     "nationalCopies": 1,
     "actions": {
-      "yellow": { "perColour": 3 },
-      "red": { "perColour": 2 },
-      "var": { "perColour": 1 },
-      "transfer": { "wild": 6 },
-      "hattrick": { "wild": 5 }
+      "yellow": {
+        "perColour": 3
+      },
+      "red": {
+        "perColour": 2
+      },
+      "var": {
+        "perColour": 1
+      },
+      "transfer": {
+        "wild": 6
+      },
+      "hattrick": {
+        "wild": 5
+      }
     }
   },
-  "points": { "club": 5, "national": 5, "league": 10, "champion": 10, "trophy": 15, "coach": 15, "yellow": 20, "red": 20, "var": 20, "transfer": 50, "hattrick": 50 },
+  "points": {
+    "club": 5,
+    "national": 5,
+    "league": 10,
+    "champion": 10,
+    "trophy": 15,
+    "coach": 15,
+    "yellow": 20,
+    "red": 20,
+    "var": 20,
+    "transfer": 50,
+    "hattrick": 50
+  },
   "rules": {
     "handSize": 7,
     "defaultTurnSeconds": 15,
-    "turnSecondsOptions": [10, 15, 20, 30],
+    "turnSecondsOptions": [
+      10,
+      15,
+      20,
+      30
+    ],
     "wrongAnswerDraw": 2,
     "timeoutDraw": 2,
     "finalWhistlePenalty": 2,
@@ -197,49 +2207,231 @@
     "roomCodeExpiryMinutes": 30
   },
   "bots": {
-    "easy":   { "correctRate": 0.6,  "answerSeconds": [6, 11], "famePercentile": 0.2, "whistleRate": 0.7 },
-    "medium": { "correctRate": 0.8,  "answerSeconds": [4, 9],  "famePercentile": 0.5, "whistleRate": 0.9 },
-    "hard":   { "correctRate": 0.95, "answerSeconds": [3, 7],  "famePercentile": 1.0, "whistleRate": 1.0 },
-    "names": ["Nutmeg Nate", "Rabona Rui", "Panenka Pia", "Volley Vik", "Offside Olly", "Bicycle Bea", "Stepover Sam", "Header Hugo", "Sweeper Sid", "Libero Lou", "Dummy Dani", "Toe-poke Tom", "Chip Chiara", "Rondo Rafa", "Gegen Greta", "Trivela Tess"]
+    "easy": {
+      "correctRate": 0.6,
+      "answerSeconds": [
+        6,
+        11
+      ],
+      "famePercentile": 0.2,
+      "whistleRate": 0.7
+    },
+    "medium": {
+      "correctRate": 0.8,
+      "answerSeconds": [
+        4,
+        9
+      ],
+      "famePercentile": 0.5,
+      "whistleRate": 0.9
+    },
+    "hard": {
+      "correctRate": 0.95,
+      "answerSeconds": [
+        3,
+        7
+      ],
+      "famePercentile": 1.0,
+      "whistleRate": 1.0
+    },
+    "names": [
+      "Nutmeg Nate",
+      "Rabona Rui",
+      "Panenka Pia",
+      "Volley Vik",
+      "Offside Olly",
+      "Bicycle Bea",
+      "Stepover Sam",
+      "Header Hugo",
+      "Sweeper Sid",
+      "Libero Lou",
+      "Dummy Dani",
+      "Toe-poke Tom",
+      "Chip Chiara",
+      "Rondo Rafa",
+      "Gegen Greta",
+      "Trivela Tess"
+    ]
   },
   "progression": {
-    "xp": { "finish": 50, "win": 100, "correctLink": 10, "correctSpecial": 20, "safeOrMatch": 0, "hinted": 0 },
+    "xp": {
+      "finish": 50,
+      "win": 100,
+      "correctLink": 10,
+      "correctSpecial": 20,
+      "safeOrMatch": 0,
+      "hinted": 0
+    },
     "soloXpMultiplier": 0.5,
     "levelBase": 200,
     "levelStep": 50,
-    "coins": { "perGame": 20, "perWin": 50, "perLevel": 100 },
-    "ads": { "hintPerGame": 1, "doubleCoinsPerGame": 1, "freeCoinsPerDay": 3, "freeCoinsAmount": 25 }
+    "coins": {
+      "perGame": 20,
+      "perWin": 50,
+      "perLevel": 100
+    },
+    "ads": {
+      "hintPerGame": 1,
+      "doubleCoinsPerGame": 1,
+      "freeCoinsPerDay": 3,
+      "freeCoinsAmount": 25
+    }
   },
   "emotes": [
-    { "id": "great", "text": "Great answer!" },
-    { "id": "unlucky", "text": "Unlucky" },
-    { "id": "hurry", "text": "Hurry up" },
-    { "id": "wow", "text": "Wow" },
-    { "id": "gg", "text": "Good game" },
-    { "id": "oops", "text": "Oops" },
-    { "id": "thinking", "text": "Thinking…" },
-    { "id": "goal", "text": "GOAL!" }
+    {
+      "id": "great",
+      "text": "Great answer!"
+    },
+    {
+      "id": "unlucky",
+      "text": "Unlucky"
+    },
+    {
+      "id": "hurry",
+      "text": "Hurry up"
+    },
+    {
+      "id": "wow",
+      "text": "Wow"
+    },
+    {
+      "id": "gg",
+      "text": "Good game"
+    },
+    {
+      "id": "oops",
+      "text": "Oops"
+    },
+    {
+      "id": "thinking",
+      "text": "Thinking…"
+    },
+    {
+      "id": "goal",
+      "text": "GOAL!"
+    }
   ],
-  "avatars": ["⚽", "🧤", "👟", "🥅", "🏟️", "🎽", "🦁", "🦅", "🐺", "🐉", "🦊", "🐝"],
+  "avatars": [
+    "⚽",
+    "🧤",
+    "👟",
+    "🥅",
+    "🏟️",
+    "🎽",
+    "🦁",
+    "🦅",
+    "🐺",
+    "🐉",
+    "🦊",
+    "🐝"
+  ],
   "shop": [
-    { "id": "back-default", "category": "cardBack", "name": "Classic", "price": 0, "default": true },
-    { "id": "back-stadium", "category": "cardBack", "name": "Stadium night", "price": 400 },
-    { "id": "back-retro", "category": "cardBack", "name": "Retro 90s", "price": 300 },
-    { "id": "back-gold", "category": "cardBack", "name": "Gold edition", "price": 0, "unlockLevel": 10 },
-    { "id": "table-grass", "category": "table", "name": "Grass pitch", "price": 0, "default": true },
-    { "id": "table-dressing", "category": "table", "name": "Dressing room", "price": 500 },
-    { "id": "table-street", "category": "table", "name": "Street football", "price": 0, "unlockLevel": 5 },
-    { "id": "frame-none", "category": "frame", "name": "No frame", "price": 0, "default": true },
-    { "id": "frame-armband", "category": "frame", "name": "Captain's armband", "price": 250 },
-    { "id": "frame-trophy", "category": "frame", "name": "Trophy frame", "price": 0, "unlockLevel": 3 },
-    { "id": "win-confetti", "category": "celebration", "name": "Confetti", "price": 0, "default": true },
-    { "id": "win-fireworks", "category": "celebration", "name": "Fireworks", "price": 350 },
-    { "id": "win-chant", "category": "celebration", "name": "Crowd chant", "price": 450 }
+    {
+      "id": "back-default",
+      "category": "cardBack",
+      "name": "Classic",
+      "price": 0,
+      "default": true
+    },
+    {
+      "id": "back-stadium",
+      "category": "cardBack",
+      "name": "Stadium night",
+      "price": 400
+    },
+    {
+      "id": "back-retro",
+      "category": "cardBack",
+      "name": "Retro 90s",
+      "price": 300
+    },
+    {
+      "id": "back-gold",
+      "category": "cardBack",
+      "name": "Gold edition",
+      "price": 0,
+      "unlockLevel": 10
+    },
+    {
+      "id": "table-grass",
+      "category": "table",
+      "name": "Grass pitch",
+      "price": 0,
+      "default": true
+    },
+    {
+      "id": "table-dressing",
+      "category": "table",
+      "name": "Dressing room",
+      "price": 500
+    },
+    {
+      "id": "table-street",
+      "category": "table",
+      "name": "Street football",
+      "price": 0,
+      "unlockLevel": 5
+    },
+    {
+      "id": "frame-none",
+      "category": "frame",
+      "name": "No frame",
+      "price": 0,
+      "default": true
+    },
+    {
+      "id": "frame-armband",
+      "category": "frame",
+      "name": "Captain's armband",
+      "price": 250
+    },
+    {
+      "id": "frame-trophy",
+      "category": "frame",
+      "name": "Trophy frame",
+      "price": 0,
+      "unlockLevel": 3
+    },
+    {
+      "id": "win-confetti",
+      "category": "celebration",
+      "name": "Confetti",
+      "price": 0,
+      "default": true
+    },
+    {
+      "id": "win-fireworks",
+      "category": "celebration",
+      "name": "Fireworks",
+      "price": 350
+    },
+    {
+      "id": "win-chant",
+      "category": "celebration",
+      "name": "Crowd chant",
+      "price": 450
+    }
   ],
   "coinPacks": [
-    { "id": "coins-500", "coins": 500, "price": "$0.99" },
-    { "id": "coins-1200", "coins": 1200, "price": "$1.99" },
-    { "id": "coins-3500", "coins": 3500, "price": "$4.99" },
-    { "id": "coins-8000", "coins": 8000, "price": "$9.99" }
+    {
+      "id": "coins-500",
+      "coins": 500,
+      "price": "$0.99"
+    },
+    {
+      "id": "coins-1200",
+      "coins": 1200,
+      "price": "$1.99"
+    },
+    {
+      "id": "coins-3500",
+      "coins": 3500,
+      "price": "$4.99"
+    },
+    {
+      "id": "coins-8000",
+      "coins": 8000,
+      "price": "$9.99"
+    }
   ]
 }

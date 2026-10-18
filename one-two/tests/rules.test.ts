@@ -96,7 +96,20 @@ describe('what you must answer (link table)', () => {
   }
 
   it('top-flight seasons: Buffon at Parma 2021-23 (second tier) still counts for Parma 1995-2001', () => {
-    expect(db.isValid('club:PAR', 'league:ITA', 'buffon')).toBe(true);
+    expect(db.meets(fixture.find((p) => p.id === 'buffon')!, 'league:ITA')).toBe(true);
+  });
+
+  it('a non-card club still counts for its league, and coach spells there still count', () => {
+    const buffon = fixture.find((p) => p.id === 'buffon')!;
+    expect(db.meets({ ...buffon, spells: [{ club: 'PAR', from: 1996, to: 1998 }] }, 'league:ITA')).toBe(true);
+    expect(db.meets({ ...buffon, spells: [{ club: 'PAR', from: 1996, to: 1998 }] }, 'coach:ANC')).toBe(true);
+  });
+
+  it('deck: removed clubs are replaced by League Champion cards of the same league', () => {
+    const deck = buildDeck(config);
+    const perLeague = (l: string) => deck.filter((c) => (c.kind === 'club' && config.clubs.find((k) => k.id === c.ref)!.league === l) || ((c.kind === 'league' || c.kind === 'champion') && c.ref === l)).length;
+    expect(['ENG', 'ESP', 'ITA', 'GER', 'FRA'].map(perLeague)).toEqual([13, 13, 13, 13, 13]);
+    expect(deck.filter((c) => c.kind === 'champion').length).toBe(17);
   });
 });
 

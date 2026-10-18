@@ -3,7 +3,7 @@
 //
 //   FOOTBALL_DATA_KEY=… npm run data:squads
 //
-// For every one of the 50 card clubs currently in its top flight:
+// For every one of the 38 card clubs currently in its top flight:
 //   - players in the squad get an open spell at the club (added if Wikidata doesn't have it yet),
 //     and any other open spell at a card club is closed (they moved);
 //   - players with an open spell at the club who are no longer in the squad get it closed;
@@ -56,7 +56,7 @@ async function fd<T>(path: string): Promise<T> {
 function clubFor(team: FdTeam): string | null {
   const names = [team.name, team.shortName].map(normalize);
   const override = names.map((n) => NAME_OVERRIDES[n]).find(Boolean);
-  if (override) return override;
+  if (override) return config.clubs.some((c) => c.id === override) ? override : null;
   for (const c of config.clubs) {
     const ours = normalize(c.internal);
     if (names.some((n) => n === ours || n.split(' ').join(' ').includes(ours) || (ours.length > 5 && ours.includes(n)))) return c.id;

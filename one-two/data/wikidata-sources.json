@@ -14,13 +14,10 @@
     "RMA": "Real Madrid CF",
     "ATM": "Atlético Madrid",
     "BAR": "FC Barcelona",
-    "ESY": "RCD Espanyol",
     "SEV": "Sevilla FC",
     "BET": "Real Betis",
     "VAL": "Valencia CF",
     "VIL": "Villarreal CF",
-    "RSO": "Real Sociedad",
-    "DEP": "Deportivo de A Coruña",
     "JUV": "Juventus FC",
     "MIL": "AC Milan",
     "INT": "Inter Milan",
@@ -29,28 +26,19 @@
     "NAP": "SSC Napoli",
     "FIO": "ACF Fiorentina",
     "ATA": "Atalanta BC",
-    "PAR": "Parma Calcio 1913",
-    "SAM": "UC Sampdoria",
     "BAY": "FC Bayern Munich",
     "BVB": "Borussia Dortmund",
     "LEV": "Bayer 04 Leverkusen",
     "S04": "FC Schalke 04",
     "RBL": "RB Leipzig",
     "WOB": "VfL Wolfsburg",
-    "VFB": "VfB Stuttgart",
-    "HSV": "Hamburger SV",
-    "SVW": "SV Werder Bremen",
     "SGE": "Eintracht Frankfurt",
     "PSG": "Paris Saint-Germain FC",
     "OMR": "Olympique de Marseille",
     "LYO": "Olympique Lyonnais",
     "MON": "AS Monaco FC",
     "LIL": "Lille OSC",
-    "BDX": "FC Girondins de Bordeaux",
-    "NIC": "OGC Nice",
-    "REN": "Stade Rennais FC",
-    "LEN": "RC Lens",
-    "STE": "AS Saint-Étienne"
+    "NIC": "OGC Nice"
   },
   "coaches": {
     "MOU": "José Mourinho",
@@ -140,10 +128,47 @@
     "FEN": [
       "Fenerbahçe S.K. (football)",
       "Fenerbahçe S.K."
+    ],
+    "ESY": [
+      "RCD Espanyol"
+    ],
+    "DEP": [
+      "Deportivo de A Coruña"
+    ],
+    "RSO": [
+      "Real Sociedad"
+    ],
+    "PAR": [
+      "Parma Calcio 1913"
+    ],
+    "SAM": [
+      "UC Sampdoria"
+    ],
+    "HSV": [
+      "Hamburger SV"
+    ],
+    "SVW": [
+      "SV Werder Bremen"
+    ],
+    "VFB": [
+      "VfB Stuttgart"
+    ],
+    "BDX": [
+      "FC Girondins de Bordeaux"
+    ],
+    "STE": [
+      "AS Saint-Étienne"
+    ],
+    "LEN": [
+      "RC Lens"
+    ],
+    "REN": [
+      "Stade Rennais FC"
     ]
   },
   "leagueSeasonsBefore": {
     "Football League First Division": 1992
   },
-  "_comment2": "leagueSeasonsBefore: a league item that stopped being the top flight (the old First Division became the second tier when the Premier League started in 1992)."
+  "_comment2": "leagueSeasonsBefore: a league item that stopped being the top flight (the old First Division became the second tier when the Premier League started in 1992).",
+  "_comment3": "coachClubs: clubs that are not cards but keep a fixed code (coach spells, former card clubs)."
 }

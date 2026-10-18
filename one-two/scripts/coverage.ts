@@ -1,5 +1,5 @@
 // Link-coverage check (spec: Player database > Cleaning steps, step 5).
-// For every pair of the 98 subject cards, count the valid players, and report pairs with 0 or 1.
+// For every pair of the 86 subject cards, count the valid players, and report pairs with 0 or 1.
 //
 //   npm run coverage            -> summary + data/coverage-report.md
 
