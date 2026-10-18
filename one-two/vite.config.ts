@@ -1,0 +1,16 @@
+import react from '@vitejs/plugin-react';
+import { defineConfig } from 'vite';
+
+// The app lives in app/; it imports shared code (search, types) from engine/.
+export default defineConfig({
+  root: 'app',
+  plugins: [react()],
+  build: { outDir: '../dist', emptyOutDir: true },
+  server: {
+    host: true,
+    proxy: {
+      '/api': 'http://localhost:3000',
+      '/socket.io': { target: 'http://localhost:3000', ws: true },
+    },
+  },
+});
