@@ -1,0 +1,1268 @@
+# Squad sync (football-data.org)
+
+Data version `wd-2026-10-18-cfd50e+fd-2026-10-18`. 837 squad players matched, 378 added, 202 new club spells, 680 spells closed.
+
+Card clubs not in a top-flight squad list this season (not updated): East London Claret, Genova Hoops, Wolfsburg Green, Bordeaux Navy, Saint-Étienne Green.
+
+## Changes
+
+- added Illan Meslier (2000) at North London Red
+- William Saliba: now at North London Red
+- added Christos Tzolis (2002) at North London Red
+- added Maalik Hashi (2008) at North London Red
+- Leandro Trossard: no longer at North London Red
+- Josephine Henning: no longer at North London Red
+- Marquinhos: no longer at North London Red
+- Emma Mukandi: no longer at North London Red
+- Danielle Carter: no longer at North London Red
+- Jack Porter: no longer at North London Red
+- Melisa Filis: no longer at North London Red
+- Marco Bizot: now at Birmingham Claret
+- James Norris: now at Birmingham Claret
+- Taylor Harwood-Bellis: now at Birmingham Claret
+- added Modou Keba Cisse (2005) at Birmingham Claret
+- Boubacar Kamara: now at Birmingham Claret
+- added Emiliano Buendía (1996) at Birmingham Claret
+- added João Gomes (2001) at Birmingham Claret
+- added Alysson (2006) at Birmingham Claret
+- added Brian Madjo (2009) at Birmingham Claret
+- Calum Chambers: no longer at Birmingham Claret
+- Bertrand Traoré: no longer at Birmingham Claret
+- Danny Ings: no longer at Birmingham Claret
+- Leandro Bacuna: no longer at Birmingham Claret
+- Jores Okore: no longer at Birmingham Claret
+- Anwar El Ghazi: no longer at Birmingham Claret
+- Ashley Westwood: no longer at Birmingham Claret
+- Mbwana Samatta: no longer at Birmingham Claret
+- Carles Gil: no longer at Birmingham Claret
+- Evann Guessand: no longer at Birmingham Claret
+- Marvelous Nakamba: no longer at Birmingham Claret
+- Samuel Iling-Junior: no longer at Birmingham Claret
+- Andre Green: no longer at Birmingham Claret
+- Indiana Vassilev: no longer at Birmingham Claret
+- Rushian Hepburn-Murphy: no longer at Birmingham Claret
+- Abbey-Leigh Stringer: no longer at Birmingham Claret
+- Jordan Lyden: no longer at Birmingham Claret
+- Fletcher Boyd: no longer at Birmingham Claret
+- added Gabriel Slonina (2004) at West London Blue
+- added Teddy Sharman-Lowe (2003) at West London Blue
+- Mike Penders: now at West London Blue
+- Levi Colwill: now at West London Blue
+- Aaron Anselmino: now at West London Blue
+- Valentín Carboni: now at West London Blue
+- added Mahdi Nicoll-Jazuli (2010) at West London Blue
+- added Emanuel Emegha (2003) at West London Blue
+- Baba Rahman: no longer at West London Blue
+- Lucas Piazon: no longer at West London Blue
+- Keira Walsh: no longer at West London Blue
+- Filip Jörgensen: no longer at West London Blue
+- Lesley Ugochukwu: no longer at West London Blue
+- Michael Hector: no longer at West London Blue
+- Claire Rafferty: no longer at West London Blue
+- Bashir Humphreys: no longer at West London Blue
+- Genesis Antwi: no longer at West London Blue
+- Charlie Brown: no longer at West London Blue
+- Reanna Blades: no longer at West London Blue
+- added Thomas King (1995) at Liverpool Blue
+- Mark McKenzie: now at Liverpool Blue
+- James Tarkowski: now at Liverpool Blue
+- Jarrad Branthwaite: now at Liverpool Blue
+- Jake O'Brien: now at Liverpool Blue
+- Jake O'Brien: left Lyon White
+- Christian Nørgaard: now at Liverpool Blue
+- James Garner: left Manchester Red
+- added Hayden Hackney (2002) at Liverpool Blue
+- Carlos Alcaraz: now at Liverpool Blue
+- added Merlin Röhl (2002) at Liverpool Blue
+- added Harrison Armstrong (2007) at Liverpool Blue
+- Brennan Johnson: now at Liverpool Blue
+- added Thierno Barry (2000) at Liverpool Blue
+- added Tyler Dibling (2006) at Liverpool Blue
+- added Briaden Graham (2007) at Liverpool Blue
+- added Tyrique George (2006) at Liverpool Blue
+- Muhamed Bešić: no longer at Liverpool Blue
+- Allan: no longer at Liverpool Blue
+- Conor Coady: no longer at Liverpool Blue
+- Jonas Lössl: no longer at Liverpool Blue
+- Demarai Gray: no longer at Liverpool Blue
+- Tom Davies: no longer at Liverpool Blue
+- Kieran Dowell: no longer at Liverpool Blue
+- Thierno Barry: no longer at Liverpool Blue
+- Leandro Joaquín Rodríguez: no longer at Liverpool Blue
+- Lewis Dobbin: no longer at Liverpool Blue
+- David Henen: no longer at Liverpool Blue
+- Sam Byrne: no longer at Liverpool Blue
+- Courtney Duffus: no longer at Liverpool Blue
+- Shea Pita: no longer at Liverpool Blue
+- Freddie Woodman: now at Liverpool Red
+- added Vítězslav Jaroš (2001) at Liverpool Red
+- Harvey Elliott: now at Liverpool Red
+- Harvey Elliott: left Valencia White
+- Kostas Tsimikas: now at Liverpool Red
+- Conor Bradley: now at Liverpool Red
+- James Norris: left Birmingham Claret
+- added Lewis Koumas (2005) at Liverpool Red
+- Joshua Ajala: now at Liverpool Red
+- Joshua Ajala: left East London Claret
+- Steven Caulker: no longer at Liverpool Red
+- Tiago Ilori: no longer at Liverpool Red
+- Ben Woodburn: no longer at Liverpool Red
+- Ryan Kent: no longer at Liverpool Red
+- Jordan Rossiter: no longer at Liverpool Red
+- Bobby Clark: no longer at Liverpool Red
+- Connor Randall: no longer at Liverpool Red
+- Jayden Danns: no longer at Liverpool Red
+- Gemma Bonner: no longer at Liverpool Red
+- Rosie White: no longer at Liverpool Red
+- Rinsola Babajide: no longer at Liverpool Red
+- Billy Koumetio: no longer at Liverpool Red
+- Jack Dunn: no longer at Liverpool Red
+- Ryan Fulton: no longer at Liverpool Red
+- Marcelo Pitaluga: no longer at Liverpool Red
+- Adam Lewis: no longer at Liverpool Red
+- Ashley Hodson: no longer at Liverpool Red
+- added Marcus Bettinelli (1992) at Manchester Sky
+- added Rayan Aït Nouri (2001) at Manchester Sky
+- Vitor Roque: now at Manchester Sky
+- Ryan Kavuma-McQueen: now at Manchester Sky
+- Federico Messiano: no longer at Manchester Sky
+- Kelechi Iheanacho: no longer at Manchester Sky
+- James Trafford: no longer at Manchester Sky
+- Adrián Bernabé: no longer at Manchester Sky
+- Max Alleyne: no longer at Manchester Sky
+- Jack Byrne: no longer at Manchester Sky
+- Jaden Heskey: no longer at Manchester Sky
+- Karl Darlow: now at Manchester Red
+- Tom Heaton: now at Manchester Red
+- added Dermot Mee (2002) at Manchester Red
+- added Harry Maguire (1993) at Manchester Red
+- Diogo Dalot: now at Manchester Red
+- added Harry Amass (2007) at Manchester Red
+- added Andrey Santos (2004) at Manchester Red
+- added Tyler Fletcher (2007) at Manchester Red
+- Marcus Rashford: now at Manchester Red
+- Amad Diallo: now at Manchester Red
+- Patrick Kelly: now at Manchester Red
+- added Shea Lacey (2007) at Manchester Red
+- added Daniel Armer (2007) at Manchester Red
+- Altay Bayındır: no longer at Manchester Red
+- Axel Tuanzebe: no longer at Manchester Red
+- Paddy McNair: no longer at Manchester Red
+- Cameron Borthwick-Jackson: no longer at Manchester Red
+- Joel Pereira: no longer at Manchester Red
+- Chido Obi: no longer at Manchester Red
+- Josh Harrop: no longer at Manchester Red
+- Ethan Galbraith: no longer at Manchester Red
+- Ethan Laird: no longer at Manchester Red
+- Joe Riley: no longer at Manchester Red
+- James Weir: no longer at Manchester Red
+- Sadiq El Fitouri: no longer at Manchester Red
+- Sean Goss: no longer at Manchester Red
+- Matty Willock: no longer at Manchester Red
+- D'Mani Mellor: no longer at Manchester Red
+- Godwill Kukonki: no longer at Manchester Red
+- added Lewis Hall (2025) at Tyneside Stripes
+- Aaron Ramsdale: no longer at Tyneside Stripes
+- Andros Townsend: no longer at Tyneside Stripes
+- Vurnon Anita: no longer at Tyneside Stripes
+- Chancel Mbemba: no longer at Tyneside Stripes
+- Javier Manquillo: no longer at Tyneside Stripes
+- Henri Saivet: no longer at Tyneside Stripes
+- Lewis Hall: no longer at Tyneside Stripes
+- Rolando Aarons: no longer at Tyneside Stripes
+- Massadio Haïdara: no longer at Tyneside Stripes
+- Matty Longstaff: no longer at Tyneside Stripes
+- Daniel Barlaser: no longer at Tyneside Stripes
+- Antonio José Cordero Campillo: no longer at Tyneside Stripes
+- Alex Gilliead: no longer at Tyneside Stripes
+- Jasmine McQuade: no longer at Tyneside Stripes
+- Grace Boyes: no longer at Tyneside Stripes
+- added Brandon Austin (1999) at North London White
+- added Jan Paul van Hecke (2000) at North London White
+- added Mickey van de Ven (2001) at North London White
+- Nabil Bentaleb: no longer at North London White
+- Ryan Sessegnon: no longer at North London White
+- Micky van de Ven: no longer at North London White
+- Vincent Janssen: no longer at North London White
+- Cameron Carter-Vickers: no longer at North London White
+- Manor Solomon: no longer at North London White
+- Josh Onomah: no longer at North London White
+- Dominic Ball: no longer at North London White
+- Drew Spence: no longer at North London White
+- added Salvi Esquivel (2005) at Madrid Stripes
+- added Daniel Martínez (2004) at Madrid Stripes
+- added Jorge Domínguez (2009) at Madrid Stripes
+- added Obed Vargas (2005) at Madrid Stripes
+- added Rodrigo Mendoza (2005) at Madrid Stripes
+- added Pablo Barrios (2025) at Madrid Stripes
+- Giuliano Simeone: now at Madrid Stripes
+- added Arnau Ortiz (2001) at Madrid Stripes
+- added Carlos Martin (2002) at Madrid Stripes
+- Luciano Vietto: no longer at Madrid Stripes
+- Mario Hermoso Canseco: no longer at Madrid Stripes
+- Pablo Barrios: no longer at Madrid Stripes
+- Vitolo: no longer at Madrid Stripes
+- Matías Kranevitter: no longer at Madrid Stripes
+- Nicolás Schiappacasse: no longer at Madrid Stripes
+- Javi Serrano: no longer at Madrid Stripes
+- Nacho Monsalve: no longer at Madrid Stripes
+- Nicolás Ibáñez: no longer at Madrid Stripes
+- added Ángel Fortuño Viñas (2001) at Barcelona Blue-White
+- added Vanja Drkušič (1999) at Barcelona Blue-White
+- added Omar El Hilali (2025) at Barcelona Blue-White
+- Pol Lozano: now at Barcelona Blue-White
+- added Álex Calatrava (2000) at Barcelona Blue-White
+- Rafel Bauzà: now at Barcelona Blue-White
+- Javi Puado: now at Barcelona Blue-White
+- Jofre Carreras: now at Barcelona Blue-White
+- Victor Musa: now at Barcelona Blue-White
+- Pau López: no longer at Barcelona Blue-White
+- Wu Lei: no longer at Barcelona Blue-White
+- Fran Mérida: no longer at Barcelona Blue-White
+- Pablo Piatti: no longer at Barcelona Blue-White
+- Álvaro González Soberón: no longer at Barcelona Blue-White
+- Rubén Duarte Sánchez: no longer at Barcelona Blue-White
+- Charles Pickel: no longer at Barcelona Blue-White
+- Víctor Álvarez Delgado: no longer at Barcelona Blue-White
+- Luis Pedro Cavanda: no longer at Barcelona Blue-White
+- Luca Koleosho: no longer at Barcelona Blue-White
+- Landry Dimata: no longer at Barcelona Blue-White
+- Omar El Hilali: no longer at Barcelona Blue-White
+- Ramón Terrats: no longer at Barcelona Blue-White
+- Juan Rafael Fuentes: no longer at Barcelona Blue-White
+- Carlos Romero: no longer at Barcelona Blue-White
+- Mamadou Sylla Diallo: no longer at Barcelona Blue-White
+- Rober Correa: no longer at Barcelona Blue-White
+- Víctor Gómez Perea: no longer at Barcelona Blue-White
+- Andrés Prieto: no longer at Barcelona Blue-White
+- Miguel Ángel Rubio Lestán: no longer at Barcelona Blue-White
+- José Salinas: no longer at Barcelona Blue-White
+- Antoniu Roca: no longer at Barcelona Blue-White
+- Rubén Herráiz: no longer at Barcelona Blue-White
+- Pablo Ramón Parra: no longer at Barcelona Blue-White
+- Hugo Pérez: no longer at Barcelona Blue-White
+- Eric García: now at Barcelona Blue-Red
+- Pablo Torre: now at Barcelona Blue-Red
+- added Brian Fariñas (2006) at Barcelona Blue-Red
+- added Jesse Bisiwu (2008) at Barcelona Blue-Red
+- added Iker Rodríguez (2008) at Barcelona Blue-Red
+- Gavi: no longer at Barcelona Blue-Red
+- Riqui Puig: no longer at Barcelona Blue-Red
+- Catarina Macario: no longer at Barcelona Blue-Red
+- José Arnaiz: no longer at Barcelona Blue-Red
+- Toni Fernández: no longer at Barcelona Blue-Red
+- Andrés Cuenca: no longer at Barcelona Blue-Red
+- Jimer Fory: no longer at Barcelona Blue-Red
+- Romà Bancells i Chavales: no longer at Barcelona Blue-Red
+- Andriy Lunin: now at Madrid White
+- added Jorge Cestero (2006) at Madrid White
+- Brahim Díaz: now at Madrid White
+- Endrick: now at Madrid White
+- Carlos Baleba: now at Madrid White
+- Carlos Baleba: left Manchester Red
+- Alan Pulido: no longer at Madrid White
+- Celso Ortiz: no longer at Madrid White
+- Wilker Ángel: no longer at Madrid White
+- Alberto Abalde: no longer at Madrid White
+- Diego Aguado: no longer at Madrid White
+- Jose Martinez Lopez: no longer at Madrid White
+- Diego Conde: now at Seville Green
+- Diego Conde: left Castellón Yellow
+- Junior Firpo: now at Seville Green
+- added Valentín Gómez (2003) at Seville Green
+- Ángel Alarcón: now at Seville Green
+- added Marc Roca (1996) at Seville Green
+- Pablo Fornals: now at Seville Green
+- added Nelson Deossa (2000) at Seville Green
+- added Facundo Bernal (2003) at Seville Green
+- added Cucho Hernández (1999) at Seville Green
+- Aitor Ruibal: now at Seville Green
+- Rodrigo Sánchez Rodríguez: now at Seville Green
+- Antony dos Santos: no longer at Seville Green
+- Joel Robles: no longer at Seville Green
+- Chadi Riad: no longer at Seville Green
+- Juanmi Jiménez: no longer at Seville Green
+- Willian José: no longer at Seville Green
+- Cristiano Piccini: no longer at Seville Green
+- Álvaro Vadillo: no longer at Seville Green
+- Jesús Rodríguez Caraballo: no longer at Seville Green
+- Jonas Martin: no longer at Seville Green
+- Jarosław Jach: no longer at Seville Green
+- Daniel Martín Fernández: no longer at Seville Green
+- Alexander Alegría: no longer at Seville Green
+- Francisco Varela: no longer at Seville Green
+- Juan Manuel García García: no longer at Seville Green
+- Fran Vieites: no longer at Seville Green
+- Pedro López Galisteo: no longer at Seville Green
+- Agustín Pastoriza: no longer at Seville Green
+- Unai Marrero: now at San Sebastián Blue
+- Igor Zubeldia: now at San Sebastián Blue
+- Aihen Muñoz: now at San Sebastián Blue
+- Jon Pacheco: now at San Sebastián Blue
+- Mikel Oyarzabal: now at San Sebastián Blue
+- added Ochieng (2003) at San Sebastián Blue
+- Srđan Babić: no longer at San Sebastián Blue
+- Jonathas de Jesus: no longer at San Sebastián Blue
+- Carlos Fernández Luna: no longer at San Sebastián Blue
+- Diego Rico: no longer at San Sebastián Blue
+- Héctor Hernández Ortega: no longer at San Sebastián Blue
+- Arkaitz Mariezkurrena: no longer at San Sebastián Blue
+- Jon Balda: no longer at San Sebastián Blue
+- Luken Beitia Aguirregomezcorta: no longer at San Sebastián Blue
+- Iñaki Rupérez: no longer at San Sebastián Blue
+- Dani Díaz: no longer at San Sebastián Blue
+- Gorka Carrera: no longer at San Sebastián Blue
+- Lander Astiazaran: no longer at San Sebastián Blue
+- added Luiz Lúcio Reis Júnior (2001) at Castellón Yellow
+- added Ruben Gomez (2002) at Castellón Yellow
+- David Costa: now at Castellón Yellow
+- David Costa: left Lens Gold
+- added Renato Veiga (2003) at Castellón Yellow
+- Carlos Romero: now at Castellón Yellow
+- Santiago Mouriño: now at Castellón Yellow
+- added Pau Navarro (2005) at Castellón Yellow
+- Santiago Ascacíbar: now at Castellón Yellow
+- added Alassane Diatta (2005) at Castellón Yellow
+- added Carlos Macià (2008) at Castellón Yellow
+- Alberto Dadie Izagirre: now at Castellón Yellow
+- Aïssa Mandi: no longer at Castellón Yellow
+- Sergio Asenjo: no longer at Castellón Yellow
+- Mateo Musacchio: no longer at Castellón Yellow
+- Arnau Francisco Tenas Bazan: no longer at Castellón Yellow
+- Alfonso Pedraza: no longer at Castellón Yellow
+- Léo Baptistão: no longer at Castellón Yellow
+- Rúben Semedo: no longer at Castellón Yellow
+- Matías Nahuel: no longer at Castellón Yellow
+- Adrián Marín Gómez: no longer at Castellón Yellow
+- Willy Kambwala: no longer at Castellón Yellow
+- Franco Acosta: no longer at Castellón Yellow
+- Rubén Peña: no longer at Castellón Yellow
+- Carlo Adriano: no longer at Castellón Yellow
+- added Cristian (1998) at Valencia White
+- added Stole Dimitrievski (1993) at Valencia White
+- added Kayne van Oevelen (2003) at Valencia White
+- Mouctar Diakhaby: now at Valencia White
+- Dimitri Foulquier: now at Valencia White
+- Pablo Maffeo: now at Valencia White
+- added Justin de Haas (2000) at Valencia White
+- added Arnau Martinez (2003) at Valencia White
+- added Jesus Vazquez Alcalde (2003) at Valencia White
+- added Copete (1999) at Valencia White
+- added Cesar Tarrega (2002) at Valencia White
+- Iker Calderón: now at Valencia White
+- added Filip Ugrinic (1999) at Valencia White
+- added Pepelu (1998) at Valencia White
+- Guido Rodríguez: now at Valencia White
+- Harvey Elliott: left Liverpool Red
+- Francisco Javier Hernández Coarasa: now at Valencia White
+- Francisco Javier Hernández Coarasa: left Barcelona Blue-White
+- added Aliou Dieng (1997) at Valencia White
+- Hugo Guillamón: now at Valencia White
+- Daniel Rabaseda Antolín: now at Valencia White
+- added Luis Rioja (1993) at Valencia White
+- Rodrigo Mora: now at Valencia White
+- Rodrigo Mora: left Rome Yellow-Red
+- Francis Coquelin: no longer at Valencia White
+- Geoffrey Kondogbia: no longer at Valencia White
+- Maxi Gómez: no longer at Valencia White
+- Zakaria Bakkali: no longer at Valencia White
+- Santi Mina: no longer at Valencia White
+- Rúben Vezo: no longer at Valencia White
+- Jaume Doménech: no longer at Valencia White
+- Aderlan Leandro de Jesus Santos: no longer at Valencia White
+- Tropi: no longer at Valencia White
+- added Fran Gonzalez (2005) at Seville White
+- added Gabriel Suazo (1997) at Seville White
+- added Fábio Cardoso (1994) at Seville White
+- added Arouna Sangante (2002) at Seville White
+- added Jose Angel Carmona (2002) at Seville White
+- added Kike Salas (2002) at Seville White
+- added Castrin (2003) at Seville White
+- Dani Díaz: now at Seville White
+- Lucien Agoumé: now at Seville White
+- added Manu Bueno (2004) at Seville White
+- added Nicolás Guillén (2008) at Seville White
+- added Alfonso González (1999) at Seville White
+- added Chidera Ejuke (1998) at Seville White
+- added Félix Correia (2001) at Seville White
+- added Peque (2002) at Seville White
+- added Robbie Ure (2004) at Seville White
+- added Lucas Stassin (2004) at Seville White
+- added Isaac (2000) at Seville White
+- Ángel Alarcón: now at Seville White
+- Ángel Alarcón: left Seville Green
+- added Jesús Morales (2007) at Seville White
+- Rafa Mir: no longer at Seville White
+- Joan Jordan: no longer at Seville White
+- Timothée Kolodziejczak: no longer at Seville White
+- Sebastián Cristóforo: no longer at Seville White
+- Adrià Pedrosa: no longer at Seville White
+- Roque Mesa: no longer at Seville White
+- Diego González Polanco: no longer at Seville White
+- Francisco José Sánchez Rodríguez: no longer at Seville White
+- Federico Gattoni: no longer at Seville White
+- Antonio Cotán: no longer at Seville White
+- Francisco Tena: no longer at Seville White
+- Germán Parreño: now at Coruña Blue
+- added Giacomo Quagliata (2000) at Coruña Blue
+- Sergi Altimira: now at Coruña Blue
+- Mario Vušković: now at Coruña Blue
+- Mario Vušković: left Hamburg Blue
+- Lorenzo Torriani: now at Coruña Blue
+- Lorenzo Torriani: left Milan Red-Black
+- Jonathan Norbye: now at Coruña Blue
+- added Noé Carrillo (2006) at Coruña Blue
+- Rômulo José Cardoso da Cruz: now at Coruña Blue
+- Rômulo José Cardoso da Cruz: left Leipzig White-Red
+- added Peke (2002) at Coruña Blue
+- Jonathan Rodríguez: no longer at Coruña Blue
+- Sidnei: no longer at Coruña Blue
+- Federico Cartabia: no longer at Coruña Blue
+- Denis Genreau: no longer at Coruña Blue
+- Cristian Herrera López: no longer at Coruña Blue
+- Charlie Patino: no longer at Coruña Blue
+- Helton Leite: no longer at Coruña Blue
+- Omenuke Mfulu: no longer at Coruña Blue
+- José Gragera Amado: no longer at Coruña Blue
+- José Ángel Jurado de la Torre: no longer at Coruña Blue
+- Róber: no longer at Coruña Blue
+- Rafael Obrador: no longer at Coruña Blue
+- David Álvarez: no longer at Coruña Blue
+- Yeray Hernández: no longer at Coruña Blue
+- Michelle Romero: no longer at Coruña Blue
+- Nemanja Tošić: no longer at Coruña Blue
+- Álex Alfaro: no longer at Coruña Blue
+- Luis Rodríguez Chacón: no longer at Coruña Blue
+- Alberto Sánchez Vivas: no longer at Coruña Blue
+- Pablo García Taboada: no longer at Coruña Blue
+- added Pietro Terracciano (1990) at Milan Red-Black
+- Lorenzo Torriani: left Coruña Blue
+- added Matteo Gabbia (1999) at Milan Red-Black
+- added Filippo Terracciano (2003) at Milan Red-Black
+- added Davide Bartesaghi (2005) at Milan Red-Black
+- Mahamadou Diawara: now at Milan Red-Black
+- Luka Modrić: now at Milan Red-Black
+- Alexis Saelemaekers: now at Milan Red-Black
+- added Warren Bondo (2003) at Milan Red-Black
+- Modou Keba Cisse: now at Milan Red-Black
+- Modou Keba Cisse: left Birmingham Claret
+- added Christian Comotto (2008) at Milan Red-Black
+- added Francesco Camarda (2008) at Milan Red-Black
+- Ismaël Bennacer: no longer at Milan Red-Black
+- Emerson Royal: no longer at Milan Red-Black
+- Daniel Maldini: no longer at Milan Red-Black
+- Andrea Bertolacci: no longer at Milan Red-Black
+- José Mauri: no longer at Milan Red-Black
+- Soualiho Meïté: no longer at Milan Red-Black
+- Rodrigo Becão: no longer at Milan Red-Black
+- Sebastián Gamarra: no longer at Milan Red-Black
+- Gian Filippo Felicioli: no longer at Milan Red-Black
+- Cheveyo Balentien: no longer at Milan Red-Black
+- Andrej Modić: no longer at Milan Red-Black
+- Luca Santonocito: no longer at Milan Red-Black
+- Matteo Barbini: no longer at Milan Red-Black
+- Luca Lezzerini: now at Florence Violet
+- Marin Pongračić: now at Florence Violet
+- added João Mário Lopes (2000) at Florence Violet
+- added Fabiano Parisi (2000) at Florence Violet
+- added Viery (2005) at Florence Violet
+- added Álex Jiménez (2005) at Florence Violet
+- Victor Musa: now at Florence Violet
+- Victor Musa: left Barcelona Blue-White
+- Nicolò Fagioli: now at Florence Violet
+- added Arthur Atta (2003) at Florence Violet
+- added Christ Ravynel Inao Oulaï (2006) at Florence Violet
+- Mateo Klimowicz: now at Florence Violet
+- Mateo Klimowicz: left Stuttgart White
+- added Wilfried Gnonto (2003) at Florence Violet
+- added Alieu Njie (2005) at Florence Violet
+- Nicolò Zaniolo: no longer at Florence Violet
+- Marina Georgieva: no longer at Florence Violet
+- Gino Infantino: no longer at Florence Violet
+- Jacopo Fazzini: no longer at Florence Violet
+- Stine Ballisager Pedersen: no longer at Florence Violet
+- Kevin Agudelo: no longer at Florence Violet
+- Simone Minelli: no longer at Florence Violet
+- Marko Dabro: no longer at Florence Violet
+- Giacomo Fei: no longer at Florence Violet
+- added Mile Svilar (1999) at Rome Yellow-Red
+- added Devis Vásquez (2026) at Rome Yellow-Red
+- added Giorgio De Marzi (2007) at Rome Yellow-Red
+- Evan Ndicka: now at Rome Yellow-Red
+- added Mario Hermoso (1995) at Rome Yellow-Red
+- added Wesley (2003) at Rome Yellow-Red
+- added Daniele Ghilardi (2003) at Rome Yellow-Red
+- added Emanuele Lulli (2007) at Rome Yellow-Red
+- added Niccolo Pisilli (2004) at Rome Yellow-Red
+- Rodrigo Mora: left Valencia White
+- added Matias Soule (2003) at Rome Yellow-Red
+- Alessandro Longoni: now at Rome Yellow-Red
+- Alessandro Longoni: left Paris Blue-Red
+- Norbert Gyömbér: no longer at Rome Yellow-Red
+- Amadou Diawara: no longer at Rome Yellow-Red
+- Salih Uçan: no longer at Rome Yellow-Red
+- Bruno Peres: no longer at Rome Yellow-Red
+- Mert Çetin: no longer at Rome Yellow-Red
+- José Machín: no longer at Rome Yellow-Red
+- Francesco Di Mariano: no longer at Rome Yellow-Red
+- Edoardo Soleri: no longer at Rome Yellow-Red
+- Lorenzo Di Livio: no longer at Rome Yellow-Red
+- added Marco Carnesecchi (2000) at Bergamo Blue
+- added Thomas Pompei (2006) at Bergamo Blue
+- added Mattia Sonzogni (2009) at Bergamo Blue
+- added Thomas Kristensen (2002) at Bergamo Blue
+- Alexander Isak: now at Bergamo Blue
+- Alexander Isak: left Liverpool Red
+- added Éderson (1989) at Bergamo Blue
+- Gianluca Gaetano: now at Bergamo Blue
+- Lazar Samardžić: now at Bergamo Blue
+- added Lorenzo Bernasconi (2003) at Bergamo Blue
+- Nicola Zalewski: now at Bergamo Blue
+- Giacomo Raspadori: now at Bergamo Blue
+- added Nikola Krstović (2000) at Bergamo Blue
+- added Kamal Deen Sulemana (2002) at Bergamo Blue
+- Aleksei Miranchuk: no longer at Bergamo Blue
+- Rafael Tolói: no longer at Bergamo Blue
+- Berat Djimsiti: no longer at Bergamo Blue
+- Mitchel Bakker: no longer at Bergamo Blue
+- Andrea Petagna: no longer at Bergamo Blue
+- Marco D'Alessandro: no longer at Bergamo Blue
+- Gaetano Monachello: no longer at Bergamo Blue
+- Enrico Delprato: no longer at Bergamo Blue
+- Luca Valzania: no longer at Bergamo Blue
+- Boris Radunović: no longer at Bergamo Blue
+- Moustapha Cissé: no longer at Bergamo Blue
+- Edoardo Ceria: no longer at Bergamo Blue
+- Gianluca Barba: no longer at Bergamo Blue
+- Simone Emmanuello: no longer at Bergamo Blue
+- Willy Ta Bi: no longer at Bergamo Blue
+- Riccardo Tantardini: no longer at Bergamo Blue
+- added Ivan Provedel (1994) at Milan Blue-Black
+- Raffaele Di Gennaro: now at Milan Blue-Black
+- Yann Gboho: now at Milan Blue-Black
+- Alessandro Bastoni: now at Milan Blue-Black
+- Benjamin Pavard: now at Milan Blue-Black
+- Federico Dimarco: now at Milan Blue-Black
+- added Luis Henrique (2001) at Milan Blue-Black
+- added Petar Sucic (2003) at Milan Blue-Black
+- El Hadji Malick Diouf: now at Milan Blue-Black
+- Aleksandar Stanković: now at Milan Blue-Black
+- added Ange-Yoan Bonny (2003) at Milan Blue-Black
+- added Francesco Esposito (2005) at Milan Blue-Black
+- Jeison Murillo: no longer at Milan Blue-Black
+- Joaquín Correa: no longer at Milan Blue-Black
+- Alex Teixeira: no longer at Milan Blue-Black
+- Assane Demoya Gnoukouri: no longer at Milan Blue-Black
+- Eloge Koffi Yao: no longer at Milan Blue-Black
+- Filip Stanković: no longer at Milan Blue-Black
+- Rodrigo Alborno: no longer at Milan Blue-Black
+- Arash Rezavand: no longer at Milan Blue-Black
+- Morten Knudsen: no longer at Milan Blue-Black
+- Leonardo Longo: no longer at Milan Blue-Black
+- Silvester Shkalla: no longer at Milan Blue-Black
+- Giacomo Sciacca: no longer at Milan Blue-Black
+- Riccardo Gaiola: no longer at Milan Blue-Black
+- Andrea Pinton: no longer at Milan Blue-Black
+- Edmund Hottor: no longer at Milan Blue-Black
+- Emerson Espinoza: no longer at Milan Blue-Black
+- Carlo Pinsoglio: now at Turin Black-White
+- added Juan Cabal (2001) at Turin Black-White
+- added Andrea Cambiaso (2000) at Turin Black-White
+- Weston McKennie: now at Turin Black-White
+- Douglas Luiz: now at Turin Black-White
+- Jérémie Boga: now at Turin Black-White
+- added Edon Zhegrova (1999) at Turin Black-White
+- Roberto Pereyra: no longer at Turin Black-White
+- Rolando Mandragora: no longer at Turin Black-White
+- Kephren Thuram: no longer at Turin Black-White
+- Kaio Jorge: no longer at Turin Black-White
+- Vincenzo Fiorillo: no longer at Turin Black-White
+- Andrea Favilli: no longer at Turin Black-White
+- Guido nahuel Vadalá: no longer at Turin Black-White
+- Simone Muratore: no longer at Turin Black-White
+- Sergio Buenacasa: no longer at Turin Black-White
+- Cristian Bunino: no longer at Turin Black-White
+- Davide Borin: no longer at Turin Black-White
+- Riccardo Mattelli: no longer at Turin Black-White
+- Christos Tzolis: now at Rome Sky
+- Christos Tzolis: left North London Red
+- Alessio Riccardi: now at Rome Sky
+- Davide Bartesaghi: now at Rome Sky
+- Davide Bartesaghi: left Milan Red-Black
+- added Edoardo Motta (2005) at Rome Sky
+- Alfonso Pedraza: now at Rome Sky
+- Luca Pellegrini: now at Rome Sky
+- added Danilho Doekhi (1998) at Rome Sky
+- added Nuno Tavares (2000) at Rome Sky
+- added Josip Šutalo (2000) at Rome Sky
+- added Romano Floriani (2003) at Rome Sky
+- Oliver Kilner: now at Rome Sky
+- added Filipe (2005) at Rome Sky
+- added Reda Belahyane (2004) at Rome Sky
+- added Adrian Przyborek (2007) at Rome Sky
+- added Valerio Farcomeni (2006) at Rome Sky
+- added Bruno Galassi (2007) at Rome Sky
+- added Matteo Cancellieri (2002) at Rome Sky
+- Tijjani Reijnders: now at Rome Sky
+- added Federico Serra (2006) at Rome Sky
+- Felipe Anderson: no longer at Rome Sky
+- Ogenyi Onazi: no longer at Rome Sky
+- Roger Ibañez: no longer at Rome Sky
+- Wesley Hoedt: no longer at Rome Sky
+- Ravel Morrison: no longer at Rome Sky
+- Wallace Fortuna dos Santos: no longer at Rome Sky
+- Jonathan Rodríguez Menéndez: no longer at Rome Sky
+- Bobby Adekanye: no longer at Rome Sky
+- Fabio Maistro: no longer at Rome Sky
+- Simone Ghidotti: now at Parma Yellow-Blue
+- added Edoardo Corvi (2001) at Parma Yellow-Blue
+- added Giovanni Daffara (2004) at Parma Yellow-Blue
+- added Enrico Del Prato (1999) at Parma Yellow-Blue
+- added Emanuele Valeri (1998) at Parma Yellow-Blue
+- added Lautaro Valenti (1999) at Parma Yellow-Blue
+- Franco Tongya: now at Parma Yellow-Blue
+- Franco Tongya: left Marseille Sky
+- added Abdoulaye N'Diaye (2002) at Parma Yellow-Blue
+- added Mariano Troilo (2003) at Parma Yellow-Blue
+- Alpha Diallo: now at Parma Yellow-Blue
+- Alpha Diallo: left Lens Gold
+- added Sascha Britschgi (2006) at Parma Yellow-Blue
+- added Dominik Drobnič (2007) at Parma Yellow-Blue
+- Adrián Bernabé: now at Parma Yellow-Blue
+- Hans Schmid: now at Parma Yellow-Blue
+- added Christian Ordonez (2004) at Parma Yellow-Blue
+- added Abdou-Salam Konate (2006) at Parma Yellow-Blue
+- added Pontus Almqvist (1999) at Parma Yellow-Blue
+- Bilal Benkhedim: now at Parma Yellow-Blue
+- added José Romero (2003) at Parma Yellow-Blue
+- added Matija Frigan (2003) at Parma Yellow-Blue
+- added Nesta Elphege (2001) at Parma Yellow-Blue
+- added Thomas de Martis (2008) at Parma Yellow-Blue
+- added Simone Lontani (2008) at Parma Yellow-Blue
+- added Djibril Diallo (2009) at Parma Yellow-Blue
+- Botond Balogh: no longer at Parma Yellow-Blue
+- Luigi Sepe: no longer at Parma Yellow-Blue
+- Riccardo Gagliolo: no longer at Parma Yellow-Blue
+- Simone Colombi: no longer at Parma Yellow-Blue
+- Yves Baraye: no longer at Parma Yellow-Blue
+- Walter Rodríguez: no longer at Parma Yellow-Blue
+- Matteo Pisseri: no longer at Parma Yellow-Blue
+- Stefano Rossini: no longer at Parma Yellow-Blue
+- Mousa Balla Sowe: no longer at Parma Yellow-Blue
+- Alessandro Berselli: no longer at Parma Yellow-Blue
+- Andrea Vignali: no longer at Parma Yellow-Blue
+- Edoardo Pacini: no longer at Parma Yellow-Blue
+- Giuseppe Perrino: no longer at Parma Yellow-Blue
+- Maikol Benassi: no longer at Parma Yellow-Blue
+- Paolo Beatrizzotti: no longer at Parma Yellow-Blue
+- Salvatore Sandomenico: no longer at Parma Yellow-Blue
+- Vanja Milinković-Savić: now at Naples Blue
+- Nikita Contini Baranovsky: now at Naples Blue
+- added Claudio Pugliese (2008) at Naples Blue
+- added Mathías Olivera (1997) at Naples Blue
+- added Sam Beukema (1998) at Naples Blue
+- Pablo Marín: now at Naples Blue
+- Pablo Marín: left San Sebastián Blue
+- added Costantino Favasuli (2004) at Naples Blue
+- added Luca Marianucci (2004) at Naples Blue
+- added Antonio Vergara (2003) at Naples Blue
+- added Lorenzo Lucca (2000) at Naples Blue
+- added Giovane Nascimento (2003) at Naples Blue
+- added Alisson Santos (2002) at Naples Blue
+- added Dinis Rodrigues (2005) at Naples Blue
+- Manolo Gabbiadini: no longer at Naples Blue
+- Amin Younes: no longer at Naples Blue
+- Faouzi Ghoulam: no longer at Naples Blue
+- Diego Demme: no longer at Naples Blue
+- Rafael Cabral: no longer at Naples Blue
+- Gabriel: no longer at Naples Blue
+- Simone Scuffet: no longer at Naples Blue
+- Kévin Malcuit: no longer at Naples Blue
+- Alberto Grassi: no longer at Naples Blue
+- Zinédine Machach: no longer at Naples Blue
+- Lorenzo Tonelli: no longer at Naples Blue
+- Sebastiano Luperto: no longer at Naples Blue
+- Vasco Regini: no longer at Naples Blue
+- Raffaele Maiello: no longer at Naples Blue
+- Niklas Lomb: now at Leverkusen Red-Black
+- added Janis Blaswich (1991) at Leverkusen Red-Black
+- Facundo Medina: now at Leverkusen Red-Black
+- Facundo Medina: left Marseille Sky
+- Loïc Bade: now at Leverkusen Red-Black
+- Loïc Bade: left Rennes Red
+- added Tim Oermann (2003) at Leverkusen Red-Black
+- added Guéla Doué (2025) at Leverkusen Red-Black
+- added Robert Andrich (1994) at Leverkusen Red-Black
+- added Ibrahim Maza (2005) at Leverkusen Red-Black
+- added Naba Mensah (2007) at Leverkusen Red-Black
+- Martin Terrier: now at Leverkusen Red-Black
+- Victor Boniface: now at Leverkusen Red-Black
+- Victor Boniface: left Bremen Green
+- added Eliesse Ben Seghir (2005) at Leverkusen Red-Black
+- Diego Moreira: now at Leverkusen Red-Black
+- Diego Moreira: left Milan Red-Black
+- added Christian Kofane (2006) at Leverkusen Red-Black
+- added Montrell Culbreath (2007) at Leverkusen Red-Black
+- added Ndjicoura Bomba (2008) at Leverkusen Red-Black
+- Timothy Fosu-Mensah: no longer at Leverkusen Red-Black
+- Amine Adli: no longer at Leverkusen Red-Black
+- Wendell Nascimento Borges: no longer at Leverkusen Red-Black
+- Paulinho: no longer at Leverkusen Red-Black
+- Danny da Costa: no longer at Leverkusen Red-Black
+- André Ramalho: no longer at Leverkusen Red-Black
+- Noah Mbamba: no longer at Leverkusen Red-Black
+- Vladlen Yurchenko: no longer at Leverkusen Red-Black
+- Lennart Grill: no longer at Leverkusen Red-Black
+- Marlon Frey: no longer at Leverkusen Red-Black
+- Marc Brašnić: no longer at Leverkusen Red-Black
+- Alexander Meyer: now at Dortmund Yellow
+- Waldemar Anton: now at Dortmund Yellow
+- Waldemar Anton: left Stuttgart White
+- Ramy Bensebaini: now at Dortmund Yellow
+- added Kouakou Gadou (2007) at Dortmund Yellow
+- added Filippo Mané (2005) at Dortmund Yellow
+- added Kaua Prates (2008) at Dortmund Yellow
+- added Luca Reggiani (2008) at Dortmund Yellow
+- Felix Nmecha: now at Dortmund Yellow
+- added Giannis Konstantelias (0) at Dortmund Yellow
+- added Konstantinos Karetsas (2007) at Dortmund Yellow
+- added Justin Lerma (2008) at Dortmund Yellow
+- added Mussa Kaba (2008) at Dortmund Yellow
+- added Enzo dos Santos (2009) at Dortmund Yellow
+- added Samuele Inácio (2008) at Dortmund Yellow
+- Mathis Eboué: now at Dortmund Yellow
+- Nico Schulz: no longer at Dortmund Yellow
+- Maximilian Philipp: no longer at Dortmund Yellow
+- Jürgen Damm: no longer at Dortmund Yellow
+- Cole Campbell: no longer at Dortmund Yellow
+- Manuel Neuer: now at Munich Red
+- Sven Ulreich: now at Munich Red
+- added Jonas Urbig (2003) at Munich Red
+- Hiroki Itō: now at Munich Red
+- added Nathaniel Brown (2003) at Munich Red
+- added David Daiber (2007) at Munich Red
+- added Bara Ndiaye (2007) at Munich Red
+- David Boly: now at Munich Red
+- Julian Green: no longer at Munich Red
+- Michaël Cuisance: no longer at Munich Red
+- Marc Roca Junqué: no longer at Munich Red
+- Niklas Dorsch: no longer at Munich Red
+- Daniel Peretz: no longer at Munich Red
+- Adam Aznou: no longer at Munich Red
+- Arijon Ibrahimović: no longer at Munich Red
+- Alara Şehitler: no longer at Munich Red
+- Phillipp Steinhart: no longer at Munich Red
+- Ivan Volf: no longer at Munich Red
+- Noah Codjo-Evora: no longer at Munich Red
+- Kevin Müller: now at Gelsenkirchen Royal
+- added Johannes Siebeking (2006) at Gelsenkirchen Royal
+- added Maximilian Wöber (1998) at Gelsenkirchen Royal
+- added Timo Becker (1997) at Gelsenkirchen Royal
+- added Hasan Kuruçay (1997) at Gelsenkirchen Royal
+- added Adrian Gantenbein (2001) at Gelsenkirchen Royal
+- added Vitalie Becker (2005) at Gelsenkirchen Royal
+- added Mertcan Ayhan (2006) at Gelsenkirchen Royal
+- Kenan Kodro: now at Gelsenkirchen Royal
+- Janik Mäder: now at Gelsenkirchen Royal
+- added Dejan Ljubicic (1997) at Gelsenkirchen Royal
+- added Ron Schallenberg (1998) at Gelsenkirchen Royal
+- added Dina Ebimbe (2000) at Gelsenkirchen Royal
+- added Satoshi Tanaka (2002) at Gelsenkirchen Royal
+- Adil Aouchiche: now at Gelsenkirchen Royal
+- added Soufiane El-Faouzi (2002) at Gelsenkirchen Royal
+- Luca Reggiani: now at Gelsenkirchen Royal
+- Luca Reggiani: left Dortmund Yellow
+- added Bryan Lasme (1998) at Gelsenkirchen Royal
+- Edin Džeko: now at Gelsenkirchen Royal
+- Moussa Sylla: now at Gelsenkirchen Royal
+- added Chikwubuike Adamu (2001) at Gelsenkirchen Royal
+- added Emil Højlund (2005) at Gelsenkirchen Royal
+- Younès Belhanda: no longer at Gelsenkirchen Royal
+- Assan Ouédraogo: no longer at Gelsenkirchen Royal
+- Johannes Geis: no longer at Gelsenkirchen Royal
+- Rabbi Matondo: no longer at Gelsenkirchen Royal
+- Júnior Caiçara: no longer at Gelsenkirchen Royal
+- Markus Schubert: no longer at Gelsenkirchen Royal
+- Ahmed Kutucu: no longer at Gelsenkirchen Royal
+- Fabian Giefer: no longer at Gelsenkirchen Royal
+- Nassim Boujellab: no longer at Gelsenkirchen Royal
+- Derry Murkin: no longer at Gelsenkirchen Royal
+- Felix Schröter: no longer at Gelsenkirchen Royal
+- added Elias Lahti (2009) at Hamburg Blue
+- added Fernando Dickes (2007) at Hamburg Blue
+- added Jordan Torunarigha (1997) at Hamburg Blue
+- added Sebastiaan Bornauw (1999) at Hamburg Blue
+- added Nicolás Capaldo (1997) at Hamburg Blue
+- added Warmed Omari (2000) at Hamburg Blue
+- added Daniel Elfadli (1997) at Hamburg Blue
+- added David Wolfe (2002) at Hamburg Blue
+- added Joel Agyekum (2005) at Hamburg Blue
+- added Zakaria El Ouahdi (2001) at Hamburg Blue
+- added Shafiq Nandja (2007) at Hamburg Blue
+- added Louis Lemke (2009) at Hamburg Blue
+- added Immanuel Pherai (2001) at Hamburg Blue
+- added Nicolai Remberg (2000) at Hamburg Blue
+- Bilal Nadir: now at Hamburg Blue
+- added Martin Adeline (2003) at Hamburg Blue
+- added Kofi Amoako (2005) at Hamburg Blue
+- added Patson Daka (1998) at Hamburg Blue
+- added Otto Stange (2007) at Hamburg Blue
+- added Alexander Røssing-Lelesiit (2007) at Hamburg Blue
+- Lewis Holtby: no longer at Hamburg Blue
+- Fiete Arp: no longer at Hamburg Blue
+- Pierre-Michel Lasogga: no longer at Hamburg Blue
+- Bobby Wood: no longer at Hamburg Blue
+- Dennis Diekmeier: no longer at Hamburg Blue
+- Josha Vagnoman: no longer at Hamburg Blue
+- Gideon Jung: no longer at Hamburg Blue
+- Matthias Ostrzolek: no longer at Hamburg Blue
+- Adrian Fein: no longer at Hamburg Blue
+- Rick van Drongelen: no longer at Hamburg Blue
+- Christian Mathenia: no longer at Hamburg Blue
+- Anssi Suhonen: no longer at Hamburg Blue
+- Cleber Janderson Pereira Reis: no longer at Hamburg Blue
+- Batuhan Altıntaş: no longer at Hamburg Blue
+- Ashton Götz: no longer at Hamburg Blue
+- Andreas Hirzel: no longer at Hamburg Blue
+- Tolcay Ciğerci: no longer at Hamburg Blue
+- Ahmet Arslan: no longer at Hamburg Blue
+- Marlon Czernohous: no longer at Hamburg Blue
+- added Marius Funk (1996) at Stuttgart White
+- added Stefan Drljača (1999) at Stuttgart White
+- added Dennis Seimen (2005) at Stuttgart White
+- Dan-Axel Zagadou: now at Stuttgart White
+- Josha Vagnoman: now at Stuttgart White
+- added Leonidas Stergiou (2002) at Stuttgart White
+- Lorenz Assignon: now at Stuttgart White
+- Lorenz Assignon: left Rennes Red
+- added Ramon Hendriks (2001) at Stuttgart White
+- added Luca Jaquez (2003) at Stuttgart White
+- added Finn Jeltsch (2006) at Stuttgart White
+- added Nikolas Nartey (2000) at Stuttgart White
+- added Jarzinho Malanga (2006) at Stuttgart White
+- added Ertugrul Yigit (2009) at Stuttgart White
+- added Jamie Leweling (2001) at Stuttgart White
+- added Tiago Tomás (2002) at Stuttgart White
+- added Dzenan Pejcinovic (2005) at Stuttgart White
+- added Badredine Bouanani (2004) at Stuttgart White
+- added Justin Diehl (2024) at Stuttgart White
+- Jérémy Jacquet: now at Stuttgart White
+- Jérémy Jacquet: left Liverpool Red
+- Marcin Kamiński: no longer at Stuttgart White
+- Artem Kravets: no longer at Stuttgart White
+- Lukas Rupp: no longer at Stuttgart White
+- Timo Baumgartl: no longer at Stuttgart White
+- Pascal Stenzel: no longer at Stuttgart White
+- Chadrac Akolo: no longer at Stuttgart White
+- Jan Kliment: no longer at Stuttgart White
+- Daniel Ginczek: no longer at Stuttgart White
+- Jean Zimmer: no longer at Stuttgart White
+- Matthias Zimmermann: no longer at Stuttgart White
+- Noah Darvich: no longer at Stuttgart White
+- Benjamin Uphoff: no longer at Stuttgart White
+- Tanguy Coulibaly: no longer at Stuttgart White
+- Philip Heise: no longer at Stuttgart White
+- Arianit Ferati: no longer at Stuttgart White
+- Borys Tashchy: no longer at Stuttgart White
+- Marvin Wanitzek: no longer at Stuttgart White
+- Stephen Sama: no longer at Stuttgart White
+- Justin Diehl: no longer at Stuttgart White
+- Mart Ristl: no longer at Stuttgart White
+- Samuele Di Benedetto: no longer at Stuttgart White
+- Alexander Schlager: now at Bremen Green
+- Markus Obernosterer: now at Bremen Green
+- added Karl Hein (0) at Bremen Green
+- added Stefan Smarkalev (2007) at Bremen Green
+- added Amos Pieper (1998) at Bremen Green
+- Oliver Deman: now at Bremen Green
+- Julián Alvarez: now at Bremen Green
+- Julián Alvarez: left Madrid Stripes
+- Abdoulaye N'Diaye: now at Bremen Green
+- Abdoulaye N'Diaye: left Parma Yellow-Blue
+- Arthur Atta: now at Bremen Green
+- Arthur Atta: left Florence Violet
+- added Mick Schmetgens (2007) at Bremen Green
+- added Oskar Wójcik (2003) at Bremen Green
+- Ludovit Reis: now at Bremen Green
+- added Jens Stage (1996) at Bremen Green
+- added Youri Regeer (2003) at Bremen Green
+- added Skelly Alvero (2002) at Bremen Green
+- added Chuki (2004) at Bremen Green
+- added Dariusz Stalmach (2005) at Bremen Green
+- Dawid Kownacki: now at Bremen Green
+- added Justin Njinmah (2000) at Bremen Green
+- added Eren Dinkci (2001) at Bremen Green
+- added Keke Topp (2004) at Bremen Green
+- added Salim Musah (2006) at Bremen Green
+- added Kenny Quetant (2006) at Bremen Green
+- Aron Jóhannsson: no longer at Bremen Green
+- Daniil Dubov: no longer at Bremen Green
+- Issa Kaboré: no longer at Bremen Green
+- Sambou Yatabaré: no longer at Bremen Green
+- Felix Wiedwald: no longer at Bremen Green
+- Philipp Bargfrede: no longer at Bremen Green
+- Ulisses Garcia: no longer at Bremen Green
+- Johannes Eggestein: no longer at Bremen Green
+- Álex Gálvez: no longer at Bremen Green
+- Thanos Petsos: no longer at Bremen Green
+- Leon Guwara: no longer at Bremen Green
+- Melvyn Lorenzen: no longer at Bremen Green
+- Michael Zetterer: no longer at Bremen Green
+- Janek Sternberg: no longer at Bremen Green
+- Eric Oelschlägel: no longer at Bremen Green
+- Luca-Milan Zander: no longer at Bremen Green
+- Özkan Yıldırım: no longer at Bremen Green
+- Julian von Haacke: no longer at Bremen Green
+- Lukas Fröde: no longer at Bremen Green
+- Ousman Manneh: no longer at Bremen Green
+- Rieke Dieckmann: no longer at Bremen Green
+- Jens Grahl: now at Frankfurt Black-Red
+- Han-Noah Massengo: now at Frankfurt Black-Red
+- added Kauã Santos (2003) at Frankfurt Black-Red
+- added Amil Siljevic (2007) at Frankfurt Black-Red
+- added Nnamdi Collins (2004) at Frankfurt Black-Red
+- added Elias Baum (2005) at Frankfurt Black-Red
+- added Keita Kosugi (2006) at Frankfurt Black-Red
+- added Otávio (2005) at Frankfurt Black-Red
+- Raphaël Gerbeaud: now at Frankfurt Black-Red
+- added Fares Chaïbi (2002) at Frankfurt Black-Red
+- added Noel Aseko Nkili (2005) at Frankfurt Black-Red
+- Emil Højlund: now at Frankfurt Black-Red
+- Emil Højlund: left Gelsenkirchen Royal
+- added Jessic Ngankam (2000) at Frankfurt Black-Red
+- added Younes Ebnoutalib (2003) at Frankfurt Black-Red
+- added Ayoube Amaimouni-Echghouyab (2004) at Frankfurt Black-Red
+- added Malik Pimpong (2008) at Frankfurt Black-Red
+- Kaan Ayhan: no longer at Frankfurt Black-Red
+- Martin Hinteregger: no longer at Frankfurt Black-Red
+- Carlos Zambrano: no longer at Frankfurt Black-Red
+- Jesper Lindstrøm: no longer at Frankfurt Black-Red
+- Luc Castaignos: no longer at Frankfurt Black-Red
+- Branimir Hrgota: no longer at Frankfurt Black-Red
+- Rodrigo Zalazar: no longer at Frankfurt Black-Red
+- Almamy Touré: no longer at Frankfurt Black-Red
+- Luca Waldschmidt: no longer at Frankfurt Black-Red
+- Aleksandar Ignjovski: no longer at Frankfurt Black-Red
+- Dominik Kohr: no longer at Frankfurt Black-Red
+- Dejan Joveljić: no longer at Frankfurt Black-Red
+- Diant Ramaj: no longer at Frankfurt Black-Red
+- Slobodan Medojević: no longer at Frankfurt Black-Red
+- Enis Bunjaki: no longer at Frankfurt Black-Red
+- Yanni Regäsel: no longer at Frankfurt Black-Red
+- Felix Irorere: no longer at Frankfurt Black-Red
+- Nico Rinderknecht: no longer at Frankfurt Black-Red
+- Nele Weßel: no longer at Frankfurt Black-Red
+- Fynn Otto: no longer at Frankfurt Black-Red
+- Sarah Vogel: no longer at Frankfurt Black-Red
+- Derek Boakye Osei: no longer at Frankfurt Black-Red
+- Jabez Makanda: no longer at Frankfurt Black-Red
+- Kadir Lobo: no longer at Frankfurt Black-Red
+- Çağrı Karakuş: no longer at Frankfurt Black-Red
+- Lukas Fahrnberger: no longer at Frankfurt Black-Red
+- Leopold Zingerle: now at Leipzig White-Red
+- added Maarten Vandevoordt (2002) at Leipzig White-Red
+- Ridle Baku: now at Leipzig White-Red
+- Castello Lukeba: now at Leipzig White-Red
+- Castello Lukeba: left Lyon White
+- added Maxime Estève (2002) at Leipzig White-Red
+- added Max Finkgräfe (2004) at Leipzig White-Red
+- added Abdoul Koné (2005) at Leipzig White-Red
+- added Rocco Reitz (2002) at Leipzig White-Red
+- added Ezechiel Banzuzi (2005) at Leipzig White-Red
+- Assan Ouédraogo: now at Leipzig White-Red
+- added Andrija Maksimović (2007) at Leipzig White-Red
+- added Viggo Gebel (2007) at Leipzig White-Red
+- added Benno Kaltefleiter (2008) at Leipzig White-Red
+- added Johan Bakayoko (2003) at Leipzig White-Red
+- Rômulo José Cardoso da Cruz: left Coruña Blue
+- added Tidiam Gomis (2006) at Leipzig White-Red
+- added Samba Konaté (2009) at Leipzig White-Red
+- added Suleman Sani (2006) at Leipzig White-Red
+- Marcel Halstenberg: no longer at Leipzig White-Red
+- Rani Khedira: no longer at Leipzig White-Red
+- Stefan Ilsanker: no longer at Leipzig White-Red
+- Bernardo Fernandes da Silva Junior: no longer at Leipzig White-Red
+- Terrence Boyd: no longer at Leipzig White-Red
+- Hannes Wolf: no longer at Leipzig White-Red
+- Massimo Bruno: no longer at Leipzig White-Red
+- Tom Krauß: no longer at Leipzig White-Red
+- Christopher Lenz: no longer at Leipzig White-Red
+- Georg Teigl: no longer at Leipzig White-Red
+- Atınç Nukan: no longer at Leipzig White-Red
+- Nils Quaschner: no longer at Leipzig White-Red
+- Luan Cândido: no longer at Leipzig White-Red
+- Federico Palacios: no longer at Leipzig White-Red
+- Idrissa Touré: no longer at Leipzig White-Red
+- Benjamin Bellot: no longer at Leipzig White-Red
+- Kamil Wojtkowski: no longer at Leipzig White-Red
+- Ken Gipson: no longer at Leipzig White-Red
+- Patrik Tørset Johnsen: no longer at Leipzig White-Red
+- added Jeffrey De Lange (1998) at Marseille Sky
+- added Théo Vermot (1997) at Marseille Sky
+- added Jelle Van Neck (2004) at Marseille Sky
+- Ulisses Garcia: now at Marseille Sky
+- Derek Cornelius: now at Marseille Sky
+- added CJ Egan-Riley (2003) at Marseille Sky
+- Angel Gomes: now at Marseille Sky
+- Angel Gomes: left Lille Red
+- Geoffrey Kondogbia: now at Marseille Sky
+- added Himad Abdelli (1999) at Marseille Sky
+- added Tochukwu Nadi (2003) at Marseille Sky
+- Neal Maupay: now at Marseille Sky
+- Amine Gouiri: now at Marseille Sky
+- Amine Gouiri: left Nice Red-Black
+- Faris Pemi Moumbagna: now at Marseille Sky
+- added Tadjidine M'Madi (2007) at Marseille Sky
+- Rémy Cabella: no longer at Marseille Sky
+- Abdelaziz Barrada: no longer at Marseille Sky
+- Lucas Silva: no longer at Marseille Sky
+- Ismaël Koné: no longer at Marseille Sky
+- Karim Rekik: no longer at Marseille Sky
+- Konrad de la Fuente: no longer at Marseille Sky
+- Brice Dja Djédjé: no longer at Marseille Sky
+- Romain Alessandrini: no longer at Marseille Sky
+- Bilal Boutobba: no longer at Marseille Sky
+- Marley Aké: no longer at Marseille Sky
+- Stéphane Sparagna: no longer at Marseille Sky
+- Jérémie Porsan-Clemente: no longer at Marseille Sky
+- Stevy Nzambe: no longer at Marseille Sky
+- François Régis Mughe: no longer at Marseille Sky
+- Antoine Rabillard: no longer at Marseille Sky
+- Jonathan Santiago: no longer at Marseille Sky
+- Fouad Mroudjaé: no longer at Marseille Sky
+- Khaled Hattab: no longer at Marseille Sky
+- added Arnaud Bodart (1998) at Lille Red
+- added Berke Özer (2000) at Lille Red
+- added Romain Perraud (1997) at Lille Red
+- Calvin Stengs: now at Lille Red
+- added Alexsandro Ribeiro (1999) at Lille Red
+- added Tiago Santos (2002) at Lille Red
+- added Loun Srdanovic (2006) at Lille Red
+- added Isaac Cossier (2006) at Lille Red
+- Nabil Bentaleb: now at Lille Red
+- added Hákon Arnar Haraldsson (2003) at Lille Red
+- added Maurits Kjærgaard (2003) at Lille Red
+- added Ngal'ayel Mukau (2004) at Lille Red
+- added Mohamed Bayo (1993) at Lille Red
+- Gaëtan Perrin: now at Lille Red
+- Gaëtan Perrin: left Lyon White
+- Olivier Giroud: now at Lille Red
+- added Osame Sahraoui (2001) at Lille Red
+- added Dilane Bakwa (2002) at Lille Red
+- added Basar Onal (2004) at Lille Red
+- Ethan Mbappé: now at Lille Red
+- Ethan Mbappé: left Paris Blue-Red
+- added Hamza Igamane (2002) at Lille Red
+- added Soriba Diaoune (2007) at Lille Red
+- Marcos Lopes: no longer at Lille Red
+- Yassine Benzia: no longer at Lille Red
+- Ibrahim Amadou: no longer at Lille Red
+- Mohamed Bayo: no longer at Lille Red
+- Youssouf Koné: no longer at Lille Red
+- Ricardo Kishna: no longer at Lille Red
+- Stoppila Sunzu: no longer at Lille Red
+- Bafodé Diakité: no longer at Lille Red
+- Adama Soumaoro: no longer at Lille Red
+- Rui Fonte: no longer at Lille Red
+- Nolan Mbemba: no longer at Lille Red
+- Yehvann Diouf: now at Nice Red-Black
+- added Niels Nkounkou (2000) at Nice Red-Black
+- Nobel Mendy: now at Nice Red-Black
+- added Youssouf Ndayishimiye (1998) at Nice Red-Black
+- added Hamza Koutoune (2006) at Nice Red-Black
+- added Brad Mantsounga (2007) at Nice Red-Black
+- Laurent Abergel: now at Nice Red-Black
+- Everton Sousa Soares: now at Nice Red-Black
+- Salis Abdul Samed: now at Nice Red-Black
+- Salis Abdul Samed: left Lens Gold
+- Hicham Mahou: now at Nice Red-Black
+- added Issiaga Camara (2005) at Nice Red-Black
+- added Djibril Coulibaly (2008) at Nice Red-Black
+- added Nassim Laarej (2009) at Nice Red-Black
+- Sofiane Diop: now at Nice Red-Black
+- added Isak Jansson (2002) at Nice Red-Black
+- Nathan Ngoumou: now at Nice Red-Black
+- added Sepe Elye Wahi (2003) at Nice Red-Black
+- Alpha Diallo: now at Nice Red-Black
+- Alpha Diallo: left Parma Yellow-Blue
+- Victor Musa: now at Nice Red-Black
+- Victor Musa: left Florence Violet
+- Tanguy Ndombele: no longer at Nice Red-Black
+- Ricardo Pereira: no longer at Nice Red-Black
+- Malang Sarr: no longer at Nice Red-Black
+- Jean Seri: no longer at Nice Red-Black
+- Nampalys Mendy: no longer at Nice Red-Black
+- Adam Ounas: no longer at Nice Red-Black
+- Walter Benítez: no longer at Nice Red-Black
+- Olivier Boscagli: no longer at Nice Red-Black
+- Stanley Nsoki: no longer at Nice Red-Black
+- Myziane Maolida: no longer at Nice Red-Black
+- Alexis Claude-Maurice: no longer at Nice Red-Black
+- Ignatius Ganago: no longer at Nice Red-Black
+- Flavius Daniliuc: no longer at Nice Red-Black
+- Niklas Hult: no longer at Nice Red-Black
+- Franck Honorat: no longer at Nice Red-Black
+- Robson Bambu: no longer at Nice Red-Black
+- Lucas Da Cunha: no longer at Nice Red-Black
+- Yoan Cardinale: no longer at Nice Red-Black
+- Anthony Mandrea: no longer at Nice Red-Black
+- Sada Thioub: no longer at Nice Red-Black
+- Gautier Lloris: no longer at Nice Red-Black
+- Racine Coly: no longer at Nice Red-Black
+- Wallyson Mallmann: no longer at Nice Red-Black
+- Paulin Puel: no longer at Nice Red-Black
+- Alexis Trouillet: no longer at Nice Red-Black
+- Stéphan Raheriharimanana: no longer at Nice Red-Black
+- Yannis Clementia: no longer at Nice Red-Black
+- Antony Ranieri: no longer at Nice Red-Black
+- Fabien Dao Castellana: no longer at Nice Red-Black
+- Jonathan Correia Da Fonseca: no longer at Nice Red-Black
+- Deji Sotona: no longer at Nice Red-Black
+- Maureen Saint-Léger: no longer at Nice Red-Black
+- added Rémy Descamps (1996) at Lyon White
+- added Dominik Greif (1997) at Lyon White
+- added Lassine Diarra (2002) at Lyon White
+- added Moussa Niakhaté (1996) at Lyon White
+- Clinton Njie: now at Lyon White
+- added Felix Bacher (2000) at Lyon White
+- added Abner (2000) at Lyon White
+- Ruben Kluivert: now at Lyon White
+- added Mohamed Ouédraogo (2003) at Lyon White
+- added Zachary Athekame (2004) at Lyon White
+- Paul Akouokou: now at Lyon White
+- added Mads Bidstrup (2001) at Lyon White
+- added Tyler Morton (2002) at Lyon White
+- added Noah Nartey (2005) at Lyon White
+- added Mathys De Carvalho (2005) at Lyon White
+- added Khalis Merah (2007) at Lyon White
+- Loïs Openda: left Turin Black-White
+- added Julien Duranville (2006) at Lyon White
+- added Ernest Nuamah (2003) at Lyon White
+- added Kaïl Boudache (2006) at Lyon White
+- added Rémi Himbert (2008) at Lyon White
+- Rafael Pereira da Silva: no longer at Lyon White
+- Mapou Yanga-Mbiwa: no longer at Lyon White
+- Lucas Tousart: no longer at Lyon White
+- Rachid Ghezzal: no longer at Lyon White
+- Jordan Ferri: no longer at Lyon White
+- Sinaly Diomandé: no longer at Lyon White
+- Olivier Kemen: no longer at Lyon White
+- Lenny Pintor: no longer at Lyon White
+- Zakarie Labidi: no longer at Lyon White
+- Héritier Deyonge: no longer at Lyon White
+- Célestino Iala: no longer at Lyon White
+- Gwendal Degorce: no longer at Lyon White
+- Toni Fernández: now at Paris Blue-Red
+- added Adam Mouak (2009) at Paris Blue-Red
+- Benjamin Stambouli: no longer at Paris Blue-Red
+- Ann-Katrin Berger: no longer at Paris Blue-Red
+- Katarzyna Kiedrzynek: no longer at Paris Blue-Red
+- Kays Ruiz-Atil: no longer at Paris Blue-Red
+- Édouard Michut: no longer at Paris Blue-Red
+- Sessi D'Almeida: no longer at Paris Blue-Red
+- Alec Georgen: no longer at Paris Blue-Red
+- Lorenzo Callegari: no longer at Paris Blue-Red
+- Bandiougou Fadiga: no longer at Paris Blue-Red
+- Djeidi Gassama: no longer at Paris Blue-Red
+- Ella Kaabachi: no longer at Paris Blue-Red
+- added Kilian Belazzoug (2006) at Rennes Red
+- added Bryan Reynolds (2001) at Rennes Red
+- added Alidu Seidu (2000) at Rennes Red
+- added Anthony Rouault (2001) at Rennes Red
+- Charlie Patino: now at Rennes Red
+- Merlin Röhl: now at Rennes Red
+- Merlin Röhl: left Liverpool Blue
+- added Mahamadou Nagida (2005) at Rennes Red
+- added Gonçalo Oliveira (2006) at Rennes Red
+- added Abdelhamid Ait Boudlal (2006) at Rennes Red
+- Mahdi Camara: now at Rennes Red
+- Adrien Hunou: now at Rennes Red
+- Sebastian Szymański: now at Rennes Red
+- added Ayanda Sishuba (2005) at Rennes Red
+- added Djaoui Cissé (2004) at Rennes Red
+- Arnaud Nordin: now at Rennes Red
+- Boulaye Dia: left Rome Sky
+- added Esteban Lepaul (2000) at Rennes Red
+- added Issa Soumaré (2022) at Rennes Red
+- added Eliezer Mayenda (2005) at Rennes Red
+- Elias Lahti: now at Rennes Red
+- Elias Lahti: left Hamburg Blue
+- Kyogo Furuhashi: no longer at Rennes Red
+- Giovanni Sio: no longer at Rennes Red
+- Mehdi Zeffane: no longer at Rennes Red
+- Pedro Henrique Konzen: no longer at Rennes Red
+- Pedro Mendes: no longer at Rennes Red
+- Doğan Alemdar: no longer at Rennes Red
+- Brandon Soppy: no longer at Rennes Red
+- Abdoulaye Sané: no longer at Rennes Red
+- Rafik Guitane: no longer at Rennes Red
+- Mathieu Gorgelin: now at Lens Gold
+- added Régis Gurtner (1986) at Lens Gold
+- added Ilan Jourdren (2008) at Lens Gold
+- Jonathan Clauss: now at Lens Gold
+- Jonathan Clauss: left Nice Red-Black
+- Ruben Aguilar: now at Lens Gold
+- added Matthieu Udol (1996) at Lens Gold
+- added Maik Nawrocki (2001) at Lens Gold
+- added Jhoanner Chavez (2002) at Lens Gold
+- added Samson Baidoo (2004) at Lens Gold
+- added Pierre Ganiou (2005) at Lens Gold
+- Antonio Arena: now at Lens Gold
+- added Souleymane Sagnan (2006) at Lens Gold
+- added Mickaël Cuisance (1999) at Lens Gold
+- Amadou Haidara: now at Lens Gold
+- added Yacine Titraoui (2003) at Lens Gold
+- Andrija Maksimović: now at Lens Gold
+- Andrija Maksimović: left Leipzig White-Red
+- added Odsonne Edouard (1998) at Lens Gold
+- added Junior Kadile (2002) at Lens Gold
+- added Abdallah Sima (2001) at Lens Gold
+- added Franjo Ivanovic (2003) at Lens Gold
+- Jean-Kévin Duverne: no longer at Lens Gold
+- Kenny Lala: no longer at Lens Gold
+- Jean-Philippe Gbamin: no longer at Lens Gold
+- Wuilker Faríñez: no longer at Lens Gold
+- Abdoul Ba: no longer at Lens Gold
+- Mathias Autret: no longer at Lens Gold
+- Loïck Landre: no longer at Lens Gold
+- Jonathan Nanizayamo: no longer at Lens Gold
+- Taylor Moore: no longer at Lens Gold
+- Quentin Lecoeuche: no longer at Lens Gold
+- Aristote Madiani: no longer at Lens Gold
+- Aude Gbédjissi: no longer at Lens Gold
+- Nadjib Baouia: no longer at Lens Gold
+- Jérémy Vachoux: no longer at Lens Gold
+- Miloš Zukanović: no longer at Lens Gold
+- Sidi Bane: no longer at Lens Gold
+- Julien Leghait: no longer at Lens Gold
+- Gabin Capuano: no longer at Lens Gold
+- Philipp Köhn: now at Monaco Red-White
+- added Yann Lienard (2003) at Monaco Red-White
+- added Vanderson (2001) at Monaco Red-White
+- added Flávio Nazinho (2003) at Monaco Red-White
+- added Christian Mawissa (2005) at Monaco Red-White
+- added Sadibou Sané (2004) at Monaco Red-White
+- added Samuel Nibombe (2007) at Monaco Red-White
+- added Edan Diop (2004) at Monaco Red-White
+- Issiaga Camara: now at Monaco Red-White
+- Issiaga Camara: left Nice Red-Black
+- added Stanis Idumbo-Muzambo (2005) at Monaco Red-White
+- added Mamadou Coulibaly (2004) at Monaco Red-White
+- added Pape Cabral (2007) at Monaco Red-White
+- added Matthis Abline (2003) at Monaco Red-White
+- added Mika Biereth (2003) at Monaco Red-White
+- added Paris Brunner (2006) at Monaco Red-White
+- added Mathys Detourbet (2007) at Monaco Red-White
+- Krepin Diatta: no longer at Monaco Red-White
+- Fodé Ballo-Touré: no longer at Monaco Red-White
+- Jemerson: no longer at Monaco Red-White
+- Pietro Pellegri: no longer at Monaco Red-White
+- Benjamin Lecomte: no longer at Monaco Red-White
+- Adama Traoré: no longer at Monaco Red-White
+- Almoatasembellah Mohamed: no longer at Monaco Red-White
+- Jean-Eudes Aholou: no longer at Monaco Red-White
+- Jordi Mboula: no longer at Monaco Red-White
+- Jordy Gaspar: no longer at Monaco Red-White
+- Seydou Sy: no longer at Monaco Red-White
+- Raphaël Diarra: no longer at Monaco Red-White
+- Alessandro Arlotti: no longer at Monaco Red-White

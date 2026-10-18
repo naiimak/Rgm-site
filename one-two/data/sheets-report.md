@@ -1,0 +1,141 @@
+# Club sheets merge
+
+375 sheet rows: 367 matched to existing players, 8 new players, 10 club spells added, 17 titles/trophies added.
+
+## Changes and disagreements
+
+- **David Seaman** (North London Red): Wikidata also has ENG (not in the sheet; kept)
+- **Tony Adams** (North London Red): Wikidata also has ENG (not in the sheet; kept)
+- **Lee Dixon** (North London Red): Wikidata also has ENG (not in the sheet; kept)
+- **Nigel Winterburn** (North London Red): Wikidata also has ENG (not in the sheet; kept)
+- **Steve Bould** (North London Red): Wikidata also has ENG (not in the sheet; kept)
+- **Paul Merson** (North London Red): Wikidata also has ENG (not in the sheet; kept)
+- **Thierry Henry** (North London Red): Wikidata also has FRA (not in the sheet; kept)
+- **Patrick Vieira** (North London Red): Wikidata also has CL (not in the sheet; kept)
+- **Jens Lehmann** (North London Red): Wikidata also has ITA (not in the sheet; kept)
+- **Mesut Özil** (North London Red): trophies + WC
+- **Alexis Sánchez** (North London Red): Wikidata also has ITA (not in the sheet; kept)
+- **Olivier Giroud** (North London Red): Wikidata also has ITA (not in the sheet; kept)
+- **Bukayo Saka** (North London Red): Wikidata also has ENG (not in the sheet; kept)
+- **Martin Ødegaard** (North London Red): Wikidata also has ENG ESP CL (not in the sheet; kept)
+- **Declan Rice** (North London Red): Wikidata also has ENG (not in the sheet; kept)
+- **Kai Havertz** (North London Red): Wikidata also has ENG (not in the sheet; kept)
+- **Gabriel Martinelli** (North London Red): Wikidata also has ENG (not in the sheet; kept)
+- **Pierre-Emerick Aubameyang** (North London Red): Wikidata also has ITA (not in the sheet; kept)
+- **Alan Wright** (Birmingham Claret): Wikidata also has ENG (not in the sheet; kept)
+- **Nigel Spink** (Birmingham Claret): Wikidata also has ENG (not in the sheet; kept)
+- **Tammy Abraham** (Birmingham Claret): Wikidata also has ENG (not in the sheet; kept)
+- **Emiliano Martínez** (Birmingham Claret): trophies + WC
+- **Douglas Luiz** (Birmingham Claret): Wikidata also has ENG (not in the sheet; kept)
+- **Gianfranco Zola** (West London Blue): Wikidata also has ITA (not in the sheet; kept)
+- **Marcel Desailly** (West London Blue): Wikidata also has FRA (not in the sheet; kept)
+- **Claude Makelélé** (West London Blue): Wikidata also has FRA (not in the sheet; kept)
+- **Eden Hazard** (West London Blue): Wikidata also has ESP (not in the sheet; kept)
+- **Kai Havertz** (West London Blue): Wikidata also has ENG (not in the sheet; kept)
+- **Cole Palmer** (West London Blue): Wikidata also has CL (not in the sheet; kept)
+- **Nicolas Jackson** (West London Blue): Wikidata also has GER (not in the sheet; kept)
+- **Marc Cucurella** (West London Blue): new player; played for West London Blue; trophies + EC
+- **Nevill Southall** (Liverpool Blue): new player; played for Liverpool Blue
+- **Dave Watson** (Liverpool Blue): Wikidata also has ENG (not in the sheet; kept)
+- **Anders Limpar** (Liverpool Blue): Wikidata also has ENG (not in the sheet; kept)
+- **Andrey Kanchelskis** (Liverpool Blue): new player; played for Liverpool Blue; league titles + ENG
+- **Kevin Campbell** (Liverpool Blue): Wikidata also has ENG (not in the sheet; kept)
+- **Oliver Bierhoff** (Liverpool Blue): played for Liverpool Blue
+- **Mikel Arteta** (Liverpool Blue): Wikidata also has ESP (not in the sheet; kept)
+- **Tim Howard** (Liverpool Blue): Wikidata also has ENG (not in the sheet; kept)
+- **Landon Donovan** (Liverpool Blue): Wikidata also has GER (not in the sheet; kept)
+- **Romelu Lukaku** (Liverpool Blue): Wikidata also has CL (not in the sheet; kept)
+- **Ross Barkley** (Liverpool Blue): Wikidata also has CL (not in the sheet; kept)
+- **Dwight McNeil** (Liverpool Blue): new player; played for Liverpool Blue
+- **Abdoulaye Doucouré** (Liverpool Blue): played for Liverpool Blue
+- **Michael Owen** (Liverpool Red): league titles + ESP; Wikidata also has ENG (not in the sheet; kept)
+- **Dietmar Hamann** (Liverpool Red): Wikidata also has GER (not in the sheet; kept)
+- **Jerzy Dudek** (Liverpool Red): Wikidata also has ESP (not in the sheet; kept)
+- **Xabi Alonso** (Liverpool Red): Wikidata also has ESP (not in the sheet; kept)
+- **Fernando Torres** (Liverpool Red): Wikidata also has ENG (not in the sheet; kept)
+- **Sadio Mané** (Liverpool Red): league titles + GER
+- **Andrew Robertson** (Liverpool Red): new player; played for Liverpool Red; league titles + ENG; trophies + CL
+- **Alexis Mac Allister** (Liverpool Red): Wikidata also has ENG (not in the sheet; kept)
+- **Dominik Szoboszlai** (Liverpool Red): Wikidata also has ENG (not in the sheet; kept)
+- **Darwin Núñez** (Liverpool Red): Wikidata also has ENG (not in the sheet; kept)
+- **Cody Gakpo** (Liverpool Red): Wikidata also has ENG (not in the sheet; kept)
+- **Niall Quinn** (Manchester Sky): Wikidata also has ENG (not in the sheet; kept)
+- **Nicolas Anelka** (Manchester Sky): Wikidata also has ITA (not in the sheet; kept)
+- **Sergio Agüero** (Manchester Sky): Wikidata also has WC (not in the sheet; kept)
+- **Rodri** (Manchester Sky): Wikidata also has WC (not in the sheet; kept)
+- **İlkay Gündoğan** (Manchester Sky): trophies + CL
+- **Eric Cantona** (Manchester Red): league titles + FRA
+- **Edwin van der Sar** (Manchester Red): Wikidata also has ESP (not in the sheet; kept)
+- **Marcus Rashford** (Manchester Red): Wikidata also has ESP (not in the sheet; kept)
+- **Romelu Lukaku** (Manchester Red): Wikidata also has CL (not in the sheet; kept)
+- **Lisandro Martínez** (Manchester Red): trophies + WC
+- **Matthijs de Ligt** (Manchester Red): league titles + GER
+- **Noussair Mazraoui** (Manchester Red): league titles + GER
+- **Peter Beardsley** (Tyneside Stripes): Wikidata also has ENG (not in the sheet; kept)
+- **Shay Given** (Tyneside Stripes): Wikidata also has ENG (not in the sheet; kept)
+- **Keith Gillespie** (Tyneside Stripes): Wikidata also has ENG (not in the sheet; kept)
+- **Michael Owen** (Tyneside Stripes): Wikidata also has ESP (not in the sheet; kept)
+- **Fabricio Coloccini** (Tyneside Stripes): Wikidata also has ITA CL (not in the sheet; kept)
+- **Allan Saint-Maximin** (Tyneside Stripes): Wikidata also has FRA (not in the sheet; kept)
+- **Kieran Trippier** (Tyneside Stripes): Wikidata also has ENG (not in the sheet; kept)
+- **Sven Botman** (Tyneside Stripes): new player; played for Tyneside Stripes; league titles + FRA
+- **Jonathan Woodgate** (North London White): Wikidata also has ESP (not in the sheet; kept)
+- **Cristian Romero** (North London White): trophies + WC; Wikidata also has ITA (not in the sheet; kept)
+- **Pedro Porro** (North London White): Wikidata also has ENG ESP WC (not in the sheet; kept)
+- **Frank Lampard Jr.** (East London Claret): new player; played for East London Claret; league titles + ENG; trophies + CL
+- **Scott Parker** (East London Claret): Wikidata also has ENG (not in the sheet; kept)
+- **Carlton Cole** (East London Claret): Wikidata also has ENG (not in the sheet; kept)
+- **Yossi Benayoun** (East London Claret): Wikidata also has CL (not in the sheet; kept)
+- **Marko Arnautović** (East London Claret): Wikidata also has ITA CL (not in the sheet; kept)
+- **Aaron Cresswell** (East London Claret): new player; played for East London Claret
+- **Declan Rice** (East London Claret): Wikidata also has ENG (not in the sheet; kept)
+
+## Trophy text not counted (ambiguous or not a win)
+
+- Paul Merson (North London Red): 2x First Division
+- Gareth Southgate (Birmingham Claret): 1x FIFA World Cup 4th Place (as Manager 2018) · 2x Euro Finalist (Manager)
+- Ron Vlaar (Birmingham Claret): World Cup 3rd Place (2014)
+- Ollie Watkins (Birmingham Claret): 1x UEFA Euro Runner-up (2024)
+- Douglas Luiz (Birmingham Claret): 1x Copa América Runner-up
+- Leon Bailey (Birmingham Claret): 1x Gold Cup Runner-up
+- Pau Torres (Birmingham Claret): 1x UEFA Euro Semi-finalist
+- Ezri Konsa (Birmingham Claret): 1x UEFA Euro Runner-up (2024)
+- Moisés Caicedo (West London Blue): 1x EFL Cup / Domestic Cup Finalist
+- Nicolas Jackson (West London Blue): 1x EFL Cup Finalist
+- Nevill Southall (Liverpool Blue): 2x Football League First Division
+- Dave Watson (Liverpool Blue): 1x Football League First Division (Norwich/Everton)
+- Anders Limpar (Liverpool Blue): 1x Football League First Division (Arsenal)
+- Andrey Kanchelskis (Liverpool Blue): 2x FA Cup (Man Utd, Everton squad)
+- Kevin Campbell (Liverpool Blue): 1x FA Cup (1995 squad/Arsenal) · 1x First Division (Arsenal)
+- Tim Cahill (Liverpool Blue): FA Cup Finalist (2009)
+- Leighton Baines (Liverpool Blue): FA Cup Finalist (2009)
+- Phil Jagielka (Liverpool Blue): FA Cup Finalist (2009)
+- Steven Pienaar (Liverpool Blue): 1x African Cup Finalist
+- Seamus Coleman (Liverpool Blue): 1x EFL Championship Play-off Winner
+- Jordan Pickford (Liverpool Blue): 1x UEFA Euro Runner-up (2020, 2024) · 1x Nations League 3rd Place
+- Dominic Calvert-Lewin (Liverpool Blue): 1x UEFA Euro Runner-up (2020)
+- Dietmar Hamann (Liverpool Red): 1x FIFA World Cup Runner-up (2002)
+- Dirk Kuyt (Liverpool Red): 1x World Cup Runner-up (2010)
+- Niall Quinn (Manchester Sky): 1x Football League First Division (Man City)
+- Andy Morrison (Manchester Sky): 1x Second Division Play-off Winner (Man City 1999)
+- Alan Shearer (Tyneside Stripes): 1x FA Cup Finalist (2x Newcastle)
+- Peter Beardsley (Tyneside Stripes): 2x Football League First Division (Liverpool)
+- Andy Cole (Tyneside Stripes): 1x Division One (Newcastle 1993)
+- Rob Lee (Tyneside Stripes): 1x Division One Champion (Newcastle 1993)
+- Keith Gillespie (Tyneside Stripes): 1x Premier League (Man Utd squad)
+- Allan Saint-Maximin (Tyneside Stripes): 1x Saudi Pro League / AFC Champions League Contender
+- Martin Dúbravka (Tyneside Stripes): 1x EFL Cup Finalist (Newcastle 2023)
+- Kieran Trippier (Tyneside Stripes): 1x UEFA Champions League Finalist (Spurs 2019) · 1x World Cup Semi-finalist
+- Rafael van der Vaart (North London White): World Cup Runner-up (2010)
+- Dele Alli (North London White): 1x UEFA Nations League 3rd Place
+- Slaven Bilić (East London Claret): World Cup 3rd Place (1998)
+- Mark Noble (East London Claret): 2x EFL Championship Play-off Winner (2005, 2012)
+- Robert Green (East London Claret): 1x EFL Championship Play-off Winner (2012)
+- Carlton Cole (East London Claret): 1x EFL Championship Play-off Winner (2012)
+- Yossi Benayoun (East London Claret): UEFA Europa League Finalist
+- Dimitri Payet (East London Claret): 1x UEFA Europa League Finalist (Marsielle) · 1x Coupe de France Nominee
+- Marko Arnautović (East London Claret): 1x Serie A & Champions League squad (Inter Milan)
+- Łukasz Fabiański (East London Claret): 2x Polish Footballer of the Year Nominee
+- Declan Rice (East London Claret): Premier League titles / Contender
+- James Ward-Prowse (East London Claret): 1x UEFA Europa Conference League (West Ham 2023 - squad/on loan)
+- Emerson Palmieri (East London Claret): 1x FIFA World Cup (no, wait - Italy Euro 2020)

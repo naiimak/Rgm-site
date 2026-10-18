@@ -1,0 +1,121 @@
+# Wikidata import report
+
+Version `wd-2026-10-18-cfd50e` · 20846 players (20831 from Wikidata, 15 kept from the seed).
+
+## Seed vs Wikidata disagreements (113)
+
+Both sources can be wrong. These are the first players for the AI review / a human check.
+
+- **Patrick Vieira** (1976, fame 72): trophies only in Wikidata: CL
+- **Sergio Agüero** (1988, fame 90): trophies only in Wikidata: WC
+- **Sadio Mané** (1992, fame 92): titles only in seed: GER
+- **Mesut Özil** (1988, fame 106): trophies only in seed: WC
+- **Alexis Sánchez** (1988, fame 74): clubs only in Wikidata: Seville White
+- **Fernando Torres** (1984, fame 91): titles only in Wikidata: ENG
+- **Philippe Coutinho** (1992, fame 76): titles only in Wikidata: ITA
+- **Fabio Cannavaro** (1973, fame 84): titles only in Wikidata: ITA
+- **Leonardo Bonucci** (1987, fame 70): clubs only in Wikidata: Milan Blue-Black
+- **Giorgio Chiellini** (1984, fame 73): clubs only in Wikidata: Rome Yellow-Red
+- **Lorenzo Insigne** (1991, fame 60): clubs only in Wikidata: Genova Hoops
+- **Romelu Lukaku** (1993, fame 89): trophies only in Wikidata: CL
+- **Lautaro Martínez** (1997, fame 65): trophies only in seed: WC
+- **Juan Román Riquelme** (1978, fame 60): titles only in Wikidata: ESP
+- **Bernardo Silva** (1994, fame 63): clubs only in Wikidata: Madrid White
+- **João Félix** (1999, fame 62): clubs only in seed: Barcelona Blue-Red
+- **Renato Sanches** (1997, fame 57): trophies only in seed: EC; trophies only in Wikidata: CL
+- **Enzo Fernández** (2001, fame 59): clubs only in Wikidata: Manchester Sky
+- **Emiliano Martínez** (1992, fame 63): clubs only in Wikidata: West London Blue; trophies only in seed: WC
+- **Rodrigo De Paul** (1994, fame 54): trophies only in seed: WC
+- **Nicolás Otamendi** (1988, fame 62): trophies only in seed: WC
+- **Roberto Ayala** (1973, fame 53): clubs only in Wikidata: Castellón Yellow; titles only in Wikidata: ITA
+- **Papu Gómez** (1988, fame 44): trophies only in seed: WC; caps only in seed: ARG
+- **Eric Cantona** (1966, fame 80): clubs only in seed: Marseille Sky; titles only in seed: FRA
+- **İlkay Gündoğan** (1990, fame 66): trophies only in seed: CL
+- **Oliver Kahn** (1969, fame 83): trophies only in Wikidata: EC
+- **Pierre-Emerick Aubameyang** (1989, fame 73): clubs only in Wikidata: Coruña Blue; titles only in Wikidata: ITA
+- **Edgar Davids** (1973, fame 58): titles only in Wikidata: ESP; trophies only in seed: CL
+- **Matthijs de Ligt** (1999, fame 58): titles only in seed: GER
+- **Patrick Kluivert** (1976, fame 59): trophies only in seed: CL
+- **Marc Overmars** (1973, fame 51): trophies only in seed: CL
+- **Memphis Depay** (1994, fame 69): titles only in Wikidata: ESP
+- **Radja Nainggolan** (1988, fame 53): titles only in Wikidata: ITA
+- **Jérémy Doku** (2002, fame 49): titles only in Wikidata: ENG
+- **Loïs Openda** (2000, fame 37): clubs only in Wikidata: Lyon White
+- **Christian Eriksen** (1992, fame 69): clubs only in Wikidata: Wolfsburg Green
+- **Achraf Hakimi** (1998, fame 74): titles only in Wikidata: ESP
+- **Yassine Bounou** (1991, fame 55): clubs only in Wikidata: Madrid Stripes; titles only in Wikidata: ESP
+- **Sofyan Amrabat** (1996, fame 50): clubs only in Wikidata: Seville Green
+- **Medhi Benatia** (1987, fame 54): clubs only in Wikidata: Marseille Sky
+- **Noussair Mazraoui** (1997, fame 50): clubs only in seed: Munich Red; titles only in seed: GER
+- **Ismaël Bennacer** (1997, fame 40): clubs only in seed: Marseille Sky
+- **Aïssa Mandi** (1991, fame 39): clubs only in seed: Lille Red
+- **Nwankwo Kanu** (1976, fame 53): trophies only in seed: CL
+- **Ademola Lookman** (1997, fame 52): clubs only in Wikidata: Madrid Stripes
+- **Victor Moses** (1990, fame 54): trophies only in Wikidata: CL
+- **Franck Kessié** (1996, fame 53): titles only in Wikidata: ESP
+- **Éric Maxim Choupo-Moting** (1989, fame 55): titles only in seed: GER
+- **Nicolas Jackson** (2001, fame 44): clubs only in Wikidata: Birmingham Claret; titles only in Wikidata: GER
+- **Omar Marmoush** (1999, fame 46): clubs only in Wikidata: North London White
+- **Mido** (1983, fame 35): clubs only in Wikidata: East London Claret
+- **Landon Donovan** (1982, fame 59): titles only in Wikidata: GER
+- **Tim Howard** (1979, fame 58): titles only in Wikidata: ENG
+- **Brad Friedel** (1971, fame 44): clubs only in Wikidata: Tyneside Stripes
+- **Sergiño Dest** (2000, fame 49): titles only in Wikidata: ESP
+- **Takefusa Kubo** (2001, fame 58): clubs only in Wikidata: Madrid White; titles only in Wikidata: ESP; trophies only in Wikidata: CL
+- **Mathew Ryan** (1992, fame 45): clubs only in Wikidata: Rome Yellow-Red, Lens Gold
+- **Ronald Araújo** (1999, fame 52): clubs only in Wikidata: Liverpool Red
+- **Gabriel Jesus** (1997, fame 59): clubs only in Wikidata: Barcelona Blue-Red
+- **Diego Ribas da Cunha** (1985, fame 44): titles only in seed: ESP
+- **Giovane Élber** (1972, fame 38): clubs only in Wikidata: Milan Red-Black; titles only in Wikidata: ITA
+- **Dante** (1983, fame 52): clubs only in Wikidata: Lille Red
+- **Dani Carvajal** (1992, fame 70): trophies only in seed: EC
+- **Rodri** (1996, fame 74): clubs only in Wikidata: Barcelona Blue-Red; trophies only in Wikidata: WC
+- **Álvaro Morata** (1992, fame 70): trophies only in seed: EC
+- **Lamine Yamal** (2007, fame 98): trophies only in Wikidata: WC
+- **Pedri** (2002, fame 70): trophies only in Wikidata: WC
+- **Dani Olmo** (1998, fame 61): trophies only in Wikidata: CL, WC
+- **Nico Williams** (2002, fame 59): trophies only in Wikidata: WC
+- **Fernando Morientes** (1976, fame 48): titles only in Wikidata: FRA
+- **Mikel Arteta** (1982, fame 69): clubs only in Wikidata: Barcelona Blue-Red; titles only in Wikidata: ESP
+- **Mikel Oyarzabal** (1997, fame 56): trophies only in Wikidata: WC
+- **Ferran Torres** (2000, fame 68): clubs only in Wikidata: Paris Blue-Red; titles only in Wikidata: ENG; trophies only in Wikidata: EC, WC
+- **Iván de la Peña** (1976, fame 33): clubs only in Wikidata: Marseille Sky; titles only in Wikidata: ESP, ITA
+- **Diego Tristán** (1976, fame 38): clubs only in Wikidata: Seville Green
+- **Declan Rice** (1999, fame 65): titles only in Wikidata: ENG
+- **Bukayo Saka** (2001, fame 72): titles only in Wikidata: ENG
+- **Kieran Trippier** (1990, fame 55): clubs only in Wikidata: Manchester Sky; titles only in Wikidata: ENG
+- **Kyle Walker** (1990, fame 63): clubs only in Wikidata: Birmingham Claret
+- **John Stones** (1994, fame 61): clubs only in Wikidata: Milan Blue-Black
+- **Jordan Henderson** (1990, fame 77): clubs only in Wikidata: West London Blue
+- **Marcus Rashford** (1997, fame 87): titles only in Wikidata: ESP
+- **Ciro Immobile** (1990, fame 63): clubs only in Wikidata: Turin Black-White; titles only in Wikidata: ITA
+- **Sandro Tonali** (2000, fame 43): clubs only in Wikidata: North London White
+- **Antonio Cassano** (1982, fame 59): titles only in seed: ITA
+- **Luca Toni** (1977, fame 57): titles only in Wikidata: ITA
+- **Fabio Quagliarella** (1983, fame 56): clubs only in Wikidata: Florence Violet
+- **Giuseppe Rossi** (1987, fame 43): titles only in Wikidata: ENG
+- **Patrik Schick** (1996, fame 51): titles only in seed: GER
+- **Arturo Vidal** (1987, fame 76): clubs only in seed: Leverkusen Red-Black
+- **Siniša Mihajlović** (1969, fame 52): trophies only in seed: CL
+- **Luka Jović** (1997, fame 55): trophies only in Wikidata: CL
+- **Granit Xhaka** (1992, fame 62): titles only in seed: GER
+- **Adrian Mutu** (1979, fame 53): titles only in Wikidata: ITA
+- **Abedi Pele** (1964, fame 47): trophies only in seed: CL
+- **Kevin-Prince Boateng** (1987, fame 63): clubs only in Wikidata: Dortmund Yellow; titles only in seed: ESP
+- **Emmanuel Adebayor** (1984, fame 71): titles only in Wikidata: ENG
+- **Jonathan David** (2000, fame 43): clubs only in Wikidata: Madrid Stripes
+- **Martin Ødegaard** (1998, fame 64): titles only in Wikidata: ENG, ESP; trophies only in Wikidata: CL
+- **Marcel Desailly** (1968, fame 63): titles only in Wikidata: FRA
+- **Bixente Lizarazu** (1969, fame 59): clubs only in seed: Marseille Sky; clubs only in Wikidata: Paris Blue-Red
+- **Patrice Evra** (1981, fame 69): clubs only in Wikidata: Nice Red-Black
+- **Sylvain Wiltord** (1974, fame 50): clubs only in Wikidata: Coruña Blue
+- **Christophe Dugarry** (1972, fame 42): titles only in Wikidata: ESP
+- **Kurt Zouma** (1994, fame 51): trophies only in Wikidata: CL
+- **Wesley Fofana** (2000, fame 39): caps only in seed: FRA
+- **Randal Kolo Muani** (1998, fame 49): trophies only in Wikidata: CL
+- **Ibrahima Konaté** (1999, fame 57): clubs only in Wikidata: Madrid White
+- **Rudi Völler** (1960, fame 62): titles only in Wikidata: FRA
+- **Leroy Sané** (1996, fame 63): titles only in seed: GER
+- **Kai Havertz** (1999, fame 66): titles only in Wikidata: ENG
+- **Florian Wirtz** (2003, fame 57): titles only in seed: GER
+- **Leon Goretzka** (1995, fame 57): clubs only in Wikidata: Birmingham Claret

@@ -33,7 +33,7 @@ Status against the spec's five milestones:
 
 | Milestone | Status |
 | --- | --- |
-| 1. Data and rules engine | **Rules engine done and tested.** Every rule in the spec is enforced by the server. Player data is a hand-entered seed of 491 players, not yet the Wikidata import (see Player data). |
+| 1. Data and rules engine | **Done.** Every rule in the spec is enforced by the server. 21,000+ players from Wikidata, football-data.org and your club sheets; the AI review step is still to do (see Player data). |
 | 2. Solo vs Bots playable | **Done in the web/app build.** Game table, answer box with autocomplete, hints, Final Whistle, the 7-step tutorial, and Easy / Medium / Hard bots. Not yet run on a physical iPhone or Android phone. |
 | 3. Online multiplayer | **Done.** Private Rooms with code and share link (WhatsApp included), Quick Match that fills empty seats with bots after 20 s, reconnect, and bot takeover after 30 s offline. |
 | 4. Accounts, progression, shop, ads | **Partly done.** Guest accounts, usernames, avatars, XP, levels, coins, weekly and all-time leaderboards, profile stats, cosmetics shop, rewarded-ad placements, and the admin page for answer reports all work. Sign in with Apple/Google, real coin-pack purchases and real ads are stubs (see Not done yet). |
@@ -48,7 +48,7 @@ npm run coverage     # link-coverage check for all 4,753 card pairs -> data/cove
 npm run typecheck
 ```
 
-Latest simulation: 1,000 games, no crashes and no rule violations. Every judged answer was re-checked against the link table, and every card was accounted for after every move. 908 games finished; 92 hit the 4,000-turn safety cap. Those were almost all Easy-bot-only tables: Easy bots only know the top 20% most famous players, which in a 491-player seed is about 100 players, so their hands grow faster than they shrink. Medium and Hard tables finish in a normal 22–49 turns (median). This should go away with the full player database. Real games always have a human, who ends them.
+Latest simulation (with the full player database): 1,000 games, all finished, average 46 turns, no crashes and no rule violations. Every judged answer was re-checked against the link table, and every card was accounted for after every move.
 
 The full flows were also played end to end in a headless browser: the tutorial to a win, a 4-player solo game, a Private Room joined through its share link, a player dropping out (seat marked away, then a bot takes over after 30 s, then the player rejoins and gets the seat back), and a Quick Match filled with bots.
 
@@ -92,11 +92,32 @@ The spec recommends Flutter or React Native and allows alternatives. I used Reac
 
 ## Player data
 
-The spec's plan is: import from Wikidata, clean the data, then have an AI check the top 500 players, the 10 coaches and the 24 national teams. Wikidata was not reachable from the environment this was built in, so the database is currently a **hand-entered seed of 491 well-known players**. It has not been verified and must not ship as is.
+`data/players.json` holds **21,000+ players active from 1990 onwards**, built in three steps. Run them in this order whenever the data is refreshed (the spec asks for each transfer window):
 
-- Edit `data/players.seed.psv`, then `npm run data` to rebuild `data/players.json`. The admin page's "Publish new data version" button loads it into a running server; games in progress finish on the version they started with.
-- Coverage today: 42% of the 4,753 card pairs have no valid player, and 18% have exactly one (see `data/coverage-report.md`). The game handles this (unplayable cards are dimmed, Safe Play and action cards keep games moving), but a full import should fix most of these gaps, because the seed has only a few players for each African, Asian and North American nation and for the smaller clubs.
-- **Next step:** a Wikidata import script that writes the same `players.json` format (`id, name, aliases, nationality, birthYear, fame, spells[{club, from, to}], titles, trophies, caps`), using the sitelinks count as `fame`, plus the AI review step. The tables and cleaning rules are in the spec's "Player database" section.
+```bash
+npm run data:wikidata                              # 1. careers, titles and trophies from Wikidata (~10 min first time, cached after)
+FOOTBALL_DATA_KEY=your-key npm run data:squads     # 2. this season's squads from football-data.org
+npm run data:sheets                                # 3. your club sheets in data/manual/club-sheets/
+npm run coverage                                   # check: how many card pairs have valid answers
+```
+
+Then press "Publish new data version" on the admin page (games in progress finish on the version they started with).
+
+1. **Wikidata** (free, CC0): every player with a senior spell at one of the 50 clubs or a cap for one of the 24 nations, active in 1990 or later. Their name, nicknames, birth year, nationality, club spells and fame (number of Wikipedia languages). League titles and Champions League wins are worked out from each season's winner and the player's spell at that club; World Cup and Euro wins from tournament participation plus the winning nation. The Ballon d'Or comes straight from Wikidata. Card titles are in `data/wikidata-sources.json`.
+2. **football-data.org** (key in `FOOTBALL_DATA_KEY`, never stored in the repo): adds this season's transfers and players Wikidata hasn't caught up with, and ends spells of players who have left. The free plan only covers the current season, so it can't supply history.
+3. **Club sheets** (`data/manual/club-sheets/*.xlsx`, in the "Players & Trophies 1990–Present" format): club membership is trusted, and unambiguous trophies are added (winners only, no runners-up or post-1992 second-tier "Division One"). Nothing from Wikidata is removed. `data/player-data-template.xlsx` is a fuller template with years per club.
+
+Every step writes a report to check: `data/import-report.md` (where Wikidata and the old hand-entered seed disagree), `data/squads-report.md`, `data/sheets-report.md` and `data/coverage-report.md`.
+
+Coverage: 15% of the 4,753 card pairs have no valid player (most are impossible anyway, like two national teams) and 10% have exactly one. With the 491-player seed it was 42% and 18%. All 1,000 simulated bot games now finish.
+
+**Known approximations** (the spec's AI review should check these, starting with the most famous players):
+- A league title or Champions League counts if the player's spell at the winning club covers that season. When Wikidata only has the year someone left, a player who left mid-season can wrongly get that season's title (e.g. Vieira and Inter's 2010 Champions League).
+- Missing end dates are estimated from the next club, or age 36 for a last club.
+- Tournament wins need Wikidata to list the player as a participant, and some are missing (e.g. Özil in 2014, Lautaro Martínez in 2022).
+- Players added from football-data.org or the club sheets may have no birth year or start year at their club.
+
+The phone downloads the full name list (about 1.9 MB, cached until the data changes) so search is instant.
 
 ## Decisions I made where the spec was silent or inconsistent
 
@@ -110,7 +131,7 @@ The spec's plan is: import from Wikidata, clean the data, then have an AI check 
 
 ## Not done yet (needs store accounts, keys or a decision from you)
 
-- Wikidata import and the AI data review (see above).
+- The AI data review (see Player data).
 - **Sign in with Apple and Google:** the buttons are there; the server returns "arrives with the store builds" until the native SDKs and keys are set up.
 - **Coin packs:** shown in the shop but disabled; they need Apple/Google in-app purchase with receipts checked on the server. The Starter Pack is flagged after the first win but not sold yet.
 - **Rewarded ads:** all three placements (hint, double coins, free coins) work with limits enforced by the server, but the ad itself is a 3-second placeholder. Store builds need Google AdMob with server-side verification (the hook is in `server/index.ts` and `server/rooms.ts`), Google's consent tool for Europe, and Apple's tracking prompt.

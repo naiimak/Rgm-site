@@ -15,7 +15,8 @@
     "build": "vite build",
     "start": "NODE_ENV=production tsx server/index.ts",
     "data:wikidata": "tsx scripts/wikidata-import.ts",
-    "data:squads": "tsx scripts/football-data-sync.ts"
+    "data:squads": "tsx scripts/football-data-sync.ts",
+    "data:sheets": "tsx scripts/import-club-sheets.ts"
   },
   "engines": {
     "node": ">=20"
@@ -36,6 +37,7 @@
     "@types/react": "^18.3.31",
     "@types/react-dom": "^18.3.7",
     "@vitejs/plugin-react": "^4.7.0",
+    "exceljs": "^4.4.0",
     "typescript": "^5.9.3",
     "vite": "^5.4.21",
     "vitest": "^2.1.9"

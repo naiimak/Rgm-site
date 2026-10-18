@@ -335,7 +335,7 @@ function AnswerBox({ config, game, card, index, flags, remaining, canSafePlay, o
             }}>
               <span className="flag">{flagFor(p.f, flags)}</span>
               <span className="pname">{p.n}</span>
-              <span className="muted">{p.b}</span>
+              <span className="muted">{p.b || ""}</span>
             </button>
           </li>
         ))}

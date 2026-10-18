@@ -1,13 +1,13 @@
 # Link coverage report
 
-Data version: `seed-201dd70f` · 491 players · 98 subject cards · 4753 pairs
+Data version: `wd-2026-10-18-cfd50e+fd-2026-10-18+sheets` · 21232 players · 98 subject cards · 4753 pairs
 
 | Valid players | Pairs | Share |
 | --- | --- | --- |
-| 0 (unplayable as a link) | 2014 | 42.4% |
-| 1 | 861 | 18.1% |
-| 2–4 | 952 | 20.0% |
-| 5+ | 926 | 19.5% |
+| 0 (unplayable as a link) | 729 | 15.3% |
+| 1 | 490 | 10.3% |
+| 2–4 | 1173 | 24.7% |
+| 5+ | 2361 | 49.7% |
 
 ## Cards with the most empty pairs
 
@@ -15,332 +15,332 @@ Candidates to swap for another club or country once the full Wikidata import is 
 
 | Card | Empty pairs (of 97) |
 | --- | --- |
-| Australia (national:AUS) | 82 |
-| USA (national:USA) | 77 |
-| Coruña Blue (club:DEP) | 76 |
-| Algeria (national:ALG) | 76 |
-| Egypt (national:EGY) | 75 |
-| Senegal (national:SEN) | 74 |
-| Nigeria (national:NGA) | 73 |
-| Japan (national:JPN) | 72 |
-| Seville Green (club:BET) | 71 |
-| Poland (national:POL) | 71 |
-| Morocco (national:MAR) | 69 |
-| Uruguay (national:URU) | 67 |
-| Lens Gold (club:LEN) | 65 |
-| Denmark (national:DEN) | 65 |
-| Ivory Coast (national:CIV) | 65 |
-| Barcelona Blue-White (club:ESY) | 63 |
-| Nice Red-Black (club:NIC) | 63 |
-| Bergamo Blue (club:ATA) | 62 |
-| Belgium (national:BEL) | 62 |
-| Frankfurt Black-Red (club:SGE) | 61 |
-| Rennes Red (club:REN) | 61 |
-| San Sebastián Blue (club:RSO) | 60 |
-| Saint-Étienne Green (club:STE) | 60 |
-| Croatia (national:CRO) | 60 |
-| Cameroon (national:CMR) | 60 |
+| Egypt (national:EGY) | 63 |
+| Australia (national:AUS) | 55 |
+| Algeria (national:ALG) | 47 |
+| Japan (national:JPN) | 42 |
+| England (national:ENG) | 40 |
+| Uruguay (national:URU) | 40 |
+| Golden Ball (trophy:GB) | 39 |
+| Poland (national:POL) | 38 |
+| USA (national:USA) | 38 |
+| Italy (national:ITA) | 37 |
+| Nigeria (national:NGA) | 35 |
+| Cameroon (national:CMR) | 35 |
+| Ivory Coast (national:CIV) | 34 |
+| Senegal (national:SEN) | 34 |
+| Spain (national:ESP) | 32 |
+| Croatia (national:CRO) | 32 |
+| Argentina (national:ARG) | 30 |
+| Zinedine Zidane (coach:ZID) | 29 |
+| Germany (national:GER) | 29 |
+| Denmark (national:DEN) | 29 |
+| Morocco (national:MAR) | 29 |
+| Portugal (national:POR) | 28 |
+| Belgium (national:BEL) | 28 |
+| Hansi Flick (coach:FLI) | 27 |
+| Netherlands (national:NED) | 26 |
 
 ## Pairs with exactly one valid player
 
-- Manchester Red + Liverpool Red: Michael Owen
-- Manchester Red + Seville Green: Antony
-- Manchester Red + Bergamo Blue: Rasmus Højlund
-- Manchester Red + Leverkusen Red-Black: Dimitar Berbatov
-- Manchester Red + Leipzig White-Red: Benjamin Šeško
+- Manchester Red + San Sebastián Blue: Adnan Januzaj
 - Manchester Red + Hamburg Blue: Ruud van Nistelrooy
-- Manchester Red + Lyon White: Memphis Depay
-- Manchester Red + Bordeaux Navy: Eric Cantona
+- Manchester Red + Bremen Green: Mikaël Silvestre
+- Manchester Red + Frankfurt Black-Red: Donny van de Beek
 - Manchester Red + Lens Gold: Raphaël Varane
-- Manchester Red + Saint-Étienne Green: Laurent Blanc
-- Manchester Red + Hansi Flick: Marcus Rashford
-- Manchester Red + Italy: Giuseppe Rossi
-- Manchester Red + Germany: Bastian Schweinsteiger
-- Manchester Red + Belgium: Romelu Lukaku
-- Manchester Red + USA: Tim Howard
+- Manchester Red + Poland: Tomasz Kuszczak
+- Manchester Red + Senegal: Mame Biram Diouf
 - Manchester Red + Japan: Shinji Kagawa
-- Manchester Sky + Castellón Yellow: Rodri
-- Manchester Sky + San Sebastián Blue: David Silva
-- Manchester Sky + Naples Blue: Kevin De Bruyne
-- Manchester Sky + Gelsenkirchen Royal: Leroy Sané
-- Manchester Sky + Leipzig White-Red: Joško Gvardiol
-- Manchester Sky + Stuttgart White: Omar Marmoush
-- Manchester Sky + Bremen Green: Kevin De Bruyne
-- Manchester Sky + Frankfurt Black-Red: Omar Marmoush
-- Manchester Sky + Nice Red-Black: Mario Balotelli
-- Manchester Sky + Rennes Red: Jérémy Doku
-- Manchester Sky + Lens Gold: Marc-Vivien Foé
-- Manchester Sky + Zinedine Zidane: Mateo Kovačić
-- Manchester Sky + Denmark: Peter Schmeichel
-- Manchester Sky + Cameroon: Marc-Vivien Foé
+- Manchester Red + Australia: Mark Bosnich
+- Manchester Sky + Nigeria: Dickson Etuhu
+- Manchester Sky + Senegal: Iliman Ndiaye
 - Manchester Sky + Egypt: Omar Marmoush
-- Manchester Sky + Algeria: Riyad Mahrez
-- Liverpool Red + Barcelona Blue-White: Philippe Coutinho
-- Liverpool Red + Valencia White: Fernando Morientes
-- Liverpool Red + Castellón Yellow: Pepe Reina
-- Liverpool Red + Rome Sky: Pepe Reina
-- Liverpool Red + Naples Blue: Pepe Reina
-- Liverpool Red + Dortmund Yellow: Alexander Isak
-- Liverpool Red + Leverkusen Red-Black: Florian Wirtz
-- Liverpool Red + Gelsenkirchen Royal: Joël Matip
-- Liverpool Red + Stuttgart White: Wataru Endo
-- Liverpool Red + Hamburg Blue: Kevin Keegan
-- Liverpool Red + Bremen Green: Naby Keïta
-- Liverpool Red + Paris Blue-Red: Nicolas Anelka
-- Liverpool Red + Lille Red: Joe Cole
-- Liverpool Red + Bordeaux Navy: Vladimír Šmicer
+- Manchester Sky + Japan: Kō Itakura
 - Liverpool Red + Nice Red-Black: Mario Balotelli
-- Liverpool Red + Rennes Red: El Hadji Diouf
-- Liverpool Red + Sir Alex Ferguson: Michael Owen
-- Liverpool Red + Germany: Florian Wirtz
-- Liverpool Red + Netherlands: Virgil van Dijk
-- Liverpool Red + Nigeria: Victor Moses
+- Liverpool Red + Golden Ball: Michael Owen
+- Liverpool Red + Poland: Jerzy Dudek
 - Liverpool Red + Ivory Coast: Kolo Touré
 - Liverpool Red + Egypt: Mohamed Salah
+- Liverpool Red + Algeria: Carl Medjani
 - Liverpool Red + USA: Brad Friedel
-- Liverpool Red + Japan: Wataru Endo
-- Liverpool Red + Australia: Harry Kewell
-- Liverpool Blue + Tyneside Stripes: Paul Gascoigne
-- Liverpool Blue + East London Claret: Kurt Zouma
-- Liverpool Blue + Madrid White: Samuel Eto'o
-- Liverpool Blue + Barcelona Blue-White: Samuel Eto'o
-- Liverpool Blue + San Sebastián Blue: Mikel Arteta
-- Liverpool Blue + Turin Black-White: Moise Kean
-- Liverpool Blue + Rome Yellow-Red: Romelu Lukaku
-- Liverpool Blue + Rome Sky: Paul Gascoigne
-- Liverpool Blue + Naples Blue: Romelu Lukaku
-- Liverpool Blue + Florence Violet: Moise Kean
-- Liverpool Blue + Bergamo Blue: Ademola Lookman
-- Liverpool Blue + Genova Hoops: Samuel Eto'o
-- Liverpool Blue + Munich Red: Landon Donovan
-- Liverpool Blue + Leverkusen Red-Black: Landon Donovan
+- Liverpool Blue + Seville Green: Joel Robles
+- Liverpool Blue + Coruña Blue: Mickaël Madar
+- Liverpool Blue + Dortmund Yellow: Steven Pienaar
 - Liverpool Blue + Leipzig White-Red: Ademola Lookman
-- Liverpool Blue + Lille Red: Idrissa Gueye
-- Liverpool Blue + Saint-Étienne Green: Kurt Zouma
-- Liverpool Blue + Spain Champion: Samuel Eto'o
-- Liverpool Blue + France Champion: Idrissa Gueye
-- Liverpool Blue + France: Kurt Zouma
-- Liverpool Blue + Italy: Moise Kean
-- Liverpool Blue + Belgium: Romelu Lukaku
-- Liverpool Blue + Brazil: Richarlison
-- Liverpool Blue + Nigeria: Ademola Lookman
+- Liverpool Blue + Stuttgart White: Thomas Hitzlsperger
+- Liverpool Blue + Bremen Green: Davy Klaassen
+- Liverpool Blue + Zinedine Zidane: James Rodríguez
+- Liverpool Blue + Spain: Gerard Deulofeu
+- Liverpool Blue + Poland: Robert Warzycha
+- Liverpool Blue + Uruguay: Guillermo Sanguinetti
 - Liverpool Blue + Cameroon: Samuel Eto'o
-- Liverpool Blue + Senegal: Idrissa Gueye
-- Liverpool Blue + Australia: Tim Cahill
-- West London Blue + North London White: Timo Werner
-- West London Blue + Barcelona Blue-White: Samuel Eto'o
-- West London Blue + Castellón Yellow: Nicolas Jackson
-- West London Blue + Wolfsburg Green: Kevin De Bruyne
-- West London Blue + Lyon White: Michael Essien
-- West London Blue + Bordeaux Navy: Didier Deschamps
-- West London Blue + Sir Alex Ferguson: Juan Sebastián Verón
-- West London Blue + Croatia: Mateo Kovačić
-- West London Blue + Denmark: Brian Laudrup
-- West London Blue + Morocco: Hakim Ziyech
-- West London Blue + Cameroon: Samuel Eto'o
+- Liverpool Blue + Egypt: Ibrahim Said
+- West London Blue + San Sebastián Blue: Mamadou Sarr
+- West London Blue + Hansi Flick: Andreas Christensen
+- West London Blue + Uruguay: Gus Poyet
 - West London Blue + Egypt: Mohamed Salah
-- West London Blue + USA: Christian Pulisic
-- West London Blue + Australia: Mark Schwarzer
-- North London Red + North London White: Emmanuel Adebayor
-- North London Red + Valencia White: Mathew Ryan
-- North London Red + Naples Blue: Jorginho
-- North London Red + Parma Yellow-Blue: Gervinho
-- North London Red + Genova Hoops: David Platt
-- North London Red + Gelsenkirchen Royal: Mesut Özil
-- North London Red + Zinedine Zidane: Martin Ødegaard
-- North London Red + Sir Alex Ferguson: Robin van Persie
-- North London Red + Italy: Jorginho
-- North London Red + Croatia: Davor Šuker
-- North London Red + Poland: Wojciech Szczęsny
-- North London Red + Argentina: Emiliano Martínez
+- North London Red + Leipzig White-Red: Emile Smith Rowe
+- North London Red + Frankfurt Black-Red: Junichi Inamoto
+- North London Red + Uruguay: Lucas Torreira
 - North London Red + Morocco: Marouane Chamakh
-- North London Red + Nigeria: Nwankwo Kanu
-- North London Red + Cameroon: Alex Song
+- North London Red + Senegal: Armand Traoré
 - North London Red + Egypt: Mohamed Elneny
 - North London Red + Algeria: Ismaël Bennacer
-- North London Red + Japan: Takehiro Tomiyasu
-- North London Red + Australia: Mathew Ryan
-- North London White + Madrid Stripes: Kieran Trippier
-- North London White + Seville White: Frédéric Kanouté
-- North London White + Seville Green: Rafael van der Vaart
-- North London White + Rome Yellow-Red: Mido
-- North London White + Rome Sky: Paul Gascoigne
-- North London White + Florence Violet: Kevin-Prince Boateng
-- North London White + Genova Hoops: Jürgen Klinsmann
-- North London White + Dortmund Yellow: Ivan Perišić
-- North London White + Gelsenkirchen Royal: Kevin-Prince Boateng
-- North London White + Leipzig White-Red: Timo Werner
-- North London White + Wolfsburg Green: Ivan Perišić
-- North London White + Paris Blue-Red: Randal Kolo Muani
-- North London White + Nice Red-Black: Hugo Lloris
+- North London White + San Sebastián Blue: Yuri Berchiche
 - North London White + Golden Ball: Luka Modrić
-- North London White + European Champion: Jürgen Klinsmann
-- North London White + Pep Guardiola: Kyle Walker
-- North London White + Jürgen Klopp: Ivan Perišić
-- North London White + Hansi Flick: Ivan Perišić
-- North London White + Diego Simeone: Kieran Trippier
-- North London White + Denmark: Christian Eriksen
-- North London White + Brazil: Richarlison
-- North London White + Uruguay: Rodrigo Bentancur
-- North London White + Egypt: Mido
-- Tyneside Stripes + Madrid White: Michael Owen
-- Tyneside Stripes + Madrid Stripes: Kieran Trippier
-- Tyneside Stripes + Barcelona Blue-Red: Patrick Kluivert
-- Tyneside Stripes + Valencia White: Patrick Kluivert
-- Tyneside Stripes + Castellón Yellow: Giuseppe Rossi
-- Tyneside Stripes + San Sebastián Blue: Alexander Isak
-- Tyneside Stripes + Rome Sky: Paul Gascoigne
+- North London White + Poland: Grzegorz Rasiak
+- North London White + Senegal: Pape Matar Sarr
+- North London White + Japan: Kazuyuki Toda
 - Tyneside Stripes + Florence Violet: Giuseppe Rossi
-- Tyneside Stripes + Dortmund Yellow: Alexander Isak
-- Tyneside Stripes + Hamburg Blue: Kevin Keegan
-- Tyneside Stripes + Paris Blue-Red: Yohan Cabaye
-- Tyneside Stripes + Marseille Sky: Chris Waddle
-- Tyneside Stripes + Lyon White: Islam Slimani
-- Tyneside Stripes + Monaco Red-White: Islam Slimani
-- Tyneside Stripes + Saint-Étienne Green: Yohan Cabaye
-- Tyneside Stripes + Italy Champion: Sandro Tonali
-- Tyneside Stripes + Germany Champion: Kevin Keegan
-- Tyneside Stripes + Diego Simeone: Kieran Trippier
-- Tyneside Stripes + France: Yohan Cabaye
-- Tyneside Stripes + Netherlands: Patrick Kluivert
-- Tyneside Stripes + Algeria: Islam Slimani
-- Tyneside Stripes + Australia: Mark Viduka
-- Birmingham Claret + East London Claret: Joe Cole
+- Tyneside Stripes + Munich Red: Dietmar Hamann
+- Tyneside Stripes + Wolfsburg Green: Obafemi Martins
+- Tyneside Stripes + Bremen Green: Nick Woltemade
+- Tyneside Stripes + Golden Ball: Michael Owen
+- Tyneside Stripes + Pep Guardiola: Nicolás González Iglesias
+- Tyneside Stripes + Croatia: Silvio Marić
+- Tyneside Stripes + Uruguay: Ignacio María González
+- Tyneside Stripes + Morocco: Achraf Lazaar
+- Tyneside Stripes + Japan: Yoshinori Muto
 - Birmingham Claret + Madrid White: Marco Asensio
-- Birmingham Claret + Turin Black-White: David Platt
-- Birmingham Claret + Milan Red-Black: Pepe Reina
-- Birmingham Claret + Milan Blue-Black: Philippe Coutinho
-- Birmingham Claret + Rome Sky: Pepe Reina
-- Birmingham Claret + Naples Blue: Pepe Reina
-- Birmingham Claret + Genova Hoops: David Platt
-- Birmingham Claret + Dortmund Yellow: Jadon Sancho
-- Birmingham Claret + Marseille Sky: Robert Pirès
-- Birmingham Claret + Jürgen Klopp: Philippe Coutinho
+- Birmingham Claret + Gelsenkirchen Royal: Leon Goretzka
+- Birmingham Claret + Leipzig White-Red: Ørjan Nyland
+- Birmingham Claret + Wolfsburg Green: Thomas Hitzlsperger
+- Birmingham Claret + Stuttgart White: Thomas Hitzlsperger
+- Birmingham Claret + Bremen Green: Ludwig Augustinsson
+- Birmingham Claret + Bordeaux Navy: Tiago Ilori
 - Birmingham Claret + Zinedine Zidane: Marco Asensio
-- Birmingham Claret + Sir Alex Ferguson: Peter Schmeichel
-- Birmingham Claret + Antonio Conte: John Terry
-- Birmingham Claret + France: Robert Pirès
-- Birmingham Claret + Denmark: Peter Schmeichel
-- Birmingham Claret + Brazil: Philippe Coutinho
-- Birmingham Claret + Argentina: Emiliano Martínez
-- Birmingham Claret + Senegal: Idrissa Gueye
-- Birmingham Claret + USA: Brad Friedel
-- East London Claret + Madrid White: Davor Šuker
-- East London Claret + Valencia White: Sofiane Feghouli
-- East London Claret + Coruña Blue: Diego Tristán
-- East London Claret + Milan Red-Black: Lucas Paquetá
-- East London Claret + Milan Blue-Black: Victor Moses
-- East London Claret + Dortmund Yellow: Sébastien Haller
-- East London Claret + Frankfurt Black-Red: Sébastien Haller
-- East London Claret + Monaco Red-White: Patrice Evra
-- East London Claret + Bordeaux Navy: Marouane Chamakh
-- East London Claret + Spain: Diego Tristán
-- East London Claret + Croatia: Davor Šuker
-- East London Claret + Brazil: Lucas Paquetá
-- East London Claret + Morocco: Marouane Chamakh
-- East London Claret + Nigeria: Victor Moses
-- East London Claret + Ivory Coast: Sébastien Haller
-- East London Claret + Algeria: Sofiane Feghouli
-- Madrid White + Coruña Blue: Federico Valverde
-- Madrid White + Rome Sky: Michael Laudrup
-- Madrid White + Florence Violet: Luka Jović
-- Madrid White + Bremen Green: Mesut Özil
-- Madrid White + Frankfurt Black-Red: Luka Jović
-- Madrid White + Lille Red: Eden Hazard
+- Birmingham Claret + Portugal: Fernando Nélson
+- Birmingham Claret + Japan: Zion Suzuki
+- East London Claret + Wolfsburg Green: Thomas Hitzlsperger
+- East London Claret + Netherlands: Joël Veltman
+- East London Claret + Uruguay: Walter Alberto López
+- East London Claret + Egypt: Mido
+- Madrid White + Bergamo Blue: Federico Magallanes
+- Madrid White + Wolfsburg Green: Borja Mayoral
 - Madrid White + Nice Red-Black: Wesley Sneijder
-- Madrid White + Rennes Red: Eduardo Camavinga
-- Madrid White + Lens Gold: Raphaël Varane
-- Madrid White + Hansi Flick: David Alaba
-- Madrid White + Denmark: Michael Laudrup
-- Madrid White + Uruguay: Federico Valverde
-- Madrid White + Morocco: Achraf Hakimi
-- Madrid White + Cameroon: Samuel Eto'o
-- Madrid Stripes + Seville White: Diego Simeone
-- Madrid Stripes + San Sebastián Blue: Antoine Griezmann
-- Madrid Stripes + Coruña Blue: Juan Carlos Valerón
-- Madrid Stripes + Bergamo Blue: Christian Vieri
-- Madrid Stripes + Bremen Green: Diego Ribas
-- Madrid Stripes + Paris Blue-Red: Lucas Hernández
-- Madrid Stripes + Lyon White: Memphis Depay
+- Madrid White + Poland: Jerzy Dudek
+- Madrid White + Nigeria: Mutiu Adepoju
+- Madrid White + Ivory Coast: Yan Diomande
+- Madrid White + Algeria: Luca Zidane
+- Madrid White + Japan: Takefusa Kubo
+- Madrid Stripes + Gelsenkirchen Royal: José Manuel Jurado
+- Madrid Stripes + Frankfurt Black-Red: Rafael Santos Borré
+- Madrid Stripes + Lille Red: Jonathan David
+- Madrid Stripes + Rennes Red: Baltazar
+- Madrid Stripes + Lens Gold: Radek Bejbl
 - Madrid Stripes + Golden Ball: Rodri
-- Madrid Stripes + Hansi Flick: Lucas Hernández
-- Madrid Stripes + England: Kieran Trippier
-- Madrid Stripes + Italy: Christian Vieri
-- Madrid Stripes + Portugal: João Félix
-- Madrid Stripes + Netherlands: Memphis Depay
-- Madrid Stripes + Belgium: Thibaut Courtois
-- Madrid Stripes + Croatia: Mario Mandžukić
-- Barcelona Blue-Red + San Sebastián Blue: Antoine Griezmann
-- Barcelona Blue-Red + Coruña Blue: Rivaldo
-- Barcelona Blue-Red + Florence Violet: Kevin-Prince Boateng
-- Barcelona Blue-Red + Bergamo Blue: Franck Kessié
-- Barcelona Blue-Red + Genova Hoops: Samuel Eto'o
-- Barcelona Blue-Red + Leverkusen Red-Black: Arturo Vidal
-- Barcelona Blue-Red + Leipzig White-Red: Dani Olmo
+- Madrid Stripes + Jürgen Klopp: Diogo Jota
+- Madrid Stripes + Poland: Roman Kosecki
+- Madrid Stripes + Morocco: Yassine Bounou
+- Madrid Stripes + Nigeria: Ademola Lookman
+- Madrid Stripes + USA: Johnny Cardoso
+- Barcelona Blue-Red + Wolfsburg Green: Aliaksandr Hleb
+- Barcelona Blue-Red + Bremen Green: Mohamed Zidan
 - Barcelona Blue-Red + Frankfurt Black-Red: Kevin-Prince Boateng
-- Barcelona Blue-Red + Lens Gold: Seydou Keita
-- Barcelona Blue-Red + Croatia: Ivan Rakitić
-- Barcelona Blue-Red + Denmark: Michael Laudrup
-- Barcelona Blue-Red + USA: Sergiño Dest
-- Barcelona Blue-White + Castellón Yellow: Gerard Moreno
-- Barcelona Blue-White + San Sebastián Blue: Raúl Tamudo
-- Barcelona Blue-White + Rome Sky: Iván de la Peña
-- Barcelona Blue-White + Genova Hoops: Samuel Eto'o
-- Barcelona Blue-White + Munich Red: Philippe Coutinho
-- Barcelona Blue-White + Bordeaux Navy: Mauricio Pochettino
-- Barcelona Blue-White + Germany – Top Flight: Philippe Coutinho
-- Barcelona Blue-White + Italy Champion: Samuel Eto'o
-- Barcelona Blue-White + Germany Champion: Philippe Coutinho
-- Barcelona Blue-White + France Champion: Marco Asensio
-- Barcelona Blue-White + José Mourinho: Samuel Eto'o
-- Barcelona Blue-White + Pep Guardiola: Samuel Eto'o
-- Barcelona Blue-White + Carlo Ancelotti: Marco Asensio
+- Barcelona Blue-Red + Zinedine Zidane: Renato Ibarra
+- Barcelona Blue-Red + Belgium: Thomas Vermaelen
+- Barcelona Blue-White + Bergamo Blue: Dani Osvaldo
+- Barcelona Blue-White + Hamburg Blue: Wolfram Wuttke
+- Barcelona Blue-White + Bremen Green: Pierre Womé
+- Barcelona Blue-White + Frankfurt Black-Red: Joselu
 - Barcelona Blue-White + Jürgen Klopp: Philippe Coutinho
-- Barcelona Blue-White + Hansi Flick: Philippe Coutinho
-- Barcelona Blue-White + Zinedine Zidane: Marco Asensio
-- Barcelona Blue-White + Brazil: Philippe Coutinho
-- Barcelona Blue-White + Argentina: Mauricio Pochettino
-- Barcelona Blue-White + Cameroon: Samuel Eto'o
-- Seville White + Seville Green: Isco
-- Seville White + Turin Black-White: Dani Alves
-- Seville White + Milan Red-Black: Simon Kjær
-- Seville White + Naples Blue: Diego Maradona
-- Seville White + Florence Violet: Stevan Jovetić
-- Seville White + Dortmund Yellow: Ciro Immobile
-- Seville White + Gelsenkirchen Royal: Ivan Rakitić
-- Seville White + Wolfsburg Green: Simon Kjær
-- Seville White + Lyon White: Frédéric Kanouté
-- Seville White + Lille Red: Simon Kjær
-- Seville White + Bordeaux Navy: Jules Koundé
-- Seville White + Lens Gold: Seydou Keita
-- Seville White + Jürgen Klopp: Ciro Immobile
-- Seville White + Hansi Flick: Jules Koundé
-- Seville White + Diego Simeone: Papu Gómez
-- Seville White + Italy: Ciro Immobile
-- Seville White + Denmark: Simon Kjær
-- Seville White + Brazil: Dani Alves
-- Seville Green + Castellón Yellow: Aïssa Mandi
-- Seville Green + Florence Violet: Joaquín
-- Seville Green + Hamburg Blue: Rafael van der Vaart
-- Seville Green + Lyon White: Nabil Fekir
-- Seville Green + Lille Red: Aïssa Mandi
-- Seville Green + Bordeaux Navy: Denílson
-- Seville Green + Italy – Top Flight: Joaquín
-- Seville Green + Germany – Top Flight: Rafael van der Vaart
-- Seville Green + Spain Champion: Isco
-- Seville Green + European Club Champion: Isco
-- Seville Green + Carlo Ancelotti: Isco
-- Seville Green + Zinedine Zidane: Isco
-- Seville Green + France: Nabil Fekir
-- Seville Green + Netherlands: Rafael van der Vaart
-- Seville Green + Algeria: Aïssa Mandi
-- Valencia White + Turin Black-White: Didier Deschamps
-- Valencia White + Rome Yellow-Red: Seydou Keita
-- Valencia White + Florence Violet: Joaquín
-- Valencia White + Paris Blue-Red: Edinson Cavani
-- Valencia White + Monaco Red-White: Fernando Morientes
-- Valencia White + Lille Red: Patrick Kluivert
-- Valencia White + Bordeaux Navy: Didier Deschamps
-- Valencia White + Lens Gold: Seydou Keita
-- Valencia White + Italy Champion: Didier Deschamps
-- … and 561 more
+- Barcelona Blue-White + Germany: Wolfram Wuttke
+- Barcelona Blue-White + Croatia: Nenad Pralija
+- Barcelona Blue-White + Denmark: Martin Braithwaite
+- Barcelona Blue-White + Nigeria: Kalu Uche
+- Seville White + Germany Champion: Piotr Trochowski
+- Seville White + Sir Alex Ferguson: Javier Hernández
+- Seville White + Poland: Grzegorz Krychowiak
+- Seville White + Nigeria: Akor Adams
+- Seville White + Japan: Hiroshi Kiyotake
+- Seville Green + Turin Black-White: Robert Jarni
+- Seville Green + Milan Blue-Black: Martín Montoya
+- Seville Green + Monaco Red-White: Victor Ikpeba
+- Seville Green + Italy: Luiz Felipe Ramos Marchi
+- Seville Green + Belgium: Ronny Gaspercic
+- Seville Green + Egypt: Amro Tarek
+- Seville Green + Japan: Takashi Inui
+- Valencia White + Leipzig White-Red: Ilaix Moriba
+- Valencia White + Wolfsburg Green: Ricardo Costa
+- Valencia White + Sir Alex Ferguson: Nani
+- Valencia White + Croatia: Goran Vlaović
+- Valencia White + Denmark: Daniel Wass
+- Valencia White + Morocco: Munir El Haddadi
+- Valencia White + USA: Yunus Musah
+- Valencia White + Japan: Ryunosuke Sato
+- Valencia White + Australia: Mathew Ryan
+- Castellón Yellow + Gelsenkirchen Royal: Manuel Torres Jiménez
+- Castellón Yellow + Hamburg Blue: Juan Pablo Sorín
+- Castellón Yellow + Monaco Red-White: Sonny Anderson
+- Castellón Yellow + Nice Red-Black: Nicolas Pépé
+- Castellón Yellow + Rennes Red: Boulaye Dia
+- Castellón Yellow + Golden Ball: Rodri
+- Castellón Yellow + Portugal: Gonçalo Guedes
+- Castellón Yellow + Nigeria: Ikechukwu Uche
+- Castellón Yellow + Algeria: Aïssa Mandi
+- Castellón Yellow + Japan: Takefusa Kubo
+- San Sebastián Blue + Turin Black-White: Darko Kovačević
+- San Sebastián Blue + Naples Blue: Pablo Marín
+- San Sebastián Blue + Parma Yellow-Blue: McDonald Mariga
+- San Sebastián Blue + Gelsenkirchen Royal: Kenan Kodro
+- San Sebastián Blue + Bremen Green: André Silva
+- San Sebastián Blue + Monaco Red-White: Robert Navarro
+- San Sebastián Blue + Italy Champion: Théo Hernandez
+- San Sebastián Blue + Germany Champion: Xabi Alonso
+- San Sebastián Blue + England: Kevin Richardson
+- San Sebastián Blue + Netherlands: Sander Westerveld
+- San Sebastián Blue + Denmark: Morten Skoubo
+- San Sebastián Blue + Ivory Coast: Giovanni Sio
+- San Sebastián Blue + Cameroon: Franck Songo'o
+- San Sebastián Blue + Algeria: Liassine Cadamuro
+- San Sebastián Blue + Japan: Takefusa Kubo
+- San Sebastián Blue + Australia: Mathew Ryan
+- Coruña Blue + Bergamo Blue: Lionel Scaloni
+- Coruña Blue + Genova Hoops: Modibo Diakité
+- Coruña Blue + Leverkusen Red-Black: Andrés Guardado
+- Coruña Blue + Wolfsburg Green: Ibrahim Sissoko
+- Coruña Blue + Stuttgart White: Przemysław Tytoń
+- Coruña Blue + Frankfurt Black-Red: Joselu
+- Coruña Blue + Golden Ball: Rivaldo
+- Coruña Blue + Jürgen Klopp: Pierre-Emerick Aubameyang
+- Coruña Blue + Hansi Flick: Marc Casadó
+- Coruña Blue + Belgium: Zakaria Bakkali
+- Coruña Blue + Croatia: Stipe Pletikosa
+- Coruña Blue + Denmark: Michael Krohn-Dehli
+- Coruña Blue + Senegal: Abdoulaye Ba
+- Coruña Blue + Japan: Gaku Shibasaki
+- Coruña Blue + Australia: Denis Genreau
+- Turin Black-White + England: David Platt
+- Turin Black-White + Morocco: Medhi Benatia
+- Turin Black-White + Nigeria: Sunday Oliseh
+- Milan Red-Black + Lens Gold: Adel Taarabt
+- Milan Red-Black + Japan: Keisuke Honda
+- Milan Red-Black + Australia: Zeljko Kalac
+- Milan Blue-Black + Leipzig White-Red: Josep Martínez
+- Milan Blue-Black + Hamburg Blue: Hakan Çalhanoğlu
+- Milan Blue-Black + Frankfurt Black-Red: Luc Castaignos
+- Milan Blue-Black + Poland: Piotr Zieliński
+- Milan Blue-Black + Ivory Coast: Cyril Domoraud
+- Milan Blue-Black + Japan: Yūto Nagatomo
+- Rome Yellow-Red + Hamburg Blue: Martin Dahlin
+- Rome Yellow-Red + Nice Red-Black: Attilio Nicodemo
+- Rome Yellow-Red + Saint-Étienne Green: Jordan Veretout
+- Rome Yellow-Red + Hansi Flick: Wojciech Szczęsny
+- Rome Yellow-Red + Denmark: Simon Kjær
+- Rome Yellow-Red + Cameroon: Pierre Womé
+- Rome Yellow-Red + Senegal: Ricardo Faty
+- Rome Yellow-Red + USA: Michael Bradley
+- Rome Yellow-Red + Japan: Hidetoshi Nakata
+- Rome Yellow-Red + Australia: Mathew Ryan
+- Rome Sky + Bordeaux Navy: Michaël Ciani
+- Rome Sky + Lens Gold: Milan Biševac
+- Rome Sky + Saint-Étienne Green: Hélder Postiga
+- Rome Sky + Golden Ball: Pavel Nedvěd
+- Rome Sky + Arsène Wenger: Stephan Lichtsteiner
+- Rome Sky + Diego Simeone: Guilherme Siqueira
+- Rome Sky + England: Paul Gascoigne
+- Rome Sky + Poland: Patryk Dziczek
+- Rome Sky + Ivory Coast: Christian Manfredini
+- Rome Sky + Japan: Daichi Kamada
+- Naples Blue + Hamburg Blue: Valon Behrami
+- Naples Blue + Bremen Green: Kevin De Bruyne
+- Naples Blue + Lille Red: Victor Osimhen
+- Naples Blue + Golden Ball: Fabio Cannavaro
+- Naples Blue + England: Nathaniel Chalobah
+- Naples Blue + Germany: Diego Demme
+- Naples Blue + Netherlands: Jonathan de Guzmán
+- Naples Blue + Cameroon: André-Frank Zambo Anguissa
+- Naples Blue + Senegal: Kalidou Koulibaly
+- Naples Blue + Australia: Max Vieri
+- Florence Violet + Leverkusen Red-Black: Stefan Schwarz
+- Florence Violet + Bordeaux Navy: Márcio Roberto dos Santos
+- Florence Violet + Rennes Red: Saliou Lassissi
+- Florence Violet + Lens Gold: Michaël Fabre
+- Florence Violet + Golden Ball: Roberto Baggio
+- Florence Violet + Hansi Flick: Álvaro Odriozola
+- Florence Violet + England: Micah Richards
+- Florence Violet + Nigeria: Christian Obodo
+- Florence Violet + Japan: Hidetoshi Nakata
+- Bergamo Blue + Hamburg Blue: Jacopo Sala
+- Bergamo Blue + Bremen Green: Jaime Valdés
+- Bergamo Blue + Lyon White: Anthony Mounier
+- Bergamo Blue + Lille Red: Simon Kjær
+- Bergamo Blue + Rennes Red: Ousmane Dabo
+- Bergamo Blue + Saint-Étienne Green: Yohan Benalouane
+- Bergamo Blue + Germany Champion: Leonardo Rodríguez
+- Bergamo Blue + Jürgen Klopp: Martin Škrtel
+- Bergamo Blue + Sir Alex Ferguson: Massimo Taibi
+- Bergamo Blue + England: Ben Godfrey
+- Bergamo Blue + Germany: Robin Gosens
+- Bergamo Blue + Cameroon: Adrien Tameze
+- Parma Yellow-Blue + Leverkusen Red-Black: Vratislav Greško
+- Parma Yellow-Blue + Wolfsburg Green: Cristian Zaccardo
+- Parma Yellow-Blue + Stuttgart White: Cristian Molinaro
+- Parma Yellow-Blue + Lille Red: Gervinho
+- Parma Yellow-Blue + Pep Guardiola: Adrián Bernabé
+- Parma Yellow-Blue + Hansi Flick: Joshua Zirkzee
+- Parma Yellow-Blue + Netherlands: Joshua Zirkzee
+- Parma Yellow-Blue + Poland: Sławomir Peszko
+- Parma Yellow-Blue + Denmark: Martin Laursen
+- Parma Yellow-Blue + Cameroon: Patrick Mboma
+- Genova Hoops + Munich Red: Jürgen Klinsmann
+- Genova Hoops + Dortmund Yellow: Koray Günter
+- Genova Hoops + Leverkusen Red-Black: Patrik Schick
+- Genova Hoops + Frankfurt Black-Red: Marco Rossi
+- Genova Hoops + Lyon White: Pierre Laigle
+- Genova Hoops + Lille Red: Oumar Dieng
+- Genova Hoops + Bordeaux Navy: Mbaye Niang
+- Genova Hoops + Nice Red-Black: Fausto Rossini
+- Genova Hoops + Saint-Étienne Green: Gonzalo Bergessio
+- Genova Hoops + Germany Champion: Jürgen Klinsmann
+- Genova Hoops + Golden Ball: Ruud Gullit
+- Genova Hoops + Pep Guardiola: Samuel Eto'o
+- Genova Hoops + Jürgen Klopp: Koray Günter
+- Genova Hoops + Zinedine Zidane: Jesé Rodríguez
+- Genova Hoops + Spain: Víctor Muñoz
+- Genova Hoops + Belgium: Dennis Praet
+- Genova Hoops + Denmark: Simon Poulsen
+- Genova Hoops + Nigeria: Ikechukwu Kalu
+- Genova Hoops + Ivory Coast: Saliou Lassissi
+- Genova Hoops + Algeria: Djamel Mesbah
+- Munich Red + Nice Red-Black: Dante
+- Munich Red + Belgium: Daniel Van Buyten
+- Munich Red + Cameroon: Éric Maxim Choupo-Moting
+- Munich Red + Japan: Takashi Usami
+- Dortmund Yellow + Bordeaux Navy: Anthony Modeste
+- Dortmund Yellow + Diego Simeone: Axel Witsel
+- Dortmund Yellow + France: Ousmane Dembélé
+- Dortmund Yellow + Italy: Ciro Immobile
+- Dortmund Yellow + Uruguay: Rubén Sosa
+- Dortmund Yellow + Cameroon: Franck Patrick Njambe
+- Dortmund Yellow + Senegal: Abdou Diallo
+- Dortmund Yellow + Egypt: Mohamed Zidan
+- Dortmund Yellow + Japan: Shinji Kagawa
+- Leverkusen Red-Black + Lille Red: Martin Terrier
+- Leverkusen Red-Black + Nice Red-Black: Stefan Kohn
+- Leverkusen Red-Black + Diego Simeone: Santiago Arias
+- Leverkusen Red-Black + France: Moussa Diaby
+- Leverkusen Red-Black + Senegal: Ricardo Faty
+- Leverkusen Red-Black + Algeria: Ahmed Reda Madouni
+- Leverkusen Red-Black + Japan: Hajime Hosogai
+- Gelsenkirchen Royal + Lyon White: Michel Bastos
+- Gelsenkirchen Royal + Bordeaux Navy: Marc Wilmots
+- Gelsenkirchen Royal + Rennes Red: Breel Embolo
+- Gelsenkirchen Royal + Lens Gold: Jean-Clair Todibo
+- Gelsenkirchen Royal + Saint-Étienne Green: Adil Aouchiche
+- Gelsenkirchen Royal + Antonio Conte: Pierre-Emile Højbjerg
+- Gelsenkirchen Royal + Spain: Raúl
+- Gelsenkirchen Royal + France: Jean-Clair Todibo
+- Gelsenkirchen Royal + Argentina: Franco Di Santo
+- Leipzig White-Red + World Champion: Dani Olmo
+- Leipzig White-Red + European Champion: Dani Olmo
+- Leipzig White-Red + José Mourinho: Angeliño
+- Leipzig White-Red + Arsène Wenger: Emile Smith Rowe
+- Leipzig White-Red + England: Emile Smith Rowe
+- Leipzig White-Red + Brazil: Matheus Cunha
+- Leipzig White-Red + Uruguay: Marcelo Saracchi
+- Leipzig White-Red + Morocco: Neil El Aynaoui
+- Leipzig White-Red + Nigeria: Ademola Lookman
+- Leipzig White-Red + Ivory Coast: Yan Diomande
+- Leipzig White-Red + Senegal: Abdou Diallo
+- … and 190 more

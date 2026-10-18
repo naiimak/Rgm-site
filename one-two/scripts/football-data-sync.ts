@@ -86,7 +86,7 @@ async function main() {
       const inSquad = new Set<string>();
       for (const fp of team.squad) {
         const born = fp.dateOfBirth ? Number(fp.dateOfBirth.slice(0, 4)) : 0;
-        let p = [0, -1, 1].map((d) => index.get(`${normalize(fp.name)}|${born + d}`)).find(Boolean);
+        let p: PlayerRecord | undefined = [0, -1, 1].map((d) => index.get(`${normalize(fp.name)}|${born + d}`)).find(Boolean) ?? nameVariant(fp.name, born, club);
         if (!p) {
           let id = normalize(fp.name).replace(/ /g, '-');
           if (usedIds.has(id)) id = `${id}-${born}`;
@@ -108,7 +108,7 @@ async function main() {
             log.push(`- ${p.name}: now at ${clubName(club)}`);
           }
           for (const s of p.spells) {
-            if (s.to === null && s.club !== club && cardClubs.has(s.club)) {
+            if (s.to === null && s.from !== null && s.club !== club && cardClubs.has(s.club)) {
               s.to = season;
               closed++;
               log.push(`- ${p.name}: left ${clubName(s.club)}`);
@@ -121,7 +121,7 @@ async function main() {
       for (const p of players) {
         if (inSquad.has(p.id)) continue;
         for (const s of p.spells) {
-          if (s.club === club && s.to === null && (s.from ?? 0) < season) {
+          if (s.club === club && s.to === null && s.from !== null && s.from < season) {
             s.to = season;
             closed++;
             log.push(`- ${p.name}: no longer at ${clubName(club)}`);
@@ -143,6 +143,17 @@ async function main() {
   ].join('\n') + '\n');
   console.log(`${matched} matched, ${added} added, ${opened} spells opened, ${closed} closed. Not in a top flight now: ${missing.join(', ') || 'none'}.`);
   console.log('Details: data/squads-report.md');
+}
+
+/**
+ * Same player under another spelling ("Vitalii" / "Vitaliy Mykolenko", "Victor Nilsson-Lindelöf"):
+ * same birth year (±1) and a shared name part of 4+ letters, preferring someone already at the club.
+ */
+function nameVariant(name: string, born: number, club: string): PlayerRecord | undefined {
+  if (!born) return undefined;
+  const parts = new Set(normalize(name).split(/[ -]/).filter((t) => t.length >= 4));
+  const options = players.filter((p) => Math.abs(p.birthYear - born) <= 1 && normalize(p.name).split(/[ -]/).some((t) => parts.has(t)));
+  return options.find((p) => p.spells.some((s) => s.club === club)) ?? (options.length === 1 ? options[0] : undefined);
 }
 
 function clubName(code: string) {

@@ -85,7 +85,7 @@ async function main() {
       const item = need(found, name, 'league');
       const rows = await wd.query(`SELECT ?s ?label ?start ?winner ?team WHERE {
         ?s wdt:P3450 wd:${item} . ?s rdfs:label ?label . FILTER(LANG(?label) = "en")
-        OPTIONAL { ?s wdt:P580 ?start } OPTIONAL { ?s wdt:P1346 ?winner } OPTIONAL { ?s wdt:P1923 ?team } }`);
+        OPTIONAL { ?s wdt:P580 ?start } OPTIONAL { ?s p:P1346 ?ws . ?ws ps:P1346 ?winner . OPTIONAL { ?ws pq:P1352 ?rank } FILTER(!BOUND(?rank) || ?rank = 1) } OPTIONAL { ?s wdt:P1923 ?team } }`);
       const seen = new Set<string>();
       const before = sources.leagueSeasonsBefore?.[name] ?? Infinity;
       for (const r of rows) {
@@ -110,18 +110,21 @@ async function main() {
   const clWinners: { season: number; club: string }[] = [];
   for (const item of comp('CL')) {
     const rows = await wd.query(`SELECT ?s ?label ?start ?winner WHERE {
-      ?s wdt:P3450 wd:${item} ; wdt:P1346 ?winner . ?s rdfs:label ?label . FILTER(LANG(?label) = "en") OPTIONAL { ?s wdt:P580 ?start } }`);
+      ?s wdt:P3450 wd:${item} ; p:P1346 ?ws . ?ws ps:P1346 ?winner . OPTIONAL { ?ws pq:P1352 ?rank } FILTER(!BOUND(?rank) || ?rank = 1)
+      ?s rdfs:label ?label . FILTER(LANG(?label) = "en") OPTIONAL { ?s wdt:P580 ?start } }`);
     for (const r of rows) {
       const season = seasonStart(r.label, r.start);
       if (season !== null) clWinners.push({ season, club: qid(r.winner) });
     }
   }
+  // "Winner" (P1346) often also lists the runners-up with a ranking; only ranking 1 (or none) counts.
   // Tournament editions: winner team plus the edition item players list under "participant in" (P1344).
   const editions = new Map<string, { trophy: 'WC' | 'EC'; winnerTeam: string; year: number }>();
   for (const trophy of ['WC', 'EC'] as const) {
     for (const item of comp(trophy)) {
       const rows = await wd.query(`SELECT ?e ?label ?winner WHERE {
-        ?e wdt:P3450 wd:${item} ; wdt:P1346 ?winner . ?e rdfs:label ?label . FILTER(LANG(?label) = "en") }`);
+        ?e wdt:P3450 wd:${item} ; p:P1346 ?ws . ?ws ps:P1346 ?winner . OPTIONAL { ?ws pq:P1352 ?rank } FILTER(!BOUND(?rank) || ?rank = 1)
+        ?e rdfs:label ?label . FILTER(LANG(?label) = "en") }`);
       for (const r of rows) {
         const y = Number(r.label.match(/\d{4}/)?.[0]);
         if (y && y <= new Date().getFullYear()) editions.set(qid(r.e), { trophy, winnerTeam: qid(r.winner), year: y });
@@ -156,8 +159,10 @@ async function main() {
         OPTIONAL { ?p wdt:P569 ?born }
         OPTIONAL { ?p wdt:P1532|wdt:P27 ?c . ?c wdt:P297 ?iso } }`),
       await wd.query(`SELECT ?p ?alias WHERE { VALUES ?p { ${values} } ?p skos:altLabel ?alias . FILTER(LANG(?alias) = "en") }`),
-      await wd.query(`SELECT ?p ?team ?start ?end WHERE { VALUES ?p { ${values} }
-        ?p p:P54 ?s . ?s ps:P54 ?team . OPTIONAL { ?s pq:P580 ?start } OPTIONAL { ?s pq:P582 ?end } }`),
+      await wd.query(`SELECT ?p ?team ?start ?startPrecision ?end ?endPrecision WHERE { VALUES ?p { ${values} }
+        ?p p:P54 ?s . ?s ps:P54 ?team .
+        OPTIONAL { ?s pqv:P580 ?sv . ?sv wikibase:timeValue ?start ; wikibase:timePrecision ?startPrecision }
+        OPTIONAL { ?s pqv:P582 ?ev . ?ev wikibase:timeValue ?end ; wikibase:timePrecision ?endPrecision } }`),
       await wd.query(`SELECT ?p ?x WHERE { VALUES ?p { ${values} }
         { ?p wdt:P166 ?x . VALUES ?x { ${goldenBall.map((g) => `wd:${g}`).join(' ')} } } UNION { ?p wdt:P1344 ?x } }`),
     ];
@@ -176,7 +181,7 @@ async function main() {
     }
     for (const r of spells) {
       const list = spellsRaw.get(qid(r.p)) ?? [];
-      list.push({ team: qid(r.team), from: year(r.start), to: year(r.end) });
+      list.push({ team: qid(r.team), from: seasonOfJoining(r.start, r.startPrecision), to: seasonOfLeaving(r.end, r.endPrecision) });
       spellsRaw.set(qid(r.p), list);
     }
     for (const r of extra) {
@@ -187,6 +192,17 @@ async function main() {
     done += batch.length;
     if (done % (BATCH * 10) === 0 || done === ids.length) console.log(`  ${done}/${ids.length}`);
   }
+
+  // Names of every team in those spells, to tell clubs from national and youth teams when
+  // estimating missing end dates below.
+  const teamIds = [...new Set([...spellsRaw.values()].flat().map((s) => s.team))];
+  const notClub = new Set<string>();
+  for (const batch of chunks(teamIds, 400)) {
+    const rows = await wd.query(`SELECT ?t ?label WHERE { VALUES ?t { ${batch.map((x) => `wd:${x}`).join(' ')} }
+      ?t rdfs:label ?label . FILTER(LANG(?label) = "en") }`);
+    for (const r of rows) if (/national|under-?\s?\d|\bU-?\d\d\b|olympic|youth|women/i.test(r.label)) notClub.add(qid(r.t));
+  }
+  for (const [pid, list] of spellsRaw) estimateEnds(list, notClub, info.get(pid)?.born ?? null);
 
   console.log('6/6 Deriving titles and trophies, writing players.json…');
   const nationName = new Map(config.nations.map((n) => [n.id, n.name]));
@@ -208,7 +224,10 @@ async function main() {
       nationalTeams.add(s.team); // harmless for non-national teams: only matched against tournament winners
       const code = clubCodeOf(s.team);
       if (!code) continue; // youth, B, women's or foreign clubs: irrelevant for the cards
-      spells.push({ club: code, from: s.from, to: s.to !== null && s.from !== null && s.to < s.from ? s.from : s.to });
+      // Wikidata often dates a spell from the day a player joined the club's academy; senior football starts around 16.
+      const from = s.from !== null && meta.born ? Math.max(s.from, meta.born + 16) : s.from;
+      if (from !== null && s.to !== null && s.to < from) continue;
+      spells.push({ club: code, from, to: s.to !== null && from !== null && s.to < from ? from : s.to });
     }
     if (!spells.some((s) => config.clubs.some((c) => c.id === s.club)) && !caps.size) continue;
     if (!activeSince(raw, meta.born)) continue;
@@ -295,6 +314,44 @@ async function main() {
 function activeSince(spells: { from: number | null; to: number | null }[], born?: number | null): boolean {
   if (spells.some((s) => (s.to ?? s.from ?? 0) >= ACTIVE_FROM || (s.to === null && s.from !== null && s.from + 15 >= ACTIVE_FROM))) return true;
   return !spells.some((s) => s.from !== null || s.to !== null) && !!born && born >= ACTIVE_FROM - 35;
+}
+
+/**
+ * Wikidata often has no end date for a spell, which would read as "still at the club". Estimate it:
+ * the start of the player's next club spell, or for a last club of a player past playing age,
+ * around age 36. Spells of players who may still be playing stay open (the squad sync settles them).
+ */
+function estimateEnds(spells: { team: string; from: number | null; to: number | null }[], notClub: Set<string>, born: number | null): void {
+  const clubs = spells.filter((s) => !notClub.has(s.team) && s.from !== null).sort((a, b) => a.from! - b.from!);
+  for (const s of clubs) {
+    if (s.to !== null) continue;
+    const next = clubs.find((o) => o !== s && o.from! > s.from!);
+    if (next) s.to = next.from;
+    else if (born !== null && born <= NOW - 38) s.to = Math.min(NOW - 1, Math.max(s.from! + 1, born + 36));
+  }
+}
+
+/**
+ * First season of a spell. A move dated January–June (with at least month precision) joins the
+ * season that started the previous summer: Beckham's January 2010 loan to Milan is 2009/10.
+ */
+function seasonOfJoining(start?: string, precision?: string): number | null {
+  const y = year(start);
+  if (y === null || !start || Number(precision) < 10) return y;
+  const month = Number(start.replace(/^\+/, '').slice(5, 7));
+  return month >= 1 && month <= 6 ? y - 1 : y;
+}
+
+/**
+ * End of a spell as "seasons before this start year". Leaving in January–June (month precision)
+ * means not finishing that season, so it doesn't count: Vieira left Inter in January 2010 and was
+ * not in the squad that won the 2009/10 Champions League.
+ */
+function seasonOfLeaving(end?: string, precision?: string): number | null {
+  const y = year(end);
+  if (y === null || !end || Number(precision) < 10) return y;
+  const month = Number(end.replace(/^\+/, '').slice(5, 7));
+  return month >= 1 && month <= 6 ? y - 1 : y;
 }
 
 /** Start year of a season item: its start date, or the first year in "2007–08 Premier League". */
