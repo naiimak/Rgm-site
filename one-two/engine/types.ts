@@ -59,7 +59,11 @@ export interface GameConfig {
   coinPacks: { id: string; coins: number; price: string }[];
 }
 
-export interface Spell { club: string; from: number; to: number | null }
+/** A club spell. `from` is null when the source has no start year; `to` is null when the player is still there (or the end is unknown). */
+export interface Spell { club: string; from: number | null; to: number | null }
+
+/** Club facts that come with the player data (pipeline output): league and the seasons (start years) it was in the top flight. */
+export interface DataClub { league: string | null; seasons?: number[] }
 
 /** One row of data/players.json (the output of the data pipeline). */
 export interface PlayerRecord {

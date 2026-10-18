@@ -41,3 +41,10 @@ export function search(index: SearchIndex, query: string, limit = 8): PlayerList
   });
   return scored.sort((a, b) => a.score - b.score || b.e.s - a.e.s).slice(0, limit).map((x) => x.e);
 }
+
+/** Flag for a nationality code: a configured flag, or one built from an "iso:XX" country code. */
+export function flagFor(code: string, flags: Record<string, string>): string {
+  if (flags[code]) return flags[code];
+  const iso = /^iso:([A-Z]{2})$/.exec(code)?.[1];
+  return iso ? String.fromCodePoint(...[...iso].map((c) => 0x1f1e6 + c.charCodeAt(0) - 65)) : '🏳️';
+}

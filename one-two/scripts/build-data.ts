@@ -1,5 +1,6 @@
-// Builds data/players.json from the hand-entered seed (data/players.seed.psv).
-// The Wikidata import (see README) is meant to write the same players.json format.
+// Builds data/players.seed.json from the hand-entered seed (data/players.seed.psv).
+// scripts/wikidata-import.ts builds the main data/players.json and keeps seed players Wikidata lacks.
+// Pass --main to use the seed alone as data/players.json (offline fallback).
 //
 //   npm run data
 
@@ -66,9 +67,10 @@ lines.forEach((line, i) => {
 
 const body = JSON.stringify(players);
 const version = `seed-${createHash('sha1').update(body).digest('hex').slice(0, 8)}`;
-writeFileSync(join(ROOT, 'data/players.json'), JSON.stringify({ version, source: 'hand-entered seed (not yet verified against Wikidata)', players }, null, 1));
+const out = process.argv.includes('--main') ? 'data/players.json' : 'data/players.seed.json';
+writeFileSync(join(ROOT, out), JSON.stringify({ version, source: 'hand-entered seed (not yet verified against Wikidata)', players }, null, 1));
 
-console.log(`${players.length} players written to data/players.json (version ${version})`);
+console.log(`${players.length} players written to ${out} (version ${version})`);
 console.log(`Clubs outside the 5 leagues (ignored for leagues, never cards): ${[...foreignClubs.keys()].sort().join(' ')}`);
 if (problems.length) {
   console.error(`\n${problems.length} problem(s):\n${problems.join('\n')}`);

@@ -1,0 +1,149 @@
+{
+  "_comment": "English Wikipedia titles used by scripts/wikidata-import.ts to find each card's Wikidata item. Titles must match exactly (no redirects).",
+  "clubs": {
+    "MUN": "Manchester United F.C.",
+    "MCI": "Manchester City F.C.",
+    "LIV": "Liverpool F.C.",
+    "EVE": "Everton F.C.",
+    "CHE": "Chelsea F.C.",
+    "ARS": "Arsenal F.C.",
+    "TOT": "Tottenham Hotspur F.C.",
+    "NEW": "Newcastle United F.C.",
+    "AVL": "Aston Villa F.C.",
+    "WHU": "West Ham United F.C.",
+    "RMA": "Real Madrid CF",
+    "ATM": "Atlético Madrid",
+    "BAR": "FC Barcelona",
+    "ESY": "RCD Espanyol",
+    "SEV": "Sevilla FC",
+    "BET": "Real Betis",
+    "VAL": "Valencia CF",
+    "VIL": "Villarreal CF",
+    "RSO": "Real Sociedad",
+    "DEP": "Deportivo de A Coruña",
+    "JUV": "Juventus FC",
+    "MIL": "AC Milan",
+    "INT": "Inter Milan",
+    "ROM": "AS Roma",
+    "LAZ": "SS Lazio",
+    "NAP": "SSC Napoli",
+    "FIO": "ACF Fiorentina",
+    "ATA": "Atalanta BC",
+    "PAR": "Parma Calcio 1913",
+    "SAM": "UC Sampdoria",
+    "BAY": "FC Bayern Munich",
+    "BVB": "Borussia Dortmund",
+    "LEV": "Bayer 04 Leverkusen",
+    "S04": "FC Schalke 04",
+    "RBL": "RB Leipzig",
+    "WOB": "VfL Wolfsburg",
+    "VFB": "VfB Stuttgart",
+    "HSV": "Hamburger SV",
+    "SVW": "SV Werder Bremen",
+    "SGE": "Eintracht Frankfurt",
+    "PSG": "Paris Saint-Germain FC",
+    "OMR": "Olympique de Marseille",
+    "LYO": "Olympique Lyonnais",
+    "MON": "AS Monaco FC",
+    "LIL": "Lille OSC",
+    "BDX": "FC Girondins de Bordeaux",
+    "NIC": "OGC Nice",
+    "REN": "Stade Rennais FC",
+    "LEN": "RC Lens",
+    "STE": "AS Saint-Étienne"
+  },
+  "coaches": {
+    "MOU": "José Mourinho",
+    "GUA": "Pep Guardiola",
+    "ANC": "Carlo Ancelotti",
+    "KLO": "Jürgen Klopp",
+    "FLI": "Hansi Flick",
+    "ZID": "Zinedine Zidane",
+    "FER": "Alex Ferguson",
+    "WEN": "Arsène Wenger",
+    "SIM": "Diego Simeone",
+    "CON": "Antonio Conte"
+  },
+  "nations": {
+    "ESP": "Spain national football team",
+    "ENG": "England national football team",
+    "FRA": "France national football team",
+    "ITA": "Italy national football team",
+    "GER": "Germany national football team",
+    "POR": "Portugal national football team",
+    "NED": "Netherlands national football team",
+    "BEL": "Belgium national football team",
+    "CRO": "Croatia national football team",
+    "POL": "Poland national football team",
+    "DEN": "Denmark national football team",
+    "BRA": "Brazil national football team",
+    "ARG": "Argentina national football team",
+    "URU": "Uruguay national football team",
+    "MAR": "Morocco national football team",
+    "NGA": "Nigeria national football team",
+    "CIV": "Ivory Coast national football team",
+    "CMR": "Cameroon national football team",
+    "SEN": "Senegal national football team",
+    "EGY": "Egypt national football team",
+    "ALG": "Algeria national football team",
+    "USA": "United States men's national soccer team",
+    "JPN": "Japan national football team",
+    "AUS": "Australia men's national soccer team"
+  },
+  "leagues": {
+    "ENG": [
+      "Premier League",
+      "Football League First Division"
+    ],
+    "ESP": [
+      "La Liga"
+    ],
+    "ITA": [
+      "Serie A"
+    ],
+    "GER": [
+      "Bundesliga"
+    ],
+    "FRA": [
+      "Ligue 1"
+    ]
+  },
+  "competitions": {
+    "CL": [
+      "UEFA Champions League"
+    ],
+    "WC": [
+      "FIFA World Cup"
+    ],
+    "EC": [
+      "UEFA European Championship"
+    ],
+    "GB": [
+      "Ballon d'Or",
+      "FIFA Ballon d'Or"
+    ]
+  },
+  "coachClubs": {
+    "FCP": [
+      "FC Porto"
+    ],
+    "ABE": [
+      "Aberdeen F.C."
+    ],
+    "MAI": [
+      "1. FSV Mainz 05"
+    ],
+    "CAT": [
+      "Catania FC",
+      "Calcio Catania"
+    ],
+    "FEN": [
+      "Fenerbahçe S.K. (football)",
+      "Fenerbahçe S.K."
+    ]
+  },
+  "leagueSeasonsBefore": {
+    "Football League First Division": 1992
+  },
+  "_comment2": "leagueSeasonsBefore: a league item that stopped being the top flight (the old First Division became the second tier when the Premier League started in 1992)."
+}

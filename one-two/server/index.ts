@@ -28,8 +28,8 @@ const store = new Store(join(DATA_DIR, 'store.json'));
 mkdirSync(DATA_DIR, { recursive: true });
 
 function buildDb(): PlayerDB {
-  const { players, version } = loadPlayers();
-  return new PlayerDB(config, players, version);
+  const { players, version, clubs } = loadPlayers();
+  return new PlayerDB(config, players, version, clubs);
 }
 
 function track(event: string, props: Record<string, unknown>): void {

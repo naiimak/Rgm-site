@@ -2,7 +2,7 @@
 // Every valid link between two subject cards is precomputed into a link cache at
 // start-up, so checking an answer during a game is a set lookup.
 
-import type { Card, GameConfig, PlayerListEntry, PlayerRecord, Spell, SubjectKind } from './types.ts';
+import type { Card, DataClub, GameConfig, PlayerListEntry, PlayerRecord, Spell, SubjectKind } from './types.ts';
 
 export const SUBJECT_KINDS: SubjectKind[] = ['club', 'league', 'champion', 'trophy', 'coach', 'national'];
 
@@ -14,7 +14,7 @@ export function pairKey(a: string, b: string): string {
   return a < b ? `${a}|${b}` : `${b}|${a}`;
 }
 
-interface ClubInfo { league: string | null; notTopFlight: [number, number][]; displayName: string | null }
+interface ClubInfo { league: string | null; notTopFlight: [number, number][]; displayName: string | null; seasons?: Set<number> }
 
 export class PlayerDB {
   readonly config: GameConfig;
@@ -28,7 +28,8 @@ export class PlayerDB {
   private readonly clubs = new Map<string, ClubInfo>();
   private readonly famePercentile = new Map<string, number>();
 
-  constructor(config: GameConfig, players: PlayerRecord[], version = 'seed') {
+  /** `dataClubs` (from players.json) adds top-flight season lists, which take precedence over config's notTopFlight ranges. */
+  constructor(config: GameConfig, players: PlayerRecord[], version = 'seed', dataClubs: Record<string, DataClub> = {}) {
     this.config = config;
     this.players = players;
     this.version = version;
@@ -36,6 +37,12 @@ export class PlayerDB {
     for (const [id, raw] of Object.entries(config.otherClubs)) {
       if (id.startsWith('_') || typeof raw === 'string') continue;
       this.clubs.set(id, clubInfo(raw, null));
+    }
+    for (const [id, c] of Object.entries(dataClubs)) {
+      const known = this.clubs.get(id);
+      const seasons = c.seasons ? new Set(c.seasons) : undefined;
+      if (known) known.seasons = seasons ?? known.seasons;
+      else this.clubs.set(id, { league: c.league, notTopFlight: [], displayName: null, seasons });
     }
     for (const p of players) this.byId.set(p.id, p);
 
@@ -109,7 +116,7 @@ export class PlayerDB {
     switch (kind) {
       case 'club': {
         const name = c.clubs.find((x) => x.id === ref)?.name ?? ref;
-        return `${name} ${p.spells.filter((s) => s.club === ref).map((s) => years(s.from, s.to)).join(', ')}`;
+        return `${name} ${p.spells.filter((s) => s.club === ref).map((s) => years(s.from, s.to)).filter(Boolean).join(', ')}`.trim();
       }
       case 'league': {
         const league = c.leagues.find((x) => x.id === ref)!;
@@ -161,10 +168,11 @@ export class PlayerDB {
   private spellInLeague(s: Spell, league: string): boolean {
     const info = this.clubs.get(s.club);
     if (!info || info.league !== league) return false;
+    if (s.from === null) return true; // no years in the source: trust the club's league
     const end = s.to ?? this.config.currentSeasonEnd;
     // seasons start in years from..end-1; a same-year spell counts as one season
     for (let y = s.from; y < Math.max(end, s.from + 1); y++) {
-      if (!info.notTopFlight.some(([a, b]) => y >= a && y < b)) return true;
+      if (info.seasons ? info.seasons.has(y) : !info.notTopFlight.some(([a, b]) => y >= a && y < b)) return true;
     }
     return false;
   }
@@ -175,6 +183,7 @@ export class PlayerDB {
     if (!coach) return [];
     const out: { club: string; from: number; to: number }[] = [];
     for (const s of p.spells) {
+      if (s.from === null) continue;
       const sEnd = Math.max(s.to ?? this.config.currentSeasonEnd, s.from + 1);
       for (const [club, cFrom, cTo] of coach.spells) {
         if (club !== s.club) continue;
@@ -191,7 +200,8 @@ function clubInfo(c: { league?: string | null; notTopFlight?: [number, number][]
   return { league: c.league ?? null, notTopFlight: c.notTopFlight ?? [], displayName: name };
 }
 
-function years(from: number, to: number | null): string {
+function years(from: number | null, to: number | null): string {
+  if (from === null) return to === null ? '' : `–${to}`;
   if (to === null) return `${from}–`;
   if (to <= from + 1) return `${from}–${String(from + 1).slice(2)}`;
   return `${from}–${String(to).slice(2)}`;

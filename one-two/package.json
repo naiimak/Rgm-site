@@ -13,7 +13,9 @@
     "dev:server": "tsx watch server/index.ts",
     "dev:app": "vite",
     "build": "vite build",
-    "start": "NODE_ENV=production tsx server/index.ts"
+    "start": "NODE_ENV=production tsx server/index.ts",
+    "data:wikidata": "tsx scripts/wikidata-import.ts",
+    "data:squads": "tsx scripts/football-data-sync.ts"
   },
   "engines": {
     "node": ">=20"

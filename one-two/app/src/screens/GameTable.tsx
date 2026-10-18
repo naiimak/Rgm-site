@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import type { Socket } from 'socket.io-client';
 import type { Card, Colour, GameStateView, PlayResult } from '../../../engine/types.ts';
-import { search, type SearchIndex } from '../../../engine/search.ts';
+import { flagFor, search, type SearchIndex } from '../../../engine/search.ts';
 import { api, emit, sfx, track, type Prefs } from '../api.ts';
 import { CardBack, CardView } from '../components/CardView.tsx';
 import { Avatar, FakeAd, Modal } from '../components/ui.tsx';
@@ -333,7 +333,7 @@ function AnswerBox({ config, game, card, index, flags, remaining, canSafePlay, o
               const r = await onAnswer(p.id);
               if (!r.ok && r.error === 'already_used') setMessage('Already used — pick again');
             }}>
-              <span className="flag">{flags[p.f] ?? '🏳️'}</span>
+              <span className="flag">{flagFor(p.f, flags)}</span>
               <span className="pname">{p.n}</span>
               <span className="muted">{p.b}</span>
             </button>
