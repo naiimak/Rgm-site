@@ -32,6 +32,8 @@ const sources = JSON.parse(readFileSync(join(ROOT, 'data/wikidata-sources.json')
 const wd = new Sparql(join(ROOT, 'data/wikidata-cache'));
 const NOW = config.currentSeasonEnd;
 const BATCH = 250;
+/** Only players active in or after this year (any club or national-team spell reaching it). */
+const ACTIVE_FROM = 1990;
 
 // ------------------------------------------------------------------ 1. resolve items by Wikipedia title
 
@@ -133,7 +135,9 @@ async function main() {
   const candidates = new Map<string, number>(); // QID -> sitelinks
   for (const team of [...clubCode.keys(), ...nationCode.keys()]) {
     const rows = await wd.query(`SELECT DISTINCT ?p ?links WHERE {
-      ?p p:P54/ps:P54 wd:${team} ; wdt:P31 wd:Q5 ; wikibase:sitelinks ?links . }`);
+      ?p p:P54 ?st . ?st ps:P54 wd:${team} . ?p wdt:P31 wd:Q5 ; wikibase:sitelinks ?links .
+      OPTIONAL { ?st pq:P582 ?end } OPTIONAL { ?p wdt:P569 ?born }
+      FILTER(IF(BOUND(?end), YEAR(?end) >= ${ACTIVE_FROM}, !BOUND(?born) || YEAR(?born) >= ${ACTIVE_FROM - 35})) }`);
     for (const r of rows) candidates.set(qid(r.p), Number(r.links));
   }
   const ids = [...candidates.keys()].sort();
@@ -207,6 +211,7 @@ async function main() {
       spells.push({ club: code, from: s.from, to: s.to !== null && s.from !== null && s.to < s.from ? s.from : s.to });
     }
     if (!spells.some((s) => config.clubs.some((c) => c.id === s.club)) && !caps.size) continue;
+    if (!activeSince(raw, meta.born)) continue;
 
     const titles = new Set<string>();
     for (const c of champions) if (spellCovers(spells, clubCodeOf(c.club), c.season)) titles.add(c.league);
@@ -241,6 +246,7 @@ async function main() {
   const report: string[] = [];
   let added = 0;
   for (const s of seed) {
+    if (!activeSince(s.spells.map((x) => ({ from: x.from, to: x.to })), s.birthYear)) continue;
     const w = find(s);
     if (!w) { if (!usedIds.has(s.id)) { players.push(s); usedIds.add(s.id); added++; } continue; }
     const diffs: string[] = [];
@@ -283,6 +289,12 @@ async function main() {
   ].join('\n') + '\n');
   console.log(`Wrote ${players.length} players (${added} from the seed only), version ${version}`);
   console.log(`${report.length} seed/Wikidata disagreements listed in data/import-report.md`);
+}
+
+/** Played in or after ACTIVE_FROM: a spell ending then or later (or still open), or born recently enough if no years. */
+function activeSince(spells: { from: number | null; to: number | null }[], born?: number | null): boolean {
+  if (spells.some((s) => (s.to ?? s.from ?? 0) >= ACTIVE_FROM || (s.to === null && s.from !== null && s.from + 15 >= ACTIVE_FROM))) return true;
+  return !spells.some((s) => s.from !== null || s.to !== null) && !!born && born >= ACTIVE_FROM - 35;
 }
 
 /** Start year of a season item: its start date, or the first year in "2007–08 Premier League". */
