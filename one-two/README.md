@@ -27,6 +27,21 @@ For development, run `npm run dev:server` and `npm run dev:app` in two terminals
 | `DATA_DIR` | Where accounts, game logs and analytics are written | `data/` |
 | `VITE_SERVER_URL` | Server address baked into the phone app at build time | same origin |
 
+## Put it online (Fly.io)
+
+`Dockerfile` and `fly.toml` deploy the server and app as one machine in Frankfurt, with a 1 GB volume for accounts, progress, game logs and analytics. Rooms live in memory, so keep it to **one** machine until room state moves to Redis.
+
+```bash
+fly launch --copy-config --no-deploy        # choose a unique app name; update app and PUBLIC_URL in fly.toml to match
+fly volumes create onetwo_data --region fra --size 1
+fly secrets set ADMIN_KEY=<a long random string>
+fly deploy
+```
+
+The game is then at `https://<app-name>.fly.dev`, and the admin page at `/admin?key=<ADMIN_KEY>`. The machine stops when nobody is connected and starts again on the next visit (a few seconds).
+
+`npm run build:demo` builds a server-less demo (tutorial and Solo vs Bots in the browser) into `dist-demo/`.
+
 ## What's built
 
 Status against the spec's five milestones:

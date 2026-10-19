@@ -1,0 +1,12 @@
+node_modules
+dist
+dist-demo
+ios
+android
+.env.demo
+data/wikidata-cache
+data/store.json
+data/games
+data/analytics.log
+data/manual
+*.xlsx

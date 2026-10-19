@@ -1,0 +1,44 @@
+# Fly.io deployment. One machine in Frankfurt (the spec's launch region) with a small volume
+# for accounts, progress, game logs and analytics. Rooms live in memory, so keep it to ONE
+# machine until room state moves to Redis (see README).
+#
+# First deploy:  fly launch --copy-config --no-deploy   (pick a unique app name, then update PUBLIC_URL below)
+#                fly volumes create onetwo_data --region fra --size 1
+#                fly secrets set ADMIN_KEY=<a long random string>
+#                fly deploy
+app = "one-two-game"
+primary_region = "fra"
+
+[env]
+  NODE_ENV = "production"
+  PORT = "8080"
+  DATA_DIR = "/data"
+  PUBLIC_URL = "https://one-two-game.fly.dev"
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = "stop"
+  auto_start_machines = true
+  min_machines_running = 0
+
+  [http_service.concurrency]
+    type = "connections"
+    soft_limit = 800
+    hard_limit = 1000
+
+  [[http_service.checks]]
+    grace_period = "20s"
+    interval = "30s"
+    method = "GET"
+    path = "/api/health"
+    timeout = "5s"
+
+[[mounts]]
+  source = "onetwo_data"
+  destination = "/data"
+
+[[vm]]
+  memory = "512mb"
+  cpu_kind = "shared"
+  cpus = 1
