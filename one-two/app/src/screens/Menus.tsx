@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import type { BotLevel, RoomSettings } from '../../../engine/types.ts';
 import { DEFAULT_SETTINGS } from '../../../engine/types.ts';
 import { DEMO, api, savePrefs, track, type Prefs } from '../api.ts';
-import { CardBack } from '../components/CardView.tsx';
+import { CardBack, CardView } from '../components/CardView.tsx';
 import { Avatar, FakeAd, Modal, Segmented, Toggle, TopBar } from '../components/ui.tsx';
 import { ERRORS, type ClientConfig, type GameOverView, type Profile, type RoomView } from '../model.ts';
 
@@ -26,6 +26,7 @@ export function Home({ profile, config, nav, onQuick, setProfile }: { profile: P
 
       <div className="brand">
         <div className="logo">One<span>·</span>Two</div>
+        <HeroCards config={config} />
         <p>Link every card with a footballer who played for both.</p>
         {DEMO && <p className="demo-note">Demo: Play and Solo vs Bots run in your browser against bots. Online rooms need the game server.</p>}
       </div>
@@ -56,6 +57,23 @@ export function Home({ profile, config, nav, onQuick, setProfile }: { profile: P
   );
 }
 
+/** Home hero: two cards and the player who links them, as in the spec's example. */
+function HeroCards({ config }: { config: ClientConfig }) {
+  const card = (ref: string) => {
+    const club = config.clubs.find((c) => c.id === ref);
+    return club ? { id: `hero-${ref}`, kind: 'club' as const, ref, colour: config.leagues.find((l) => l.id === club.league)!.colour } : null;
+  };
+  const a = card('MUN'), b = card('RMA');
+  if (!a || !b) return null;
+  return (
+    <div className="hero" aria-hidden>
+      <CardView card={a} config={config} size="md" className="hero-a" />
+      <div className="hero-link">Cristiano Ronaldo</div>
+      <CardView card={b} config={config} size="md" className="hero-b" />
+    </div>
+  );
+}
+
 // ------------------------------------------------------------------ Settings form shared by Solo and Private
 
 function SettingsForm({ config, settings, setSettings, bots, setBots, minBots }: {
@@ -77,6 +95,12 @@ function SettingsForm({ config, settings, setSettings, bots, setBots, minBots }:
   );
 }
 
+const LEVEL_DESC: Record<BotLevel, string> = {
+  easy: 'Easy bots know the famous names and often miss. Good for learning the cards.',
+  medium: 'Medium bots know most regular players and sometimes slip up.',
+  hard: 'Hard bots rarely miss, stack penalties and never forget the Final Whistle.',
+};
+
 export function SoloSetup({ config, nav, onStart }: { config: ClientConfig; nav: Nav; onStart: (s: RoomSettings, b: { count: number; level: BotLevel }) => void }) {
   const [settings, setSettings] = useState<RoomSettings>(DEFAULT_SETTINGS);
   const [bots, setBots] = useState<{ count: number; level: BotLevel }>({ count: 3, level: 'medium' });
@@ -84,6 +108,7 @@ export function SoloSetup({ config, nav, onStart }: { config: ClientConfig; nav:
     <div className="screen">
       <TopBar title="Solo vs Bots" onBack={() => nav('home')} />
       <SettingsForm config={config} settings={settings} setSettings={setSettings} bots={bots} setBots={setBots} minBots={1} />
+      <p className="level-desc">{LEVEL_DESC[bots.level]}</p>
       <p className="muted small center">Games against bots give half XP and don’t count for the leaderboard.</p>
       <button className="btn primary wide" onClick={() => onStart(settings, bots)}>Kick off</button>
     </div>
@@ -206,16 +231,21 @@ export function Results({ results, profile, onRematch, onHome, setProfile }: { r
   const [ad, setAd] = useState(false);
   const [doubled, setDoubled] = useState(false);
   const won = results.placings[0]?.seat === results.you;
+  const me = results.placings.find((p) => p.seat === results.you);
   const r = results.reward;
   const celebration = profile.equipped.celebration ?? 'win-confetti';
   return (
     <div className="screen results">
       {won && <div className={`celebrate ${celebration}`} aria-hidden>{celebration === 'win-chant' ? 'Olé, olé, olé!' : ''}</div>}
-      <h1 className="center">{won ? 'You win! 🏆' : 'Full time'}</h1>
+      <div className="result-head">
+        <div className="result-badge">{won ? '🏆' : me && me.place <= 2 ? '🥈' : '⏱️'}</div>
+        <h1>{won ? 'You win!' : 'Full time'}</h1>
+        <p className="muted">{won ? 'Cleared your hand first.' : me ? `You finished ${ordinal(me.place)} with ${me.cardsLeft} card${me.cardsLeft === 1 ? '' : 's'} left.` : ''}</p>
+      </div>
       <ol className="placings">
-        {results.placings.map((p) => (
-          <li key={p.seat} className={p.seat === results.you ? 'you' : ''}>
-            <span className="place">{p.place}</span>
+        {results.placings.map((p, i) => (
+          <li key={p.seat} className={`${p.seat === results.you ? 'you' : ''} p${p.place}`} style={{ animationDelay: `${i * 90}ms` }}>
+            <span className="place">{p.place === 1 ? '🥇' : p.place === 2 ? '🥈' : p.place === 3 ? '🥉' : p.place}</span>
             <span className="pav">{p.avatar}</span>
             <span className="pn">{p.name}{p.isBot && <span className="badge bot">BOT</span>}</span>
             <span className="pts">{p.place === 1 ? 'Won' : `${p.points} pts · ${p.cardsLeft} cards`}</span>
@@ -224,8 +254,10 @@ export function Results({ results, profile, onRematch, onHome, setProfile }: { r
       </ol>
       {r && (
         <div className="rewards">
-          <div><b>+{r.xp}</b> XP{r.solo && <small> (half XP vs bots)</small>}</div>
-          <div><b>+{doubled ? r.coins * 2 : r.coins}</b> coins</div>
+          <div className="reward-row">
+            <div className="reward"><b>+{r.xp}</b><span>XP{r.solo && <small> (half vs bots)</small>}</span></div>
+            <div className="reward"><b>+{doubled ? r.coins * 2 : r.coins}</b><span>🪙 coins</span></div>
+          </div>
           {r.levelUps > 0 && <div className="levelup">Level up! You’re level {r.level}</div>}
           {!doubled && profile.doubleCoinsAvailable && (
             <button className="btn ghost" onClick={() => { track('ad_offered', { placement: 'double_coins' }); setAd(true); }}>🎬 Watch an ad: double coins</button>
@@ -247,6 +279,10 @@ export function Results({ results, profile, onRematch, onHome, setProfile }: { r
       }} />}
     </div>
   );
+}
+
+function ordinal(n: number) {
+  return `${n}${n === 1 ? 'st' : n === 2 ? 'nd' : n === 3 ? 'rd' : 'th'}`;
 }
 
 // ------------------------------------------------------------------ Profile

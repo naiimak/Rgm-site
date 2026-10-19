@@ -30,13 +30,15 @@ export function search(index: SearchIndex, query: string, limit = 8): PlayerList
   const scored: { e: PlayerListEntry; score: number }[] = [];
   index.entries.forEach((e, i) => {
     let best = 9;
-    for (const name of index.names[i]) {
+    index.names[i].forEach((name, k) => {
+      // k = 0 is the player's name; nicknames and full names rank just below a real-name match
+      const alias = k > 0 ? 1 : 0;
       let score = 9;
       if (name === q) score = 0;
-      else if (name.startsWith(q) || name.split(' ').some((w) => w.startsWith(q))) score = 1;
-      else if (q.includes(' ') && name.includes(q)) score = 2;
+      else if (name.startsWith(q) || name.split(' ').some((w) => w.startsWith(q))) score = 2 + alias;
+      else if (q.includes(' ') && name.includes(q)) score = 4 + alias;
       best = Math.min(best, score);
-    }
+    });
     if (best < 9) scored.push({ e, score: best });
   });
   return scored.sort((a, b) => a.score - b.score || b.e.s - a.e.s).slice(0, limit).map((x) => x.e);

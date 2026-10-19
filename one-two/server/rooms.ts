@@ -191,8 +191,9 @@ export class RoomManager {
     room.members = room.members.filter((m) => !m.isBot);
     const free = Math.min(room.bots.count, 6 - room.members.length);
     const names = [...this.ctx.config.bots.names].sort(() => secureRng() - 0.5);
+    const avatars = [...this.ctx.config.avatars].sort(() => secureRng() - 0.5);
     for (let i = 0; i < free; i++) {
-      room.members.push({ userId: null, name: names[i % names.length], avatar: '🤖', isBot: true, botLevel: room.bots.level, socketId: null, connected: true, left: false });
+      room.members.push({ userId: null, name: names[i % names.length], avatar: avatars[i % avatars.length], isBot: true, botLevel: room.bots.level, socketId: null, connected: true, left: false });
     }
   }
 

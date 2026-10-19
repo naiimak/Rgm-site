@@ -265,7 +265,8 @@ export class LocalSocket {
     const names = [...config.bots.names].sort(() => Math.random() - 0.5);
     const u = loadUser();
     const me: Seat = { name: u.username, avatar: u.avatar, isBot: false, you: true };
-    const bots: Seat[] = Array.from({ length: this.bots.count }, (_, i) => ({ name: names[i], avatar: '🤖', isBot: true, botLevel: this.bots.level }));
+    const avatars = [...config.avatars].filter((a) => a !== u.avatar).sort(() => Math.random() - 0.5);
+    const bots: Seat[] = Array.from({ length: this.bots.count }, (_, i) => ({ name: names[i], avatar: avatars[i % avatars.length], isBot: true, botLevel: this.bots.level }));
     this.seats = this.mode === 'tutorial' ? [me, ...bots] : [me, ...bots].sort(() => Math.random() - 0.5);
     this.you = this.seats.findIndex((s) => s.you);
     this.game = new Game({

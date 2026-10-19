@@ -35,7 +35,11 @@ export function GameTable({ config, game, clockOffset, room, socket, profile, pr
   const [confirmLeave, setConfirmLeave] = useState(false);
   const [now, setNow] = useState(Date.now());
   const [reported, setReported] = useState<number | null>(null);
+  const [flash, setFlash] = useState(false);
   const busy = useRef(false);
+  const seenCards = useRef<Set<string>>(new Set());
+  const newCards = game.hand.filter((c) => !seenCards.current.has(c.id)).map((c) => c.id);
+  useEffect(() => { seenCards.current = new Set(game.hand.map((c) => c.id)); });
 
   useEffect(() => {
     const t = setInterval(() => setNow(Date.now()), 200);
@@ -48,7 +52,12 @@ export function GameTable({ config, game, clockOffset, room, socket, profile, pr
       setAnswerFor(null);
       setColourFor(null);
     }
-    if (myTurn) sfx('turn', prefs);
+    if (myTurn) {
+      sfx('turn', prefs);
+      setFlash(true);
+      const t = setTimeout(() => setFlash(false), 1100);
+      return () => clearTimeout(t);
+    }
   }, [myTurn, game.turnNumber]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
@@ -97,6 +106,15 @@ export function GameTable({ config, game, clockOffset, room, socket, profile, pr
   const activeHex = colourHex(config, game.activeColour);
   const currentName = game.seats[game.turn]?.name;
   const recent = lastPlay && now - lastPlay.at < 6000 ? lastPlay : null;
+  const usedIds = useMemo(() => new Set(game.log.filter((r) => r.valid && r.answer).map((r) => r.answer!.id)), [game.log]);
+  // Fan the hand so it fits the screen; past ~9 cards it overlaps more and scrolls.
+  const n = game.hand.length;
+  const overlap = n > 1 ? Math.max(-52, Math.min(-6, (340 - 80 * n) / (n - 1))) : 0;
+  const fan = (i: number) => {
+    const mid = (n - 1) / 2;
+    const spread = n <= 9 ? 3 : 1.2;
+    return { marginRight: i === n - 1 ? 0 : overlap, transform: `rotate(${(i - mid) * spread}deg) translateY(${Math.abs(i - mid) * spread * 1.4}px)` };
+  };
 
   const report = async (result: PlayResult) => {
     if (!result.answer || !result.anchorBefore) return;
@@ -131,7 +149,7 @@ export function GameTable({ config, game, clockOffset, room, socket, profile, pr
               <div className="opp-name">{s.name}</div>
               <div className="opp-meta">
                 {(s.isBot || s.botControlled) && <span className="badge bot">{s.isBot ? 'BOT' : 'BOT (away)'}</span>}
-                <span className="badge count">{s.cardCount} 🂠</span>
+                <span className="badge count" key={s.cardCount}><span className="mini-back" aria-hidden />{s.cardCount}</span>
                 {s.whistle && <span className="badge whistle" title="Called Final Whistle">FW</span>}
               </div>
               {bubble && <div className="bubble">{config.emotes.find((e) => e.id === bubble.emoteId)?.text}</div>}
@@ -142,10 +160,10 @@ export function GameTable({ config, game, clockOffset, room, socket, profile, pr
 
       <div className="centre">
         <div className="pile-area" style={{ borderColor: activeHex }}>
-          <div className="anchor-label">Link to: <b>{cardTitle(config, game.anchor)}</b></div>
+          <div className="anchor-label"><span>Link to</span><b>{cardTitle(config, game.anchor)}</b></div>
           <div className="pile">
-            <CardView card={game.anchor} config={config} size="lg" />
-            {game.top.id !== game.anchor.id && <div className="pile-top"><CardView card={game.top} config={config} size="md" /></div>}
+            <CardView key={game.anchor.id} card={game.anchor} config={config} size="lg" className="landing" />
+            {game.top.id !== game.anchor.id && <div className="pile-top"><CardView key={game.top.id} card={game.top} config={config} size="md" className="landing" /></div>}
           </div>
           <div className="pile-foot">
             <span className="colour-dot" style={{ background: activeHex }}>{colourSymbol(config, game.activeColour)}</span>
@@ -161,7 +179,8 @@ export function GameTable({ config, game, clockOffset, room, socket, profile, pr
 
       <div className="playlog">
         {recent && (
-          <div className={`latest ${recent.result.valid ? 'good' : 'bad'}`}>
+          <div key={recent.at} className={`latest ${recent.result.valid ? 'good' : 'bad'}`}>
+            <span className="verdict" aria-hidden>{recent.result.valid ? '✓' : '✗'}</span>
             <div className="latest-text">
               {recent.result.playType === 'link' ? (
                 recent.result.valid
@@ -178,13 +197,17 @@ export function GameTable({ config, game, clockOffset, room, socket, profile, pr
         </button>
       </div>
 
-      <div className="status">
-        {game.phase === 'over' ? 'Full time!'
-          : myTurn ? (game.pendingDraw ? `Stack a ${game.pendingDraw.action === 'yellow' ? 'Yellow Card' : 'Hat-trick'} or take ${game.pendingDraw.amount}`
-            : drawnCard ? 'You drew a playable card: play it or keep it'
-            : 'Your turn: link a card, match the colour, or draw')
-          : `${currentName}'s turn`}
-        {myTurn && <span className="timer" style={{ color: remaining < 5000 ? '#ff6b6b' : undefined }}>{Math.ceil(remaining / 1000)}s</span>}
+      <div className={`status${myTurn ? ' mine' : ''}`}>
+        <div className="status-text">
+          {game.phase === 'over' ? 'Full time!'
+            : myTurn ? (game.pendingDraw ? `Stack a ${game.pendingDraw.action === 'yellow' ? 'Yellow Card' : 'Hat-trick'} or take ${game.pendingDraw.amount}`
+              : drawnCard ? 'You drew a playable card: play it or keep it'
+              : 'Your turn')
+            : `${currentName} is playing…`}
+          {myTurn && <span className={`timer${remaining < 5000 ? ' low' : ''}`}>{Math.ceil(remaining / 1000)}s</span>}
+        </div>
+        {myTurn && !drawnCard && !game.pendingDraw && <div className="status-sub">Link a card to the anchor, match the colour, or draw</div>}
+        <div className="timebar" aria-hidden><span style={{ width: `${(game.phase === 'playing' ? fraction : 0) * 100}%`, background: remaining < 5000 ? 'var(--bad)' : myTurn ? 'var(--accent)' : 'rgba(255,255,255,.35)' }} /></div>
       </div>
 
       <div className="me-bar">
@@ -200,17 +223,18 @@ export function GameTable({ config, game, clockOffset, room, socket, profile, pr
       </div>
 
       <div className="hand" role="list" aria-label="Your hand">
-        {game.hand.map((card) => (
-          <div key={card.id} role="listitem" className={`hand-slot${card.id === game.drawnCardId ? ' drawn' : ''}`}>
+        {game.hand.map((card, i) => (
+          <div key={card.id} role="listitem" style={fan(i)} className={`hand-slot${card.id === game.drawnCardId ? ' drawn' : ''}${newCards.includes(card.id) ? ' new' : ''}`}>
             <CardView card={card} config={config} size="md" dim={dimOn && !playable.has(card.id)} selected={selected === card.id} onClick={() => tapCard(card)} />
           </div>
         ))}
       </div>
-      <div className="hand-hint muted">{selected ? 'Tap the card again to play it' : 'Tap a card to select it'}</div>
+      <div className="hand-hint">{selected ? (myTurn ? 'Tap it again to play' : 'Wait for your turn to play it') : myTurn ? 'Tap a card to pick it' : '\u00a0'}</div>
+      {flash && <div className="turn-flash" aria-hidden>Your turn</div>}
 
       {answerCard && (
         <AnswerBox
-          config={config} game={game} card={answerCard} index={index} flags={flags} remaining={remaining}
+          config={config} game={game} card={answerCard} index={index} flags={flags} remaining={remaining} fraction={fraction} usedIds={usedIds}
           canSafePlay={game.safePlayable.includes(answerCard.id)}
           onClose={() => setAnswerFor(null)}
           onAnswer={async (playerId) => {
@@ -287,6 +311,8 @@ interface AnswerBoxProps {
   index: SearchIndex;
   flags: Record<string, string>;
   remaining: number;
+  fraction: number;
+  usedIds: Set<string>;
   canSafePlay: boolean;
   onClose: () => void;
   onAnswer: (playerId: string) => Promise<{ ok: boolean; error?: string }>;
@@ -294,11 +320,12 @@ interface AnswerBoxProps {
   onHint: (payment: 'card' | 'ad', adReceipt?: string) => Promise<{ ok: boolean; error?: string; hint?: { name: string } | null }>;
 }
 
-function AnswerBox({ config, game, card, index, flags, remaining, canSafePlay, onClose, onAnswer, onSafePlay, onHint }: AnswerBoxProps) {
+function AnswerBox({ config, game, card, index, flags, remaining, fraction, usedIds, canSafePlay, onClose, onAnswer, onSafePlay, onHint }: AnswerBoxProps) {
   const [query, setQuery] = useState('');
   const [message, setMessage] = useState<string | null>(null);
   const [hint, setHint] = useState<string | null>(null);
   const [showAd, setShowAd] = useState(false);
+  const [shake, setShake] = useState(0);
   const input = useRef<HTMLInputElement>(null);
   const results = useMemo(() => search(index, query, 8), [index, query]);
 
@@ -307,49 +334,55 @@ function AnswerBox({ config, game, card, index, flags, remaining, canSafePlay, o
   const hintResult = (r: { ok: boolean; hint?: { name: string } | null }) => {
     if (!r.ok) return;
     if (r.hint) { setHint(r.hint.name); setQuery(r.hint.name); }
-    else setMessage('No unused player links these cards. Draw instead.');
+    else setMessage('No unused player links these two cards. Close this and draw instead.');
   };
 
   return (
     <div className="answer-sheet" role="dialog" aria-label="Name a player">
+      <div className="sheet-timebar" aria-hidden><span style={{ width: `${fraction * 100}%`, background: remaining < 5000 ? 'var(--bad)' : 'var(--good)' }} /></div>
       <div className="answer-head">
-        <CardView card={card} config={config} size="sm" />
+        <div className="link-pair">
+          <CardView card={game.anchor} config={config} size="sm" />
+          <span className="plus" aria-hidden>+</span>
+          <CardView card={card} config={config} size="sm" />
+        </div>
         <div className="answer-q">
-          <div className="muted small">Link {cardTitle(config, game.anchor)} → {cardTitle(config, card)}</div>
           <div className="q">{question(config, game.anchor, card)}</div>
+          <div className={`answer-timer${remaining < 5000 ? ' low' : ''}`}>{Math.ceil(remaining / 1000)}s left</div>
         </div>
         <button className="icon-btn" onClick={onClose} aria-label="Cancel">✕</button>
       </div>
-      <div className="answer-input">
-        <input ref={input} value={query} onChange={(e) => { setQuery(e.target.value); setMessage(null); }} placeholder="Type 2+ letters of a player…" autoComplete="off" autoCorrect="off" spellCheck={false} />
-        <span className="timer">{Math.ceil(remaining / 1000)}s</span>
+      <div key={shake} className={`answer-input${shake ? ' shake' : ''}`}>
+        <span className="search-icon" aria-hidden>⌕</span>
+        <input id="answer-search" ref={input} value={query} onChange={(e) => { setQuery(e.target.value); setMessage(null); }} placeholder="Start typing a player's name" autoComplete="off" autoCorrect="off" spellCheck={false} enterKeyHint="search" />
+        {query && <button className="clear" onClick={() => { setQuery(''); input.current?.focus(); }} aria-label="Clear">✕</button>}
+      </div>
+      <div className="answer-actions">
+        {canSafePlay && <button className="chip-btn safe" onClick={() => void onSafePlay()}>Safe Play · no answer</button>}
+        {!game.hintUsedThisTurn && !hint && <button className="chip-btn" onClick={async () => hintResult(await onHint('card'))}>💡 Hint · draw 1 card</button>}
+        {!game.hintUsedThisTurn && !hint && game.adHintAvailable && <button className="chip-btn" onClick={() => { track('ad_offered', { placement: 'hint' }); setShowAd(true); }}>🎬 Hint · watch ad</button>}
       </div>
       {message && <div className="answer-msg">{message}</div>}
-      {hint && <div className="answer-msg good">Hint: {hint}</div>}
+      {hint && <div className="answer-msg good">Hint: <b>{hint}</b> links these cards</div>}
       <ul className="suggestions">
-        {results.map((p) => (
-          <li key={p.id}>
-            <button onClick={async () => {
-              const r = await onAnswer(p.id);
-              if (!r.ok && r.error === 'already_used') setMessage('Already used — pick again');
-            }}>
-              <span className="flag">{flagFor(p.f, flags)}</span>
-              <span className="pname">{p.n}</span>
-              <span className="muted">{p.b || ""}</span>
-            </button>
-          </li>
-        ))}
-        {query.length >= 2 && !results.length && <li className="muted pad">No player by that name</li>}
+        {results.map((p) => {
+          const used = usedIds.has(p.id);
+          return (
+            <li key={p.id}>
+              <button disabled={used} onClick={async () => {
+                const r = await onAnswer(p.id);
+                if (!r.ok && r.error === 'already_used') { setMessage('Already named this game. Pick someone else.'); setShake((x) => x + 1); }
+              }}>
+                <span className="flag">{flagFor(p.f, flags)}</span>
+                <span className="pname">{p.n}</span>
+                {used ? <span className="used-tag">Used</span> : <span className="muted">{p.b || ''}</span>}
+              </button>
+            </li>
+          );
+        })}
+        {query.length >= 2 && !results.length && <li className="muted pad">No player by that name. Try a surname or nickname.</li>}
+        {query.length < 2 && <li className="muted pad">Type at least 2 letters. Accents don't matter, and nicknames work (CR7, Kaka).</li>}
       </ul>
-      <div className="answer-actions">
-        {canSafePlay && <button className="btn ghost" onClick={() => void onSafePlay()}>Safe Play (no answer)</button>}
-        {!game.hintUsedThisTurn && !hint && (
-          <>
-            <button className="btn ghost" onClick={async () => hintResult(await onHint('card'))}>Hint: draw 1 card</button>
-            {game.adHintAvailable && <button className="btn ghost" onClick={() => { track('ad_offered', { placement: 'hint' }); setShowAd(true); }}>Hint: watch ad</button>}
-          </>
-        )}
-      </div>
       {showAd && <FakeAd onCancel={() => setShowAd(false)} onDone={async () => { setShowAd(false); hintResult(await onHint('ad', 'simulated')); }} />}
     </div>
   );
