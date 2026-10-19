@@ -4,7 +4,7 @@ import type { Card, Colour, GameStateView, PlayResult } from '../../../engine/ty
 import { flagFor, search, type SearchIndex } from '../../../engine/search.ts';
 import { api, emit, sfx, track, type Prefs } from '../api.ts';
 import { CardBack, CardView } from '../components/CardView.tsx';
-import { Avatar, FakeAd, Modal } from '../components/ui.tsx';
+import { Avatar, FakeAd, LANDSCAPE_PHONE, Modal, useMedia } from '../components/ui.tsx';
 import { ERRORS, cardTitle, colourHex, colourSymbol, question, type ClientConfig, type Profile, type RoomView } from '../model.ts';
 
 interface Props {
@@ -36,6 +36,7 @@ export function GameTable({ config, game, clockOffset, room, socket, profile, pr
   const [now, setNow] = useState(Date.now());
   const [reported, setReported] = useState<number | null>(null);
   const [flash, setFlash] = useState(false);
+  const wide = useMedia(LANDSCAPE_PHONE);
   const busy = useRef(false);
   const seenCards = useRef<Set<string>>(new Set());
   const newCards = game.hand.filter((c) => !seenCards.current.has(c.id)).map((c) => c.id);
@@ -140,12 +141,14 @@ export function GameTable({ config, game, clockOffset, room, socket, profile, pr
           const bubble = emotes.filter((e) => e.seat === s.seat).slice(-1)[0];
           return (
             <div key={s.seat} className={`opp${turn ? ' turn' : ''}${!s.connected && !s.isBot ? ' away' : ''}`}>
-              <Avatar emoji={s.avatar} size={40} ring={turn ? fraction : undefined} active={turn} />
+              <Avatar emoji={s.avatar} size={wide ? 30 : 40} ring={turn ? fraction : undefined} active={turn} />
+              <div className="opp-info">
               <div className="opp-name">{s.name}</div>
               <div className="opp-meta">
                 {(s.isBot || s.botControlled) && <span className="badge bot">{s.isBot ? 'BOT' : 'BOT (away)'}</span>}
                 <span className="badge count" key={s.cardCount}><span className="mini-back" aria-hidden />{s.cardCount}</span>
                 {s.whistle && <span className="badge whistle" title="Called Final Whistle">FW</span>}
+              </div>
               </div>
               {bubble && <div className="bubble">{config.emotes.find((e) => e.id === bubble.emoteId)?.text}</div>}
             </div>
@@ -206,7 +209,7 @@ export function GameTable({ config, game, clockOffset, room, socket, profile, pr
       </div>
 
       <div className="me-bar">
-        {mySeat && <Avatar emoji={mySeat.avatar} frame={profile.equipped.frame} size={36} ring={myTurn ? fraction : undefined} active={myTurn} />}
+        {mySeat && <Avatar emoji={mySeat.avatar} frame={profile.equipped.frame} size={wide ? 30 : 36} ring={myTurn ? fraction : undefined} active={myTurn} />}
         <span className="me-name">{mySeat?.name}</span>
         <span className="me-count">{game.hand.length} card{game.hand.length === 1 ? '' : 's'}</span>
         {mySeat?.whistle && <span className="badge whistle">FW</span>}

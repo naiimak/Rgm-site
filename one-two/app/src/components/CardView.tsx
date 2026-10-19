@@ -81,7 +81,7 @@ export function CardView({ card, config, size = 'md', dim, selected, onClick, la
     const stripes = `linear-gradient(160deg, ${nation.colours.map((c, i) => `${c} ${(i / nation.colours.length) * 100}% ${((i + 1) / nation.colours.length) * 100}%`).join(', ')})`;
     return (
       <div {...common} style={{ ...common.style, '--flagbg': stripes } as CSSProperties}>
-        <div className="band neutral"><span className="band-text">{size === 'lg' ? 'National team' : 'Nation'}</span></div>
+        <div className="band neutral"><span className="band-text">Nation</span></div>
         <div className="art"><span className="big-flag">{nation.flag}</span></div>
         <div className="name">{nation.name}</div>
         <div className="type">Any colour</div>

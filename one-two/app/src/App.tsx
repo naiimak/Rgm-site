@@ -5,6 +5,7 @@ import { buildIndex, type SearchIndex } from '../../engine/search.ts';
 import { ApiError, api, connect, emit, getToken, loadPlayerList, loadPrefs, setToken, sfx, storage, track, type Prefs } from './api.ts';
 import type { ClientConfig, GameOverView, Profile, RoomView } from './model.ts';
 import { GameTable } from './screens/GameTable.tsx';
+import { PORTRAIT_PHONE, RotatePrompt, useMedia } from './components/ui.tsx';
 import { Home, Leaderboard, Lobby, PrivateSetup, ProfileScreen, Results, SettingsScreen, Shop, SoloSetup, errorText, type Nav } from './screens/Menus.tsx';
 
 type Screen = 'splash' | 'home' | 'solo' | 'private' | 'lobby' | 'game' | 'results' | 'profile' | 'leaderboard' | 'shop' | 'settings';
@@ -25,6 +26,8 @@ export function App() {
   const [prefs, setPrefs] = useState<Prefs>(loadPrefs);
   const [connected, setConnected] = useState(true);
   const [banner, setBanner] = useState<string | null>(null);
+  const portrait = useMedia(PORTRAIT_PHONE);
+  const [uprightOk, setUprightOk] = useState(false);
   const socketRef = useRef<Socket | null>(null);
   const prefsRef = useRef(prefs);
   prefsRef.current = prefs;
@@ -134,6 +137,14 @@ export function App() {
 
   const flags = useMemo(() => config?.flags ?? {}, [config]);
 
+  // Where the browser allows it (Android installed app / fullscreen), lock the table to landscape.
+  useEffect(() => {
+    if (screen !== 'game') return;
+    const o = window.screen?.orientation as (ScreenOrientation & { lock?: (o: string) => Promise<void> }) | undefined;
+    o?.lock?.('landscape').catch(() => {});
+    return () => { try { o?.unlock?.(); } catch { /* not locked */ } };
+  }, [screen]);
+
   // ---------------------------------------------------------------- render
   if (screen === 'splash' || !config || !profile || !index || !socket) {
     return (
@@ -159,7 +170,7 @@ export function App() {
         onStart={async () => { const r = await emit(socket, 'start_game'); return r.ok ? null : errorText(r.error); }}
         onSettings={(settings, bots) => void emit(socket, 'room_settings', { settings, bots })} /></> : null;
     case 'game':
-      return game ? <>{offline}<GameTable config={config} game={game} clockOffset={clockOffset} room={room} socket={socket} profile={profile} prefs={prefs}
+      return game ? <>{offline}{portrait && !uprightOk && <RotatePrompt onDismiss={() => setUprightOk(true)} />}<GameTable config={config} game={game} clockOffset={clockOffset} room={room} socket={socket} profile={profile} prefs={prefs}
         index={index} flags={flags} lastPlay={lastPlay} emotes={emotes} onLeave={leave}
         onSkipTutorial={() => { storage(TUTORIAL_DONE, '1'); track('tutorial_complete', { skipped: true }); void leave(); }} /></> : null;
     case 'results':

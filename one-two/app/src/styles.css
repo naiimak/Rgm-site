@@ -183,6 +183,7 @@ h3 { margin: 18px 0 8px; font-size: 15px; letter-spacing: .02em; text-transform:
 .mini-back { width: 8px; height: 11px; border-radius: 2px; background: repeating-linear-gradient(45deg, #0f4d39 0 2px, #2d8a63 2px 4px); box-shadow: 0 0 0 1px #fff; }
 .opp.away { opacity: .6; }
 .opp-name { font-size: 12px; font-weight: 700; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.opp-info { display: flex; flex-direction: column; align-items: center; gap: 2px; max-width: 100%; }
 .opp-meta { display: flex; gap: 3px; flex-wrap: wrap; justify-content: center; }
 .bubble { position: absolute; top: -6px; left: 50%; transform: translate(-50%, -100%); background: #fff; color: var(--ink); font-size: 12px; font-weight: 700; padding: 4px 8px; border-radius: 10px; white-space: nowrap; z-index: 20; animation: pop .2s; }
 .bubble.mine { position: fixed; top: auto; bottom: 210px; transform: translateX(-50%); }
@@ -310,7 +311,7 @@ h3 { margin: 18px 0 8px; font-size: 15px; letter-spacing: .02em; text-transform:
 .list-buttons > * { text-align: left; background: none; border: 0; border-bottom: 1px solid rgba(255,255,255,.1); padding: 14px 4px; color: var(--cream); text-decoration: none; }
 .danger-text { color: var(--bad) !important; }
 
-@media (max-height: 700px) {
+@media (max-height: 700px) and (orientation: portrait) {
   .card-lg { width: 88px; height: 126px; font-size: 11px; }
   .card-md { width: 66px; height: 94px; }
   .opp { width: 66px; }
@@ -403,14 +404,14 @@ h3 { margin: 18px 0 8px; font-size: 15px; letter-spacing: .02em; text-transform:
 @keyframes hero-pill { from { opacity: 0; transform: translateX(-50%) scale(.6); } }
 .hero::before { content: ''; position: absolute; left: 50%; top: 60px; width: 2px; height: 90px; background: linear-gradient(transparent, var(--accent)); transform: translateX(-50%); opacity: .7; }
 /* Shorter phones: shrink the table so the pile never runs into the play log. */
-@media (max-height: 800px) {
+@media (max-height: 800px) and (orientation: portrait) {
   .card-lg { width: 96px; height: 138px; font-size: 11.5px; }
   .pile-area { padding: 6px 12px 6px; gap: 4px; }
   .opponents { margin: 2px 0; }
   .playlog { min-height: 48px; }
   .status-sub { display: none; }
 }
-@media (max-height: 700px) {
+@media (max-height: 700px) and (orientation: portrait) {
   .card-lg { width: 84px; height: 120px; font-size: 10.5px; }
   .pile-top .card-md, .draw-pile .card-md { width: 60px; height: 86px; }
 }
@@ -441,4 +442,77 @@ h3 { margin: 18px 0 8px; font-size: 15px; letter-spacing: .02em; text-transform:
   .pile-area .card-lg { --h: clamp(78px, calc(100cqh - 84px), 168px); height: var(--h); width: calc(var(--h) * 116 / 168); font-size: calc(var(--h) / 12); }
   .pile-top .card-md, .draw-pile .card-md { --h: clamp(60px, calc((100cqh - 84px) * .69), 116px); height: var(--h); width: calc(var(--h) * 80 / 116); font-size: calc(var(--h) / 11.6); }
   .pile-area { max-height: 100cqh; }
+}
+
+/* ---------------------------------------------------------------- rotate prompt */
+.rotate-prompt { position: fixed; inset: 0; z-index: 95; background: radial-gradient(120% 70% at 50% 30%, #135c45, #072a20); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; padding: 24px; text-align: center; }
+.rotate-prompt h2 { font-size: 22px; }
+.rotate-prompt p { color: var(--muted); max-width: 300px; margin: 0 0 8px; line-height: 1.4; }
+.rotate-phone { width: 64px; height: 110px; border: 4px solid var(--cream); border-radius: 14px; position: relative; animation: rotate-phone 2.4s ease-in-out infinite; margin-bottom: 16px; }
+.rotate-phone span { position: absolute; left: 50%; bottom: 6px; width: 18px; height: 4px; border-radius: 2px; background: var(--cream); transform: translateX(-50%); }
+.rotate-phone::before { content: ''; position: absolute; inset: 8px 6px 16px; border-radius: 4px; background: repeating-linear-gradient(180deg, #116041 0 10px, #0f5539 10px 20px); }
+@keyframes rotate-phone { 0%, 20% { transform: rotate(0); } 50%, 80% { transform: rotate(-90deg); } 100% { transform: rotate(0); } }
+
+/* ---------------------------------------------------------------- phones held sideways
+   Keep the query in step with LANDSCAPE_PHONE in components/ui.tsx.
+   Left: menu buttons, opponents, you. Middle: anchor and draw pile. Right: play log and turn status.
+   Bottom: the whole hand, edge to edge. */
+@media (orientation: landscape) and (max-height: 560px) {
+  .table { max-width: none; display: grid; column-gap: 14px;
+    grid-template-columns: minmax(180px, 1fr) min(34vw, 300px) minmax(180px, 1fr);
+    grid-template-rows: auto minmax(0, 1fr) auto auto;
+    padding: 6px max(12px, env(safe-area-inset-right)) 2px max(12px, env(safe-area-inset-left)); }
+  .embedded .table { padding: 6px 12px 2px; }
+  .table-top { grid-area: 1 / 1; align-self: start; }
+  .room-chip { font-size: 13px; padding: 5px 10px; }
+  .table-top .icon-btn { width: 34px; height: 34px; font-size: 15px; }
+  .opponents { grid-area: 2 / 1; display: grid; grid-template-columns: 1fr 1fr; align-content: start; gap: 4px; margin: 6px 0 4px; overflow: hidden; }
+  .opp { flex-direction: row; align-items: center; max-width: none; min-width: 0; width: auto; flex: none; gap: 6px; padding: 3px 4px; text-align: left; }
+  .opp > div:not(.avatar):not(.bubble) { min-width: 0; }
+  .opp-name { text-align: left; -webkit-line-clamp: 2; font-size: 12px; line-height: 1.1; overflow-wrap: normal; word-break: normal; }
+  .opp-info { align-items: flex-start; min-width: 0; }
+  .opp-meta { justify-content: flex-start; flex-wrap: nowrap; }
+  .opp .badge { font-size: 9px; padding: 1px 4px; }
+  .me-bar { grid-area: 3 / 1; min-height: 0; padding: 0; flex-wrap: wrap; gap: 6px; }
+  .me-name { font-size: 14px; max-width: 170px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .me-actions .btn { padding: 6px 12px; font-size: 13px; }
+  .centre { grid-area: 1 / 2 / 4 / 3; margin: 0; gap: 12px; }
+  .tutorial-tip { grid-area: 1 / 3; margin: 0 0 4px; font-size: 12px; }
+  .playlog { grid-area: 1 / 3 / 3 / 4; margin: 0 0 4px; min-height: 0; overflow-y: auto; }
+  .table:has(.tutorial-tip) .playlog { grid-row: 2; }
+  .status { grid-area: 3 / 3; padding: 2px 0 0; }
+  .anchor-label span { white-space: nowrap; font-size: 9.5px; letter-spacing: .1em; }
+  .pile-area { padding: 6px 10px; }
+  .latest { font-size: 12px; padding: 5px 7px; gap: 5px; flex-wrap: wrap; }
+  .latest .verdict { width: 20px; height: 20px; font-size: 12px; }
+  .latest-text { flex: 1 1 120px; line-height: 1.25; }
+  .latest .link-btn { font-size: 12px; margin-left: auto; }
+  .playlog { font-size: 11.5px; padding: 6px 8px; }
+  .status-sub { display: none; }
+  .status-text, .status.mine .status-text { font-size: 15px; }
+  .hand { grid-area: 4 / 1 / 5 / 4; padding: 16px 8px 4px; gap: 6px; }
+  .hand .card-md { width: 70px; height: 101px; font-size: 8.8px; }
+  .hand .card.selected { transform: translateY(-12px) scale(1.04) !important; }
+  .hand-hint { display: none; }
+
+  /* Answer sheet: question and buttons on the left, the player list on the right, so the list stays
+     visible above the keyboard. */
+  .answer-sheet { top: 0; border-radius: 0; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-auto-rows: min-content;
+    align-content: start; column-gap: 16px; row-gap: 8px; padding: 0 max(12px, env(safe-area-inset-right)) 8px max(12px, env(safe-area-inset-left)); }
+  .answer-sheet > * { grid-column: 1; }
+  .answer-sheet > .sheet-timebar { grid-column: 1 / -1; margin: 0 -16px; border-radius: 0; }
+  .answer-sheet > .suggestions { grid-column: 2; grid-row: 2 / span 20; max-height: calc(100dvh - 16px); align-self: stretch; }
+  .answer-sheet .q { font-size: 15px; }
+
+  /* Menus: two columns so Home fits without scrolling. */
+  .screen { max-width: 760px; padding: 10px max(16px, env(safe-area-inset-right)) 14px max(16px, env(safe-area-inset-left)); }
+  .home { display: grid; grid-template-columns: 1fr 1fr; column-gap: 24px; align-content: start; }
+  .home > .home-top, .home > .level-bar, .home > .toast { grid-column: 1 / -1; }
+  .home > .brand { grid-column: 1; grid-row: 3 / span 3; margin: 6px 0 0; }
+  .home > .play-btn, .home > .home-grid, .home > .home-foot { grid-column: 2; }
+  .home > .play-btn { margin-top: 10px; padding: 14px; font-size: 26px; }
+  .home-grid { margin: 10px 0; gap: 8px; }
+  .home-grid .tile { padding: 10px; }
+  .hero { height: 150px; }
+  .results .placings, .results .rewards { max-width: 520px; margin-left: auto; margin-right: auto; }
 }

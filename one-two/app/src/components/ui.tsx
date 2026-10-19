@@ -87,3 +87,32 @@ export function TopBar({ title, onBack, right }: { title: string; onBack?: () =>
     </header>
   );
 }
+
+/** True while the screen matches a media query (re-renders on rotate/resize). */
+export function useMedia(query: string): boolean {
+  const [on, setOn] = useState(() => typeof matchMedia !== 'undefined' && matchMedia(query).matches);
+  useEffect(() => {
+    const m = matchMedia(query);
+    const update = () => setOn(m.matches);
+    update();
+    m.addEventListener('change', update);
+    return () => m.removeEventListener('change', update);
+  }, [query]);
+  return on;
+}
+
+/** Phones held sideways get the wide table layout. Keep in step with the landscape block in styles.css. */
+export const LANDSCAPE_PHONE = '(orientation: landscape) and (max-height: 560px)';
+export const PORTRAIT_PHONE = '(orientation: portrait) and (max-width: 600px)';
+
+/** The game table is built for landscape: ask phones held upright to turn. */
+export function RotatePrompt({ onDismiss }: { onDismiss: () => void }) {
+  return (
+    <div className="rotate-prompt" role="dialog" aria-label="Turn your phone sideways">
+      <div className="rotate-phone" aria-hidden><span /></div>
+      <h2>Turn your phone sideways</h2>
+      <p>The table is made for landscape: your whole hand fits on screen and nothing gets squeezed.</p>
+      <button className="btn ghost" onClick={onDismiss}>Play upright anyway</button>
+    </div>
+  );
+}
