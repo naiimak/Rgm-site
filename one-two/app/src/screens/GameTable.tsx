@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { flushSync } from 'react-dom';
 import type { Socket } from 'socket.io-client';
 import type { Card, Colour, GameStateView, PlayResult } from '../../../engine/types.ts';
 import { flagFor, search, type SearchIndex } from '../../../engine/search.ts';
@@ -92,7 +93,10 @@ export function GameTable({ config, game, clockOffset, room, socket, profile, pr
       void send('play_card', { cardId: card.id }).then((r) => r.ok && setSelected(null));
       return;
     }
-    setAnswerFor(card.id);
+    // Render the answer box now and focus it inside this tap: phones only open the keyboard for a focus that
+    // happens during a tap, so this saves a second tap on the text box.
+    flushSync(() => setAnswerFor(card.id));
+    document.getElementById('answer-search')?.focus({ preventScroll: true });
   };
 
   const seatsInOrder = useMemo(() => {
@@ -327,7 +331,7 @@ function AnswerBox({ config, game, card, index, flags, remaining, fraction, used
   const input = useRef<HTMLInputElement>(null);
   const results = useMemo(() => search(index, query, 8), [index, query]);
 
-  useEffect(() => { input.current?.focus(); }, []);
+  useEffect(() => { input.current?.focus({ preventScroll: true }); }, []);
 
   const hintResult = (r: { ok: boolean; hint?: { name: string } | null }) => {
     if (!r.ok) return;

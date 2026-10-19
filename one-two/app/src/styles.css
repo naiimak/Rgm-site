@@ -497,11 +497,14 @@ h3 { margin: 18px 0 8px; font-size: 15px; letter-spacing: .02em; text-transform:
 
   /* Answer sheet: question and buttons on the left, the player list on the right, so the list stays
      visible above the keyboard. */
-  .answer-sheet { top: 0; border-radius: 0; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-auto-rows: min-content;
-    align-content: start; column-gap: 16px; row-gap: 8px; padding: 0 max(12px, env(safe-area-inset-right)) 8px max(12px, env(safe-area-inset-left)); }
+  .answer-sheet, html.keyboard .answer-sheet, html.typing .answer-sheet { top: var(--vv-top, 0px); height: var(--vv-h, 100%); max-width: none; border-radius: 0;
+    display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-template-rows: auto auto auto auto auto minmax(0, 1fr);
+    align-content: start; column-gap: 16px; row-gap: 8px; animation: fadein .15s ease-out;
+    padding: 0 max(12px, env(safe-area-inset-right)) 6px max(12px, env(safe-area-inset-left)); }
   .answer-sheet > * { grid-column: 1; }
-  .answer-sheet > .sheet-timebar { grid-column: 1 / -1; margin: 0 -16px; border-radius: 0; }
-  .answer-sheet > .suggestions { grid-column: 2; grid-row: 2 / span 20; max-height: calc(100dvh - 16px); align-self: stretch; }
+  .answer-sheet > .sheet-timebar { grid-column: 1 / -1; grid-row: 1; margin: 0 -16px; border-radius: 0; }
+  .answer-sheet > .suggestions { grid-column: 2; grid-row: 2 / -1; min-height: 0; overflow-y: auto; }
+  .suggestions button { padding: 8px 6px; }
   .answer-sheet .q { font-size: 15px; }
 
   /* Menus: two columns so Home fits without scrolling. */
@@ -515,4 +518,22 @@ h3 { margin: 18px 0 8px; font-size: 15px; letter-spacing: .02em; text-transform:
   .home-grid .tile { padding: 10px; }
   .hero { height: 150px; }
   .results .placings, .results .rewards { max-width: 520px; margin-left: auto; margin-right: auto; }
+}
+
+
+/* ---------------------------------------------------------------- keyboard
+   The answer sheet fills exactly what the keyboard leaves visible (see viewport.ts), so the question, the
+   text box and the first suggestions are always on screen, and the page itself never moves. */
+html.in-game, html.in-game body { overflow: hidden; overscroll-behavior: none; }
+html.in-game body { position: fixed; inset: 0; }
+.answer-sheet { position: fixed; left: 0; right: 0; max-width: 480px; margin: 0 auto;
+  top: calc(var(--vv-top, 0px) + var(--vv-h, 100vh) * .16); bottom: auto; height: calc(var(--vv-h, 100vh) * .84); }
+html.keyboard .answer-sheet, html.typing .answer-sheet { top: var(--vv-top, 0px); height: var(--vv-h, 100%); border-radius: 0; animation: none; padding-bottom: 8px; }
+html.typing .answer-sheet .link-pair { display: none; }
+html.typing .answer-head { padding-top: 4px; align-items: center; }
+html.typing .answer-q .q { font-size: 14px; line-height: 1.25; }
+html.typing .answer-actions .chip-btn { padding: 5px 10px; font-size: 12px; }
+@keyframes fadein { from { opacity: 0; } }
+@media (orientation: landscape) and (max-height: 560px) {
+  .answer-sheet { top: var(--vv-top, 0px); height: var(--vv-h, 100%); max-width: none; border-radius: 0; animation: fadein .15s ease-out; }
 }

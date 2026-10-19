@@ -139,6 +139,8 @@ export function App() {
 
   // Where the browser allows it (Android installed app / fullscreen), lock the table to landscape.
   useEffect(() => {
+    // The table never scrolls: pin the page so the keyboard can't drag it around.
+    document.documentElement.classList.toggle('in-game', screen === 'game');
     if (screen !== 'game') return;
     const o = window.screen?.orientation as (ScreenOrientation & { lock?: (o: string) => Promise<void> }) | undefined;
     o?.lock?.('landscape').catch(() => {});
