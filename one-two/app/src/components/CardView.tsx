@@ -37,7 +37,7 @@ export function CardView({ card, config, size = 'md', dim, selected, onClick, la
     const league = leagueOf(config, club.league);
     return (
       <div {...common}>
-        {band(size === 'lg' ? league.country : league.id, league.flag)}
+        {band(league.id, league.flag)}
         <div className="art"><Shirt kit={club.kit} /></div>
         <div className="name">{title}</div>
         <div className="type">Club</div>
@@ -48,7 +48,7 @@ export function CardView({ card, config, size = 'md', dim, selected, onClick, la
     const league = leagueOf(config, card.ref);
     return (
       <div {...common}>
-        {band(size === 'lg' ? league.country : league.id, league.flag)}
+        {band(league.id, league.flag)}
         <div className="art">{card.kind === 'champion' ? <TrophyArt kind="cup" /> : <span className="big-flag">{league.flag}</span>}</div>
         <div className="name">{card.kind === 'champion' ? `${league.country} Champion` : league.country}</div>
         <div className="type">{card.kind === 'champion' ? 'League title' : 'Top Flight'}</div>

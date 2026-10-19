@@ -362,9 +362,9 @@ function BoardRow({ r }: { r: Row }) {
 
 const CATEGORIES = [
   { id: 'cardBack', name: 'Card backs' },
-  { id: 'table', name: 'Table themes' },
-  { id: 'frame', name: 'Avatar frames' },
-  { id: 'celebration', name: 'Win celebrations' },
+  { id: 'table', name: 'Tables' },
+  { id: 'frame', name: 'Frames' },
+  { id: 'celebration', name: 'Celebrations' },
 ];
 
 export function Shop({ profile, config, nav, setProfile }: { profile: Profile; config: ClientConfig; nav: Nav; setProfile: (p: Profile) => void }) {
@@ -378,7 +378,7 @@ export function Shop({ profile, config, nav, setProfile }: { profile: Profile; c
   return (
     <div className="screen">
       <TopBar title="Shop" onBack={() => nav('home')} right={<span className="coins">🪙 {profile.coins}</span>} />
-      <div className="chips">{CATEGORIES.map((c) => <button key={c.id} className={c.id === cat ? 'on' : ''} onClick={() => setCat(c.id)}>{c.name}</button>)}</div>
+      <div className="chips grid">{CATEGORIES.map((c) => <button key={c.id} className={c.id === cat ? 'on' : ''} onClick={() => setCat(c.id)}>{c.name}</button>)}</div>
       <p className="muted small center">Cosmetic only: nothing in the shop helps you win. Everything shows exactly what you get.</p>
       <div className="shop-grid">
         {config.shop.filter((i) => i.category === cat).map((i) => {

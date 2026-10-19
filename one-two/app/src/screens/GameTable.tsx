@@ -106,16 +106,11 @@ export function GameTable({ config, game, clockOffset, room, socket, profile, pr
   const activeHex = colourHex(config, game.activeColour);
   const currentName = game.seats[game.turn]?.name;
   const recent = lastPlay && now - lastPlay.at < 6000 ? lastPlay : null;
+  // A newly drawn card can land past the visible part of the hand: bring it into view.
+  useEffect(() => {
+    if (game.drawnCardId) document.querySelector('.hand-slot.drawn')?.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+  }, [game.drawnCardId]);
   const usedIds = useMemo(() => new Set(game.log.filter((r) => r.valid && r.answer).map((r) => r.answer!.id)), [game.log]);
-  // Fan the hand so it fits the screen; past ~9 cards it overlaps more and scrolls.
-  const n = game.hand.length;
-  const overlap = n > 1 ? Math.max(-52, Math.min(-6, (340 - 80 * n) / (n - 1))) : 0;
-  const fan = (i: number) => {
-    const mid = (n - 1) / 2;
-    const spread = n <= 9 ? 3 : 1.2;
-    return { marginRight: i === n - 1 ? 0 : overlap, transform: `rotate(${(i - mid) * spread}deg) translateY(${Math.abs(i - mid) * spread * 1.4}px)` };
-  };
-
   const report = async (result: PlayResult) => {
     if (!result.answer || !result.anchorBefore) return;
     try {
@@ -160,7 +155,7 @@ export function GameTable({ config, game, clockOffset, room, socket, profile, pr
 
       <div className="centre">
         <div className="pile-area" style={{ borderColor: activeHex }}>
-          <div className="anchor-label"><span>Link to</span><b>{cardTitle(config, game.anchor)}</b></div>
+          <div className="anchor-label"><span>Link to this card</span></div>
           <div className="pile">
             <CardView key={game.anchor.id} card={game.anchor} config={config} size="lg" className="landing" />
             {game.top.id !== game.anchor.id && <div className="pile-top"><CardView key={game.top.id} card={game.top} config={config} size="md" className="landing" /></div>}
@@ -197,22 +192,23 @@ export function GameTable({ config, game, clockOffset, room, socket, profile, pr
         </button>
       </div>
 
-      <div className={`status${myTurn ? ' mine' : ''}`}>
+      <div className={`status${myTurn ? ' mine' : ''}${flash ? ' flash' : ''}`}>
         <div className="status-text">
           {game.phase === 'over' ? 'Full time!'
             : myTurn ? (game.pendingDraw ? `Stack a ${game.pendingDraw.action === 'yellow' ? 'Yellow Card' : 'Hat-trick'} or take ${game.pendingDraw.amount}`
-              : drawnCard ? 'You drew a playable card: play it or keep it'
+              : drawnCard ? 'You drew a playable card'
               : 'Your turn')
             : `${currentName} is playing…`}
           {myTurn && <span className={`timer${remaining < 5000 ? ' low' : ''}`}>{Math.ceil(remaining / 1000)}s</span>}
         </div>
-        {myTurn && !drawnCard && !game.pendingDraw && <div className="status-sub">Link a card to the anchor, match the colour, or draw</div>}
+        {myTurn && !game.pendingDraw && <div className="status-sub">{drawnCard ? 'Play it now, or keep it and end your turn' : 'Link a card to the anchor, match the colour, or draw'}</div>}
         <div className="timebar" aria-hidden><span style={{ width: `${(game.phase === 'playing' ? fraction : 0) * 100}%`, background: remaining < 5000 ? 'var(--bad)' : myTurn ? 'var(--accent)' : 'rgba(255,255,255,.35)' }} /></div>
       </div>
 
       <div className="me-bar">
         {mySeat && <Avatar emoji={mySeat.avatar} frame={profile.equipped.frame} size={36} ring={myTurn ? fraction : undefined} active={myTurn} />}
         <span className="me-name">{mySeat?.name}</span>
+        <span className="me-count">{game.hand.length} card{game.hand.length === 1 ? '' : 's'}</span>
         {mySeat?.whistle && <span className="badge whistle">FW</span>}
         <div className="me-actions">
           {mySeat && game.hand.length === 2 && !mySeat.whistle && game.phase === 'playing' && (
@@ -224,13 +220,12 @@ export function GameTable({ config, game, clockOffset, room, socket, profile, pr
 
       <div className="hand" role="list" aria-label="Your hand">
         {game.hand.map((card, i) => (
-          <div key={card.id} role="listitem" style={fan(i)} className={`hand-slot${card.id === game.drawnCardId ? ' drawn' : ''}${newCards.includes(card.id) ? ' new' : ''}`}>
+          <div key={card.id} role="listitem" className={`hand-slot${card.id === game.drawnCardId ? ' drawn' : ''}${newCards.includes(card.id) ? ' new' : ''}`}>
             <CardView card={card} config={config} size="md" dim={dimOn && !playable.has(card.id)} selected={selected === card.id} onClick={() => tapCard(card)} />
           </div>
         ))}
       </div>
       <div className="hand-hint">{selected ? (myTurn ? 'Tap it again to play' : 'Wait for your turn to play it') : myTurn ? 'Tap a card to pick it' : '\u00a0'}</div>
-      {flash && <div className="turn-flash" aria-hidden>Your turn</div>}
 
       {answerCard && (
         <AnswerBox
