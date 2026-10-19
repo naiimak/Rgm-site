@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import type { BotLevel, RoomSettings } from '../../../engine/types.ts';
 import { DEFAULT_SETTINGS } from '../../../engine/types.ts';
-import { DEMO, api, savePrefs, track, type Prefs } from '../api.ts';
+import { DEMO, api, savePrefs, storage, track, type Prefs } from '../api.ts';
 import { CardBack, CardView } from '../components/CardView.tsx';
 import { Avatar, FakeAd, Modal, Segmented, Toggle, TopBar } from '../components/ui.tsx';
 import { ERRORS, type ClientConfig, type GameOverView, type Profile, type RoomView } from '../model.ts';
@@ -91,8 +91,45 @@ function SettingsForm({ config, settings, setSettings, bots, setBots, minBots }:
       <Toggle label="Safe Play" hint="Same-colour club with no answer" checked={settings.safePlay} onChange={(safePlay) => setSettings({ ...settings, safePlay })} />
       <Toggle label="Stacking +2 and +4" checked={settings.stacking} onChange={(stacking) => setSettings({ ...settings, stacking })} />
       <Toggle label="Dim unplayable cards" hint="Off = harder game" checked={settings.dimUnplayable} onChange={(dimUnplayable) => setSettings({ ...settings, dimUnplayable })} />
+      <LeaguePicker config={config} settings={settings} setSettings={setSettings} />
     </div>
   );
+}
+
+/** Turn whole leagues off: their clubs, League, Champion and action cards leave the deck. */
+function LeaguePicker({ config, settings, setSettings }: { config: ClientConfig; settings: RoomSettings; setSettings: (s: RoomSettings) => void }) {
+  const on = settings.leagues ?? config.leagues.map((l) => l.id);
+  const toggle = (id: string) => {
+    const next = on.includes(id) ? on.filter((x) => x !== id) : config.leagues.map((l) => l.id).filter((x) => x === id || on.includes(x));
+    if (next.length < 2) return;
+    setSettings({ ...settings, leagues: next.length === config.leagues.length ? undefined : next });
+  };
+  return (
+    <div className="field">
+      <span className="field-label">Leagues in the deck</span>
+      <div className="league-picker">
+        {config.leagues.map((l) => {
+          const active = on.includes(l.id);
+          return (
+            <button key={l.id} role="switch" aria-checked={active} className={active ? 'on' : ''} style={{ '--c': l.hex } as React.CSSProperties}
+              disabled={active && on.length <= 2} onClick={() => toggle(l.id)}>
+              <span className="lp-flag">{l.flag}</span><span className="lp-name">{l.country}</span><span className="lp-tick" aria-hidden>{active ? '✓' : ''}</span>
+            </button>
+          );
+        })}
+      </div>
+      <span className="field-hint">Fewer leagues = fewer clubs to know, so an easier game. Keep at least 2.</span>
+    </div>
+  );
+}
+
+const SETTINGS_KEY = 'onetwo.roomSettings';
+function savedSettings(): RoomSettings {
+  try { return { ...DEFAULT_SETTINGS, ...JSON.parse(storage(SETTINGS_KEY) ?? '{}') }; } catch { return DEFAULT_SETTINGS; }
+}
+function useRoomSettings() {
+  const [settings, set] = useState<RoomSettings>(savedSettings);
+  return [settings, (s: RoomSettings) => { set(s); storage(SETTINGS_KEY, JSON.stringify(s)); }] as const;
 }
 
 const LEVEL_DESC: Record<BotLevel, string> = {
@@ -102,7 +139,7 @@ const LEVEL_DESC: Record<BotLevel, string> = {
 };
 
 export function SoloSetup({ config, nav, onStart }: { config: ClientConfig; nav: Nav; onStart: (s: RoomSettings, b: { count: number; level: BotLevel }) => void }) {
-  const [settings, setSettings] = useState<RoomSettings>(DEFAULT_SETTINGS);
+  const [settings, setSettings] = useRoomSettings();
   const [bots, setBots] = useState<{ count: number; level: BotLevel }>({ count: 3, level: 'medium' });
   return (
     <div className="screen">
@@ -120,7 +157,7 @@ export function PrivateSetup({ config, nav, onCreate, onJoin, initialCode }: {
   onCreate: (s: RoomSettings, b: { count: number; level: BotLevel }) => void; onJoin: (code: string) => Promise<string | null>;
 }) {
   const [tab, setTab] = useState<'create' | 'join'>(initialCode ? 'join' : 'create');
-  const [settings, setSettings] = useState<RoomSettings>(DEFAULT_SETTINGS);
+  const [settings, setSettings] = useRoomSettings();
   const [bots, setBots] = useState<{ count: number; level: BotLevel }>({ count: 0, level: 'medium' });
   const [code, setCode] = useState(initialCode ?? '');
   const [error, setError] = useState<string | null>(null);
@@ -202,7 +239,7 @@ export function Lobby({ room, config, clockOffset, onStart, onLeave, onSettings 
       </ul>
       {!quick && (
         <div className="lobby-settings muted small">
-          {room.settings.turnSeconds}s turns · Safe Play {room.settings.safePlay ? 'on' : 'off'} · Stacking {room.settings.stacking ? 'on' : 'off'} · Dimming {room.settings.dimUnplayable ? 'on' : 'off'}
+          {room.settings.turnSeconds}s turns · Safe Play {room.settings.safePlay ? 'on' : 'off'} · Stacking {room.settings.stacking ? 'on' : 'off'} · Dimming {room.settings.dimUnplayable ? 'on' : 'off'} · {room.settings.leagues ? `Leagues: ${room.settings.leagues.join(', ')}` : 'All leagues'}
           {room.isHost && <button className="link-btn" onClick={() => setEditing(true)}>Change</button>}
         </div>
       )}
@@ -422,10 +459,11 @@ function ShopPreview({ id, category, big }: { id: string; category: string; big?
 
 // ------------------------------------------------------------------ Settings
 
-export function SettingsScreen({ nav, prefs, setPrefs, onReplayTutorial, onDeleted, dataVersion }: {
-  nav: Nav; prefs: Prefs; setPrefs: (p: Prefs) => void; onReplayTutorial: () => void; onDeleted: () => void; dataVersion: string;
+export function SettingsScreen({ config, nav, prefs, setPrefs, onReplayTutorial, onDeleted, dataVersion }: {
+  config: ClientConfig; nav: Nav; prefs: Prefs; setPrefs: (p: Prefs) => void; onReplayTutorial: () => void; onDeleted: () => void; dataVersion: string;
 }) {
   const [confirm, setConfirm] = useState(false);
+  const [roomSettings, setRoomSettings] = useRoomSettings();
   const [linkMsg, setLinkMsg] = useState<string | null>(null);
   const update = (p: Partial<Prefs>) => { const next = { ...prefs, ...p }; setPrefs(next); savePrefs(next); };
   const link = async (provider: string) => {
@@ -439,6 +477,11 @@ export function SettingsScreen({ nav, prefs, setPrefs, onReplayTutorial, onDelet
         <Toggle label="Music" checked={prefs.music} onChange={(music) => update({ music })} />
         <Toggle label="Vibration" checked={prefs.vibration} onChange={(vibration) => update({ vibration })} />
         <Toggle label="Personalised ads" hint="Your ad consent choice" checked={prefs.personalisedAds} onChange={(personalisedAds) => update({ personalisedAds })} />
+      </div>
+      <h3>Game</h3>
+      <div className="form">
+        <LeaguePicker config={config} settings={roomSettings} setSettings={setRoomSettings} />
+        <p className="muted small">Used for {DEMO ? 'Play, ' : ''}Solo vs Bots and Private Rooms you create.{DEMO ? '' : ' Online Quick Match always uses all five leagues.'}</p>
       </div>
       <h3>Account</h3>
       <p className="muted small">You’re playing as a guest. Link an account to keep your progress across devices.</p>

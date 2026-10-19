@@ -414,3 +414,31 @@ h3 { margin: 18px 0 8px; font-size: 15px; letter-spacing: .02em; text-transform:
   .card-lg { width: 84px; height: 120px; font-size: 10.5px; }
   .pile-top .card-md, .draw-pile .card-md { width: 60px; height: 86px; }
 }
+
+/* ---------------------------------------------------------------- league picker */
+.field-hint { font-size: 12px; color: var(--muted); }
+.league-picker { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.league-picker button { display: flex; align-items: center; gap: 8px; padding: 9px 10px; border-radius: 12px; border: 2px solid rgba(255,255,255,.15); background: rgba(0,0,0,.2); color: var(--muted); font-weight: 700; text-align: left; transition: background .15s, border-color .15s; }
+.league-picker button.on { border-color: var(--c); background: color-mix(in srgb, var(--c) 30%, transparent); color: var(--cream); }
+.league-picker button:disabled { opacity: 1; cursor: not-allowed; }
+.league-picker .lp-flag { font-size: 20px; line-height: 1; filter: grayscale(1); opacity: .6; }
+.league-picker button.on .lp-flag { filter: none; opacity: 1; }
+.league-picker .lp-name { flex: 1; min-width: 0; }
+.league-picker .lp-tick { width: 20px; height: 20px; border-radius: 50%; border: 2px solid rgba(255,255,255,.3); display: flex; align-items: center; justify-content: center; font-size: 12px; flex: none; }
+.league-picker button.on .lp-tick { background: var(--c); border-color: var(--c); color: #fff; }
+
+/* ---------------------------------------------------------------- the table fits any height */
+.embedded .table { padding-top: 8px; padding-bottom: 6px; }
+.embedded .screen { padding-top: 12px; padding-bottom: 20px; }
+.embedded .answer-sheet, .embedded .modal { padding-bottom: 12px; }
+.embedded .toast { bottom: 24px; }
+.embedded .offline { padding-top: 4px; }
+
+/* The centre measures its own height and sizes the anchor and draw pile from it, so they never spill
+   onto the opponents above or the play log below, whatever the screen or frame height. */
+.centre { container-type: size; }
+@container (min-height: 1px) {
+  .pile-area .card-lg { --h: clamp(78px, calc(100cqh - 84px), 168px); height: var(--h); width: calc(var(--h) * 116 / 168); font-size: calc(var(--h) / 12); }
+  .pile-top .card-md, .draw-pile .card-md { --h: clamp(60px, calc((100cqh - 84px) * .69), 116px); height: var(--h); width: calc(var(--h) * 80 / 116); font-size: calc(var(--h) / 11.6); }
+  .pile-area { max-height: 100cqh; }
+}

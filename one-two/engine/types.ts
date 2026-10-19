@@ -87,6 +87,8 @@ export interface RoomSettings {
   safePlay: boolean;
   stacking: boolean;
   dimUnplayable: boolean;
+  /** Leagues whose cards are in the deck (at least 2). Missing = all five. */
+  leagues?: LeagueId[];
 }
 
 export const DEFAULT_SETTINGS: RoomSettings = { turnSeconds: 15, safePlay: true, stacking: false, dimUnplayable: true };

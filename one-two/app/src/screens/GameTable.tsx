@@ -248,7 +248,7 @@ export function GameTable({ config, game, clockOffset, room, socket, profile, pr
       {colourFor && (
         <Modal title="Choose the colour" onClose={() => setColourFor(null)}>
           <div className="colour-picker">
-            {config.leagues.map((l) => (
+            {config.leagues.filter((l) => !game.settings.leagues || game.settings.leagues.includes(l.id)).map((l) => (
               <button key={l.id} style={{ background: l.hex }} onClick={async () => {
                 const res = await send('play_card', { cardId: colourFor, colour: l.colour as Colour });
                 if (res.ok) { setColourFor(null); setSelected(null); }

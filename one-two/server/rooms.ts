@@ -642,7 +642,15 @@ function sanitizeSettings(config: GameConfig, s: any): RoomSettings {
     safePlay: s?.safePlay ?? DEFAULT_SETTINGS.safePlay,
     stacking: s?.stacking ?? DEFAULT_SETTINGS.stacking,
     dimUnplayable: s?.dimUnplayable ?? DEFAULT_SETTINGS.dimUnplayable,
+    ...leagueChoice(config, s?.leagues),
   };
+}
+
+/** Keep a valid choice of at least 2 leagues; anything else means all leagues. */
+function leagueChoice(config: GameConfig, leagues: unknown): { leagues?: string[] } {
+  if (!Array.isArray(leagues)) return {};
+  const ids = config.leagues.map((l) => l.id).filter((id) => leagues.includes(id));
+  return ids.length >= 2 && ids.length < config.leagues.length ? { leagues: ids } : {};
 }
 
 function sanitizeBots(b: any, min: number): Room['bots'] {

@@ -227,7 +227,7 @@ export class LocalSocket {
           this.bots = { count: 1, level: 'easy' };
         } else {
           this.mode = 'solo';
-          this.settings = mode === 'quick' ? DEFAULT_SETTINGS : { ...DEFAULT_SETTINGS, ...(p.settings as RoomSettings | undefined) };
+          this.settings = mode === 'quick' ? { ...DEFAULT_SETTINGS, leagues: savedLeagues() } : { ...DEFAULT_SETTINGS, ...(p.settings as RoomSettings | undefined) };
           const b = (p.bots as { count: number; level: BotLevel } | undefined) ?? { count: 3, level: 'medium' };
           this.bots = mode === 'quick' ? { count: 3, level: 'medium' } : { count: Math.max(1, Math.min(5, b.count)), level: b.level };
         }
@@ -359,4 +359,9 @@ export class LocalSocket {
     for (const t of this.timers) clearTimeout(t);
     this.timers = [];
   }
+}
+
+/** The demo's Play button is a bot game, so it honours the leagues chosen in Settings. */
+function savedLeagues(): string[] | undefined {
+  try { return JSON.parse(localStorage.getItem('onetwo.roomSettings') ?? '{}').leagues; } catch { return undefined; }
 }

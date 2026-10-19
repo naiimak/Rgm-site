@@ -57,13 +57,13 @@ Status against the spec's five milestones:
 ### How it's checked
 
 ```bash
-npm test             # 46 rules tests: every row of "What you must answer", every action card, penalties, setup, autocomplete
+npm test             # 51 rules tests: every row of "What you must answer", every action card, penalties, setup, autocomplete
 npm run simulate     # Milestone 1 acceptance: 1,000 bot-only games through the real engine
 npm run coverage     # link-coverage check for all 3,655 card pairs -> data/coverage-report.md
 npm run typecheck
 ```
 
-Latest simulation (with the full player database): 1,000 games, all finished, average 46 turns, no crashes and no rule violations. Every judged answer was re-checked against the link table, and every card was accounted for after every move.
+Latest simulation (with the full player database, a third of games with some leagues turned off): 1,000 games, 998 finished, average 54 turns, no crashes and no rule violations. The other 2 were Easy-bot-only games still going at the 4,000-turn cap, with hands of 40–70 cards from repeated wrong answers. Every judged answer was re-checked against the link table, and every card was accounted for after every move.
 
 The full flows were also played end to end in a headless browser: the tutorial to a win, a 4-player solo game, a Private Room joined through its share link, a player dropping out (seat marked away, then a bot takes over after 30 s, then the player rejoins and gets the seat back), and a Quick Match filled with bots.
 
@@ -137,6 +137,7 @@ The phone downloads the full name list (about 1.9 MB, cached until the data chan
 ## Decisions I made where the spec was silent or inconsistent
 
 - **Fewer clubs, more League Champion cards (your change):** Espanyol, Deportivo, Real Sociedad, Parma, Sampdoria, Hamburg, Werder Bremen, Stuttgart, Bordeaux, Saint-Étienne, Lens and Rennes are no longer cards (38 clubs left). Each was replaced by a League Champion card of the same league (England 1, Spain 4, Italy 3, Germany 4, France 5), so every league colour still has 13 subject cards and the deck stays at 151. Careers at those clubs still count for the league cards and for coach cards (Ancelotti at Parma).
+- **Choosing leagues (your request):** Solo vs Bots, Private Rooms and Settings let you turn leagues off (at least 2 stay on). A league that's off takes its clubs, League, Champion and coloured action cards out of the deck, so its colour never comes up and wild cards can't pick it. Trophy, coach and national team cards always stay. Online Quick Match always uses all five leagues, so strangers play the same game.
 - **Deck size:** Setup says a 104-card deck, but Deck composition and the card table say 151. I used 151.
 - **League Champion points:** not listed in the end-of-game points; I scored them like League cards (10).
 - **Timer runs out after you've drawn:** the turn ends with no extra 2-card penalty, because you already acted.

@@ -23,13 +23,22 @@ export function leagueColour(config: GameConfig, leagueId: string): Colour {
   return config.leagues.find((l) => l.id === leagueId)!.colour;
 }
 
-export function buildDeck(config: GameConfig): Card[] {
+/** The leagues a game plays with: the room's choice, or all of them. */
+export function activeLeagues(config: GameConfig, leagues?: string[]) {
+  const on = config.leagues.filter((l) => !leagues || leagues.includes(l.id));
+  return on.length >= 2 ? on : config.leagues;
+}
+
+/** Leaving a league out removes its clubs, League, Champion and coloured action cards (and so its colour). */
+export function buildDeck(config: GameConfig, leagueIds?: string[]): Card[] {
+  const leagues = activeLeagues(config, leagueIds);
+  const on = new Set(leagues.map((l) => l.id));
   const cards: Omit<Card, 'id'>[] = [];
   const d = config.deck;
   const repeat = (n: number, card: Omit<Card, 'id'>) => { for (let i = 0; i < n; i++) cards.push(card); };
 
-  for (const club of config.clubs) repeat(d.clubCopies, { kind: 'club', ref: club.id, colour: leagueColour(config, club.league) });
-  for (const l of config.leagues) {
+  for (const club of config.clubs) if (on.has(club.league)) repeat(d.clubCopies, { kind: 'club', ref: club.id, colour: leagueColour(config, club.league) });
+  for (const l of leagues) {
     repeat(d.leagueCopies, { kind: 'league', ref: l.id, colour: l.colour });
     const champions = typeof d.championCopies === 'number' ? d.championCopies : d.championCopies[l.id] ?? 0;
     repeat(champions, { kind: 'champion', ref: l.id, colour: l.colour });
@@ -38,7 +47,7 @@ export function buildDeck(config: GameConfig): Card[] {
   for (const c of config.coaches) repeat(d.coachCopies, { kind: 'coach', ref: c.id, colour: null });
   for (const n of config.nations) repeat(d.nationalCopies, { kind: 'national', ref: n.id, colour: null });
   for (const [action, spec] of Object.entries(d.actions) as [ActionKind, { perColour?: number; wild?: number }][]) {
-    if (spec.perColour) for (const l of config.leagues) repeat(spec.perColour, { kind: 'action', ref: action, colour: l.colour });
+    if (spec.perColour) for (const l of leagues) repeat(spec.perColour, { kind: 'action', ref: action, colour: l.colour });
     if (spec.wild) repeat(spec.wild, { kind: 'action', ref: action, colour: null });
   }
   return cards.map((c, i) => ({ ...c, id: `c${i}` }));

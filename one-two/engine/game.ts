@@ -2,10 +2,10 @@
 // changes it; phones only ever receive views of it (see view()). Every rule in the spec's
 // "Game rules" section is enforced here.
 
-import { buildDeck, cardPoints, isSubject, isWild } from './cards.ts';
+import { activeLeagues, buildDeck, cardPoints, isSubject, isWild } from './cards.ts';
 import { PlayerDB, subjectKey } from './database.ts';
 import {
-  COLOURS, type ActionKind, type BotLevel, type Card, type Colour, type GameConfig, type GameEvent, type GameStateView,
+  type ActionKind, type BotLevel, type Card, type Colour, type GameConfig, type GameEvent, type GameStateView,
   type Placing, type PlayResult, type RoomSettings, type SeatStats,
 } from './types.ts';
 
@@ -60,6 +60,8 @@ export class Game {
   readonly config: GameConfig;
   readonly db: PlayerDB;
   readonly settings: RoomSettings;
+  /** Colours in play: one per league in the deck. */
+  readonly colours: Colour[];
   readonly seats: Seat[];
   readonly rng: () => number;
   readonly now: () => number;
@@ -91,6 +93,7 @@ export class Game {
     this.config = o.config;
     this.db = o.db;
     this.settings = o.settings;
+    this.colours = activeLeagues(o.config, o.settings.leagues).map((l) => l.colour);
     this.rng = o.rng;
     this.now = o.now ?? Date.now;
     this.presetDeck = o.presetDeck;
@@ -109,7 +112,7 @@ export class Game {
     if (this.presetDeck) {
       this.deck = [...this.presetDeck].reverse();
     } else {
-      this.deck = this.shuffle(buildDeck(this.config));
+      this.deck = this.shuffle(buildDeck(this.config, this.settings.leagues));
     }
     for (let round = 0; round < this.config.rules.handSize; round++) {
       for (const seat of this.seats) seat.hand.push(this.deck.pop()!);
@@ -189,7 +192,7 @@ export class Game {
     const base = { seat: seatIndex, playerName: seat.name, card, anchorBefore: this.anchor };
 
     if (card.kind === 'action') {
-      if (isWild(card) && (!opts.colour || !COLOURS.includes(opts.colour))) return err('colour_required');
+      if (isWild(card) && (!opts.colour || !this.colours.includes(opts.colour))) return err('colour_required');
       if (!this.canMatch(card)) return err('no_match');
       seat.hand.splice(idx, 1);
       this.pile.push(card);

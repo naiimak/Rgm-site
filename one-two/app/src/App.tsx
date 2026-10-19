@@ -172,7 +172,7 @@ export function App() {
     case 'shop':
       return <Shop profile={profile} config={config} nav={nav} setProfile={setProfile} />;
     case 'settings':
-      return <SettingsScreen nav={nav} prefs={prefs} setPrefs={setPrefs} dataVersion={config.dataVersion}
+      return <SettingsScreen config={config} nav={nav} prefs={prefs} setPrefs={setPrefs} dataVersion={config.dataVersion}
         onReplayTutorial={() => void join({ mode: 'tutorial' })}
         onDeleted={() => { setToken(null); storage(TUTORIAL_DONE, null); location.reload(); }} />;
   }

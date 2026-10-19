@@ -313,3 +313,27 @@ describe('autocomplete', () => {
     expect(search(index, 'ro')[0].id).toBe('ronaldo');
   });
 });
+
+describe('league choice', () => {
+  it('leaves out every card of a turned-off league', () => {
+    const deck = buildDeck(config, ['ENG', 'ESP']);
+    const colours = new Set(deck.map((c) => c.colour).filter(Boolean));
+    expect([...colours].sort()).toEqual(['red', 'yellow']);
+    expect(deck.some((c) => c.kind === 'club' && !['ENG', 'ESP'].includes(config.clubs.find((k) => k.id === c.ref)!.league))).toBe(false);
+    expect(deck.filter((c) => c.kind === 'trophy' || c.kind === 'coach' || c.kind === 'national')).toHaveLength(buildDeck(config).filter((c) => c.kind === 'trophy' || c.kind === 'coach' || c.kind === 'national').length);
+  });
+  it('needs at least 2 leagues, otherwise plays with all of them', () => {
+    expect(buildDeck(config, ['ENG'])).toHaveLength(151);
+    expect(buildDeck(config, [])).toHaveLength(151);
+  });
+  it('only accepts wild colours of leagues in play', () => {
+    const { db: real } = loadDatabase();
+    const g = new Game({ id: 'g', config, db: real, settings: { ...DEFAULT_SETTINGS, leagues: ['ENG', 'ESP'] }, rng: seeded(3), seats: [{ name: 'a', isBot: false }, { name: 'b', isBot: true }] });
+    g.start();
+    expect(['red', 'yellow']).toContain(g.anchor.colour);
+    expect(g.colours).toEqual(['red', 'yellow']);
+    const wild: Card = { id: 'wild-x', kind: 'action', ref: 'transfer', colour: null };
+    g.seats[g.turn].hand.push(wild);
+    expect(g.play(g.turn, 'wild-x', { colour: 'blue' })).toMatchObject({ ok: false, error: 'colour_required' });
+  });
+});

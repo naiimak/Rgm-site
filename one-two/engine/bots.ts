@@ -4,7 +4,7 @@
 import { cardPoints, isWild } from './cards.ts';
 import { subjectKey } from './database.ts';
 import type { Game } from './game.ts';
-import { COLOURS, type BotLevel, type Card, type Colour } from './types.ts';
+import { type BotLevel, type Card, type Colour } from './types.ts';
 
 export type BotPlan =
   | { type: 'play'; cardId: string; playerId?: string; colour?: Colour; callWhistle: boolean; delayMs: number }
@@ -29,7 +29,7 @@ export function planBotTurn(game: Game, seatIndex: number, level: BotLevel): Bot
   if (game.pendingDraw) {
     const stack = seat.hand.find((c) => c.kind === 'action' && c.ref === game.pendingDraw!.action);
     if (stack && (level !== 'easy' || rng() < 0.5)) {
-      return { type: 'play', cardId: stack.id, colour: isWild(stack) ? favouriteColour(seat.hand, stack, rng) : undefined, callWhistle: false, delayMs: quick() };
+      return { type: 'play', cardId: stack.id, colour: isWild(stack) ? favouriteColour(game, seat.hand, stack, rng) : undefined, callWhistle: false, delayMs: quick() };
     }
     return { type: 'draw', delayMs: quick() };
   }
@@ -53,7 +53,7 @@ export function planBotTurn(game: Game, seatIndex: number, level: BotLevel): Bot
   if (choice.mode !== 'link') {
     return {
       type: 'play', cardId: choice.card.id, callWhistle, delayMs: quick(),
-      colour: isWild(choice.card) ? favouriteColour(seat.hand, choice.card, rng) : undefined,
+      colour: isWild(choice.card) ? favouriteColour(game, seat.hand, choice.card, rng) : undefined,
     };
   }
 
@@ -101,11 +101,11 @@ function seatAt(game: Game, from: number, steps: number): number {
   return (((from + game.direction * steps) % n) + n) % n;
 }
 
-function favouriteColour(hand: Card[], playing: Card, rng: () => number): Colour {
+function favouriteColour(game: Game, hand: Card[], playing: Card, rng: () => number): Colour {
   const counts = new Map<Colour, number>();
   for (const c of hand) if (c.id !== playing.id && c.colour) counts.set(c.colour, (counts.get(c.colour) ?? 0) + 1);
   const best = [...counts.entries()].sort((a, b) => b[1] - a[1])[0];
-  return best ? best[0] : COLOURS[Math.floor(rng() * COLOURS.length)];
+  return best ? best[0] : game.colours[Math.floor(rng() * game.colours.length)];
 }
 
 /** A famous player who is NOT a valid link (a believable wrong answer). */
