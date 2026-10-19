@@ -6,10 +6,10 @@ import { mkdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import type { Server, Socket } from 'socket.io';
 import { planBotTurn } from '../engine/bots.ts';
-import { buildDeck } from '../engine/cards.ts';
+import { tutorialDeck } from '../engine/tutorial.ts';
 import type { PlayerDB } from '../engine/database.ts';
 import { Game, type ActionResult } from '../engine/game.ts';
-import { DEFAULT_SETTINGS, type BotLevel, type Card, type Colour, type GameConfig, type GameEvent, type RoomSettings } from '../engine/types.ts';
+import { DEFAULT_SETTINGS, type BotLevel, type Colour, type GameConfig, type GameEvent, type RoomSettings } from '../engine/types.ts';
 import { gameXp, levelForXp } from './progression.ts';
 import { dayKey, weekKey, type Store, type User } from './store.ts';
 
@@ -258,7 +258,7 @@ export class RoomManager {
       id: `${room.code}-${Date.now().toString(36)}`,
       config, db, settings: room.settings, rng: secureRng,
       seats: room.members.map((m) => ({ name: m.name, avatar: m.avatar, isBot: m.isBot, botLevel: m.botLevel, userId: m.userId ?? undefined })),
-      ...(room.mode === 'tutorial' ? { presetDeck: tutorialDeck(config), firstSeat: 0 } : {}),
+      ...(room.mode === 'tutorial' ? { presetDeck: tutorialDeck(config, secureRng), firstSeat: 0 } : {}),
     });
     room.game = game;
     room.status = 'playing';
@@ -648,24 +648,4 @@ function sanitizeBots(b: any, min: number): Room['bots'] {
   const level: BotLevel = ['easy', 'medium', 'hard'].includes(b?.level) ? b.level : 'medium';
   const count = Math.max(min, Math.min(5, Math.floor(Number(b?.count) || 0)));
   return { count, level };
-}
-
-/**
- * Scripted deck for the first-time tutorial (player = seat 0, one Easy bot that only draws).
- * The player's hand teaches, in order: a link play, Safe Play, an action card, a trophy card,
- * a wild, then Final Whistle and the winning card.
- */
-function tutorialDeck(config: GameConfig): Card[] {
-  const all = buildDeck(config);
-  const take = (kind: string, ref: string, colour?: string | null) => {
-    const i = all.findIndex((c) => c.kind === kind && c.ref === ref && (colour === undefined || c.colour === colour));
-    return all.splice(i, 1)[0];
-  };
-  const spain = config.leagues.find((l) => l.id === 'ESP')!.colour;
-  const player = [take('club', 'RMA'), take('club', 'BAR'), take('action', 'red', spain), take('trophy', 'GB'), take('action', 'transfer', null), take('club', 'MIL'), take('club', 'INT')];
-  const bot = [take('national', 'AUS'), take('national', 'JPN'), take('national', 'USA'), take('coach', 'SIM'), take('national', 'EGY'), take('national', 'ALG'), take('national', 'SEN')];
-  const anchor = take('club', 'MUN');
-  const rest = all.sort(() => secureRng() - 0.5);
-  const dealt = player.flatMap((c, i) => [c, bot[i]]);
-  return [...dealt, anchor, ...rest];
 }

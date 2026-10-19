@@ -119,6 +119,7 @@ export function App() {
     setResults(null);
     setLastPlay(null);
     const r = await emit(socket, 'join_room', payload);
+    if (!r.ok) setBanner(errorText(r.error));
     return r.ok ? null : errorText(r.error);
   };
 

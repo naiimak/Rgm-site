@@ -115,4 +115,5 @@ export const ERRORS: Record<string, string> = {
   room_full: 'That room is full',
   need_two_players: 'You need at least 2 players',
   timeout: 'Connection is slow — try again',
+  demo_online_only: 'Private Rooms need the online game server. This demo has Solo vs Bots and the tutorial.',
 };

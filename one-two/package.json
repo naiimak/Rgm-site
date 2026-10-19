@@ -16,7 +16,8 @@
     "start": "NODE_ENV=production tsx server/index.ts",
     "data:wikidata": "tsx scripts/wikidata-import.ts",
     "data:squads": "tsx scripts/football-data-sync.ts",
-    "data:sheets": "tsx scripts/import-club-sheets.ts"
+    "data:sheets": "tsx scripts/import-club-sheets.ts",
+    "build:demo": "vite build --mode demo && mkdir -p dist-demo/demo-data && cp data/players.json dist-demo/demo-data/players.json"
   },
   "engines": {
     "node": ">=20"

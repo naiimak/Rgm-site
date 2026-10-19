@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import type { BotLevel, RoomSettings } from '../../../engine/types.ts';
 import { DEFAULT_SETTINGS } from '../../../engine/types.ts';
-import { api, savePrefs, track, type Prefs } from '../api.ts';
+import { DEMO, api, savePrefs, track, type Prefs } from '../api.ts';
 import { CardBack } from '../components/CardView.tsx';
 import { Avatar, FakeAd, Modal, Segmented, Toggle, TopBar } from '../components/ui.tsx';
 import { ERRORS, type ClientConfig, type GameOverView, type Profile, type RoomView } from '../model.ts';
@@ -27,9 +27,10 @@ export function Home({ profile, config, nav, onQuick, setProfile }: { profile: P
       <div className="brand">
         <div className="logo">One<span>·</span>Two</div>
         <p>Link every card with a footballer who played for both.</p>
+        {DEMO && <p className="demo-note">Demo: Play and Solo vs Bots run in your browser against bots. Online rooms need the game server.</p>}
       </div>
 
-      <button className="btn play-btn" onClick={onQuick}>Play<small>Quick Match · {config.rules.quickMatchSeats} players</small></button>
+      <button className="btn play-btn" onClick={onQuick}>Play<small>{DEMO ? 'Quick game · you vs 3 bots' : `Quick Match · ${config.rules.quickMatchSeats} players`}</small></button>
       <div className="home-grid">
         <button className="tile" onClick={() => nav('private')}><span>👥</span>Private Room</button>
         <button className="tile" onClick={() => nav('solo')}><span>🤖</span>Solo vs Bots</button>

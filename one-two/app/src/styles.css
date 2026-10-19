@@ -68,6 +68,7 @@ h3 { margin: 18px 0 8px; font-size: 15px; letter-spacing: .02em; text-transform:
 .level-bar span { display: block; height: 100%; background: var(--accent); }
 .brand { text-align: center; margin: 44px 0 30px; }
 .brand p { color: var(--muted); margin: 6px 0 0; }
+.brand .demo-note { font-size: 12px; background: rgba(0,0,0,.25); border-radius: 10px; padding: 6px 10px; margin-top: 12px; display: inline-block; }
 .play-btn { width: 100%; background: var(--accent); color: var(--ink); border-radius: 22px; padding: 22px; font-size: 30px; font-weight: 900; flex-direction: column; box-shadow: 0 10px 30px rgba(242,183,5,.25); }
 .play-btn small { font-size: 13px; font-weight: 600; opacity: .7; }
 .home-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 16px 0; }

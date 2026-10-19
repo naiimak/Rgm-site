@@ -4,6 +4,9 @@ import { io, type Socket } from 'socket.io-client';
 import type { PlayerListEntry } from '../../engine/types.ts';
 
 export const SERVER: string = (import.meta.env.VITE_SERVER_URL as string | undefined)?.replace(/\/$/, '') ?? '';
+/** Demo build: no server, the game runs in the browser (Solo vs Bots and the tutorial). */
+export const DEMO = import.meta.env.VITE_DEMO === '1';
+let demo: typeof import('./demo/local.ts') | null = null;
 
 const TOKEN_KEY = 'onetwo.token';
 const PLAYERS_KEY = 'onetwo.players';
@@ -25,6 +28,14 @@ export const setToken = (t: string | null) => storage(TOKEN_KEY, t);
 export class ApiError extends Error {}
 
 export async function api<T>(path: string, opts: { method?: string; body?: unknown } = {}): Promise<T> {
+  if (DEMO) {
+    demo ??= await import('./demo/local.ts');
+    try {
+      return (await demo.demoApi(path, opts)) as T;
+    } catch (e) {
+      throw new ApiError((e as Error).message);
+    }
+  }
   const token = getToken();
   const res = await fetch(`${SERVER}${path}`, {
     method: opts.method ?? (opts.body ? 'POST' : 'GET'),
@@ -53,6 +64,7 @@ export async function loadPlayerList(version: string): Promise<PlayerListEntry[]
 }
 
 export function connect(token: string): Socket {
+  if (DEMO && demo) return new demo.LocalSocket() as unknown as Socket;
   return io(SERVER || undefined, { auth: { token }, transports: ['websocket', 'polling'], reconnectionDelayMax: 3000 });
 }
 
@@ -61,6 +73,7 @@ export function emit<T = { ok: boolean; error?: string }>(socket: Socket, event:
 }
 
 export function track(event: string, props: Record<string, unknown> = {}): void {
+  if (DEMO) return;
   void fetch(`${SERVER}/api/events`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ event, props }) }).catch(() => {});
 }
 
