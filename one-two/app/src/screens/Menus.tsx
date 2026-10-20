@@ -279,13 +279,16 @@ export function Results({ results, profile, onRematch, onHome, setProfile }: { r
         <h1>{won ? 'You win!' : 'Full time'}</h1>
         <p className="muted">{won ? 'Cleared your hand first.' : me ? `You finished ${ordinal(me.place)} with ${me.cardsLeft} card${me.cardsLeft === 1 ? '' : 's'} left.` : ''}</p>
       </div>
+      <p className="placings-note">Losers are ranked by the points of the cards left in their hand. Fewer is better.</p>
       <ol className="placings">
         {results.placings.map((p, i) => (
           <li key={p.seat} className={`${p.seat === results.you ? 'you' : ''} p${p.place}`} style={{ animationDelay: `${i * 90}ms` }}>
             <span className="place">{p.place === 1 ? '🥇' : p.place === 2 ? '🥈' : p.place === 3 ? '🥉' : p.place}</span>
             <span className="pav">{p.avatar}</span>
             <span className="pn">{p.name}{p.isBot && <span className="badge bot">BOT</span>}</span>
-            <span className="pts">{p.place === 1 ? 'Won' : `${p.points} pts · ${p.cardsLeft} cards`}</span>
+            {p.place === 1
+              ? <span className="pts won">Won</span>
+              : <span className="pts"><b>−{p.points}</b><small>{p.cardsLeft} card{p.cardsLeft === 1 ? '' : 's'} left</small></span>}
           </li>
         ))}
       </ol>

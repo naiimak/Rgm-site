@@ -537,3 +537,10 @@ html.typing .answer-actions .chip-btn { padding: 5px 10px; font-size: 12px; }
 @media (orientation: landscape) and (max-height: 560px) {
   .answer-sheet { top: var(--vv-top, 0px); height: var(--vv-h, 100%); max-width: none; border-radius: 0; animation: fadein .15s ease-out; }
 }
+
+/* Results: points are what's left in hand (a penalty), so show them as minus numbers. */
+.placings-note { text-align: center; font-size: 12px; color: var(--muted); margin: 0 0 8px; }
+.placings .pts { display: flex; flex-direction: column; align-items: flex-end; line-height: 1.15; margin-left: auto; }
+.placings .pts b { color: #ff9b9b; font-size: 16px; }
+.placings .pts small { color: var(--muted); font-size: 11px; }
+.placings .pts.won { color: var(--accent); font-weight: 800; }
