@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import type { BotLevel, RoomSettings } from '../../../engine/types.ts';
 import { DEFAULT_SETTINGS } from '../../../engine/types.ts';
-import { DEMO, api, savePrefs, storage, track, type Prefs } from '../api.ts';
+import { DEMO, FULL_GAME_URL, api, savePrefs, storage, track, type Prefs } from '../api.ts';
 import { CardBack, CardView } from '../components/CardView.tsx';
 import { Avatar, FakeAd, Modal, Segmented, Toggle, TopBar } from '../components/ui.tsx';
 import { ERRORS, type ClientConfig, type GameOverView, type Profile, type RoomView } from '../model.ts';
@@ -28,7 +28,7 @@ export function Home({ profile, config, nav, onQuick, setProfile }: { profile: P
         <div className="logo">One<span>·</span>Two</div>
         <HeroCards config={config} />
         <p>Link every card with a footballer who played for both.</p>
-        {DEMO && <p className="demo-note">Demo: Play and Solo vs Bots run in your browser against bots. Online rooms need the game server.</p>}
+        {DEMO && <p className="demo-note">Demo: play the tutorial and games against bots. To play with friends, open the full game at <a href={FULL_GAME_URL} target="_blank" rel="noopener">one-two-game.fly.dev</a></p>}
       </div>
 
       <button className="btn play-btn" onClick={onQuick}>Play<small>{DEMO ? 'Quick game · you vs 3 bots' : `Quick Match · ${config.rules.quickMatchSeats} players`}</small></button>

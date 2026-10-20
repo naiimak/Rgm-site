@@ -6,6 +6,8 @@ import type { PlayerListEntry } from '../../engine/types.ts';
 export const SERVER: string = (import.meta.env.VITE_SERVER_URL as string | undefined)?.replace(/\/$/, '') ?? '';
 /** Demo build: no server, the game runs in the browser (Solo vs Bots and the tutorial). */
 export const DEMO = import.meta.env.VITE_DEMO === '1';
+/** Where the demo sends people who want online rooms. */
+export const FULL_GAME_URL = 'https://one-two-game.fly.dev';
 let demo: typeof import('./demo/local.ts') | null = null;
 
 const TOKEN_KEY = 'onetwo.token';
