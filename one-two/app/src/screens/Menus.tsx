@@ -10,7 +10,9 @@ export type Nav = (screen: 'home' | 'solo' | 'private' | 'profile' | 'leaderboar
 
 // ------------------------------------------------------------------ Home
 
-export function Home({ profile, config, nav, onQuick, setProfile }: { profile: Profile; config: ClientConfig; nav: Nav; onQuick: () => void; setProfile: (p: Profile) => void }) {
+export function Home({ profile, config, nav, onQuick, onTutorial, newPlayer, setProfile }: {
+  profile: Profile; config: ClientConfig; nav: Nav; onQuick: () => void; onTutorial: () => void; newPlayer: boolean; setProfile: (p: Profile) => void;
+}) {
   const [ad, setAd] = useState(false);
   const [msg, setMsg] = useState<string | null>(null);
   return (
@@ -31,6 +33,11 @@ export function Home({ profile, config, nav, onQuick, setProfile }: { profile: P
         {DEMO && <p className="demo-note">Demo: play the tutorial and games against bots. To play with friends, open the full game at <a href={FULL_GAME_URL} target="_blank" rel="noopener">one-two-game.fly.dev</a></p>}
       </div>
 
+      <button className={`btn howto-btn${newPlayer ? ' new' : ''}`} onClick={onTutorial}>
+        <span className="howto-icon" aria-hidden>🎓</span>
+        <span className="howto-text"><b>How to play</b><small>{newPlayer ? 'New here? 2-minute training match' : 'Training match with tips'}</small></span>
+        <span aria-hidden>›</span>
+      </button>
       <button className="btn play-btn" onClick={onQuick}>Play<small>{DEMO ? 'Quick game · you vs 3 bots' : `Quick Match · ${config.rules.quickMatchSeats} players`}</small></button>
       <div className="home-grid">
         <button className="tile" onClick={() => nav('private')}><span>👥</span>Private Room</button>

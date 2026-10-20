@@ -69,14 +69,12 @@ export function App() {
       setConnected(true);
       if (!first) return;
       first = false;
-      // First launch: tutorial game first (no sign-up wall). Deep links go straight to the room.
+      // Everyone lands on Home (new players see "How to play" highlighted there). Deep links go straight to the room.
       if (pendingRoom.current) {
         const code = pendingRoom.current;
         pendingRoom.current = null;
         history.replaceState(null, '', location.pathname);
         void emit(socket, 'join_room', { mode: 'private', code }).then((r) => { if (!r.ok) { setBanner(errorText(r.error)); setScreen('home'); } });
-      } else if (!storage(TUTORIAL_DONE)) {
-        void emit(socket, 'join_room', { mode: 'tutorial' });
       } else {
         setScreen((s) => (s === 'splash' ? 'home' : s));
       }
@@ -162,7 +160,8 @@ export function App() {
 
   switch (screen) {
     case 'home':
-      return <>{offline}{bannerEl}<Home profile={profile} config={config} nav={nav} setProfile={setProfile} onQuick={() => void join({ mode: 'quick' })} /></>;
+      return <>{offline}{bannerEl}<Home profile={profile} config={config} nav={nav} setProfile={setProfile} onQuick={() => void join({ mode: 'quick' })}
+        onTutorial={() => void join({ mode: 'tutorial' })} newPlayer={!storage(TUTORIAL_DONE)} /></>;
     case 'solo':
       return <SoloSetup config={config} nav={nav} onStart={(settings: RoomSettings, bots: { count: number; level: BotLevel }) => void join({ mode: 'solo', settings, bots })} />;
     case 'private':

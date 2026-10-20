@@ -15,7 +15,7 @@ npm run build        # builds the app into dist/
 npm start            # game server + app on http://localhost:3000
 ```
 
-Open http://localhost:3000 on a phone-sized window. A first visit plays the tutorial; after that you land on Home. Open a second browser (or a private window) to play a Private Room or Quick Match against yourself.
+Open http://localhost:3000 on a phone-sized window. You land on Home; "How to play" (highlighted for new players) starts the training match. Open a second browser (or a private window) to play a Private Room or Quick Match against yourself.
 
 For development, run `npm run dev:server` and `npm run dev:app` in two terminals and open http://localhost:5173 (the app reloads as you edit).
 
@@ -49,7 +49,7 @@ Status against the spec's five milestones:
 | Milestone | Status |
 | --- | --- |
 | 1. Data and rules engine | **Done.** Every rule in the spec is enforced by the server. 21,000+ players from Wikidata, football-data.org and your club sheets; the AI review step is still to do (see Player data). |
-| 2. Solo vs Bots playable | **Done in the web/app build.** Game table, answer box with autocomplete, hints, Final Whistle, the 7-step tutorial, and Easy / Medium / Hard bots. Not yet run on a physical iPhone or Android phone. |
+| 2. Solo vs Bots playable | **Done in the web/app build.** Game table, answer box with autocomplete, hints, Final Whistle, the 7-step tutorial (a training match started from "How to play" on Home), and Easy / Medium / Hard bots. Not yet run on a physical iPhone or Android phone. |
 | 3. Online multiplayer | **Done.** Private Rooms with code and share link (WhatsApp included), Quick Match that fills empty seats with bots after 20 s, reconnect, and bot takeover after 30 s offline. |
 | 4. Accounts, progression, shop, ads | **Partly done.** Guest accounts, usernames, avatars, XP, levels, coins, weekly and all-time leaderboards, profile stats, cosmetics shop, rewarded-ad placements, and the admin page for answer reports all work. Sign in with Apple/Google, real coin-pack purchases and real ads are stubs (see Not done yet). |
 | 5. Beta and launch | Not started. |
