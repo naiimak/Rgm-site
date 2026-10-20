@@ -5,12 +5,12 @@ import type { PlayerDB } from '../engine/database.ts';
 import type { GameConfig } from '../engine/types.ts';
 import type { AnswerReport } from './store.ts';
 
-const esc = (s: string) => s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]!);
+const esc = (s: unknown) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]!);
 
 export function renderAdmin(reports: AnswerReport[], db: PlayerDB, config: GameConfig, key: string, filter: string): string {
   const title = (k: string) => {
     const [kind, ref] = k.split(':');
-    return cardTitle(config, { kind: kind as never, ref });
+    try { return cardTitle(config, { kind: kind as never, ref }) || k; } catch { return k; }
   };
   const shown = reports.filter((r) => filter === 'all' || r.status === filter);
   const q = encodeURIComponent(key);
@@ -21,7 +21,7 @@ export function renderAdmin(reports: AnswerReport[], db: PlayerDB, config: GameC
       <td>${esc(r.createdAt.slice(0, 16).replace('T', ' '))}<br><small>${esc(r.dataVersion)}</small></td>
       <td><b>${esc(title(r.cardA))}</b> → <b>${esc(title(r.cardB))}</b></td>
       <td>${esc(r.playerName)}<br><small>${esc(facts)}</small></td>
-      <td>Judged <b>${r.verdict}</b></td>
+      <td>Judged <b>${esc(r.verdict)}</b>${r.reporter === 'demo' ? '<br><small>from the demo</small>' : ''}</td>
       <td><form method="post" action="/admin/reports/${r.id}?key=${q}">
         <select name="status">${['open', 'confirmed', 'rejected'].map((s) => `<option${s === r.status ? ' selected' : ''}>${s}</option>`).join('')}</select>
         <input name="note" value="${esc(r.reviewerNote)}" placeholder="Reviewer note">

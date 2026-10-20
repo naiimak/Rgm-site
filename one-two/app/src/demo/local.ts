@@ -9,6 +9,7 @@ import { Game, type ActionResult } from '../../../engine/game.ts';
 import { tutorialDeck } from '../../../engine/tutorial.ts';
 import { DEFAULT_SETTINGS, type BotLevel, type Colour, type DataClub, type GameConfig, type GameEvent, type PlayerRecord, type RoomSettings } from '../../../engine/types.ts';
 import { gameXp, levelForXp, usernameProblem } from '../../../server/progression.ts';
+import { FULL_GAME_URL } from '../api.ts';
 
 const config = configJson as unknown as GameConfig;
 const PROFILE_KEY = 'onetwo.demo.profile';
@@ -158,7 +159,12 @@ export async function demoApi(path: string, opts: { method?: string; body?: unkn
       return { granted: u.lastGame.coins, profile: profile() };
     }
     case 'POST /api/me/link': throw new DemoError('Not available in the demo');
-    case 'POST /api/reports':
+    case 'POST /api/reports': {
+      // Reports matter even from the offline demo: send them to the online game's review queue.
+      const res = await fetch(`${FULL_GAME_URL}/api/demo-reports`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) }).catch(() => null);
+      if (!res?.ok) throw new DemoError('Could not send the report');
+      return { ok: true };
+    }
     case 'POST /api/events': return { ok: true };
     default: throw new DemoError(`Not available in the demo (${route})`);
   }

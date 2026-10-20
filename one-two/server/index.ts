@@ -207,17 +207,43 @@ app.post('/api/ads/reward', auth, (req, res) => {
 
 // ------------------------------------------------------------------ reports and analytics
 
-app.post('/api/reports', auth, (req, res) => {
-  const user = (req as AuthedRequest).user;
-  const b = req.body ?? {};
+/** "kind:ref" of a real card, e.g. "club:MUN" or "trophy:WC". */
+function isCardKey(k: unknown): k is string {
+  if (typeof k !== 'string') return false;
+  const [kind, ref] = k.split(':');
+  const ids: Record<string, { id: string }[]> = {
+    club: config.clubs, league: config.leagues, champion: config.leagues, trophy: config.trophies, coach: config.coaches, national: config.nations,
+  };
+  return !!ids[kind]?.some((x) => x.id === ref);
+}
+
+function saveReport(b: any, reporter: string, res: Response) {
   const player = db.byId.get(String(b.playerId));
-  if (!player || !b.cardA || !b.cardB) return res.status(400).json({ error: 'Incomplete report' });
+  if (!player || !isCardKey(b.cardA) || !isCardKey(b.cardB)) return res.status(400).json({ error: 'Incomplete report' });
   store.addReport({
-    gameId: String(b.gameId ?? ''), dataVersion: db.version, cardA: String(b.cardA), cardB: String(b.cardB),
-    playerId: player.id, playerName: player.name, verdict: b.verdict === 'valid' ? 'valid' : 'wrong', reporter: user.id,
+    gameId: String(b.gameId ?? '').slice(0, 80), dataVersion: db.version, cardA: String(b.cardA).slice(0, 40), cardB: String(b.cardB).slice(0, 40),
+    playerId: player.id, playerName: player.name, verdict: b.verdict === 'valid' ? 'valid' : 'wrong', reporter,
   });
-  track('answer_reported', { cardA: b.cardA, cardB: b.cardB, player: player.id, verdict: b.verdict });
+  track('answer_reported', { cardA: b.cardA, cardB: b.cardB, player: player.id, verdict: b.verdict, reporter });
   res.json({ ok: true });
+}
+
+app.post('/api/reports', auth, (req, res) => saveReport(req.body ?? {}, (req as AuthedRequest).user.id, res));
+
+// The offline demo (game sites, shared links) has no account on this server, so its reports come here
+// without one. A visitor can send at most DEMO_REPORTS_PER_HOUR, so the review queue can't be flooded.
+const DEMO_REPORTS_PER_HOUR = 30;
+const demoReporters = new Map<string, { count: number; resetAt: number }>();
+app.post('/api/demo-reports', (req, res) => {
+  const ip = String(req.headers['fly-client-ip'] ?? req.ip ?? 'unknown');
+  const now = Date.now();
+  const seen = demoReporters.get(ip);
+  const entry = !seen || seen.resetAt < now ? { count: 0, resetAt: now + 3_600_000 } : seen;
+  if (entry.count >= DEMO_REPORTS_PER_HOUR) return res.status(429).json({ error: 'Too many reports, try again later' });
+  entry.count++;
+  demoReporters.set(ip, entry);
+  if (demoReporters.size > 10_000) for (const [k, v] of demoReporters) if (v.resetAt < now) demoReporters.delete(k);
+  saveReport(req.body ?? {}, 'demo', res);
 });
 
 const CLIENT_EVENTS = new Set(['app_open', 'tutorial_step', 'tutorial_complete', 'ad_offered', 'ad_completed']);
