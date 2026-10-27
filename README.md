@@ -32,21 +32,21 @@ Then open the URL it prints. You can also open `public/index.html` directly in a
 ## Search engines (SEO)
 
 - **Title and description** in the `<head>` of `public/index.html` are what Google shows in results. Keep the title under about 60 characters and the description under about 160.
-- **Structured data:** the `application/ld+json` block in the `<head>` describes JellyFit (Organization, WebSite) and repeats the FAQ. If you edit an FAQ question or answer, edit the same text in that block.
-- **`robots.txt` and `sitemap.xml`** are in `public/`. When the page changes a lot, update `<lastmod>` in the sitemap.
+- **Structured data:** the `application/ld+json` block in the `<head>` describes JellyFit (Organization, WebSite) and repeats the FAQ. After editing the FAQ or any fact on the page, run `python3 scripts/sync-structured-data.py`: it copies the FAQ into that block and sets today's date in the block, `sitemap.xml` and `llms.txt`. `--check` only reports differences.
+- **`robots.txt` and `sitemap.xml`** are in `public/`. The sitemap's `<lastmod>` is set by the sync script above.
 - **`404.html`** is the branded "page not found" page Netlify shows for any missing address.
 - **One address:** `netlify.toml` forwards `jellyfit28.netlify.app` to `https://jellyfit.online`, so Google only indexes the real domain.
-- **Fonts** (Poppins 800 and DM Sans) are served from `public/fonts/`, not from Google Fonts, so text can render without waiting on another server.
+- **Fonts** (Poppins 800 and DM Sans, trimmed to the 400–700 weights the site uses) are served from `public/fonts/`, not from Google Fonts, so text can render without waiting on another server. Latin Extended files load only when a page needs one of their letters. `netlify.toml` lets browsers keep font files for a year, so their names carry a fingerprint of their contents: if a font changes, give the file a new name and update `css/styles.css` and the two preload links in `index.html`.
 
 ## AI assistants (ChatGPT, Claude, Perplexity, Google AI answers)
 
-- **`llms.txt`** in `public/` is a plain-text fact sheet about JellyFit for AI assistants: key facts, the protein claim, and links. Keep it in step with the page whenever a fact changes (price, where to buy, nutrition, flavors), and update its "Last updated" date.
+- **`llms.txt`** in `public/` is a plain-text fact sheet about JellyFit for AI assistants: key facts, the protein claim, and links. Its facts are written by hand: keep them in step with the page whenever a fact changes (price, where to buy, nutrition, flavors). The sync script updates its date.
 - `robots.txt` lets every crawler in, AI crawlers included. Everything on the page is plain HTML, so crawlers that don't run JavaScript still see all of it.
-- The FAQ answers the questions people ask chatbots (what it is, ingredients, price, where to buy, halal, allergens). The structured data repeats them, so update both together, and set `dateModified` in the structured data when you do.
+- The FAQ answers the questions people ask chatbots (what it is, ingredients, price, where to buy, halal, allergens). The structured data repeats it: run the sync script after any FAQ change.
 
 ## Tracking
 
-**Where sign-ups come from.** Each form saves `utm_source`, `utm_medium`, `utm_campaign` and the referring website with the submission, so you can see them in Netlify Forms. Use tagged links wherever you share the site, for example:
+**Where sign-ups come from.** Each form saves `utm_source`, `utm_medium`, `utm_campaign` and `referring_site` (the website the visitor came from) with the submission. A tagged link always replaces an earlier, untagged source in the same visit. Netlify also adds its own `referrer` column, which is the page the form was sent from, so you can see them in Netlify Forms. Use tagged links wherever you share the site, for example:
 
 - Gym QR code: `https://jellyfit.online/?utm_source=gym-name&utm_medium=qr&utm_campaign=pilot`
 - Instagram bio: `https://jellyfit.online/?utm_source=instagram&utm_medium=bio`
@@ -55,9 +55,9 @@ Then open the URL it prints. You can also open `public/index.html` directly in a
 
 | Event | When |
 | --- | --- |
-| `generate_lead` | A waitlist or gym form is sent (`form_name`, `method`) |
+| `generate_lead` | A waitlist or gym form is saved in Netlify Forms (`form_name`, `method`) |
 | `cta_click` | A "Join the list" or "For gyms" button or link is clicked |
-| `faq_open` | An FAQ question is opened (`question`) |
+| `faq_open` | Someone clicks an FAQ question open (`question`); questions opened by the browser for find-in-page or highlight links don't count |
 
 In GA4, mark `generate_lead` as a key event. Google Analytics uses cookies, so if you run ads or target visitors in the EU or UAE, add a consent banner before turning it on.
 
@@ -72,12 +72,12 @@ The mandatory nutrition table on the pack has to show **total** protein (whey pl
 ## Before you launch
 
 1. **WhatsApp number.** Set `CONFIG.whatsappNumber` at the top of `public/js/main.js` (digits only, with country code, e.g. `9613123456`). Until it's set, both forms open a pre-filled email instead.
-2. **Email address.** The site uses `hello@jellyfit.online` (forwarded by Dynadot). If it changes, update `CONFIG.email` in `public/js/main.js`, the `mailto:` links in `public/index.html` and the `email` in its structured data.
+2. **Email address.** The site uses `hello@jellyfit.online` (forwarded by Dynadot). If it changes, update `CONFIG.email` in `public/js/main.js`, the `mailto:` links and the `email` in the structured data in `public/index.html`, and the contact line in `public/llms.txt`.
 3. **Nutrition values.** The panel shows target values and says so. Once the formula is locked, replace them with lab-confirmed values, add the remaining rows (fat, carbohydrate, sodium) and the ingredient list, and remove the "target" wording.
 4. **Mango packshot.** The flavor cards use an illustrated jelly. Real packshots can replace or sit alongside it.
 5. **Floating cup.** `public/assets/jellyfit-raspberry-cup.webp` is the Raspberry packshot with the background removed (PNG fallback alongside). To swap in a new packshot, export it with a transparent background at a similar size. The float speed and height are in the `float` keyframes in `public/css/styles.css`; it stops for visitors who have reduced motion turned on.
 6. **Google Search Console.** Add `jellyfit.online` as a Domain property, verify it with the TXT record Google gives you (add it in Dynadot's DNS settings), then submit `https://jellyfit.online/sitemap.xml`.
-7. **Social preview image.** `og:image`, `og:url` and the canonical link point at `https://jellyfit.online`. If the domain ever changes, update them in `public/index.html`.
+7. **Domain.** Everything points at `https://jellyfit.online`. If the domain ever changes, update it in `public/index.html` (canonical link, `og:url`, `og:image` and the structured data), `public/robots.txt`, `public/sitemap.xml`, `public/llms.txt`, the redirect in `netlify.toml`, and the email address (step 2).
 
 ## Brand assets
 
