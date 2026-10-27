@@ -11,7 +11,9 @@
     Referrer-Policy = "strict-origin-when-cross-origin"
     X-Frame-Options = "SAMEORIGIN"
 
-# Fonts never change under the same file name, so browsers can keep them.
+# Font file names include a fingerprint of their contents (e.g.
+# poppins-800-latin.60bf0aba.woff2), so a changed font always gets a new name
+# and browsers can safely keep each file for a year.
 [[headers]]
   for = "/fonts/*"
   [headers.values]

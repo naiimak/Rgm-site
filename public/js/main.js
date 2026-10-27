@@ -22,8 +22,8 @@
      `track(name, params)` sends an event, or does nothing while it's off.
      ------------------------------------------------------------------------ */
   const track = (() => {
-    const id = CONFIG.ga4Id.trim();
-    if (!/^G-[A-Z0-9]+$/i.test(id)) return () => {};
+    const id = String(CONFIG.ga4Id || '').trim().toUpperCase();
+    if (!/^G-[A-Z0-9]+$/.test(id)) return () => {};
     window.dataLayer = window.dataLayer || [];
     // gtag expects the `arguments` object itself, not an array.
     window.gtag = function gtag() { window.dataLayer.push(arguments); };
@@ -39,24 +39,26 @@
   /* ------------------------------------------------------------------------
      Where visitors come from: utm_* links (e.g. a QR code in a gym) and the
      referring website are saved with every sign-up in Netlify Forms. The
-     first source seen in a visit is kept, so a reload doesn't lose it.
+     first source seen in a visit is kept, so a reload doesn't lose it, but a
+     tagged link always replaces it. The field is `referring_site` because
+     Netlify adds its own `referrer` (the page the form was sent from).
      ------------------------------------------------------------------------ */
   const source = (() => {
     const params = new URLSearchParams(window.location.search);
-    let referrer = '';
+    let referringSite = '';
     try {
       const host = new URL(document.referrer).hostname;
-      if (host !== window.location.hostname) referrer = host;
+      if (host !== window.location.hostname) referringSite = host;
     } catch (e) { /* no referrer */ }
     const current = {
       utm_source: params.get('utm_source') || '',
       utm_medium: params.get('utm_medium') || '',
       utm_campaign: params.get('utm_campaign') || '',
-      referrer,
+      referring_site: referringSite,
     };
     try {
       const saved = JSON.parse(sessionStorage.getItem('jf-source'));
-      if (saved) return saved;
+      if (saved && !current.utm_source) return saved;
       if (Object.values(current).some(Boolean)) sessionStorage.setItem('jf-source', JSON.stringify(current));
     } catch (e) { /* storage unavailable: use this page view's values */ }
     return current;
@@ -124,8 +126,9 @@
     }),
   };
 
-  const whatsappNumber = () => CONFIG.whatsappNumber.replace(/\D/g, '');
-  const channel = () => (whatsappNumber() ? 'WhatsApp' : 'your email app');
+  const whatsappNumber = () => String(CONFIG.whatsappNumber || '').replace(/\D/g, '');
+  const channelKey = () => (whatsappNumber() ? 'whatsapp' : 'email');
+  const channel = () => (channelKey() === 'whatsapp' ? 'WhatsApp' : 'your email app');
 
   const send = ({ subject, lines }) => {
     const text = lines.filter((line) => line !== null).join('\n');
@@ -139,12 +142,14 @@
 
   // Resolves to true once Netlify has stored the submission. `keepalive` lets
   // the request finish even if the visitor switches to WhatsApp straight away.
+  // A redirected POST (e.g. sent from the old netlify.app address) comes back
+  // as a 200 page but stores nothing, so it doesn't count.
   const saveToNetlify = (form) => fetch('/', {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     body: new URLSearchParams(new FormData(form)).toString(),
     keepalive: true,
-  }).then((res) => res.ok, () => false);
+  }).then((res) => res.ok && !res.redirected, () => false);
 
   const isFilled = (input) => (input.type === 'tel'
     ? input.value.replace(/\D/g, '').length >= 7
@@ -161,6 +166,8 @@
 
     form.addEventListener('submit', (e) => {
       e.preventDefault();
+      // Ignore a second click while the first submission is still being saved.
+      if (form.dataset.sending) return;
       const missing = required.filter((input) => !isFilled(input));
       required.forEach((input) => {
         if (missing.includes(input)) input.setAttribute('aria-invalid', 'true');
@@ -177,10 +184,12 @@
       const message = MESSAGES[form.dataset.waForm](fields);
       // Start saving first, then open WhatsApp in the same click so pop-up
       // blockers allow it.
+      form.dataset.sending = 'true';
       const saved = saveToNetlify(form);
-      track('generate_lead', { form_name: form.getAttribute('name'), method: whatsappNumber() ? 'whatsapp' : 'email' });
       send(message);
       saved.then((ok) => {
+        delete form.dataset.sending;
+        if (ok) track('generate_lead', { form_name: form.getAttribute('name'), method: channelKey() });
         status.textContent = message.thanks(ok);
         status.hidden = false;
       });
@@ -191,8 +200,10 @@
   document.querySelectorAll('a[href="#join"], a[href="#gyms"]').forEach((link) => link.addEventListener('click', () => {
     track('cta_click', { cta_text: link.textContent.trim(), cta_target: link.getAttribute('href').slice(1) });
   }));
-  document.querySelectorAll('.faq details').forEach((item) => item.addEventListener('toggle', () => {
-    if (item.open) track('faq_open', { question: item.querySelector('summary').textContent.trim() });
+  // The click runs before the question opens, so `open` is still false when
+  // someone opens it. Opening by find-in-page or a highlight link isn't a click.
+  document.querySelectorAll('.faq summary').forEach((summary) => summary.addEventListener('click', () => {
+    if (!summary.parentElement.open) track('faq_open', { question: summary.textContent.trim() });
   }));
 
   /* ------------------------------------------------------------------------
