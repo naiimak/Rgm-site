@@ -467,15 +467,15 @@
           </p>
           <div class="field">
             <label class="field__label" for="join-name">Your name</label>
-            <input class="input" id="join-name" name="name" autocomplete="name" required>
+            <input class="input" id="join-name" name="name" autocomplete="name" maxlength="80" required>
           </div>
           <div class="field">
             <label class="field__label" for="join-phone">WhatsApp number</label>
-            <input class="input" id="join-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+961 …" required>
+            <input class="input" id="join-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+961 …" maxlength="25" required>
           </div>
           <div class="field">
             <label class="field__label" for="join-gym">Your gym <span class="field__opt">(optional)</span></label>
-            <input class="input" id="join-gym" name="gym" autocomplete="off">
+            <input class="input" id="join-gym" name="gym" autocomplete="off" maxlength="100">
           </div>
           <fieldset class="field">
             <legend class="field__label">Which flavor first?</legend>
@@ -530,19 +530,19 @@
           <h3 class="card-form__title">Talk to us about the pilot</h3>
           <div class="field">
             <label class="field__label" for="gym-name">Your name</label>
-            <input class="input" id="gym-name" name="name" autocomplete="name" required>
+            <input class="input" id="gym-name" name="name" autocomplete="name" maxlength="80" required>
           </div>
           <div class="field">
             <label class="field__label" for="gym-phone">Phone or WhatsApp</label>
-            <input class="input" id="gym-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+961 …" required>
+            <input class="input" id="gym-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+961 …" maxlength="25" required>
           </div>
           <div class="field">
             <label class="field__label" for="gym-venue">Gym or venue</label>
-            <input class="input" id="gym-venue" name="venue" autocomplete="organization" required>
+            <input class="input" id="gym-venue" name="venue" autocomplete="organization" maxlength="100" required>
           </div>
           <div class="field">
             <label class="field__label" for="gym-area">Area <span class="field__opt">(optional)</span></label>
-            <input class="input" id="gym-area" name="area" placeholder="e.g. Achrafieh, Hamra, Jounieh" autocomplete="off">
+            <input class="input" id="gym-area" name="area" placeholder="e.g. Achrafieh, Hamra, Jounieh" autocomplete="off" maxlength="80">
           </div>
           <p class="form-error" data-form-error hidden>Please add your name, a phone number and your gym.</p>
           <p class="form-status" data-form-status role="status" hidden></p>
