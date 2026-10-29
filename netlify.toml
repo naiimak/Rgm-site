@@ -4,12 +4,25 @@
 [build]
   publish = "public"
 
+# Security headers for every page. The Content-Security-Policy only lets the
+# browser run this site's own files:
+# - The one inline script in index.html (it adds the "js" class) is allowed by
+#   its sha256 hash. If you change that line, the hash must change too, or the
+#   browser skips it (the page still works, just without the scroll fade-ins).
+# - The Google domains are only for Google Analytics 4, which stays off until
+#   CONFIG.ga4Id is set in js/main.js.
+# - Netlify's review toolbar on deploy previews is blocked by this policy;
+#   that's expected and doesn't affect the live site.
+# HTTPS is forced by Netlify, which also sends Strict-Transport-Security.
 [[headers]]
   for = "/*"
   [headers.values]
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'sha256-/x7W7R75k8Roq0WaVRQX9blP4OufE5xbAdzklGxsgpw=' https://www.googletagmanager.com; style-src 'self'; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; font-src 'self'; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+    Cross-Origin-Opener-Policy = "same-origin"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
-    X-Frame-Options = "SAMEORIGIN"
+    X-Frame-Options = "DENY"
 
 # Font file names include a fingerprint of their contents (e.g.
 # poppins-800-latin.60bf0aba.woff2), so a changed font always gets a new name

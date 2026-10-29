@@ -61,6 +61,26 @@ Then open the URL it prints. You can also open `public/index.html` directly in a
 
 In GA4, mark `generate_lead` as a key event. Google Analytics uses cookies, so if you run ads or target visitors in the EU or UAE, add a consent banner before turning it on.
 
+## Security
+
+The site is static: there are no logins, passwords, database, API keys or file uploads. The only data it collects is the two sign-up forms, which Netlify Forms stores in the Netlify account.
+
+- **Security headers** (in `netlify.toml`, for every page):
+  - `Content-Security-Policy` lets the browser run only this site's own files, so an injected script can't run.
+    - The one inline script in `index.html` (it adds the `js` class) is allowed by its sha256 hash. If that line ever changes, update the hash: `printf "%s" "<the script's exact text>" | openssl dgst -sha256 -binary | base64`.
+    - The Google domains are there only for Google Analytics, which stays off until `CONFIG.ga4Id` is set.
+  - `Permissions-Policy` blocks camera, microphone, location, payment and USB.
+  - `X-Frame-Options: DENY` and `frame-ancestors 'none'` stop other sites from framing the page.
+  - `Cross-Origin-Opener-Policy`, `nosniff` and `Referrer-Policy` round out the set.
+  - Netlify forces HTTPS and sends `Strict-Transport-Security`.
+- **Forms:**
+  - Bots are filtered by a hidden honeypot field and Netlify's built-in spam filter. Flagged submissions go to the Spam tab under Forms.
+  - Every field has a length limit, and the source fields are capped at 100 characters.
+  - Visitors' input is only ever shown as plain text or URL-encoded into the WhatsApp or email link, never inserted as HTML.
+- **No secrets in this repository.** It's public on GitHub, so never commit API keys, passwords, tokens or private documents (such as the business plan). If the site ever needs a secret, it goes in Netlify's environment variables, not in a file. The GA4 measurement ID and the WhatsApp number are meant to be public.
+- **Sign-up exports:** before opening a Netlify Forms CSV in Excel or Google Sheets, import it as text. A submitted value that starts with `=`, `+`, `-` or `@` could otherwise run as a formula.
+- **Accounts are the real keys to the site.** Use two-factor sign-in on GitHub, Netlify, Dynadot and the Gmail that receives hello@jellyfit.online. Keep the domain's transfer lock and auto-renew on in Dynadot.
+
 ## The protein claim rule
 
 The hero number is whey isolate protein only, always labelled "complete protein, from whey isolate". If collagen is ever added, it is listed separately and smaller and is never added into the 20g. Keep any copy changes consistent with this.

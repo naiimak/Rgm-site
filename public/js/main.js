@@ -63,7 +63,8 @@
     } catch (e) { /* storage unavailable: use this page view's values */ }
     return current;
   })();
-  document.querySelectorAll('[data-source-field]').forEach((input) => { input.value = source[input.name] || ''; });
+  // Links can carry anything in their utm_ tags, so keep each value short.
+  document.querySelectorAll('[data-source-field]').forEach((input) => { input.value = String(source[input.name] || '').slice(0, 100); });
 
   /* ------------------------------------------------------------------------
      Header: shadow on scroll + mobile menu
