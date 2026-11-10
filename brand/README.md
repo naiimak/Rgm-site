@@ -22,9 +22,9 @@ SVG files stay sharp at any size and need no fonts installed. Use the PNGs where
 
 | Name | Hex |
 |---|---|
-| Raspberry (primary) | `#A71C3B` |
+| Raspberry (primary) | `#B01F3F` |
 | Deep raspberry | `#6E0B22` |
-| Jelly pink (the drop) | `#E8899A` |
+| Jelly pink (the drop) | `#F28AA3` |
 | Cream (background) | `#F7F1E6` |
 | Ink (text) | `#2B0A14` |
 | Mango (second flavor) | `#F29F1D` |

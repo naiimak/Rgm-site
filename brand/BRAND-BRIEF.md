@@ -33,9 +33,9 @@ Playful, confident, clean and premium.
 
 | Role | Name | Hex |
 |---|---|---|
-| Primary brand color (cup sleeve, buttons) | Raspberry | `#A71C3B` |
+| Primary brand color (cup sleeve, buttons) | Raspberry | `#B01F3F` |
 | Dark accent | Deep raspberry | `#6E0B22` |
-| Soft accent (jelly) | Jelly pink | `#E8899A` |
+| Soft accent (jelly) | Jelly pink | `#F28AA3` |
 | Light tint | Blush | `#FBE3E6` |
 | Background | Cream | `#F7F1E6` |
 | Text | Ink (near-black wine) | `#2B0A14` |
@@ -43,7 +43,7 @@ Playful, confident, clean and premium.
 | Mango dark (text on mango) | Mango deep | `#A35407` |
 | Mango light tint | Mango tint | `#FDEBCF` |
 
-The logo must work in **white on Raspberry `#A71C3B`** (the cup sleeve), **Raspberry on Cream `#F7F1E6`** (the website), and **one color** (black or white).
+The logo must work in **white on Raspberry `#B01F3F`** (the cup sleeve), **Raspberry on Cream `#F7F1E6`** (the website), and **one color** (black or white).
 
 ## 4. Typography
 
@@ -53,7 +53,7 @@ The logo must work in **white on Raspberry `#A71C3B`** (the cup sleeve), **Raspb
 
 ## 5. Logo (chosen: "Jelly Drop")
 
-- **Wordmark:** "JellyFit" in Poppins Bold, converted to outlines. The dot of the **i** is a glossy pink jelly drop (`#E8899A`). It sits clear of the letter with a small gap, and its white highlight matches the shine on the jelly in the packshot.
+- **Wordmark:** "JellyFit" in Poppins Bold, converted to outlines. The dot of the **i** is a glossy pink jelly drop (`#F28AA3`). It sits clear of the letter with a small gap, and its white highlight matches the shine on the jelly in the packshot.
   - Main version: raspberry lettering on light backgrounds.
   - Reversed version: white lettering on raspberry or dark backgrounds.
 - **Icon:** a lowercase Poppins **j** whose dot is the same jelly drop, centred for a round crop. White on raspberry for the app icon, favicon and profile pictures.
